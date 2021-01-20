@@ -9,18 +9,21 @@ struct Home: View {
         }
         VStack {
             Spacer()
-            HStack {
-                Control.Circle(state: .ready, image: "square.stack.3d.up") {
+            Field(session: $session)
+            if !session.typing {
+                HStack {
+                    Control.Circle(state: .ready, image: "square.stack") {
+                        
+                    }
+                    Control.Circle(state: .ready, image: "slider.horizontal.3") {
                     
+                    }
+                    Control.Circle(state: .ready, image: "plus") {
+                        session.become.send()
+                    }
                 }
-                Control.Circle(state: .ready, image: "slider.horizontal.3") {
-                
-                }
-                Control.Circle(state: .ready, image: "plus") {
-                    
-                }
+                .padding(.bottom, 20)
             }
-            .padding(.bottom, 20)
         }
     }
 }
