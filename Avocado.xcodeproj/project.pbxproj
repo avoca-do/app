@@ -7,17 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE25079A25B8660900F9C526 /* iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25079925B8660900F9C526 /* iOS.swift */; };
-		CE25079C25B8660900F9C526 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25079B25B8660900F9C526 /* Content.swift */; };
+		CE25079A25B8660900F9C526 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25079925B8660900F9C526 /* App.swift */; };
+		CE25079C25B8660900F9C526 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25079B25B8660900F9C526 /* Window.swift */; };
 		CE25079E25B8660A00F9C526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE25079D25B8660A00F9C526 /* Assets.xcassets */; };
+		CE2507C825B8731100F9C526 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507C725B8731100F9C526 /* Color.swift */; };
+		CE2507CC25B8733500F9C526 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507CB25B8733500F9C526 /* Session.swift */; };
+		CE2507D325B8755E00F9C526 /* Control.Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507CF25B8755E00F9C526 /* Control.Style.swift */; };
+		CE2507D425B8755E00F9C526 /* Control.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507D025B8755E00F9C526 /* Control.State.swift */; };
+		CE2507D525B8755E00F9C526 /* Control.Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507D125B8755E00F9C526 /* Control.Circle.swift */; };
+		CE2507D625B8755E00F9C526 /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507D225B8755E00F9C526 /* Control.swift */; };
+		CE2507D925B8771000F9C526 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507D825B8771000F9C526 /* Home.swift */; };
+		CE2507DD25B877D600F9C526 /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507DC25B877D600F9C526 /* Neumorphic.swift */; };
+		CE2507E025B877FF00F9C526 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507DF25B877FF00F9C526 /* UIApplication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE25079625B8660900F9C526 /* Avocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE25079925B8660900F9C526 /* iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS.swift; sourceTree = "<group>"; };
-		CE25079B25B8660900F9C526 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		CE25079925B8660900F9C526 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		CE25079B25B8660900F9C526 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		CE25079D25B8660A00F9C526 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE2507A225B8660A00F9C526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE2507C725B8731100F9C526 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		CE2507CB25B8733500F9C526 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		CE2507CF25B8755E00F9C526 /* Control.Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Control.Style.swift; sourceTree = "<group>"; };
+		CE2507D025B8755E00F9C526 /* Control.State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Control.State.swift; sourceTree = "<group>"; };
+		CE2507D125B8755E00F9C526 /* Control.Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Control.Circle.swift; sourceTree = "<group>"; };
+		CE2507D225B8755E00F9C526 /* Control.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
+		CE2507D825B8771000F9C526 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		CE2507DC25B877D600F9C526 /* Neumorphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
+		CE2507DF25B877FF00F9C526 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +69,17 @@
 			isa = PBXGroup;
 			children = (
 				CE2507A225B8660A00F9C526 /* Info.plist */,
-				CE25079B25B8660900F9C526 /* Content.swift */,
-				CE25079925B8660900F9C526 /* iOS.swift */,
+				CE25079925B8660900F9C526 /* App.swift */,
+				CE2507C725B8731100F9C526 /* Color.swift */,
+				CE2507D125B8755E00F9C526 /* Control.Circle.swift */,
+				CE2507D025B8755E00F9C526 /* Control.State.swift */,
+				CE2507CF25B8755E00F9C526 /* Control.Style.swift */,
+				CE2507D225B8755E00F9C526 /* Control.swift */,
+				CE2507D825B8771000F9C526 /* Home.swift */,
+				CE2507DC25B877D600F9C526 /* Neumorphic.swift */,
+				CE2507CB25B8733500F9C526 /* Session.swift */,
+				CE2507DF25B877FF00F9C526 /* UIApplication.swift */,
+				CE25079B25B8660900F9C526 /* Window.swift */,
 				CE25079D25B8660A00F9C526 /* Assets.xcassets */,
 			);
 			path = iOS;
@@ -126,8 +153,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE25079C25B8660900F9C526 /* Content.swift in Sources */,
-				CE25079A25B8660900F9C526 /* iOS.swift in Sources */,
+				CE2507CC25B8733500F9C526 /* Session.swift in Sources */,
+				CE2507DD25B877D600F9C526 /* Neumorphic.swift in Sources */,
+				CE2507D625B8755E00F9C526 /* Control.swift in Sources */,
+				CE2507E025B877FF00F9C526 /* UIApplication.swift in Sources */,
+				CE25079C25B8660900F9C526 /* Window.swift in Sources */,
+				CE2507D425B8755E00F9C526 /* Control.State.swift in Sources */,
+				CE2507D925B8771000F9C526 /* Home.swift in Sources */,
+				CE2507D525B8755E00F9C526 /* Control.Circle.swift in Sources */,
+				CE2507D325B8755E00F9C526 /* Control.Style.swift in Sources */,
+				CE25079A25B8660900F9C526 /* App.swift in Sources */,
+				CE2507C825B8731100F9C526 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
