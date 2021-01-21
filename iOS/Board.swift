@@ -31,10 +31,11 @@ struct Board: View {
                                 Spacer()
                             }
                             HStack {
-                                Text("hello")
+                                
                             }
+                            Spacer()
                         }
-                        .frame(height: geo.safeAreaInsets.bottom + 70)
+                        .frame(height: geo.safeAreaInsets.bottom + 80)
                         .background(Color.accent)
                         .edgesIgnoringSafeArea([.leading, .trailing])
                     }

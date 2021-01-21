@@ -18,6 +18,11 @@ extension Board {
                             .frame(height: 10)
                         ForEach(column.cards, id: \.self) {
                             Card(session: $session, card: $0)
+                            if $0 != column.cards.last! {
+                                Rectangle()
+                                    .fill(Color(.quaternarySystemFill))
+                                    .frame(height: 1)
+                            }
                         }
                         if column != session.board!.columns.last! {
                             Rectangle()

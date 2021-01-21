@@ -34,6 +34,7 @@ extension Home {
             field.delegate = self
             field.borderStyle = .roundedRect
             field.placeholder = NSLocalizedString("My Kanban Board", comment: "")
+            field.returnKeyType = .done
             input.addSubview(field)
             self.field = field
             

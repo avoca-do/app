@@ -8,10 +8,10 @@ extension Board {
         
         var body: some View {
             HStack {
-                RoundedRectangle(cornerRadius: 2)
+                RoundedRectangle(cornerRadius: 1)
                     .fill(Color.accent)
-                    .frame(minHeight: 4)
-                    .frame(width: 4)
+                    .frame(minHeight: 2)
+                    .frame(width: 2)
                 Text(verbatim: card.content)
                     .font(.footnote)
                 Spacer()
