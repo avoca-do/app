@@ -14,21 +14,10 @@ extension Board {
                             .padding(.leading, 50)
                     }
                     VStack {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text(verbatim: "Hello")
-                                Text(verbatim: "World")
-                                Text(verbatim: "Lorem ipsum")
-                                Text(verbatim: "Lorem ipsum Lorem ipsum")
-                                Text(verbatim: "Lorem ipsum")
-                                Text(verbatim: "Lorem ipsum Lorem ipsum")
-                                Text(verbatim: "Lorem ipsum Lorem ipsum Lorem ipsum")
-                                Text(verbatim: "Lorem ipsum")
-                                Text(verbatim: "Lorem ipsum Lorem ipsum")
-                                
-                            }
-                            .padding()
-                            Spacer()
+                        Spacer()
+                            .frame(height: 10)
+                        ForEach(column.cards, id: \.self) {
+                            Card(session: $session, card: $0)
                         }
                         if column != session.board!.columns.last! {
                             Rectangle()
@@ -38,9 +27,9 @@ extension Board {
                     }
                     .padding(.leading, 50)
                     HStack {
-                        Text(verbatim: column.name.uppercased())
+                        Text(verbatim: column.name)
                             .rotationEffect(.radians(.pi / -2), anchor: .bottomLeading)
-                            .font(.system(.body, design: .monospaced))
+                            .font(.system(size: 14, weight: .bold, design: .monospaced))
                             .padding(.leading, 25)
                             .padding()
                             .offset(y: (.init(column.name.count) * 5) - 15)
