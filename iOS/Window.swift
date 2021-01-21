@@ -10,7 +10,7 @@ struct Window: View {
             if session.board == nil {
                 Home(session: $session)
             } else {
-                
+                Board(session: $session)
             }
         }
     }
