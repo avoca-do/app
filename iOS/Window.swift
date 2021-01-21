@@ -7,7 +7,11 @@ struct Window: View {
         ZStack {
             Color.background
                 .edgesIgnoringSafeArea(.all)
-            Home(session: $session)
+            if session.board == nil {
+                Home(session: $session)
+            } else {
+                
+            }
         }
     }
 }

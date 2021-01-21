@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE25079525B8660900F9C526"
-               BuildableName = "iOS.app"
+               BuildableName = "Avocado.app"
                BlueprintName = "iOS"
                ReferencedContainer = "container:Avocado.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE25079525B8660900F9C526"
-            BuildableName = "iOS.app"
+            BuildableName = "Avocado.app"
             BlueprintName = "iOS"
             ReferencedContainer = "container:Avocado.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE25079525B8660900F9C526"
-            BuildableName = "iOS.app"
+            BuildableName = "Avocado.app"
             BlueprintName = "iOS"
             ReferencedContainer = "container:Avocado.xcodeproj">
          </BuildableReference>
