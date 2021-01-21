@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Kanban",
+        "repositoryURL": "https://github.com/avoca-do/kanban.git",
+        "state": {
+          "branch": "main",
+          "revision": "c744d88dbd24f8ba157da8f053ebdd669d2d30e6",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

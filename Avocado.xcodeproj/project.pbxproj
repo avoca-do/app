@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,10 +21,8 @@
 		CE2507E025B877FF00F9C526 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507DF25B877FF00F9C526 /* UIApplication.swift */; };
 		CE2507EB25B87D9800F9C526 /* Home.Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507EA25B87D9800F9C526 /* Home.Field.swift */; };
 		CE2507EE25B87DB300F9C526 /* Home.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507ED25B87DB300F9C526 /* Home.Coordinator.swift */; };
-		CE2507F325B88CD900F9C526 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507F225B88CD900F9C526 /* Board.swift */; };
-		CE71D20025B98E2200D0F4E3 /* Board.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D1FF25B98E2200D0F4E3 /* Board.Column.swift */; };
-		CE71D20325B98E2B00D0F4E3 /* Board.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D20225B98E2B00D0F4E3 /* Board.Card.swift */; };
 		CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D20725B98FF000D0F4E3 /* Board.swift */; };
+		CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB09ADE25B994AF00BF7AD6 /* Kanban */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,9 +42,6 @@
 		CE2507DF25B877FF00F9C526 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CE2507EA25B87D9800F9C526 /* Home.Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Field.swift; sourceTree = "<group>"; };
 		CE2507ED25B87DB300F9C526 /* Home.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Coordinator.swift; sourceTree = "<group>"; };
-		CE2507F225B88CD900F9C526 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
-		CE71D1FF25B98E2200D0F4E3 /* Board.Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Column.swift; sourceTree = "<group>"; };
-		CE71D20225B98E2B00D0F4E3 /* Board.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Card.swift; sourceTree = "<group>"; };
 		CE71D20725B98FF000D0F4E3 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,9 +100,6 @@
 		CE2507F125B88CCD00F9C526 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				CE71D20225B98E2B00D0F4E3 /* Board.Card.swift */,
-				CE71D1FF25B98E2200D0F4E3 /* Board.Column.swift */,
-				CE2507F225B88CD900F9C526 /* Board.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -127,6 +120,9 @@
 			dependencies = (
 			);
 			name = iOS;
+			packageProductDependencies = (
+				CEB09ADE25B994AF00BF7AD6 /* Kanban */,
+			);
 			productName = iOS;
 			productReference = CE25079625B8660900F9C526 /* Avocado.app */;
 			productType = "com.apple.product-type.application";
@@ -154,6 +150,9 @@
 				Base,
 			);
 			mainGroup = CE25078B25B8521C00F9C526;
+			packageReferences = (
+				CEB09ADD25B994AF00BF7AD6 /* XCRemoteSwiftPackageReference "kanban" */,
+			);
 			productRefGroup = CE25079725B8660900F9C526 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -183,15 +182,12 @@
 				CE2507DD25B877D600F9C526 /* Neumorphic.swift in Sources */,
 				CE2507D625B8755E00F9C526 /* Control.swift in Sources */,
 				CE2507E025B877FF00F9C526 /* UIApplication.swift in Sources */,
-				CE2507F325B88CD900F9C526 /* Board.swift in Sources */,
 				CE25079C25B8660900F9C526 /* Window.swift in Sources */,
 				CE2507D425B8755E00F9C526 /* Control.State.swift in Sources */,
 				CE2507EB25B87D9800F9C526 /* Home.Field.swift in Sources */,
 				CE2507D925B8771000F9C526 /* Home.swift in Sources */,
 				CE2507D525B8755E00F9C526 /* Control.Circle.swift in Sources */,
 				CE2507EE25B87DB300F9C526 /* Home.Coordinator.swift in Sources */,
-				CE71D20325B98E2B00D0F4E3 /* Board.Card.swift in Sources */,
-				CE71D20025B98E2200D0F4E3 /* Board.Column.swift in Sources */,
 				CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */,
 				CE2507D325B8755E00F9C526 /* Control.Style.swift in Sources */,
 				CE25079A25B8660900F9C526 /* App.swift in Sources */,
@@ -388,6 +384,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CEB09ADD25B994AF00BF7AD6 /* XCRemoteSwiftPackageReference "kanban" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/avoca-do/kanban.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CEB09ADE25B994AF00BF7AD6 /* Kanban */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEB09ADD25B994AF00BF7AD6 /* XCRemoteSwiftPackageReference "kanban" */;
+			productName = Kanban;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE25078C25B8521C00F9C526 /* Project object */;
 }
