@@ -14,8 +14,12 @@ struct Board: View {
         }
         if session.board != nil {
             ScrollView {
-                ForEach(session.board!.columns, id: \.self) {
-                    Column(column: $0)
+                VStack(spacing: 0) {
+                    ForEach(session.board!.columns, id: \.self) {
+                        Column(session: $session, column: $0)
+                    }
+                    Spacer()
+                        .frame(height: 90)
                 }
             }
             
