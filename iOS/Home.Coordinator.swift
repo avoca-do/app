@@ -83,6 +83,8 @@ extension Home {
         
         func textFieldShouldReturn(_: UITextField) -> Bool {
             field.resignFirstResponder()
+            view.session.board = .init(name: field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!)
+            field.text = nil
             return true
         }
         

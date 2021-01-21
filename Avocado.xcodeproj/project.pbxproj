@@ -23,6 +23,7 @@
 		CE2507EE25B87DB300F9C526 /* Home.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507ED25B87DB300F9C526 /* Home.Coordinator.swift */; };
 		CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D20725B98FF000D0F4E3 /* Board.swift */; };
 		CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB09ADE25B994AF00BF7AD6 /* Kanban */; };
+		CED3399125B9BA36008BD131 /* Board.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3399025B9BA36008BD131 /* Board.Column.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		CE2507EA25B87D9800F9C526 /* Home.Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Field.swift; sourceTree = "<group>"; };
 		CE2507ED25B87DB300F9C526 /* Home.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Coordinator.swift; sourceTree = "<group>"; };
 		CE71D20725B98FF000D0F4E3 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		CED3399025B9BA36008BD131 /* Board.Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Column.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				CE2507A225B8660A00F9C526 /* Info.plist */,
 				CE25079925B8660900F9C526 /* App.swift */,
+				CED3399025B9BA36008BD131 /* Board.Column.swift */,
 				CE71D20725B98FF000D0F4E3 /* Board.swift */,
 				CE2507C725B8731100F9C526 /* Color.swift */,
 				CE2507D125B8755E00F9C526 /* Control.Circle.swift */,
@@ -189,6 +192,7 @@
 				CE2507D525B8755E00F9C526 /* Control.Circle.swift in Sources */,
 				CE2507EE25B87DB300F9C526 /* Home.Coordinator.swift in Sources */,
 				CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */,
+				CED3399125B9BA36008BD131 /* Board.Column.swift in Sources */,
 				CE2507D325B8755E00F9C526 /* Control.Style.swift in Sources */,
 				CE25079A25B8660900F9C526 /* App.swift in Sources */,
 				CE2507C825B8731100F9C526 /* Color.swift in Sources */,
