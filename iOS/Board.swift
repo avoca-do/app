@@ -13,38 +13,33 @@ struct Board: View {
             Spacer()
         }
         if session.board != nil {
-            ScrollView {
-                VStack(spacing: 0) {
-                    ForEach(session.board!.columns, id: \.self) {
-                        Column(session: $session, column: $0)
-                    }
-                    Spacer()
-                        .frame(height: 90)
-                }
-            }
-            
             GeometryReader { geo in
                 VStack {
-                    Spacer()
-                    Color.blue
-                        .frame(height: geo.safeAreaInsets.bottom + 70)
-                        
+                    ScrollView {
+                        VStack(spacing: 0) {
+                            ForEach(session.board!.columns, id: \.self) {
+                                Column(session: $session, column: $0)
+                            }
+                        }
+                    }
+                    .edgesIgnoringSafeArea(.trailing)
+                    VStack {
+                        HStack {
+                            Text(verbatim: session.board!.name)
+                                .font(Font.callout.bold())
+                                .padding([.leading, .top])
+                                .foregroundColor(.white)
+                            Spacer()
+                        }
+                        HStack {
+                            Text("hello")
+                        }
+                    }
+                    .frame(height: geo.safeAreaInsets.bottom + 70)
+                    .background(Color.blue)
+                    .edgesIgnoringSafeArea([.leading, .trailing])
                 }
-                .edgesIgnoringSafeArea(.all)
-            }
-            
-            VStack {
-                Spacer()
-                HStack {
-                    Text(verbatim: session.board!.name)
-                        .font(Font.callout.bold())
-                        .padding([.leading, .top])
-                        .foregroundColor(.white)
-                    Spacer()
-                }
-                HStack {
-                    Text("hello")
-                }
+                .edgesIgnoringSafeArea(.bottom)
             }
         }
     }

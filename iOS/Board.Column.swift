@@ -9,6 +9,10 @@ extension Board {
         var body: some View {
             if session.board != nil {
                 ZStack {
+                    if session.board!.columns.firstIndex(of: column)! % 2 != 0 {
+                        Color(.tertiarySystemBackground)
+                            .padding(.leading, 50)
+                    }
                     VStack {
                         HStack {
                             VStack(alignment: .leading) {
@@ -32,7 +36,6 @@ extension Board {
                                 .frame(height: 1)
                         }
                     }
-                    .background(session.board!.columns.firstIndex(of: column)! % 2 == 0 ? .clear : Color(.tertiarySystemBackground))
                     .padding(.leading, 50)
                     HStack {
                         Text(verbatim: column.name.uppercased())
@@ -40,7 +43,7 @@ extension Board {
                             .font(.system(.body, design: .monospaced))
                             .padding(.leading, 25)
                             .padding()
-                            .offset(y: .init(column.name.count) * 4)
+                            .offset(y: (.init(column.name.count) * 5) - 15)
                         Spacer()
                     }
                 }
