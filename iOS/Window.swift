@@ -5,8 +5,6 @@ struct Window: View {
     
     var body: some View {
         ZStack {
-            Color.background
-                .edgesIgnoringSafeArea(.all)
             if session.board == nil {
                 Home(session: $session)
             } else {

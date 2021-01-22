@@ -9,10 +9,8 @@ extension Board {
         var body: some View {
             if session.board != nil {
                 ZStack {
-                    if session.board!.columns.firstIndex(of: column)! % 2 != 0 {
-                        Color(.tertiarySystemBackground)
-                            .padding(.leading, 50)
-                    }
+                    Color(session.board!.columns.firstIndex(of: column)! % 2 == 0 ? .secondarySystemBackground : .tertiarySystemBackground)
+                        .padding(.leading, 50)
                     VStack {
                         Spacer()
                             .frame(height: 10)

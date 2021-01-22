@@ -27,7 +27,7 @@ extension Home {
             field.translatesAutoresizingMaskIntoConstraints = false
             field.clearButtonMode = .always
             field.autocorrectionType = .no
-            field.backgroundColor = .quaternarySystemFill
+            field.backgroundColor = UIColor.label.withAlphaComponent(0.04)
             field.tintColor = .accent
             field.keyboardType = .alphabet
             field.allowsEditingTextAttributes = false

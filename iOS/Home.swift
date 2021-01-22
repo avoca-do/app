@@ -4,6 +4,8 @@ struct Home: View {
     @Binding var session: Session
     
     var body: some View {
+        Color.background
+            .edgesIgnoringSafeArea(.all)
         ScrollView {
             
         }
