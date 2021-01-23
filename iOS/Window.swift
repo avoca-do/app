@@ -7,9 +7,12 @@ struct Window: View {
         ZStack {
             if session.board == nil {
                 Home(session: $session)
+                    .transition(.move(edge: .leading))
             } else {
                 Board(session: $session)
+                    .transition(.move(edge: .trailing))
             }
         }
+        .animation(.easeInOut(duration: 0.4))
     }
 }
