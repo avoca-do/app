@@ -1,5 +1,4 @@
 import SwiftUI
-import Kanban
 
 extension Board {
     struct Column: View {

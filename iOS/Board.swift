@@ -8,29 +8,29 @@ struct Board: View {
         GeometryReader { geo in
             VStack(spacing: 0) {
                 HStack {
+                    Text(verbatim: session[board].name)
+                        .lineLimit(1)
+                        .font(Font.callout.bold())
+                        .padding()
+                        .padding(.top, geo.safeAreaInsets.top)
+                    Spacer()
                     Button {
                         session.board.send(nil)
                     } label: {
-                        Image(systemName: "arrow.left")
+                        Image(systemName: "xmark")
                             .font(.callout)
                             .foregroundColor(.white)
                             .frame(width: 60, height: 50)
                     }
                     .contentShape(Rectangle())
                     .padding(.top, geo.safeAreaInsets.top)
-                    Spacer()
-                    Text(verbatim: session[board].name)
-                        .lineLimit(1)
-                        .font(Font.callout.bold())
-                        .padding()
-                        .padding(.top, geo.safeAreaInsets.top)
                 }
                 .foregroundColor(.white)
-                .background(Color.accent)
+                .background(Color.main)
                 .edgesIgnoringSafeArea([.leading, .trailing])
                 ScrollView {
                     VStack(spacing: 0) {
-                        ForEach(0 ..< session[board].count, id: \.self) {
+                        ForEach(0 ..< session[board].count) {
                             Column(session: $session, board: board, column: $0)
                         }
                     }
@@ -44,7 +44,7 @@ struct Board: View {
                     Spacer()
                 }
                 .foregroundColor(.white)
-                .background(Color.accent)
+                .background(Color.main)
                 .edgesIgnoringSafeArea([.leading, .trailing])
             }
             .edgesIgnoringSafeArea(.vertical)

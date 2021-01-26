@@ -4,27 +4,32 @@ struct Home: View {
     @Binding var session: Session
     
     var body: some View {
-        Color.background
-            .edgesIgnoringSafeArea(.all)
-        ScrollView {
-            
-        }
-        VStack {
-            Spacer()
-            Field(session: $session)
-            if !session.typing {
-                HStack {
-                    Control.Circle(state: .ready, image: "square.stack") {
-                        
-                    }
-                    Control.Circle(state: .ready, image: "slider.horizontal.3") {
-                    
-                    }
-                    Control.Circle(state: .ready, image: "plus") {
-                        session.become.send()
-                    }
+        ZStack {
+            Color.background
+                .edgesIgnoringSafeArea(.all)
+            ScrollView {
+                ForEach(0 ..< session.archive.count) {
+                    Item(session: $session, board: $0)
                 }
-                .padding(.bottom, 20)
+            }
+            VStack {
+                Spacer()
+                Field(session: $session)
+                    .frame(height: 0)
+                if !session.typing {
+                    HStack {
+                        Control.Circle(state: .ready, image: "square.stack") {
+                            
+                        }
+                        Control.Circle(state: .ready, image: "slider.horizontal.3") {
+                        
+                        }
+                        Control.Circle(state: .ready, image: "plus") {
+                            session.become.send()
+                        }
+                    }
+                    .padding(.bottom, 20)
+                }
             }
         }
     }

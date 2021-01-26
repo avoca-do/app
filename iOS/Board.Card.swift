@@ -1,5 +1,4 @@
 import SwiftUI
-import Kanban
 
 extension Board {
     struct Card: View {
@@ -11,7 +10,7 @@ extension Board {
         var body: some View {
             HStack {
                 RoundedRectangle(cornerRadius: 1)
-                    .fill(Color.accent)
+                    .fill(Color.main)
                     .frame(minHeight: 2)
                     .frame(width: 2)
                 Text(verbatim: session[board][column][card])

@@ -28,7 +28,7 @@ extension Home {
             field.clearButtonMode = .always
             field.autocorrectionType = .no
             field.backgroundColor = .tertiarySystemFill
-            field.tintColor = .accent
+            field.tintColor = .main
             field.keyboardType = .alphabet
             field.allowsEditingTextAttributes = false
             field.delegate = self
@@ -84,7 +84,9 @@ extension Home {
         
         func textFieldShouldReturn(_: UITextField) -> Bool {
             field.resignFirstResponder()
-            fatalError()
+            view.session.archive.add()
+            view.session.archive[view.session.archive.count - 1].rename(field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!)
+            view.session.board.send(view.session.archive.count - 1)
             field.text = nil
             return true
         }

@@ -2,9 +2,9 @@ import SwiftUI
 
 extension Color {
     static let background = Self(.secondarySystemBackground)
-    static let accent = Self(.accent)
+    static let main = Self(.main)
 }
 
 extension UIColor {
-    static let accent = UIColor.systemBlue
+    static let main = UIColor.systemBlue
 }

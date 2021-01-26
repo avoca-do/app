@@ -5,13 +5,13 @@ struct Window: View {
     @State private var board: Int?
     
     var body: some View {
-        ZStack {
+        Group {
             if board == nil {
                 Home(session: $session)
-                    .transition(.move(edge: .leading))
+                    .transition(.move(edge: .bottom))
             } else {
                 Board(session: $session, board: board!)
-                    .transition(.move(edge: .trailing))
+                    .transition(.move(edge: .bottom))
             }
         }
         .animation(.easeInOut(duration: 0.4))
