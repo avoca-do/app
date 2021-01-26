@@ -1,18 +1,22 @@
 import SwiftUI
 
 struct Window: View {
-    @Binding var session: Session
+    @State var session: Session
+    @State private var board: Int?
     
     var body: some View {
         ZStack {
-            if session.board == nil {
+            if board == nil {
                 Home(session: $session)
                     .transition(.move(edge: .leading))
             } else {
-                Board(session: $session)
+                Board(session: $session, board: board!)
                     .transition(.move(edge: .trailing))
             }
         }
         .animation(.easeInOut(duration: 0.4))
+        .onReceive(session.board) {
+            board = $0
+        }
     }
 }

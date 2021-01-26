@@ -1,11 +1,16 @@
 import SwiftUI
+import Kanban
 
 @main struct App: SwiftUI.App {
-    @State private var session = Session()
+    @State private var archive: Archive?
     
     var body: some Scene {
         WindowGroup {
-            Window(session: $session)
+            if archive == nil {
+                Text("Loading")
+            } else {
+                Window(session: .init(archive: archive!))
+            }
         }
     }
 }

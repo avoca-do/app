@@ -4,7 +4,9 @@ import Kanban
 extension Board {
     struct Card: View {
         @Binding var session: Session
-        let card: Kanban.Board.Card
+        let board: Int
+        let column: Int
+        let card: Int
         
         var body: some View {
             HStack {
@@ -12,7 +14,7 @@ extension Board {
                     .fill(Color.accent)
                     .frame(minHeight: 2)
                     .frame(width: 2)
-                Text(verbatim: card.content)
+                Text(verbatim: session[board][column][card])
                     .font(.footnote)
                 Spacer()
             }

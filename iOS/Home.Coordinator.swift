@@ -84,10 +84,7 @@ extension Home {
         
         func textFieldShouldReturn(_: UITextField) -> Bool {
             field.resignFirstResponder()
-            view.session.board = .init(name: field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!)
-            view.session.board!.columns[0].cards = [.init(content: "Hello world"), .init(content: "Lorem ipsum"), .init(content: "Lorem ipsum sdadasda fdfadaasd adsdasdssadsa sadasdas")]
-            view.session.board!.columns[1].cards = [.init(content: "Hello world"), .init(content: "Lorem ipsum"), .init(content: "Lorem ipsum"), .init(content: "Lorem"), .init(content: "Lorem")]
-            view.session.board!.columns[2].cards = [.init(content: "Hello world"), .init(content: "Lorem ipsum"), .init(content: "Lorem ipsum sda asdasd asas dsa das fdsfsdgs dd daas dsa dasd sdas dsa fsd fas asd asd asd asdas dasdas das das dafadsa dasd dasd sadas fasf sdas dsa sad sda dsadas  adsasad"), .init(content: "Lorem ipsum")]
+            fatalError()
             field.text = nil
             return true
         }

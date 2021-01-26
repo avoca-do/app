@@ -4,40 +4,39 @@ import Kanban
 extension Board {
     struct Column: View {
         @Binding var session: Session
-        let column: Kanban.Board.Column
+        let board: Int
+        let column: Int
         
         var body: some View {
-            if session.board != nil {
-                ZStack {
-                    Color(session.board!.columns.firstIndex(of: column)! % 2 == 0 ? .secondarySystemBackground : .tertiarySystemBackground)
-                        .padding(.leading, 50)
-                    VStack {
-                        Spacer()
-                            .frame(height: 10)
-                        ForEach(column.cards, id: \.self) {
-                            Card(session: $session, card: $0)
-                            if $0 != column.cards.last! {
-                                Rectangle()
-                                    .fill(Color(.quaternarySystemFill))
-                                    .frame(height: 1)
-                            }
-                        }
-                        if column != session.board!.columns.last! {
+            ZStack {
+                Color(column % 2 == 0 ? .secondarySystemBackground : .tertiarySystemBackground)
+                    .padding(.leading, 50)
+                VStack {
+                    Spacer()
+                        .frame(height: 10)
+                    ForEach(0 ..< session[board][column].count) {
+                        Card(session: $session, board: board, column: column, card: $0)
+                        if $0 < session[board][column].count - 1 {
                             Rectangle()
-                                .fill(Color(.secondarySystemFill))
+                                .fill(Color(.quaternarySystemFill))
                                 .frame(height: 1)
                         }
                     }
-                    .padding(.leading, 50)
-                    HStack {
-                        Text(verbatim: column.name)
-                            .rotationEffect(.radians(.pi / -2), anchor: .bottomLeading)
-                            .font(.system(size: 14, weight: .bold, design: .monospaced))
-                            .padding(.leading, 25)
-                            .padding()
-                            .offset(y: (.init(column.name.count) * 5) - 15)
-                        Spacer()
+                    if column < session[board].count - 1 {
+                        Rectangle()
+                            .fill(Color(.secondarySystemFill))
+                            .frame(height: 1)
                     }
+                }
+                .padding(.leading, 50)
+                HStack {
+                    Text(verbatim: session[board][column].title)
+                        .rotationEffect(.radians(.pi / -2), anchor: .bottomLeading)
+                        .font(.system(size: 14, weight: .bold, design: .monospaced))
+                        .padding(.leading, 25)
+                        .padding()
+                        .offset(y: (.init(session[board][column].title.count) * 5) - 15)
+                    Spacer()
                 }
             }
         }
