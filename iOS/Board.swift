@@ -30,7 +30,7 @@ struct Board: View {
                 .edgesIgnoringSafeArea([.leading, .trailing])
                 ScrollView {
                     VStack(spacing: 0) {
-                        ForEach(0 ..< session[board].count) {
+                        ForEach(0 ..< session[board].count, id: \.self) {
                             Column(session: $session, board: board, column: $0)
                         }
                     }

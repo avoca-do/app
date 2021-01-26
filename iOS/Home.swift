@@ -8,7 +8,7 @@ struct Home: View {
             Color.background
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
-                ForEach(0 ..< session.archive.count) {
+                ForEach(0 ..< session.archive.count, id: \.self) {
                     Item(session: $session, board: $0)
                 }
             }

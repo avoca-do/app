@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 extension Board {
     struct Column: View {
@@ -13,7 +14,7 @@ extension Board {
                 VStack {
                     Spacer()
                         .frame(height: 10)
-                    ForEach(0 ..< session[board][column].count) {
+                    ForEach(0 ..< session[board][column].count, id: \.self) {
                         Card(session: $session, board: board, column: column, card: $0)
                         if $0 < session[board][column].count - 1 {
                             Rectangle()

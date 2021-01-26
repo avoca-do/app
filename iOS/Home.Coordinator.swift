@@ -84,9 +84,15 @@ extension Home {
         
         func textFieldShouldReturn(_: UITextField) -> Bool {
             field.resignFirstResponder()
+            
+            let index = view.session.archive.count
             view.session.archive.add()
-            view.session.archive[view.session.archive.count - 1].rename(field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!)
-            view.session.board.send(view.session.archive.count - 1)
+            view.session.archive[index].rename(field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { [weak self] in
+                self?.view.session.board.send(index)
+            }
+            
             field.text = nil
             return true
         }

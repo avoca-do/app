@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct Window: View {
-    @State var session: Session
+    @Binding var session: Session
     @State private var board: Int?
     
     var body: some View {
