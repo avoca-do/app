@@ -3,15 +3,14 @@ import SwiftUI
 struct Window: View {
     @Binding var session: Session
     @State private var board: Int?
+    @Namespace private var animation
     
     var body: some View {
         Group {
             if board == nil {
-                Home(session: $session)
-                    .transition(.move(edge: .bottom))
+                Home(session: $session, animation: animation)
             } else {
-                Board(session: $session, board: board!)
-                    .transition(.move(edge: .bottom))
+                Board(session: $session, board: board!, animation: animation)
             }
         }
         .animation(.easeInOut(duration: 0.4))

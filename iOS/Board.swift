@@ -3,6 +3,7 @@ import SwiftUI
 struct Board: View {
     @Binding var session: Session
     let board: Int
+    let animation: Namespace.ID
     
     var body: some View {
         GeometryReader { geo in
@@ -26,6 +27,7 @@ struct Board: View {
                 }
                 .foregroundColor(.black)
                 .background(Color.accentColor)
+                .matchedGeometryEffect(id: board, in: animation)
                 .edgesIgnoringSafeArea([.leading, .trailing])
                 ZStack {
                     ScrollView {
@@ -44,6 +46,7 @@ struct Board: View {
                         Spacer()
                     }
                 }
+                .zIndex(-1)
                 HStack {
                     Spacer()
                     Image(systemName: "plus")
