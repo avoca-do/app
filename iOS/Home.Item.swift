@@ -8,6 +8,7 @@ extension Home {
         
         var body: some View {
             Button {
+                UIApplication.shared.resign()
                 session.board.send(board)
             } label: {
                 ZStack {
