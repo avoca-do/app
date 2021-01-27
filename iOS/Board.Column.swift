@@ -14,26 +14,22 @@ extension Board {
                 VStack {
                     Spacer()
                         .frame(height: 10)
-                    if session[board][column].count > 0 {
-                        ForEach(0 ..< session[board][column].count, id: \.self) {
-                            Card(session: $session, board: board, column: column, card: $0)
-                            if $0 < session[board][column].count - 1 {
-                                Rectangle()
-                                    .fill(Color(.quaternarySystemFill))
-                                    .frame(height: 1)
-                            }
+                    ForEach(0 ..< session[board][column].count, id: \.self) {
+                        Card(session: $session, board: board, column: column, card: $0)
+                        if $0 < session[board][column].count - 1 {
+                            Rectangle()
+                                .fill(Color(.quaternarySystemFill))
+                                .frame(height: 1)
                         }
-                    } else {
-                        Text("Empty")
-                        Text("Empty")
-                        Text("Empty")
                     }
+                    Spacer()
                     if column < session[board].count - 1 {
                         Rectangle()
                             .fill(Color(.secondarySystemFill))
                             .frame(height: 1)
                     }
                 }
+                .frame(minHeight: 120)
                 .padding(.leading, 50)
                 HStack {
                     Text(verbatim: session[board][column].title)

@@ -13,6 +13,8 @@ struct Home: View {
                     Item(session: $session, board: $0)
                         .matchedGeometryEffect(id: $0, in: animation)
                 }
+                Spacer()
+                    .frame(height: 100)
             }
             VStack {
                 Spacer()

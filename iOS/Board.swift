@@ -27,6 +27,7 @@ struct Board: View {
                 }
                 .foregroundColor(.black)
                 .background(Color.accentColor)
+                .colorScheme(.light)
                 .matchedGeometryEffect(id: board, in: animation)
                 .edgesIgnoringSafeArea([.leading, .trailing])
                 ZStack {
