@@ -19,14 +19,13 @@ struct Board: View {
                     } label: {
                         Image(systemName: "xmark")
                             .font(.callout)
-                            .foregroundColor(.white)
                             .frame(width: 60, height: 50)
                     }
                     .contentShape(Rectangle())
                     .padding(.top, geo.safeAreaInsets.top)
                 }
-                .foregroundColor(.white)
-                .background(Color.main)
+                .foregroundColor(.black)
+                .background(Color.accentColor)
                 .edgesIgnoringSafeArea([.leading, .trailing])
                 ScrollView {
                     VStack(spacing: 0) {
@@ -43,8 +42,8 @@ struct Board: View {
                         .padding(.bottom, geo.safeAreaInsets.bottom)
                     Spacer()
                 }
-                .foregroundColor(.white)
-                .background(Color.main)
+                .foregroundColor(.black)
+                .background(Color.accentColor)
                 .edgesIgnoringSafeArea([.leading, .trailing])
             }
             .edgesIgnoringSafeArea(.vertical)

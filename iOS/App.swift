@@ -4,6 +4,7 @@ import Kanban
 @main struct App: SwiftUI.App {
     @State private var session = Session()
     @Environment(\.scenePhase) private var phase
+    @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
     
     var body: some Scene {
         WindowGroup {
