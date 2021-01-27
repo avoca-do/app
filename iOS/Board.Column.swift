@@ -9,18 +9,24 @@ extension Board {
         
         var body: some View {
             ZStack {
-                Color(column % 2 == 0 ? .secondarySystemBackground : .tertiarySystemBackground)
+                Color(column % 2 == 0 ? .clear : .secondarySystemBackground)
                     .padding(.leading, 50)
                 VStack {
                     Spacer()
                         .frame(height: 10)
-                    ForEach(0 ..< session[board][column].count, id: \.self) {
-                        Card(session: $session, board: board, column: column, card: $0)
-                        if $0 < session[board][column].count - 1 {
-                            Rectangle()
-                                .fill(Color(.quaternarySystemFill))
-                                .frame(height: 1)
+                    if session[board][column].count > 0 {
+                        ForEach(0 ..< session[board][column].count, id: \.self) {
+                            Card(session: $session, board: board, column: column, card: $0)
+                            if $0 < session[board][column].count - 1 {
+                                Rectangle()
+                                    .fill(Color(.quaternarySystemFill))
+                                    .frame(height: 1)
+                            }
                         }
+                    } else {
+                        Text("Empty")
+                        Text("Empty")
+                        Text("Empty")
                     }
                     if column < session[board].count - 1 {
                         Rectangle()

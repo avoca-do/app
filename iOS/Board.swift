@@ -27,14 +27,23 @@ struct Board: View {
                 .foregroundColor(.black)
                 .background(Color.accentColor)
                 .edgesIgnoringSafeArea([.leading, .trailing])
-                ScrollView {
-                    VStack(spacing: 0) {
-                        ForEach(0 ..< session[board].count, id: \.self) {
-                            Column(session: $session, board: board, column: $0)
+                ZStack {
+                    ScrollView {
+                        VStack(spacing: 0) {
+                            ForEach(0 ..< session[board].count, id: \.self) {
+                                Column(session: $session, board: board, column: $0)
+                            }
                         }
                     }
+                    .edgesIgnoringSafeArea(.trailing)
+                    HStack {
+                        Rectangle()
+                            .fill(Color.accentColor)
+                            .offset(x: 50)
+                            .frame(width: 1)
+                        Spacer()
+                    }
                 }
-                .edgesIgnoringSafeArea(.trailing)
                 HStack {
                     Spacer()
                     Image(systemName: "plus")
