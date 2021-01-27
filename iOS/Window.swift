@@ -6,7 +6,7 @@ struct Window: View {
     @Namespace private var animation
     
     var body: some View {
-        Group {
+        ZStack {
             if board == nil {
                 Home(session: $session, animation: animation)
             } else {

@@ -17,6 +17,7 @@ extension Home {
                         VStack(alignment: .leading) {
                             Text(verbatim: session[board].name)
                                 .font(.headline)
+                                .fixedSize(horizontal: false, vertical: true)
                                 .foregroundColor(.black)
                             Text(verbatim: date)
                                 .font(.caption2)

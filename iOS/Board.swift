@@ -7,59 +7,38 @@ struct Board: View {
     
     var body: some View {
         GeometryReader { geo in
+            HStack {
+                Rectangle()
+                    .fill(Color.accentColor)
+                    .frame(width: Frame.Bar.width + geo.safeAreaInsets.leading)
+                Spacer()
+            }
+            .edgesIgnoringSafeArea(.all)
+        }
+        ScrollView {
             VStack(spacing: 0) {
                 HStack {
-                    Text(verbatim: session[board].name)
-                        .lineLimit(1)
-                        .font(Font.callout.bold())
-                        .padding()
-                        .padding(.top, geo.safeAreaInsets.top)
-                    Spacer()
                     Button {
                         session.board.send(nil)
                     } label: {
                         Image(systemName: "xmark")
+                            .foregroundColor(.black)
                             .font(.callout)
-                            .frame(width: 60, height: 50)
+                            .frame(width: Frame.Bar.width, height: 50)
                     }
                     .contentShape(Rectangle())
-                    .padding(.top, geo.safeAreaInsets.top)
-                }
-                .foregroundColor(.black)
-                .background(Color.accentColor)
-                .colorScheme(.light)
-                .matchedGeometryEffect(id: board, in: animation)
-                .edgesIgnoringSafeArea([.leading, .trailing])
-                ZStack {
-                    ScrollView {
-                        VStack(spacing: 0) {
-                            ForEach(0 ..< session[board].count, id: \.self) {
-                                Column(session: $session, board: board, column: $0)
-                            }
-                        }
-                    }
-                    .edgesIgnoringSafeArea(.trailing)
-                    HStack {
-                        Rectangle()
-                            .fill(Color.accentColor)
-                            .offset(x: 50)
-                            .frame(width: 1)
-                        Spacer()
-                    }
-                }
-                .zIndex(-1)
-                HStack {
-                    Spacer()
-                    Image(systemName: "plus")
+                    Text(verbatim: session[board].name)
+                        .font(Font.title3.bold())
+                        .fixedSize(horizontal: false, vertical: true)
                         .padding()
-                        .padding(.bottom, geo.safeAreaInsets.bottom)
                     Spacer()
                 }
-                .foregroundColor(.black)
-                .background(Color.accentColor)
-                .edgesIgnoringSafeArea([.leading, .trailing])
+                .matchedGeometryEffect(id: board, in: animation)
+                ForEach(0 ..< session[board].count, id: \.self) {
+                    Column(session: $session, board: board, column: $0)
+                }
             }
-            .edgesIgnoringSafeArea(.vertical)
         }
+        .edgesIgnoringSafeArea(.trailing)
     }
 }

@@ -9,8 +9,10 @@ extension Board {
         
         var body: some View {
             ZStack {
-                Color(column % 2 == 0 ? .clear : .secondarySystemBackground)
-                    .padding(.leading, 50)
+                if column % 2 != 0 {
+                    Color.background
+                        .padding(.leading, Frame.Bar.width)
+                }
                 VStack {
                     Spacer()
                         .frame(height: 10)
@@ -29,15 +31,26 @@ extension Board {
                             .frame(height: 1)
                     }
                 }
-                .frame(minHeight: 120)
-                .padding(.leading, 50)
+                .frame(minHeight: 160)
+                .padding(.leading, Frame.Bar.width)
                 HStack {
-                    Text(verbatim: session[board][column].title)
-                        .rotationEffect(.radians(.pi / -2), anchor: .bottomLeading)
-                        .font(.system(size: 14, weight: .bold, design: .monospaced))
-                        .padding(.leading, 25)
-                        .padding()
-                        .offset(y: (.init(session[board][column].title.count) * 5) - 15)
+                    VStack {
+                        Text(verbatim: session[board][column].title)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(2)
+                            .font(Font.body.bold())
+                            .frame(maxWidth: 140)
+                        Text(verbatim: "1,011")
+                            .lineLimit(1)
+                            .font(.caption)
+                            .frame(maxWidth: 140)
+                    }
+                    .frame(width: 160)
+                    .foregroundColor(.black)
+                    .rotationEffect(.radians(.pi / -2), anchor: .leading)
+                    .padding(.leading, 20)
+                    .padding()
+                    .offset(y: 80)
                     Spacer()
                 }
             }

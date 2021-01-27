@@ -25,7 +25,10 @@ extension Control {
                                 .fill(UIApplication.dark ? Color.black : .white)
                                 .frame(width: 44, height: 44)
                         case .disabled:
-                            EmptyView()
+                            SwiftUI.Circle()
+                                .fill(UIApplication.dark ? Color.black : .white)
+                                .frame(width: 44, height: 44)
+                                .opacity(0.4)
                         }
                         Image(systemName: image)
                             .foregroundColor(current == .ready ? Color.primary : .init(.tertiaryLabel) )
