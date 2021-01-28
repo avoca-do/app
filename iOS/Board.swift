@@ -39,5 +39,20 @@ struct Board: View {
                 }
             }
         }
+        VStack {
+            Spacer()
+            HStack {
+                Control(image: "line.horizontal.3.decrease") {
+                    
+                }
+                Control(image: "plus") {
+                    
+                }
+                Control(image: "slider.vertical.3") {
+                    
+                }
+            }
+            .padding(.leading, Frame.bar.width)
+        }
     }
 }
