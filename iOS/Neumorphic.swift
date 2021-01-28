@@ -1,9 +1,15 @@
 import SwiftUI
 
-struct Neumorphic: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .shadow(color: Color.black.opacity(UIApplication.dark ? 0.5 : 0.05), radius: 8, x: 8, y: 8)
-            .shadow(color: Color.white.opacity(UIApplication.dark ? 0.04 : 0.6), radius: 3, x: -3, y: -3)
+struct Neumorphic: View {
+    let image: String
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            Circle()
+                .fill(Color.clear)
+                .frame(width: 80, height: 80)
+        }
+        .buttonStyle(Style(image: image))
     }
 }

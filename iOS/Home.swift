@@ -20,14 +20,14 @@ struct Home: View {
             Field(session: $session)
                 .frame(height: 0)
             HStack {
-                Control.Circle(state: .ready, image: "square.stack") {
+                Neumorphic(image: "square.stack") {
                     
                 }
-                Control.Circle(state: .ready, image: "slider.horizontal.3") {
-                
+                Neumorphic(image: "slider.horizontal.3") {
+                    
                 }
                 if !session.typing {
-                    Control.Circle(state: .ready, image: "plus") {
+                    Neumorphic(image: "plus") {
                         session.become.send()
                     }
                 }
