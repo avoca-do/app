@@ -27,6 +27,8 @@ extension Home {
             field.translatesAutoresizingMaskIntoConstraints = false
             field.clearButtonMode = .always
             field.autocorrectionType = .no
+            field.autocapitalizationType = .words
+            field.spellCheckingType = .yes
             field.backgroundColor = .tertiarySystemFill
             field.tintColor = .main
             field.keyboardType = .alphabet

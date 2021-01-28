@@ -5,6 +5,7 @@ struct Board: View {
     let board: Int
     let global: Namespace.ID
     @State private var fold = Set<Int>()
+    @State private var add = false
     @Namespace private var local
     
     var body: some View {
@@ -45,6 +46,8 @@ struct Board: View {
                 ForEach(0 ..< session[board].count, id: \.self) {
                     Column(session: $session, fold: $fold, board: board, column: $0)
                 }
+                Spacer()
+                    .frame(height: 80)
             }
         }
         VStack {
@@ -60,7 +63,14 @@ struct Board: View {
                     
                 }
                 Control(image: "plus") {
-                    
+                    add = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        session.become.send()
+                    }
+                }
+                .sheet(isPresented: $add) {
+                    Editor(session: $session)
+                        .padding(.vertical)
                 }
                 Control(image: "slider.vertical.3") {
                     

@@ -16,7 +16,7 @@ extension Board {
                         .fill(Color.accentColor)
                         .frame(width: 44, height: 44)
                     Image(systemName: image)
-                        .font(Font.title2)
+                        .font(Font.title3)
                         .foregroundColor(.black)
                 }
             }
