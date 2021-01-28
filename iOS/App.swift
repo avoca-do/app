@@ -10,6 +10,7 @@ import Kanban
         WindowGroup {
             Window(session: $session)
                 .onReceive(Memory.shared.archive) {
+                    session.board.send(nil)
                     session.archive = $0
                 }
         }

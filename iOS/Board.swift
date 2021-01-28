@@ -10,7 +10,7 @@ struct Board: View {
             HStack {
                 Rectangle()
                     .fill(Color.accentColor)
-                    .frame(width: Frame.Bar.width + geo.safeAreaInsets.leading)
+                    .frame(width: Frame.bar.width + geo.safeAreaInsets.leading)
                 Spacer()
             }
             .edgesIgnoringSafeArea(.all)
@@ -24,7 +24,7 @@ struct Board: View {
                         Image(systemName: "xmark")
                             .foregroundColor(.black)
                             .font(.callout)
-                            .frame(width: Frame.Bar.width, height: 50)
+                            .frame(width: Frame.bar.width, height: 50)
                     }
                     .contentShape(Rectangle())
                     Text(verbatim: session[board].name)
@@ -39,6 +39,5 @@ struct Board: View {
                 }
             }
         }
-        .edgesIgnoringSafeArea(.trailing)
     }
 }
