@@ -7,18 +7,19 @@ struct Home: View {
     var body: some View {
         Color.background
             .edgesIgnoringSafeArea(.all)
-        ScrollView {
-            ForEach(0 ..< session.archive.count, id: \.self) {
-                Item(session: $session, board: $0)
-                    .matchedGeometryEffect(id: $0, in: animation)
+        Field(session: $session)
+        if !session.isEmpty {
+            ScrollView {
+                ForEach(0 ..< session.count, id: \.self) {
+                    Item(session: $session, board: $0)
+                        .matchedGeometryEffect(id: $0, in: animation)
+                }
+                Spacer()
+                    .frame(height: 100)
             }
-            Spacer()
-                .frame(height: 100)
         }
         VStack {
             Spacer()
-            Field(session: $session)
-                .frame(height: 0)
             HStack {
                 Neumorphic(image: "square.stack") {
                     

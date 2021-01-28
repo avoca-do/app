@@ -16,7 +16,7 @@ extension Board {
                 }
                 if !fold {
                     VStack {
-                        if session[board][column].count == 0 {
+                        if session[board][column].isEmpty {
                             Spacer()
                             Image(systemName: "square.fill.text.grid.1x2")
                                 .foregroundColor(.secondary)

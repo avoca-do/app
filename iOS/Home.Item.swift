@@ -12,7 +12,7 @@ extension Home {
                 session.board.send(board)
             } label: {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 150)
+                    Capsule()
                         .fill(Color.accentColor)
                     HStack {
                         VStack(alignment: .leading) {
