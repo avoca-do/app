@@ -4,6 +4,7 @@ extension Home {
     struct Item: View {
         @Binding var session: Session
         let board: Int
+        let global: Namespace.ID
         @State private var date = ""
         
         var body: some View {
@@ -14,6 +15,7 @@ extension Home {
                 ZStack {
                     Capsule()
                         .fill(Color.accentColor)
+                        .matchedGeometryEffect(id: "bar\(board)", in: global)
                     HStack {
                         VStack(alignment: .leading) {
                             Text(verbatim: session[board].name)
@@ -28,6 +30,7 @@ extension Home {
                         Spacer()
                     }
                     .padding()
+                    .matchedGeometryEffect(id: "text\(board)", in: global)
                 }
                 .contentShape(Rectangle())
             }

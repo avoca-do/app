@@ -2,7 +2,7 @@ import SwiftUI
 
 struct Home: View {
     @Binding var session: Session
-    let animation: Namespace.ID
+    let global: Namespace.ID
     
     var body: some View {
         Color.background
@@ -11,8 +11,7 @@ struct Home: View {
         if !session.isEmpty {
             ScrollView {
                 ForEach(0 ..< session.count, id: \.self) {
-                    Item(session: $session, board: $0)
-                        .matchedGeometryEffect(id: $0, in: animation)
+                    Item(session: $session, board: $0, global: global)
                 }
                 Spacer()
                     .frame(height: 100)

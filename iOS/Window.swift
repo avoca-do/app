@@ -3,14 +3,14 @@ import SwiftUI
 struct Window: View {
     @Binding var session: Session
     @State private var board: Int?
-    @Namespace private var animation
+    @Namespace private var global
     
     var body: some View {
         ZStack {
             if board == nil {
-                Home(session: $session, animation: animation)
+                Home(session: $session, global: global)
             } else {
-                Board(session: $session, board: board!, animation: animation)
+                Board(session: $session, board: board!, global: global)
             }
         }
         .animation(.easeInOut(duration: 0.3))

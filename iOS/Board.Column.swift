@@ -4,17 +4,17 @@ import UIKit
 extension Board {
     struct Column: View {
         @Binding var session: Session
+        @Binding var fold: Set<Int>
         let board: Int
         let column: Int
-        @State private var fold = false
         
         var body: some View {
             ZStack {
                 if column % 2 != 0 {
                     Color.background
-                        .padding(.leading, Frame.bar.width)
+                        .padding(.leading, fold.count == session[board].count ? 0 : Frame.bar.width)
                 }
-                if !fold {
+                if !fold.contains(column) {
                     VStack {
                         if session[board][column].isEmpty {
                             Spacer()
@@ -43,8 +43,8 @@ extension Board {
                     .frame(minHeight: Frame.column.height)
                     .padding(.leading, Frame.bar.width)
                 }
-                HStack {
-                    if fold {
+                if fold.contains(column) {
+                    HStack {
                         VStack(alignment: .leading) {
                             Text(verbatim: session[board][column].title)
                                 .lineLimit(1)
@@ -54,12 +54,18 @@ extension Board {
                                 .foregroundColor(.secondary)
                         }
                         .padding()
-                        .padding(.leading, Frame.bar.width)
+                        .padding(.leading, fold.count == session[board].count ? 0 : Frame.bar.width)
                         Spacer()
                         Image(systemName: "plus")
                             .font(.footnote)
                             .padding()
-                    } else {
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        fold.remove(column)
+                    }
+                } else {
+                    HStack {
                         VStack {
                             Text(verbatim: session[board][column].title)
                                 .multilineTextAlignment(.center)
@@ -72,6 +78,10 @@ extension Board {
                                 .frame(maxWidth: Frame.column.height - 20)
                         }
                         .frame(width: Frame.column.height)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            fold.insert(column)
+                        }
                         .foregroundColor(.black)
                         .rotationEffect(.radians(.pi / -2), anchor: .leading)
                         .padding(.leading, 20)
@@ -79,10 +89,6 @@ extension Board {
                         .offset(y: Frame.column.height / 2)
                         Spacer()
                     }
-                }
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    fold.toggle()
                 }
             }
         }
