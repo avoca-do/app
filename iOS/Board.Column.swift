@@ -16,15 +16,22 @@ extension Board {
                 }
                 if !fold {
                     VStack {
-                        Spacer()
-                            .frame(height: 10)
-                        ForEach(0 ..< session[board][column].count, id: \.self) {
-                            Card(session: $session, board: board, column: column, card: $0)
-                            if $0 < session[board][column].count - 1 {
-                                Rectangle()
-                                    .fill(Color(.quaternarySystemFill))
-                                    .frame(height: 1)
+                        if session[board][column].count == 0 {
+                            Spacer()
+                            Image(systemName: "square.fill.text.grid.1x2")
+                                .foregroundColor(.secondary)
+                        } else {
+                            Spacer()
+                                .frame(height: 10)
+                            ForEach(0 ..< session[board][column].count, id: \.self) {
+                                Card(session: $session, board: board, column: column, card: $0)
+                                if $0 < session[board][column].count - 1 {
+                                    Rectangle()
+                                        .fill(Color(.quaternarySystemFill))
+                                        .frame(height: 1)
+                                }
                             }
+                            
                         }
                         Spacer()
                         if column < session[board].count - 1 {
@@ -51,7 +58,6 @@ extension Board {
                         Spacer()
                         Image(systemName: "plus")
                             .font(.footnote)
-                            .foregroundColor(.secondary)
                             .padding()
                     } else {
                         VStack {

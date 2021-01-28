@@ -17,7 +17,7 @@ struct Board: View {
         }
         ScrollView {
             VStack(spacing: 0) {
-                HStack {
+                HStack(spacing: 0) {
                     Button {
                         session.board.send(nil)
                     } label: {
