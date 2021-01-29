@@ -17,7 +17,7 @@ extension App {
         }
         
         func application(_: UIApplication, willFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-            UIScrollView.appearance().keyboardDismissMode = .onDrag
+//            UIScrollView.appearance().keyboardDismissMode = .onDrag
             return true
         }
     }

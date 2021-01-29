@@ -1,13 +1,13 @@
 import UIKit
 import Combine
 
-extension Home {
+extension Field {
     final class Coordinator: UIView, UIKeyInput, UITextFieldDelegate {
         private weak var field: UITextField!
         private var editable = true
         private var subs = Set<AnyCancellable>()
         private let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 62), inputViewStyle: .keyboard)
-        private let view: Field
+        private let wrapper: Field
         override var inputAccessoryView: UIView? { input }
         override var canBecomeFirstResponder: Bool { editable }
         
@@ -19,8 +19,8 @@ extension Home {
         }
         
         required init?(coder: NSCoder) { nil }
-        init(view: Field) {
-            self.view = view
+        init(wrapper: Field) {
+            self.wrapper = wrapper
             super.init(frame: .zero)
 
             let field = UITextField()
@@ -40,27 +40,25 @@ extension Home {
             input.addSubview(field)
             self.field = field
             
-            let dismiss = UIButton()
-            dismiss.translatesAutoresizingMaskIntoConstraints = false
-            dismiss.setImage(UIImage(systemName: "arrow.down")?.withRenderingMode(.alwaysTemplate), for: .normal)
-            dismiss.imageView!.tintColor = .secondaryLabel
-            dismiss.imageView!.contentMode = .center
-            dismiss.imageView!.clipsToBounds = true
-            dismiss.addTarget(self, action: #selector(self.dismiss), for: .touchUpInside)
-            input.addSubview(dismiss)
+            let cancel = UIButton()
+            cancel.translatesAutoresizingMaskIntoConstraints = false
+            cancel.setImage(UIImage(systemName: "xmark"), for: .normal)
+            cancel.imageView!.tintColor = .secondaryLabel
+            cancel.addTarget(self, action: #selector(self.dismiss), for: .touchUpInside)
+            input.addSubview(cancel)
             
-            view.session.become.sink { [weak self] in
+            wrapper.session.become.sink { [weak self] in
                 self?.becomeFirstResponder()
             }.store(in: &subs)
             
             field.leftAnchor.constraint(equalTo: input.safeAreaLayoutGuide.leftAnchor, constant: 16).isActive = true
-            field.rightAnchor.constraint(equalTo: dismiss.leftAnchor).isActive = true
+            field.rightAnchor.constraint(equalTo: cancel.leftAnchor).isActive = true
             field.centerYAnchor.constraint(equalTo: input.centerYAnchor).isActive = true
             
-            dismiss.rightAnchor.constraint(equalTo: input.safeAreaLayoutGuide.rightAnchor).isActive = true
-            dismiss.widthAnchor.constraint(equalToConstant: 54).isActive = true
-            dismiss.topAnchor.constraint(equalTo: input.topAnchor).isActive = true
-            dismiss.bottomAnchor.constraint(equalTo: input.bottomAnchor).isActive = true
+            cancel.rightAnchor.constraint(equalTo: input.safeAreaLayoutGuide.rightAnchor).isActive = true
+            cancel.widthAnchor.constraint(equalToConstant: 54).isActive = true
+            cancel.topAnchor.constraint(equalTo: input.topAnchor).isActive = true
+            cancel.bottomAnchor.constraint(equalTo: input.bottomAnchor).isActive = true
         }
         
         @discardableResult override func becomeFirstResponder() -> Bool {
@@ -71,7 +69,7 @@ extension Home {
         }
         
         func textFieldDidBeginEditing(_: UITextField) {
-            view.session.typing = true
+            wrapper.session.typing = true
         }
         
         func textFieldShouldEndEditing(_: UITextField) -> Bool {
@@ -80,14 +78,14 @@ extension Home {
         }
         
         func textFieldDidEndEditing(_: UITextField) {
-            view.session.typing = false
+            wrapper.session.typing = false
             editable = true
         }
         
         func textFieldShouldReturn(_: UITextField) -> Bool {
             field.resignFirstResponder()
-            view.session.archive.add()
-            view.session.archive[0].rename(field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!)
+            wrapper.session.archive.add()
+            wrapper.session.archive[0].rename(field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!)
             field.text = nil
             return true
         }

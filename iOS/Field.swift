@@ -1,8 +1,7 @@
 import SwiftUI
 
-struct Editor: UIViewRepresentable {
+struct Field: UIViewRepresentable {
     @Binding var session: Session
-    @Environment(\.presentationMode) var visible
     
     func makeCoordinator() -> Coordinator {
         .init(wrapper: self)
