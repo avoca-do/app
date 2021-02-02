@@ -37,6 +37,7 @@ extension Editor {
             send.translatesAutoresizingMaskIntoConstraints = false
             send.setImage(UIImage(systemName: "arrow.up.circle.fill")?
                             .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title1)), for: .normal)
+            send.addTarget(self, action: #selector(self.send), for: .touchUpInside)
             input.addSubview(send)
             
             cancel.leftAnchor.constraint(equalTo: input.safeAreaLayoutGuide.leftAnchor).isActive = true
@@ -69,6 +70,14 @@ extension Editor {
             var rect = super.caretRect(for: position)
             rect.size.width += 2
             return rect
+        }
+        
+        @objc private func send() {
+            resignFirstResponder()
+            let content = text.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !content.isEmpty else { return }
+            wrapper.session.archive[0].card()
+            wrapper.session.archive[0][0, 0] = content
         }
     }
 }

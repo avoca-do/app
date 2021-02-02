@@ -85,7 +85,7 @@ extension Field {
         func textFieldShouldReturn(_: UITextField) -> Bool {
             field.resignFirstResponder()
             wrapper.session.archive.add()
-            wrapper.session.archive[0].rename(field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!)
+            wrapper.session.archive[0].name = field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!
             field.text = nil
             return true
         }

@@ -13,7 +13,7 @@ extension Board {
                     .fill(Color.main)
                     .frame(minHeight: 2)
                     .frame(width: 2)
-                Text(verbatim: session[board][column][card])
+                Text(verbatim: session[board][column, card])
                     .font(.footnote)
                 Spacer()
             }
