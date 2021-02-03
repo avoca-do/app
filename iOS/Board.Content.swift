@@ -18,8 +18,8 @@ extension Board {
                             } label: {
                                 Image(systemName: "xmark")
                                     .foregroundColor(.black)
-                                    .font(.callout)
-                                    .frame(width: Frame.bar.width, height: 50)
+                                    .font(Font.callout.bold())
+                                    .frame(width: Frame.bar.width, height: 60)
                             }
                             .contentShape(Rectangle())
                         }

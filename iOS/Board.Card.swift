@@ -16,7 +16,7 @@ extension Board {
                 ZStack {
                     if selected {
                         RoundedRectangle(cornerRadius: 3)
-                            .fill(Color.accentColor.opacity(0.4))
+                            .fill(Color.accentColor.opacity(0.6))
                     }
                     HStack(spacing: 0) {
                         RoundedRectangle(cornerRadius: 3)

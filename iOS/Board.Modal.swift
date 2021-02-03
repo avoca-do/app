@@ -10,7 +10,7 @@ extension Board {
         var body: some View {
             ZStack {
                 if card != nil {
-                    Color.black.opacity(0.7)
+                    Color.black.opacity(0.8)
                         .edgesIgnoringSafeArea(.all)
                     VStack {
                         Spacer()
@@ -34,12 +34,12 @@ extension Board {
                                     HStack {
                                         Text(verbatim: session[board][card!.0, card!.1])
                                             .lineLimit(2)
-                                            .font(.caption)
+                                            .font(Font.caption.bold())
                                             .padding(.horizontal)
                                             .padding(.leading)
                                         Spacer()
                                         Image(systemName: "xmark")
-                                            .font(.callout)
+                                            .font(Font.callout.bold())
                                             .frame(width: 60, height: 60)
                                         
                                     }

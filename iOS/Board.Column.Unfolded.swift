@@ -10,23 +10,18 @@ extension Board.Column {
         
         var body: some View {
             VStack(spacing: 0) {
-                if session[board][column].isEmpty {
-                    Spacer()
-                        .frame(height: Frame.column.height)
-                } else {
-                    Spacer()
-                        .frame(height: 10)
-                    ForEach(0 ..< session[board][column].count, id: \.self) {
-                        Board.Card(session: $session, board: board, column: column, card: $0)
-                        if $0 < session[board][column].count - 1 {
-                            Rectangle()
-                                .fill(Color(.tertiarySystemBackground))
-                                .frame(height: 1)
-                                .padding(.leading, Frame.indicator.hidden)
-                        }
+                Spacer()
+                    .frame(height: session[board][column].isEmpty ? Frame.column.height : 10)
+                ForEach(0 ..< session[board][column].count, id: \.self) {
+                    Board.Card(session: $session, board: board, column: column, card: $0)
+                    if $0 < session[board][column].count - 1 {
+                        Rectangle()
+                            .fill(Color(.tertiarySystemBackground))
+                            .frame(height: 1)
+                            .padding(.leading, Frame.indicator.hidden)
                     }
-                    Spacer()
                 }
+                Spacer()
                 if column < session[board].count - 1 {
                     Rectangle()
                         .fill(Color(.secondarySystemFill))
@@ -41,11 +36,11 @@ extension Board.Column {
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
                         .font(Font.body.bold())
-                        .frame(maxWidth: 140)
+                        .frame(maxWidth: Frame.column.height - 4)
                     Text(NSNumber(value: session[board][column].count), formatter: formatter)
                         .lineLimit(1)
                         .font(.caption)
-                        .frame(maxWidth: Frame.column.height - 20)
+                        .frame(maxWidth: Frame.column.height - 4)
                 }
                 .frame(width: Frame.column.height)
                 .contentShape(Rectangle())
