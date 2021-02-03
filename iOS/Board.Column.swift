@@ -27,21 +27,22 @@ extension Board {
                                 Card(session: $session, board: board, column: column, card: $0)
                                 if $0 < session[board][column].count - 1 {
                                     Rectangle()
-                                        .fill(Color(.quaternarySystemFill))
+                                        .fill(Color(.tertiarySystemBackground))
                                         .frame(height: 1)
+                                        .padding(.leading, Frame.indicator.hidden)
                                 }
                             }
-                            
                         }
                         Spacer()
                         if column < session[board].count - 1 {
                             Rectangle()
                                 .fill(Color(.secondarySystemFill))
                                 .frame(height: 1)
+                                .padding(.leading, Frame.indicator.hidden)
                         }
                     }
                     .frame(minHeight: Frame.column.height)
-                    .padding(.leading, Frame.bar.width)
+                    .padding(.leading, Frame.bar.width - Frame.indicator.hidden)
                 }
                 if fold.contains(column) {
                     HStack {
@@ -54,7 +55,7 @@ extension Board {
                                 .foregroundColor(.secondary)
                         }
                         .padding()
-                        .padding(.leading, fold.count == session[board].count ? 0 : Frame.bar.width)
+                        .padding(.leading, fold.count == session[board].count ? 0 : Frame.bar.width + Frame.indicator.visible + Frame.indicator.hidden)
                         Spacer()
                         Image(systemName: "plus")
                             .font(.footnote)

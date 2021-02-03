@@ -10,15 +10,17 @@ extension Board {
         var body: some View {
             HStack {
                 RoundedRectangle(cornerRadius: 1)
-                    .fill(Color.main)
-                    .frame(minHeight: 2)
-                    .frame(width: 2)
+                    .fill(Color.accentColor.opacity(0.4))
+                    .cornerRadius(3)
+                    .frame(minHeight: 6)
+                    .frame(width: Frame.indicator.hidden + Frame.indicator.visible)
                 Text(verbatim: session[board][column, card])
+                    .fixedSize(horizontal: false, vertical: true)
                     .font(.footnote)
+                    .padding(.horizontal)
                 Spacer()
             }
-            .fixedSize(horizontal: false, vertical: true)
-            .padding()
+            .padding(.vertical, 1)
         }
     }
 }

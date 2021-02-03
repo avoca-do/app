@@ -13,7 +13,7 @@ struct Window: View {
                 Board(session: $session, board: board!, global: global)
             }
         }
-        .animation(.easeInOut(duration: 0.3))
+        .animation(.easeInOut(duration: 0.25))
         .onReceive(session.board) {
             board = $0
         }

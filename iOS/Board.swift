@@ -40,6 +40,7 @@ struct Board: View {
                         .font(Font.title3.bold())
                         .fixedSize(horizontal: false, vertical: true)
                         .padding()
+                        .padding(.leading, fold.count == session[board].count ? 0 : Frame.indicator.visible + Frame.indicator.hidden)
                     Spacer()
                 }
                 .matchedGeometryEffect(id: "text\(board)", in: global)
