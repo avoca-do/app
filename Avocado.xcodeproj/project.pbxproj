@@ -18,6 +18,11 @@
 		CE2507E025B877FF00F9C526 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507DF25B877FF00F9C526 /* UIApplication.swift */; };
 		CE2507EB25B87D9800F9C526 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507EA25B87D9800F9C526 /* Field.swift */; };
 		CE2507EE25B87DB300F9C526 /* Field.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507ED25B87DB300F9C526 /* Field.Coordinator.swift */; };
+		CE349F2825CAD12000B3A436 /* Board.Column.Folded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F2725CAD12000B3A436 /* Board.Column.Folded.swift */; };
+		CE349F2B25CAD17E00B3A436 /* Board.Column.Unfolded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F2A25CAD17E00B3A436 /* Board.Column.Unfolded.swift */; };
+		CE349F3325CAD29300B3A436 /* Board.Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3225CAD29300B3A436 /* Board.Bar.swift */; };
+		CE349F3625CAD3E300B3A436 /* Board.Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3525CAD3E300B3A436 /* Board.Menu.swift */; };
+		CE349F3925CAD46100B3A436 /* Board.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3825CAD46100B3A436 /* Board.Content.swift */; };
 		CE575AF525C1730500A6B28D /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE575AF425C1730500A6B28D /* App.Delegate.swift */; };
 		CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D20725B98FF000D0F4E3 /* Board.swift */; };
 		CE8C6ED325C31A4E007D25FC /* Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6ED225C31A4E007D25FC /* Editor.swift */; };
@@ -47,6 +52,11 @@
 		CE2507DF25B877FF00F9C526 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CE2507EA25B87D9800F9C526 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		CE2507ED25B87DB300F9C526 /* Field.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.Coordinator.swift; sourceTree = "<group>"; };
+		CE349F2725CAD12000B3A436 /* Board.Column.Folded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Column.Folded.swift; sourceTree = "<group>"; };
+		CE349F2A25CAD17E00B3A436 /* Board.Column.Unfolded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Column.Unfolded.swift; sourceTree = "<group>"; };
+		CE349F3225CAD29300B3A436 /* Board.Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Bar.swift; sourceTree = "<group>"; };
+		CE349F3525CAD3E300B3A436 /* Board.Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Menu.swift; sourceTree = "<group>"; };
+		CE349F3825CAD46100B3A436 /* Board.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Content.swift; sourceTree = "<group>"; };
 		CE575AF425C1730500A6B28D /* App.Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
 		CE71D20725B98FF000D0F4E3 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		CE8C6ED225C31A4E007D25FC /* Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.swift; sourceTree = "<group>"; };
@@ -100,9 +110,14 @@
 				CE2507A225B8660A00F9C526 /* Info.plist */,
 				CE575AF425C1730500A6B28D /* App.Delegate.swift */,
 				CE25079925B8660900F9C526 /* App.swift */,
+				CE349F3225CAD29300B3A436 /* Board.Bar.swift */,
 				CED3399625B9E050008BD131 /* Board.Card.swift */,
+				CE349F2725CAD12000B3A436 /* Board.Column.Folded.swift */,
 				CED3399025B9BA36008BD131 /* Board.Column.swift */,
+				CE349F2A25CAD17E00B3A436 /* Board.Column.Unfolded.swift */,
+				CE349F3825CAD46100B3A436 /* Board.Content.swift */,
 				CE1A44ED25C2E61D002011FA /* Board.Control.swift */,
+				CE349F3525CAD3E300B3A436 /* Board.Menu.swift */,
 				CE71D20725B98FF000D0F4E3 /* Board.swift */,
 				CE2507C725B8731100F9C526 /* Color.swift */,
 				CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */,
@@ -217,12 +232,17 @@
 				CEA652A225C1CBA60099C82E /* Frame.swift in Sources */,
 				CE2507CC25B8733500F9C526 /* Session.swift in Sources */,
 				CE2507E025B877FF00F9C526 /* UIApplication.swift in Sources */,
+				CE349F3325CAD29300B3A436 /* Board.Bar.swift in Sources */,
 				CE25079C25B8660900F9C526 /* Window.swift in Sources */,
 				CE575AF525C1730500A6B28D /* App.Delegate.swift in Sources */,
+				CE349F3625CAD3E300B3A436 /* Board.Menu.swift in Sources */,
 				CE1A44EA25C2DCBF002011FA /* Neumorphic.swift in Sources */,
 				CE2507EB25B87D9800F9C526 /* Field.swift in Sources */,
 				CE2507D925B8771000F9C526 /* Home.swift in Sources */,
+				CE349F2825CAD12000B3A436 /* Board.Column.Folded.swift in Sources */,
+				CE349F2B25CAD17E00B3A436 /* Board.Column.Unfolded.swift in Sources */,
 				CE2507EE25B87DB300F9C526 /* Field.Coordinator.swift in Sources */,
+				CE349F3925CAD46100B3A436 /* Board.Content.swift in Sources */,
 				CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */,
 				CE1A44EE25C2E61D002011FA /* Board.Control.swift in Sources */,
 				CED3399725B9E050008BD131 /* Board.Card.swift in Sources */,
