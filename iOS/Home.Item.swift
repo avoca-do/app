@@ -35,9 +35,14 @@ extension Home {
                 .contentShape(Rectangle())
             }
             .padding(.horizontal)
-            .onAppear {
-                date = RelativeDateTimeFormatter().localizedString(for: session[board].date, relativeTo: .init())
+            .onAppear(perform: refresh)
+            .onChange(of: session.count) { _ in
+                refresh()
             }
+        }
+        
+        private func refresh() {
+            date = RelativeDateTimeFormatter().localizedString(for: session[board].date, relativeTo: .init())
         }
     }
 }

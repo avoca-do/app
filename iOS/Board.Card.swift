@@ -8,18 +8,17 @@ extension Board {
         let card: Int
         
         var body: some View {
-            HStack {
-                RoundedRectangle(cornerRadius: 1)
+            HStack(spacing: 0) {
+                RoundedRectangle(cornerRadius: 3)
                     .fill(Color.accentColor.opacity(0.4))
-                    .cornerRadius(3)
                     .frame(minHeight: 6)
                     .frame(width: Frame.indicator.hidden + Frame.indicator.visible)
                 Text(verbatim: session[board][column, card])
-                    .fixedSize(horizontal: false, vertical: true)
                     .font(.footnote)
                     .padding(.horizontal)
                 Spacer()
             }
+            .fixedSize(horizontal: false, vertical: true)
             .padding(.vertical, 1)
         }
     }

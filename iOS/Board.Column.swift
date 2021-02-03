@@ -5,6 +5,7 @@ extension Board {
     struct Column: View {
         @Binding var session: Session
         @Binding var fold: Set<Int>
+        @Binding var formatter: NumberFormatter
         let board: Int
         let column: Int
         
@@ -18,8 +19,7 @@ extension Board {
                     VStack {
                         if session[board][column].isEmpty {
                             Spacer()
-                            Image(systemName: "square.fill.text.grid.1x2")
-                                .foregroundColor(.secondary)
+                                .frame(height: Frame.column.height)
                         } else {
                             Spacer()
                                 .frame(height: 10)
@@ -32,8 +32,8 @@ extension Board {
                                         .padding(.leading, Frame.indicator.hidden)
                                 }
                             }
+                            Spacer()
                         }
-                        Spacer()
                         if column < session[board].count - 1 {
                             Rectangle()
                                 .fill(Color(.secondarySystemFill))
@@ -41,26 +41,23 @@ extension Board {
                                 .padding(.leading, Frame.indicator.hidden)
                         }
                     }
-                    .frame(minHeight: Frame.column.height)
                     .padding(.leading, Frame.bar.width - Frame.indicator.hidden)
                 }
                 if fold.contains(column) {
                     HStack {
-                        VStack(alignment: .leading) {
-                            Text(verbatim: session[board][column].title)
-                                .lineLimit(1)
-                                .font(Font.body.bold())
-                            Text(verbatim: "1,011")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                        .padding()
-                        .padding(.leading, fold.count == session[board].count ? 0 : Frame.bar.width + Frame.indicator.visible + Frame.indicator.hidden)
+                        Text(verbatim: session[board][column].title)
+                            .lineLimit(1)
+                            .font(Font.body.bold())
+                        Text(NSNumber(value: session[board][column].count), formatter: formatter)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                         Spacer()
                         Image(systemName: "plus")
                             .font(.footnote)
-                            .padding()
                     }
+                    .padding()
+                    .padding(.vertical, 3)
+                    .padding(.leading, fold.count == session[board].count ? 0 : Frame.bar.width + Frame.indicator.visible)
                     .contentShape(Rectangle())
                     .onTapGesture {
                         fold.remove(column)
@@ -73,7 +70,7 @@ extension Board {
                                 .lineLimit(2)
                                 .font(Font.body.bold())
                                 .frame(maxWidth: 140)
-                            Text(verbatim: "1,011")
+                            Text(NSNumber(value: session[board][column].count), formatter: formatter)
                                 .lineLimit(1)
                                 .font(.caption)
                                 .frame(maxWidth: Frame.column.height - 20)

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct Editor: UIViewRepresentable {
     @Binding var session: Session
+    let board: Int
     @Environment(\.presentationMode) var visible
     
     func makeCoordinator() -> Coordinator {

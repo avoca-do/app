@@ -76,8 +76,8 @@ extension Editor {
             resignFirstResponder()
             let content = text.trimmingCharacters(in: .whitespacesAndNewlines)
             guard !content.isEmpty else { return }
-            wrapper.session.archive[0].card()
-            wrapper.session.archive[0][0, 0] = content
+            wrapper.session.archive[wrapper.board].card()
+            wrapper.session.archive[wrapper.board][0, 0] = content
         }
     }
 }

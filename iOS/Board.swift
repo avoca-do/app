@@ -5,6 +5,7 @@ struct Board: View {
     let board: Int
     let global: Namespace.ID
     @State private var fold = Set<Int>()
+    @State private var formatter = NumberFormatter()
     @State private var add = false
     @Namespace private var local
     
@@ -40,12 +41,12 @@ struct Board: View {
                         .font(Font.title3.bold())
                         .fixedSize(horizontal: false, vertical: true)
                         .padding()
-                        .padding(.leading, fold.count == session[board].count ? 0 : Frame.indicator.visible + Frame.indicator.hidden)
+                        .padding(.leading, fold.count == session[board].count ? 0 : Frame.indicator.visible)
                     Spacer()
                 }
                 .matchedGeometryEffect(id: "text\(board)", in: global)
                 ForEach(0 ..< session[board].count, id: \.self) {
-                    Column(session: $session, fold: $fold, board: board, column: $0)
+                    Column(session: $session, fold: $fold, formatter: $formatter, board: board, column: $0)
                 }
                 Spacer()
                     .frame(height: 80)
@@ -70,7 +71,7 @@ struct Board: View {
                     }
                 }
                 .sheet(isPresented: $add) {
-                    Editor(session: $session)
+                    Editor(session: $session, board: board)
                         .padding(.vertical)
                 }
                 Control(image: "slider.vertical.3") {
@@ -78,6 +79,9 @@ struct Board: View {
                 }
             }
             .padding(.leading, fold.count == session[board].count ? 0 : Frame.bar.width)
+        }
+        .onAppear {
+            formatter.numberStyle = .decimal
         }
     }
 }
