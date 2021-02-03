@@ -10,7 +10,12 @@ struct Frame {
     }
     
     struct indicator {
-        static let hidden = CGFloat(4)
+        static let hidden = CGFloat(6)
         static let visible = CGFloat(6)
+    }
+    
+    struct modal {
+        static let height = CGFloat(440)
+        static let offset = CGFloat(20)
     }
 }

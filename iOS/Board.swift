@@ -11,5 +11,6 @@ struct Board: View {
         Bar(session: $session, fold: $fold, board: board, global: global, local: local)
         Content(session: $session, fold: $fold, board: board, global: global)
         Menu(session: $session, fold: $fold, board: board, local: local)
+        Modal(session: $session, board: board)
     }
 }

@@ -9,7 +9,7 @@ extension Board.Column {
         let column: Int
         
         var body: some View {
-            VStack {
+            VStack(spacing: 0) {
                 if session[board][column].isEmpty {
                     Spacer()
                         .frame(height: Frame.column.height)
