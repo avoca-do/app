@@ -9,50 +9,54 @@ extension Board.Column {
         let column: Int
         
         var body: some View {
-            VStack(spacing: 0) {
-                Spacer()
-                    .frame(height: session[board][column].isEmpty ? Frame.column.height : 10)
-                ForEach(0 ..< session[board][column].count, id: \.self) {
-                    Board.Card(session: $session, board: board, column: column, card: $0)
-                    if $0 < session[board][column].count - 1 {
+            if session[board].count > column {
+                VStack(spacing: 0) {
+                    if session[board][column].isEmpty {
+                        Spacer()
+                            .frame(height: Frame.column.height)
+                    } else {
+                        ForEach(0 ..< session[board][column].count, id: \.self) {
+                            Board.Card(session: $session, board: board, column: column, card: $0)
+                            if $0 < session[board][column].count - 1 {
+                                Rectangle()
+                                    .fill(Color(.tertiarySystemBackground))
+                                    .frame(height: 1)
+                                    .padding(.leading, Frame.indicator.hidden)
+                            }
+                        }
+                    }
+                    if column < session[board].count - 1 {
                         Rectangle()
-                            .fill(Color(.tertiarySystemBackground))
+                            .fill(Color(.secondarySystemFill))
                             .frame(height: 1)
                             .padding(.leading, Frame.indicator.hidden)
                     }
                 }
-                Spacer()
-                if column < session[board].count - 1 {
-                    Rectangle()
-                        .fill(Color(.secondarySystemFill))
-                        .frame(height: 1)
-                        .padding(.leading, Frame.indicator.hidden)
+                .padding(.leading, Frame.bar.width - Frame.indicator.hidden)
+                HStack {
+                    VStack {
+                        Text(verbatim: session[board][column].title)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(2)
+                            .font(Font.body.bold())
+                            .frame(maxWidth: Frame.column.height - 4)
+                        Text(NSNumber(value: session[board][column].count), formatter: formatter)
+                            .lineLimit(1)
+                            .font(.caption)
+                            .frame(maxWidth: Frame.column.height - 4)
+                    }
+                    .frame(width: Frame.column.height)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        fold.insert(column)
+                    }
+                    .foregroundColor(.black)
+                    .rotationEffect(.radians(.pi / -2), anchor: .leading)
+                    .padding(.leading, 20)
+                    .padding()
+                    .offset(y: Frame.column.height / 2)
+                    Spacer()
                 }
-            }
-            .padding(.leading, Frame.bar.width - Frame.indicator.hidden)
-            HStack {
-                VStack {
-                    Text(verbatim: session[board][column].title)
-                        .multilineTextAlignment(.center)
-                        .lineLimit(2)
-                        .font(Font.body.bold())
-                        .frame(maxWidth: Frame.column.height - 4)
-                    Text(NSNumber(value: session[board][column].count), formatter: formatter)
-                        .lineLimit(1)
-                        .font(.caption)
-                        .frame(maxWidth: Frame.column.height - 4)
-                }
-                .frame(width: Frame.column.height)
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    fold.insert(column)
-                }
-                .foregroundColor(.black)
-                .rotationEffect(.radians(.pi / -2), anchor: .leading)
-                .padding(.leading, 20)
-                .padding()
-                .offset(y: Frame.column.height / 2)
-                Spacer()
             }
         }
     }

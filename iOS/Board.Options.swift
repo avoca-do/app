@@ -1,18 +1,20 @@
 import SwiftUI
+import Kanban
 
 extension Board {
     struct Options: View {
         @Binding var session: Session
         let board: Int
-        @State private var card: (Int, Int)?
+        @State private var card: Position?
         @State private var offset = CGFloat(Frame.modal.height)
         @State private var move = false
         
         var body: some View {
             ZStack {
-                if card != nil {
+                if card != nil, session[board][card!.column].count > card!.index {
                     Color.black.opacity(0.8)
                         .edgesIgnoringSafeArea(.all)
+                        .onTapGesture(perform: dismiss)
                     VStack {
                         Spacer()
                         ZStack {
@@ -24,16 +26,9 @@ extension Board {
                                     .padding(.top, 60)
                             }
                             VStack {
-                                Button {
-                                    withAnimation(.easeInOut(duration: 0.3)) {
-                                        offset = Frame.modal.height
-                                    }
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                        session.card.send(nil)
-                                    }
-                                } label: {
+                                Button(action: dismiss) {
                                     HStack {
-                                        Text(verbatim: session[board][card!.0, card!.1])
+                                        Text(verbatim: session[board][card!.column, card!.index])
                                             .lineLimit(2)
                                             .font(Font.caption.bold())
                                             .padding(.horizontal)
@@ -50,9 +45,10 @@ extension Board {
                                 .frame(height: 60)
                                 .padding(.bottom)
                                 
-                                if card!.0 < session[board].count - 1 {
-                                    Option(text: "Move to " + session[board][card!.0].title, image: "arrow.right") {
-                                        
+                                if card!.column < session[board].count - 1 {
+                                    Option(text: "Move to " + session[board][card!.column + 1].title, image: "arrow.right") {
+                                        session[board][horizontal: card!.column, card!.index] = card!.column + 1
+                                        dismiss()
                                     }
                                 }
                                 
@@ -60,7 +56,7 @@ extension Board {
                                     move = true
                                 }
                                 .sheet(isPresented: $move) {
-                                    Rectangle()
+                                    Move(session: $session, card: card!, board: board)
                                 }
                                 Option(text: "Edit", image: "text.redaction") {
                                     
@@ -86,6 +82,15 @@ extension Board {
                     }
                 }
                 card = new
+            }
+        }
+        
+        private func dismiss() {
+            withAnimation(.easeInOut(duration: 0.3)) {
+                offset = Frame.modal.height
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                session.card.send(nil)
             }
         }
     }

@@ -9,23 +9,25 @@ extension Board.Column {
         let column: Int
         
         var body: some View {
-            HStack {
-                Text(verbatim: session[board][column].title)
-                    .lineLimit(1)
-                    .font(Font.body.bold())
-                Text(NSNumber(value: session[board][column].count), formatter: formatter)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                Spacer()
-                Image(systemName: "plus")
-                    .font(.footnote)
-            }
-            .padding()
-            .padding(.vertical, 3)
-            .padding(.leading, fold.count == session[board].count ? 0 : Frame.bar.width + Frame.indicator.visible)
-            .contentShape(Rectangle())
-            .onTapGesture {
-                fold.remove(column)
+            if session[board].count > column {
+                HStack {
+                    Text(verbatim: session[board][column].title)
+                        .lineLimit(1)
+                        .font(Font.body.bold())
+                    Text(NSNumber(value: session[board][column].count), formatter: formatter)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Spacer()
+                    Image(systemName: "plus")
+                        .font(.footnote)
+                }
+                .padding()
+                .padding(.vertical, 3)
+                .padding(.leading, fold.count == session[board].count ? 0 : Frame.bar.width + Frame.indicator.visible)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    fold.remove(column)
+                }
             }
         }
     }
