@@ -11,7 +11,7 @@ extension Board {
         
         var body: some View {
             ZStack {
-                if card != nil, session[board][card!.column].count > card!.index {
+                if card != nil {
                     Color.black.opacity(0.9)
                         .edgesIgnoringSafeArea(.all)
                     Color.accentColor.opacity(0.1)
@@ -30,11 +30,13 @@ extension Board {
                             VStack {
                                 Button(action: dismiss) {
                                     HStack {
-                                        Text(verbatim: session[board][card!.column, card!.index])
-                                            .lineLimit(2)
-                                            .font(Font.caption.bold())
-                                            .padding(.horizontal)
-                                            .padding(.leading)
+                                        if card != nil, session[board][card!.column].count > card!.index {
+                                            Text(verbatim: session[board][card!.column, card!.index])
+                                                .lineLimit(2)
+                                                .font(Font.caption.bold())
+                                                .padding(.horizontal)
+                                                .padding(.leading)
+                                        }
                                         Spacer()
                                         Image(systemName: "xmark")
                                             .font(Font.callout.bold())
@@ -47,10 +49,12 @@ extension Board {
                                 .frame(height: 60)
                                 .padding(.bottom)
                                 
-                                if card!.column < session[board].count - 1 {
-                                    Option(text: "Move to " + session[board][card!.column + 1].title, image: "arrow.right") {
-                                        session[board][horizontal: card!.column, card!.index] = card!.column + 1
-                                        dismiss()
+                                if card != nil, session[board][card!.column].count > card!.index {
+                                    if card!.column < session[board].count - 1 {
+                                        Option(text: "Move to " + session[board][card!.column + 1].title, image: "arrow.right") {
+                                            session[board][horizontal: card!.column, card!.index] = card!.column + 1
+                                            dismiss()
+                                        }
                                     }
                                 }
                                 
@@ -70,7 +74,7 @@ extension Board {
                             }
                         }
                         .frame(height: Frame.modal.height)
-                        .offset(y: Frame.modal.offset + offset)
+                        .offset(y: Frame.modal.offset + offset)   
                     }
                     .edgesIgnoringSafeArea(.bottom)
                 }

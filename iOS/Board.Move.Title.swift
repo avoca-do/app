@@ -13,22 +13,6 @@ extension Board.Move {
                 Text("Move")
                     .bold()
                 HStack {
-                    Button {
-                        visible.wrappedValue.dismiss()
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 6)
-                                .fill(Color.accentColor)
-                            Text("Save")
-                                .font(Font.callout.bold())
-                                .foregroundColor(.black)
-                                .padding(.horizontal)
-                                .padding(.vertical, 6)
-                        }
-                        .fixedSize()
-                    }
-                    .contentShape(Rectangle())
-                    .padding()
                     Spacer()
                     Button {
                         visible.wrappedValue.dismiss()
