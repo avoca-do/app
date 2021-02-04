@@ -12,7 +12,9 @@ extension Board {
         var body: some View {
             ZStack {
                 if card != nil, session[board][card!.column].count > card!.index {
-                    Color.black.opacity(0.8)
+                    Color.black.opacity(0.9)
+                        .edgesIgnoringSafeArea(.all)
+                    Color.accentColor.opacity(0.1)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture(perform: dismiss)
                     VStack {
@@ -22,7 +24,7 @@ extension Board {
                                 .fill(Color.accentColor)
                             VStack {
                                 Rectangle()
-                                    .fill(Color.background)
+                                    .fill(Color(.systemBackground))
                                     .padding(.top, 60)
                             }
                             VStack {

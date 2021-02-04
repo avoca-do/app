@@ -4,7 +4,6 @@ extension Board.Column {
     struct Unfolded: View {
         @Binding var session: Session
         @Binding var fold: Set<Int>
-        @Binding var formatter: NumberFormatter
         let board: Int
         let column: Int
         
@@ -40,7 +39,7 @@ extension Board.Column {
                             .lineLimit(2)
                             .font(Font.body.bold())
                             .frame(maxWidth: Frame.column.height - 4)
-                        Text(NSNumber(value: session[board][column].count), formatter: formatter)
+                        Text(NSNumber(value: session[board][column].count), formatter: session.decimal)
                             .lineLimit(1)
                             .font(.caption)
                             .frame(maxWidth: Frame.column.height - 4)

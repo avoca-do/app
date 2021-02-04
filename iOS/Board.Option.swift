@@ -10,7 +10,7 @@ extension Board {
             Button(action: action) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 8)
-                        .fill(Color(.tertiarySystemBackground))
+                        .fill(Color(.secondarySystemBackground))
                     HStack {
                         Text(text)
                             .font(.callout)

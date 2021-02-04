@@ -5,6 +5,7 @@ import Kanban
 struct Session {
     var archive = Archive()
     var typing = false
+    let decimal = NumberFormatter()
     let become = PassthroughSubject<Void, Never>()
     let dismiss = PassthroughSubject<Void, Never>()
     let board = PassthroughSubject<Int?, Never>()
@@ -16,6 +17,10 @@ struct Session {
     
     var isEmpty: Bool {
         archive.isEmpty
+    }
+    
+    init() {
+        decimal.numberStyle = .decimal
     }
     
     subscript(_ board: Int) -> Kanban.Board {

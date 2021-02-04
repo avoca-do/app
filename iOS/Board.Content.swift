@@ -6,7 +6,6 @@ extension Board {
         @Binding var fold: Set<Int>
         let board: Int
         let global: Namespace.ID
-        @State private var formatter = NumberFormatter()
         
         var body: some View {
             ScrollView {
@@ -32,14 +31,11 @@ extension Board {
                     }
                     .matchedGeometryEffect(id: "text\(board)", in: global)
                     ForEach(0 ..< session[board].count, id: \.self) {
-                        Column(session: $session, fold: $fold, formatter: $formatter, board: board, column: $0)
+                        Column(session: $session, fold: $fold, board: board, column: $0)
                     }
                     Spacer()
                         .frame(height: 80)
                 }
-            }
-            .onAppear {
-                formatter.numberStyle = .decimal
             }
         }
     }

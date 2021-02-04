@@ -4,7 +4,6 @@ extension Board.Column {
     struct Folded: View {
         @Binding var session: Session
         @Binding var fold: Set<Int>
-        @Binding var formatter: NumberFormatter
         let board: Int
         let column: Int
         
@@ -14,7 +13,7 @@ extension Board.Column {
                     Text(verbatim: session[board][column].title)
                         .lineLimit(1)
                         .font(Font.body.bold())
-                    Text(NSNumber(value: session[board][column].count), formatter: formatter)
+                    Text(NSNumber(value: session[board][column].count), formatter: session.decimal)
                         .font(.caption)
                         .foregroundColor(.secondary)
                     Spacer()

@@ -4,7 +4,6 @@ extension Board {
     struct Column: View {
         @Binding var session: Session
         @Binding var fold: Set<Int>
-        @Binding var formatter: NumberFormatter
         let board: Int
         let column: Int
         
@@ -15,9 +14,9 @@ extension Board {
                         .padding(.leading, fold.count == session[board].count ? 0 : Frame.bar.width)
                 }
                 if fold.contains(column) {
-                    Folded(session: $session, fold: $fold, formatter: $formatter, board: board, column: column)
+                    Folded(session: $session, fold: $fold, board: board, column: column)
                 } else {
-                    Unfolded(session: $session, fold: $fold, formatter: $formatter, board: board, column: column)
+                    Unfolded(session: $session, fold: $fold, board: board, column: column)
                 }
             }
         }
