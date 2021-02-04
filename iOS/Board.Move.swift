@@ -6,10 +6,10 @@ extension Board {
         @Binding var session: Session
         @State var card: Position
         let board: Int
-        @Environment(\.presentationMode) private var visible
         
         var body: some View {
             VStack {
+                Title(session: $session, card: $card, board: board)
                 Columns(session: $session, card: $card, board: board)
                 Spacer()
                     .frame(height: 30)
@@ -21,6 +21,7 @@ extension Board {
                     Item(session: $session, card: $card, board: board, offset: 1)
                 }
                 Spacer()
+                
             }
         }
     }

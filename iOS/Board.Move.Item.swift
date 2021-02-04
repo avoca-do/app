@@ -18,7 +18,7 @@ extension Board.Move {
                         .foregroundColor(offset == 0 ? .primary : .secondary)
                         .font(Font.callout.bold())
                 }
-                .fixedSize(horizontal: true, vertical: true)
+                .fixedSize()
                 ZStack {
                     RoundedRectangle(cornerRadius: 8)
                         .fill(offset == 0 ? Color.accentColor.opacity(0.5) : .clear)
@@ -28,7 +28,7 @@ extension Board.Move {
                         .frame(width: 160)
                         .padding()
                 }
-                .fixedSize(horizontal: true, vertical: true)
+                .fixedSize()
                 .padding(.horizontal)
                 Spacer()
                     .frame(width: 50)

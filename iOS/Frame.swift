@@ -18,8 +18,4 @@ struct Frame {
         static let height = CGFloat(440)
         static let offset = CGFloat(20)
     }
-    
-    struct move {
-        
-    }
 }

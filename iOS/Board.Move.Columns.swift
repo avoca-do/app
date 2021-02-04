@@ -25,7 +25,7 @@ extension Board.Move {
                         .font(Font.title3.bold())
                         .frame(width: 140)
                 }
-                .fixedSize(horizontal: true, vertical: true)
+                .fixedSize()
                 HStack {
                     if card.column < session[board].count - 1 {
                         Text(verbatim: session[board][card.column + 1].title)
