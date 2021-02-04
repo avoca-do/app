@@ -1,11 +1,12 @@
 import SwiftUI
 
 extension Board {
-    struct Modal: View {
+    struct Options: View {
         @Binding var session: Session
         let board: Int
         @State private var card: (Int, Int)?
         @State private var offset = CGFloat(Frame.modal.height)
+        @State private var move = false
         
         var body: some View {
             ZStack {
@@ -56,7 +57,10 @@ extension Board {
                                 }
                                 
                                 Option(text: "Move", image: "move.3d") {
-                                    
+                                    move = true
+                                }
+                                .sheet(isPresented: $move) {
+                                    Rectangle()
                                 }
                                 Option(text: "Edit", image: "text.redaction") {
                                     

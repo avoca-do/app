@@ -10,6 +10,10 @@ import Kanban
         WindowGroup {
             Window(session: $session)
                 .onReceive(Memory.shared.archive) {
+                    guard $0.date > session.archive.date else { return }
+                    UIApplication.shared.resign()
+                    session.dismiss.send()
+                    session.card.send(nil)
                     session.board.send(nil)
                     session.archive = $0
                 }

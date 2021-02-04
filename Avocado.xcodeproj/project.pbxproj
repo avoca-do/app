@@ -34,7 +34,7 @@
 		CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB09ADE25B994AF00BF7AD6 /* Kanban */; };
 		CED3399125B9BA36008BD131 /* Board.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3399025B9BA36008BD131 /* Board.Column.swift */; };
 		CED3399725B9E050008BD131 /* Board.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3399625B9E050008BD131 /* Board.Card.swift */; };
-		CEE61FA125CAFCFB007CF830 /* Board.Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA025CAFCFB007CF830 /* Board.Modal.swift */; };
+		CEE61FA125CAFCFB007CF830 /* Board.Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA025CAFCFB007CF830 /* Board.Options.swift */; };
 		CEE61FA525CB0A08007CF830 /* Board.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA425CB0A08007CF830 /* Board.Option.swift */; };
 		CEF2D7D825C0554700223C79 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
 		CEF2D7DB25C058C300223C79 /* Home.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2D7DA25C058C300223C79 /* Home.Item.swift */; };
@@ -70,7 +70,7 @@
 		CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.Style.swift; sourceTree = "<group>"; };
 		CED3399025B9BA36008BD131 /* Board.Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Column.swift; sourceTree = "<group>"; };
 		CED3399625B9E050008BD131 /* Board.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Card.swift; sourceTree = "<group>"; };
-		CEE61FA025CAFCFB007CF830 /* Board.Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Modal.swift; sourceTree = "<group>"; };
+		CEE61FA025CAFCFB007CF830 /* Board.Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Options.swift; sourceTree = "<group>"; };
 		CEE61FA425CB0A08007CF830 /* Board.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Option.swift; sourceTree = "<group>"; };
 		CEF2D7D725C0554700223C79 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CEF2D7DA25C058C300223C79 /* Home.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Item.swift; sourceTree = "<group>"; };
@@ -122,8 +122,8 @@
 				CE349F3825CAD46100B3A436 /* Board.Content.swift */,
 				CE1A44ED25C2E61D002011FA /* Board.Control.swift */,
 				CE349F3525CAD3E300B3A436 /* Board.Menu.swift */,
-				CEE61FA025CAFCFB007CF830 /* Board.Modal.swift */,
 				CEE61FA425CB0A08007CF830 /* Board.Option.swift */,
+				CEE61FA025CAFCFB007CF830 /* Board.Options.swift */,
 				CE71D20725B98FF000D0F4E3 /* Board.swift */,
 				CE2507C725B8731100F9C526 /* Color.swift */,
 				CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */,
@@ -257,7 +257,7 @@
 				CEA955A225C2D5A20019BF90 /* Neumorphic.Style.swift in Sources */,
 				CE25079A25B8660900F9C526 /* App.swift in Sources */,
 				CEE61FA525CB0A08007CF830 /* Board.Option.swift in Sources */,
-				CEE61FA125CAFCFB007CF830 /* Board.Modal.swift in Sources */,
+				CEE61FA125CAFCFB007CF830 /* Board.Options.swift in Sources */,
 				CEF2D7DB25C058C300223C79 /* Home.Item.swift in Sources */,
 				CE8C6EE125C31E87007D25FC /* Container.swift in Sources */,
 				CE8C6ED325C31A4E007D25FC /* Editor.swift in Sources */,
