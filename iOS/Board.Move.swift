@@ -37,7 +37,7 @@ extension Board {
                         update(horizontal: .init(column: card.column + 1, index: 0))
                     }
                 }
-                .padding(.bottom)
+                .padding(.bottom, 40)
             }
             .animation(.easeInOut(duration: 0.4))
         }

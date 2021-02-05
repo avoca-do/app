@@ -10,29 +10,26 @@ extension Board.Move {
         
         var body: some View {
             if card.index + offset >= 0, session[board][card.column].count > card.index + offset {
-                HStack {
-                    ZStack {
-                        Circle()
-                            .fill(offset == 0 ? Color.accentColor.opacity(0.5) : .clear)
-                            .frame(width: 50, height: 50)
+                ZStack {
+                    HStack {
                         Text(NSNumber(value: card.index + offset + 1), formatter: session.decimal)
                             .foregroundColor(offset == 0 ? .primary : .secondary)
                             .font(Font.callout.bold())
+                            .padding(.leading)
+                        Spacer()
                     }
-                    .fixedSize()
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(offset == 0 ? Color.accentColor.opacity(0.5) : .clear)
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.accentColor.opacity(offset == 0 ? 0.3 : 0))
+                        .frame(width: 200, height: 60)
+                    HStack {
                         Text(verbatim: session[board][card.column, card.index + offset])
                             .lineLimit(2)
+                            .multilineTextAlignment(.leading)
                             .foregroundColor(offset == 0 ? .primary : .secondary)
-                            .frame(width: 160)
                             .padding()
+                        Spacer()
                     }
-                    .fixedSize()
-                    .padding(.horizontal)
-                    Spacer()
-                        .frame(width: 50)
+                    .frame(width: 192)
                 }
             }
         }
