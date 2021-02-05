@@ -36,7 +36,7 @@ extension Board {
                             Rectangle()
                                 .fill(Color.accentColor)
                                 .frame(height: 2)
-                                .padding(.leading, Frame.indicator.hidden)
+                                .padding(.leading, fold.count < session[board].count ? Frame.indicator.hidden : 0)
                         }
                     }
                     Spacer()

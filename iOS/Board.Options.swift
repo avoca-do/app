@@ -18,7 +18,7 @@ extension Board {
                     VStack {
                         Spacer()
                         ZStack {
-                            RoundedRectangle(cornerRadius: 20)
+                            RoundedRectangle(cornerRadius: 16)
                                 .fill(Color.background)
                             VStack {
                                 Button(action: dismiss) {
@@ -33,11 +33,11 @@ extension Board {
                                         Image(systemName: "xmark")
                                             .font(.callout)
                                             .foregroundColor(.secondary)
-                                            .frame(width: 60, height: 50)
+                                            .frame(width: 60, height: 60)
                                     }
                                 }
                                 .contentShape(Rectangle())
-                                .padding(.vertical)
+                                .padding(.bottom)
                                 
                                 if session[board][card.column].count > card.index {
                                     if card.column < session[board].count - 1 {
@@ -64,7 +64,24 @@ extension Board {
                             }
                         }
                         .frame(height: Frame.modal.height)
-                        .offset(y: Frame.modal.offset + offset)   
+                        .offset(y: Frame.modal.offset + offset)
+                        .highPriorityGesture(
+                            DragGesture(coordinateSpace: .global)
+                                .onChanged { gesture in
+                                    withAnimation(.easeInOut(duration: 0.2)) {
+                                        offset = max(gesture.translation.height, -100)
+                                    }
+                                }
+                                .onEnded {
+                                    if $0.translation.height > 100 {
+                                        dismiss()
+                                    } else {
+                                        withAnimation(.easeInOut(duration: 0.3)) {
+                                            offset = 0
+                                        }
+                                    }
+                                }
+                        )
                     }
                     .edgesIgnoringSafeArea(.bottom)
                 }
@@ -72,7 +89,7 @@ extension Board {
             .onReceive(session.card) { new in
                 if new != nil {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        withAnimation(.easeInOut(duration: 0.3)) {
+                        withAnimation(.easeInOut(duration: 0.5)) {
                             offset = 0
                         }
                     }
@@ -82,7 +99,7 @@ extension Board {
         }
         
         private func dismiss() {
-            withAnimation(.easeInOut(duration: 0.3)) {
+            withAnimation(.easeInOut(duration: 0.4)) {
                 offset = Frame.modal.height
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

@@ -35,7 +35,7 @@ extension Board.Column {
                             .frame(maxWidth: Frame.column.height - 4)
                         Text(NSNumber(value: session[board][column].count), formatter: session.decimal)
                             .lineLimit(1)
-                            .font(.caption)
+                            .font(.footnote)
                             .frame(maxWidth: Frame.column.height - 4)
                     }
                     .frame(width: Frame.column.height)

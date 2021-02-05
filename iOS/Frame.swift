@@ -15,7 +15,7 @@ struct Frame {
     }
     
     struct modal {
-        static let height = CGFloat(440)
-        static let offset = CGFloat(20)
+        static let height = CGFloat(540)
+        static let offset = CGFloat(120)
     }
 }

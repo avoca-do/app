@@ -14,7 +14,7 @@ extension Board.Column {
                         .lineLimit(1)
                         .font(Font.body.bold())
                     Text(NSNumber(value: session[board][column].count), formatter: session.decimal)
-                        .font(.caption)
+                        .font(.footnote)
                         .foregroundColor(.secondary)
                     Spacer()
                     Image(systemName: "plus")
