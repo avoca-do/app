@@ -1,7 +1,7 @@
 import SwiftUI
 
-extension Board {
-    struct Option: View {
+extension Board.Options {
+    struct Item: View {
         let text: String
         let image: String
         let action: () -> Void

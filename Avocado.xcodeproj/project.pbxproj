@@ -23,6 +23,7 @@
 		CE349F3325CAD29300B3A436 /* Board.Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3225CAD29300B3A436 /* Board.Bar.swift */; };
 		CE349F3625CAD3E300B3A436 /* Board.Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3525CAD3E300B3A436 /* Board.Menu.swift */; };
 		CE349F3925CAD46100B3A436 /* Board.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3825CAD46100B3A436 /* Board.Content.swift */; };
+		CE48895D25CD7C78003F63AC /* Board.Options.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48895C25CD7C78003F63AC /* Board.Options.Content.swift */; };
 		CE575AF525C1730500A6B28D /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE575AF425C1730500A6B28D /* App.Delegate.swift */; };
 		CE7183B925CC3CAC00AD02F8 /* Board.Move.Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7183B825CC3CAC00AD02F8 /* Board.Move.Title.swift */; };
 		CE7183BD25CC3D8B00AD02F8 /* Board.Move.Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7183BC25CC3D8B00AD02F8 /* Board.Move.Arrow.swift */; };
@@ -40,7 +41,7 @@
 		CED3399125B9BA36008BD131 /* Board.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3399025B9BA36008BD131 /* Board.Column.swift */; };
 		CED3399725B9E050008BD131 /* Board.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3399625B9E050008BD131 /* Board.Card.swift */; };
 		CEE61FA125CAFCFB007CF830 /* Board.Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA025CAFCFB007CF830 /* Board.Options.swift */; };
-		CEE61FA525CB0A08007CF830 /* Board.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA425CB0A08007CF830 /* Board.Option.swift */; };
+		CEE61FA525CB0A08007CF830 /* Board.Options.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA425CB0A08007CF830 /* Board.Options.Item.swift */; };
 		CEF2D7D825C0554700223C79 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
 		CEF2D7DB25C058C300223C79 /* Home.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2D7DA25C058C300223C79 /* Home.Item.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		CE349F3225CAD29300B3A436 /* Board.Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Bar.swift; sourceTree = "<group>"; };
 		CE349F3525CAD3E300B3A436 /* Board.Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Menu.swift; sourceTree = "<group>"; };
 		CE349F3825CAD46100B3A436 /* Board.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Content.swift; sourceTree = "<group>"; };
+		CE48895C25CD7C78003F63AC /* Board.Options.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Options.Content.swift; sourceTree = "<group>"; };
 		CE575AF425C1730500A6B28D /* App.Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
 		CE7183B825CC3CAC00AD02F8 /* Board.Move.Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Title.swift; sourceTree = "<group>"; };
 		CE7183BC25CC3D8B00AD02F8 /* Board.Move.Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Arrow.swift; sourceTree = "<group>"; };
@@ -81,7 +83,7 @@
 		CED3399025B9BA36008BD131 /* Board.Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Column.swift; sourceTree = "<group>"; };
 		CED3399625B9E050008BD131 /* Board.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Card.swift; sourceTree = "<group>"; };
 		CEE61FA025CAFCFB007CF830 /* Board.Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Options.swift; sourceTree = "<group>"; };
-		CEE61FA425CB0A08007CF830 /* Board.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Option.swift; sourceTree = "<group>"; };
+		CEE61FA425CB0A08007CF830 /* Board.Options.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Options.Item.swift; sourceTree = "<group>"; };
 		CEF2D7D725C0554700223C79 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CEF2D7DA25C058C300223C79 /* Home.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,7 +139,8 @@
 				CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */,
 				CECEEE4625CC15DF00370036 /* Board.Move.swift */,
 				CE7183B825CC3CAC00AD02F8 /* Board.Move.Title.swift */,
-				CEE61FA425CB0A08007CF830 /* Board.Option.swift */,
+				CE48895C25CD7C78003F63AC /* Board.Options.Content.swift */,
+				CEE61FA425CB0A08007CF830 /* Board.Options.Item.swift */,
 				CEE61FA025CAFCFB007CF830 /* Board.Options.swift */,
 				CE71D20725B98FF000D0F4E3 /* Board.swift */,
 				CE2507C725B8731100F9C526 /* Color.swift */,
@@ -262,6 +265,7 @@
 				CE1A44EA25C2DCBF002011FA /* Neumorphic.swift in Sources */,
 				CECEEE4725CC15DF00370036 /* Board.Move.swift in Sources */,
 				CE2507EB25B87D9800F9C526 /* Field.swift in Sources */,
+				CE48895D25CD7C78003F63AC /* Board.Options.Content.swift in Sources */,
 				CE2507D925B8771000F9C526 /* Home.swift in Sources */,
 				CE349F2825CAD12000B3A436 /* Board.Column.Folded.swift in Sources */,
 				CE349F2B25CAD17E00B3A436 /* Board.Column.Unfolded.swift in Sources */,
@@ -276,7 +280,7 @@
 				CE7183BD25CC3D8B00AD02F8 /* Board.Move.Arrow.swift in Sources */,
 				CEA955A225C2D5A20019BF90 /* Neumorphic.Style.swift in Sources */,
 				CE25079A25B8660900F9C526 /* App.swift in Sources */,
-				CEE61FA525CB0A08007CF830 /* Board.Option.swift in Sources */,
+				CEE61FA525CB0A08007CF830 /* Board.Options.Item.swift in Sources */,
 				CEE61FA125CAFCFB007CF830 /* Board.Options.swift in Sources */,
 				CEF2D7DB25C058C300223C79 /* Home.Item.swift in Sources */,
 				CE8C6EE125C31E87007D25FC /* Container.swift in Sources */,
