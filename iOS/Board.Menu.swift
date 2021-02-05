@@ -6,6 +6,7 @@ extension Board {
         @Binding var fold: Set<Int>
         let board: Int
         let local: Namespace.ID
+        @State private var settings = false
         @State private var add = false
         
         var body: some View {
@@ -19,6 +20,13 @@ extension Board {
                         .matchedGeometryEffect(id: "close", in: local)
                     }
                     
+                    Control(image: "slider.vertical.3") {
+                        settings = true
+                    }
+                    .sheet(isPresented: $settings) {
+                        Settings(session: $session, board: board)
+                    }
+                    
                     Control(image: "line.horizontal.3.decrease") {
                         
                     }
@@ -30,8 +38,8 @@ extension Board {
                         Editor(session: $session, board: board, card: nil)
                             .padding(.vertical)
                     }
-                    
-                    Control(image: "slider.vertical.3") {
+
+                    Control(image: "barometer") {
                         
                     }
                 }

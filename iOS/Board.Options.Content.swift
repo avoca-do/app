@@ -36,21 +36,21 @@ extension Board.Options {
                         
                         if session[board][card.column].count > card.index {
                             if card.column < session[board].count - 1 {
-                                Item(text: "Move to " + session[board][card.column + 1].title, image: "arrow.right") {
+                                Tool(text: "Move to " + session[board][card.column + 1].title, image: "arrow.right") {
                                     session[board][horizontal: card.column, card.index] = card.column + 1
                                     dismiss()
                                 }
                             }
                         }
                         
-                        Item(text: "Move", image: "move.3d") {
+                        Tool(text: "Move", image: "move.3d") {
                             move = true
                         }
                         .sheet(isPresented: $move) {
                             Board.Move(session: $session, card: $card, board: board)
                         }
                         
-                        Item(text: "Edit", image: "text.redaction") {
+                        Tool(text: "Edit", image: "text.redaction") {
                             edit = true
                         }
                         .sheet(isPresented: $edit) {
@@ -58,7 +58,7 @@ extension Board.Options {
                                 .padding(.vertical)
                         }
                         
-                        Item(text: "Delete", image: "trash") {
+                        Tool(text: "Delete", image: "trash") {
                             delete = true
                         }
                         .actionSheet(isPresented: $delete) {
@@ -66,6 +66,7 @@ extension Board.Options {
                                          message: .init("Remove this card from the board"),
                                          buttons: [
                                              .destructive(.init("Delete")) {
+                                                session[board].remove(column: card.column, index: card.index)
                                                 dismiss()
                                              },
                                              .cancel()])

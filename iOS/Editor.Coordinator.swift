@@ -56,10 +56,6 @@ extension Editor {
             
             inputAccessoryView = input
             
-            wrapper.session.become.sink { [weak self] in
-                self?.becomeFirstResponder()
-            }.store(in: &subs)
-            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 self?.becomeFirstResponder()
             }

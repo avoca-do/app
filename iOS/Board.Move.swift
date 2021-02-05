@@ -9,10 +9,10 @@ extension Board {
         
         var body: some View {
             VStack {
-                Title(session: $session, card: $card, board: board)
+                Title(session: $session, title: "Move")
                 Columns(session: $session, card: $card, board: board)
                 Spacer()
-                    .frame(height: 30)
+                    .frame(height: 40)
                 if card.index > 0 {
                     Item(session: $session, card: $card, board: board, offset: -1)
                 }

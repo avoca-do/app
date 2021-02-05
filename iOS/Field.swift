@@ -2,6 +2,7 @@ import SwiftUI
 
 struct Field: UIViewRepresentable {
     @Binding var session: Session
+    let board: Int?
     
     func makeCoordinator() -> Coordinator {
         .init(wrapper: self)

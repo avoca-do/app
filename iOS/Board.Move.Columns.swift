@@ -38,7 +38,6 @@ extension Board.Move {
                     Spacer()
                 }
             }
-            .padding(.vertical)
         }
     }
 }

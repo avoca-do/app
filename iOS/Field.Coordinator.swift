@@ -35,10 +35,16 @@ extension Field {
             field.allowsEditingTextAttributes = false
             field.delegate = self
             field.borderStyle = .roundedRect
-            field.placeholder = NSLocalizedString("My Kanban Board", comment: "")
             field.returnKeyType = .done
             input.addSubview(field)
             self.field = field
+            
+            if let board = wrapper.board {
+                field.text = wrapper.session[board].name
+                field.placeholder = wrapper.session[board].name
+            } else {
+                field.placeholder = NSLocalizedString("My Kanban Board", comment: "")
+            }
             
             let cancel = UIButton()
             cancel.translatesAutoresizingMaskIntoConstraints = false
@@ -84,8 +90,10 @@ extension Field {
         
         func textFieldShouldReturn(_: UITextField) -> Bool {
             field.resignFirstResponder()
-            wrapper.session.archive.add()
-            wrapper.session.archive[0].name = field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!
+            if wrapper.board == nil {
+                wrapper.session.archive.add()
+            }
+            wrapper.session.archive[wrapper.board ?? 0].name = field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!
             field.text = nil
             return true
         }
