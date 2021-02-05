@@ -33,10 +33,17 @@ extension Board {
                     ForEach(0 ..< session[board].count, id: \.self) {
                         Column(session: $session, fold: $fold, board: board, column: $0)
                         if $0 < session[board].count - 1 {
-                            Rectangle()
-                                .fill(Color.accentColor)
-                                .frame(height: 2)
-                                .padding(.leading, fold.count < session[board].count ? Frame.indicator.hidden : 0)
+                            HStack(spacing: 0) {
+                                if fold.count < session[board].count {
+                                    Rectangle()
+                                        .fill(Color.black)
+                                        .frame(width: Frame.bar.width, height: 0.5)
+                                }
+                                Rectangle()
+                                    .fill(Color.accentColor)
+                                    .frame(height: 2)
+                            }
+                            
                         }
                     }
                     Spacer()
