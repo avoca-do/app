@@ -4,7 +4,7 @@ import Kanban
 extension Board {
     struct Move: View {
         @Binding var session: Session
-        @State var card: Position
+        @Binding var card: Position!
         let board: Int
         
         var body: some View {
@@ -28,17 +28,18 @@ extension Board {
                 }
                 HStack {
                     Arrow(active: card.column > 0, image: "arrow.left") {
-                        update(horizontal: .init(column: card.column - 1, index: card.index))
+                        update(horizontal: .init(column: card.column - 1, index: 0))
                     }
                     Arrow(active: card.index < session[board][card.column].count - 1, image: "arrow.down") {
                         update(vertical: .init(column: card.column, index: card.index + 1))
                     }
                     Arrow(active: card.column < session[board].count - 1, image: "arrow.right") {
-                        update(horizontal: .init(column: card.column + 1, index: card.index))
+                        update(horizontal: .init(column: card.column + 1, index: 0))
                     }
                 }
                 .padding(.bottom)
             }
+            .animation(.easeInOut(duration: 0.4))
         }
         
         private func update(vertical position: Position) {

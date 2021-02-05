@@ -4,7 +4,7 @@ import Kanban
 extension Board.Move {
     struct Title: View {
         @Binding var session: Session
-        @Binding var card: Position
+        @Binding var card: Position!
         let board: Int
         @Environment(\.presentationMode) private var visible
         
@@ -25,6 +25,7 @@ extension Board.Move {
                     .contentShape(Rectangle())
                 }
             }
+            .padding(.top)
         }
     }
 }

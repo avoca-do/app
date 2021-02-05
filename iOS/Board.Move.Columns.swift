@@ -4,7 +4,7 @@ import Kanban
 extension Board.Move {
     struct Columns: View {
         @Binding var session: Session
-        @Binding var card: Position
+        @Binding var card: Position!
         let board: Int
         
         var body: some View {

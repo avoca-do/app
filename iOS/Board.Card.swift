@@ -15,13 +15,11 @@ extension Board {
                     session.card.send(.init(column: column, index: card))
                 } label: {
                     ZStack {
-                        if selected {
-                            RoundedRectangle(cornerRadius: 3)
-                                .fill(Color.accentColor.opacity(0.6))
-                        }
+                        Rectangle()
+                            .fill(Color.accentColor.opacity(selected ? 0.5 : 0))
                         HStack(spacing: 0) {
                             RoundedRectangle(cornerRadius: 3)
-                                .fill(Color.accentColor.opacity(0.4))
+                                .fill(Color.accentColor.opacity(0.8))
                                 .frame(minHeight: 6)
                                 .frame(width: Frame.indicator.hidden + Frame.indicator.visible)
                             Text(verbatim: session[board][column, card])

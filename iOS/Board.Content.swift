@@ -32,6 +32,12 @@ extension Board {
                     .matchedGeometryEffect(id: "text\(board)", in: global)
                     ForEach(0 ..< session[board].count, id: \.self) {
                         Column(session: $session, fold: $fold, board: board, column: $0)
+                        if $0 < session[board].count - 1 {
+                            Rectangle()
+                                .fill(Color.accentColor)
+                                .frame(height: 2)
+                                .padding(.leading, Frame.indicator.hidden)
+                        }
                     }
                     Spacer()
                         .frame(height: 80)

@@ -5,54 +5,44 @@ extension Board {
     struct Options: View {
         @Binding var session: Session
         let board: Int
-        @State private var card: Position?
+        @State private var card: Position!
         @State private var offset = CGFloat(Frame.modal.height)
         @State private var move = false
         
         var body: some View {
             ZStack {
                 if card != nil {
-                    Color.black.opacity(0.9)
-                        .edgesIgnoringSafeArea(.all)
-                    Color.accentColor.opacity(0.1)
+                    Color.black.opacity(0.5)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture(perform: dismiss)
                     VStack {
                         Spacer()
                         ZStack {
                             RoundedRectangle(cornerRadius: 20)
-                                .fill(Color.accentColor)
-                            VStack {
-                                Rectangle()
-                                    .fill(Color(.systemBackground))
-                                    .padding(.top, 60)
-                            }
+                                .fill(Color.background)
                             VStack {
                                 Button(action: dismiss) {
                                     HStack {
-                                        if card != nil, session[board][card!.column].count > card!.index {
-                                            Text(verbatim: session[board][card!.column, card!.index])
-                                                .lineLimit(2)
-                                                .font(Font.caption.bold())
+                                        if session[board][card.column].count > card.index {
+                                            Text(verbatim: session[board][card.column, card.index])
+                                                .lineLimit(1)
+                                                .foregroundColor(.primary)
                                                 .padding(.horizontal)
-                                                .padding(.leading)
                                         }
                                         Spacer()
                                         Image(systemName: "xmark")
-                                            .font(Font.callout.bold())
-                                            .frame(width: 60, height: 60)
-                                        
+                                            .font(.callout)
+                                            .foregroundColor(.secondary)
+                                            .frame(width: 60, height: 50)
                                     }
                                 }
                                 .contentShape(Rectangle())
-                                .foregroundColor(.black)
-                                .frame(height: 60)
-                                .padding(.bottom)
+                                .padding(.vertical)
                                 
-                                if card != nil, session[board][card!.column].count > card!.index {
-                                    if card!.column < session[board].count - 1 {
-                                        Option(text: "Move to " + session[board][card!.column + 1].title, image: "arrow.right") {
-                                            session[board][horizontal: card!.column, card!.index] = card!.column + 1
+                                if session[board][card.column].count > card.index {
+                                    if card.column < session[board].count - 1 {
+                                        Option(text: "Move to " + session[board][card.column + 1].title, image: "arrow.right") {
+                                            session[board][horizontal: card.column, card.index] = card.column + 1
                                             dismiss()
                                         }
                                     }
@@ -62,7 +52,7 @@ extension Board {
                                     move = true
                                 }
                                 .sheet(isPresented: $move) {
-                                    Move(session: $session, card: card!, board: board)
+                                    Move(session: $session, card: $card, board: board)
                                 }
                                 Option(text: "Edit", image: "text.redaction") {
                                     

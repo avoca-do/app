@@ -18,17 +18,11 @@ extension Board.Column {
                             Board.Card(session: $session, board: board, column: column, card: $0)
                             if $0 < session[board][column].count - 1 {
                                 Rectangle()
-                                    .fill(Color(.tertiarySystemBackground))
+                                    .fill(Color.accentColor.opacity(0.5))
                                     .frame(height: 1)
                                     .padding(.leading, Frame.indicator.hidden)
                             }
                         }
-                    }
-                    if column < session[board].count - 1 {
-                        Rectangle()
-                            .fill(Color(.secondarySystemFill))
-                            .frame(height: 1)
-                            .padding(.leading, Frame.indicator.hidden)
                     }
                 }
                 .padding(.leading, Frame.bar.width - Frame.indicator.hidden)
