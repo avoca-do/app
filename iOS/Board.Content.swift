@@ -23,7 +23,7 @@ extension Board {
                             .contentShape(Rectangle())
                         }
                         Text(verbatim: session[board].name)
-                            .font(Font.title3.bold())
+                            .font(Font.title2.bold())
                             .fixedSize(horizontal: false, vertical: true)
                             .padding()
                             .padding(.leading, fold.count == session[board].count ? 0 : Frame.indicator.visible)

@@ -23,7 +23,7 @@ extension Board {
                                 .frame(minHeight: 6)
                                 .frame(width: Frame.indicator.hidden + Frame.indicator.visible)
                             Text(verbatim: session[board][column, card])
-                                .font(.footnote)
+//                                .font(.footnote)
                                 .foregroundColor(.primary)
                                 .padding(.horizontal)
                             Spacer()

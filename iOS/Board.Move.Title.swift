@@ -26,6 +26,9 @@ extension Board.Move {
                 }
             }
             .padding(.top)
+            .onReceive(session.dismiss) {
+                visible.wrappedValue.dismiss()
+            }
         }
     }
 }
