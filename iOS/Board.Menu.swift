@@ -11,30 +11,31 @@ extension Board {
         var body: some View {
             VStack {
                 Spacer()
-                HStack {
+                HStack(spacing: 0) {
                     if fold.count == session[board].count {
                         Control(image: "xmark") {
                             session.board.send(nil)
                         }
                         .matchedGeometryEffect(id: "close", in: local)
                     }
+                    
                     Control(image: "line.horizontal.3.decrease") {
                         
                     }
+                    
                     Control(image: "plus") {
                         add = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            session.become.send()
-                        }
                     }
                     .sheet(isPresented: $add) {
-                        Editor(session: $session, board: board)
+                        Editor(session: $session, board: board, card: nil)
                             .padding(.vertical)
                     }
+                    
                     Control(image: "slider.vertical.3") {
                         
                     }
                 }
+                .padding(.bottom)
                 .padding(.leading, fold.count == session[board].count ? 0 : Frame.bar.width)
             }
         }

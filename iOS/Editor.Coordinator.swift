@@ -24,6 +24,10 @@ extension Editor {
             keyboardType = .alphabet
             delegate = self
             
+            wrapper.card.map {
+                text = wrapper.session[wrapper.board][$0.column, $0.index]
+            }
+            
             let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 54), inputViewStyle: .keyboard)
             
             let cancel = UIButton()
@@ -55,6 +59,10 @@ extension Editor {
             wrapper.session.become.sink { [weak self] in
                 self?.becomeFirstResponder()
             }.store(in: &subs)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+                self?.becomeFirstResponder()
+            }
         }
         
         func textViewDidBeginEditing(_: UITextView) {
@@ -76,8 +84,10 @@ extension Editor {
             resignFirstResponder()
             let content = text.trimmingCharacters(in: .whitespacesAndNewlines)
             guard !content.isEmpty else { return }
-            wrapper.session.archive[wrapper.board].card()
-            wrapper.session.archive[wrapper.board][0, 0] = content
+            if wrapper.card == nil {
+                wrapper.session.archive[wrapper.board].card()
+            }
+            wrapper.session.archive[wrapper.board][wrapper.card?.column ?? 0, wrapper.card?.index ?? 0] = content
         }
     }
 }

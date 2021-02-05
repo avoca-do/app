@@ -11,12 +11,13 @@ extension Board {
                     Circle()
                         .fill(Color.clear)
                         .frame(width: 64, height: 64)
-                        .padding(.bottom)
+                    Circle()
+                        .fill(Color(.systemBackground))
+                        .frame(width: 42, height: 42)
                     Circle()
                         .fill(Color.accentColor)
-                        .frame(width: 44, height: 44)
+                        .frame(width: 40, height: 40)
                     Image(systemName: image)
-                        .font(Font.title3)
                         .foregroundColor(.black)
                 }
             }

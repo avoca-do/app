@@ -8,6 +8,8 @@ extension Board.Options {
         let board: Int
         let dismiss: () -> Void
         @State private var move = false
+        @State private var edit = false
+        @State private var delete = false
         
         var body: some View {
             if card != nil {
@@ -31,7 +33,6 @@ extension Board.Options {
                             }
                         }
                         .contentShape(Rectangle())
-                        .padding(.bottom)
                         
                         if session[board][card.column].count > card.index {
                             if card.column < session[board].count - 1 {
@@ -48,12 +49,28 @@ extension Board.Options {
                         .sheet(isPresented: $move) {
                             Board.Move(session: $session, card: $card, board: board)
                         }
+                        
                         Item(text: "Edit", image: "text.redaction") {
-                            
+                            edit = true
                         }
+                        .sheet(isPresented: $edit) {
+                            Editor(session: $session, board: board, card: card)
+                                .padding(.vertical)
+                        }
+                        
                         Item(text: "Delete", image: "trash") {
-                            
+                            delete = true
                         }
+                        .actionSheet(isPresented: $delete) {
+                            .init(title: .init("Delete"),
+                                         message: .init("Remove this card from the board"),
+                                         buttons: [
+                                             .destructive(.init("Delete")) {
+                                                dismiss()
+                                             },
+                                             .cancel()])
+                        }
+                        
                         Spacer()
                     }
                 }
