@@ -7,6 +7,7 @@ extension Board {
         let board: Int
         let local: Namespace.ID
         @State private var settings = false
+        @State private var modify = false
         @State private var add = false
         
         var body: some View {
@@ -28,7 +29,10 @@ extension Board {
                     }
                     
                     Control(image: "line.horizontal.3.decrease") {
-                        
+                        modify = true
+                    }
+                    .sheet(isPresented: $modify) {
+                        Modify(session: $session, board: board)
                     }
                     
                     Control(image: "plus") {

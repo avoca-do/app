@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0E839025CEB912001283C6 /* Board.Modify.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E838F25CEB912001283C6 /* Board.Modify.swift */; };
 		CE1A44EA25C2DCBF002011FA /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44E925C2DCBF002011FA /* Neumorphic.swift */; };
 		CE1A44EE25C2E61D002011FA /* Board.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44ED25C2E61D002011FA /* Board.Control.swift */; };
 		CE1E602125CD9B5C00456852 /* Board.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E602025CD9B5C00456852 /* Board.Settings.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE0E838F25CEB912001283C6 /* Board.Modify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Modify.swift; sourceTree = "<group>"; };
 		CE1A44E925C2DCBF002011FA /* Neumorphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
 		CE1A44ED25C2E61D002011FA /* Board.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Control.swift; sourceTree = "<group>"; };
 		CE1E602025CD9B5C00456852 /* Board.Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Settings.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				CE349F3825CAD46100B3A436 /* Board.Content.swift */,
 				CE1A44ED25C2E61D002011FA /* Board.Control.swift */,
 				CE349F3525CAD3E300B3A436 /* Board.Menu.swift */,
+				CE0E838F25CEB912001283C6 /* Board.Modify.swift */,
 				CE7183BC25CC3D8B00AD02F8 /* Board.Move.Arrow.swift */,
 				CECEEE4A25CC33C500370036 /* Board.Move.Columns.swift */,
 				CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */,
@@ -259,6 +262,7 @@
 				CEA652A225C1CBA60099C82E /* Frame.swift in Sources */,
 				CECEEE4E25CC342B00370036 /* Board.Move.Item.swift in Sources */,
 				CE2507CC25B8733500F9C526 /* Session.swift in Sources */,
+				CE0E839025CEB912001283C6 /* Board.Modify.swift in Sources */,
 				CE2507E025B877FF00F9C526 /* UIApplication.swift in Sources */,
 				CE349F3325CAD29300B3A436 /* Board.Bar.swift in Sources */,
 				CE25079C25B8660900F9C526 /* Window.swift in Sources */,

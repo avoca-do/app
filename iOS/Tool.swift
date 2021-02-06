@@ -21,7 +21,8 @@ struct Tool: View {
                 .foregroundColor(.primary)
             }
             .frame(height: 50)
-            .padding(.horizontal)
+            .contentShape(Rectangle())
         }
+        .padding(.horizontal)
     }
 }

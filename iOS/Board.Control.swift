@@ -20,6 +20,7 @@ extension Board {
                     Image(systemName: image)
                         .foregroundColor(.black)
                 }
+                .contentShape(Rectangle())
             }
         }
     }

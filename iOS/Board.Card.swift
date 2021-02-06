@@ -23,7 +23,6 @@ extension Board {
                                 .frame(minHeight: 6)
                                 .frame(width: Frame.indicator.hidden + Frame.indicator.visible)
                             Text(verbatim: session[board][column, card])
-//                                .font(.footnote)
                                 .foregroundColor(.primary)
                                 .padding(.horizontal)
                             Spacer()
@@ -31,6 +30,7 @@ extension Board {
                         .fixedSize(horizontal: false, vertical: true)
                         .padding(.vertical)
                     }
+                    .contentShape(Rectangle())
                 }
                 .onReceive(session.card) {
                     guard $0 == nil else { return }
