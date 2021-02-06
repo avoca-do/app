@@ -1,7 +1,7 @@
 import Foundation
 
 extension Field {
-    enum Mode {
+    enum Mode: Equatable {
         case
         newBoard,
         newColumn(Int),

@@ -13,7 +13,7 @@ extension Board.Modify {
                 Title(session: $session, title: session[board][column].title)
                 
                 Tool(text: "Rename", image: "text.cursor") {
-                    session.become.send()
+                    session.become.send(.column(board, column))
                 }
                 
                 Tool(text: "Delete", image: "trash") {

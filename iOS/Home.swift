@@ -28,7 +28,7 @@ struct Home: View {
                 }
                 if !session.typing {
                     Neumorphic(image: "plus") {
-                        session.become.send()
+                        session.become.send(.newBoard)
                     }
                 }
             }

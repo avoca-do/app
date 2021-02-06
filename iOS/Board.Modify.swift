@@ -38,7 +38,7 @@ extension Board {
                 Field(session: $session, mode: .newColumn(board))
                     .frame(height: 0)
                 Tool(text: "New column", image: "plus") {
-                    session.become.send()
+                    session.become.send(.newColumn(board))
                 }
                 .padding(.vertical)
             }

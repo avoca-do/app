@@ -6,7 +6,7 @@ struct Session {
     var archive = Archive()
     var typing = false
     let decimal = NumberFormatter()
-    let become = PassthroughSubject<Void, Never>()
+    let become = PassthroughSubject<Field.Mode, Never>()
     let dismiss = PassthroughSubject<Void, Never>()
     let board = PassthroughSubject<Int?, Never>()
     let card = PassthroughSubject<Position?, Never>()

@@ -60,6 +60,7 @@ extension Field {
             input.addSubview(cancel)
             
             wrapper.session.become.sink { [weak self] in
+                guard $0 == wrapper.mode else { return }
                 self?.becomeFirstResponder()
             }.store(in: &subs)
             

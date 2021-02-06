@@ -12,7 +12,7 @@ extension Board {
                 Title(session: $session, title: "Settings")
                 
                 Tool(text: "Rename", image: "text.cursor") {
-                    session.become.send()
+                    session.become.send(.board(board))
                 }
                 
                 Tool(text: "Delete", image: "trash") {
