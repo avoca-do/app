@@ -39,11 +39,17 @@ extension Field {
             input.addSubview(field)
             self.field = field
             
-            if let board = wrapper.board {
+            switch wrapper.mode {
+            case .newBoard:
+                field.placeholder = NSLocalizedString("Kanban Board", comment: "")
+            case .newColumn:
+                field.placeholder = NSLocalizedString("NEW COLUMN", comment: "")
+            case let .board(board):
                 field.text = wrapper.session[board].name
                 field.placeholder = wrapper.session[board].name
-            } else {
-                field.placeholder = NSLocalizedString("My Kanban Board", comment: "")
+            case let .column(board, column):
+                field.text = wrapper.session[board][column].title
+                field.placeholder = wrapper.session[board][column].title
             }
             
             let cancel = UIButton()
@@ -90,10 +96,20 @@ extension Field {
         
         func textFieldShouldReturn(_: UITextField) -> Bool {
             field.resignFirstResponder()
-            if wrapper.board == nil {
+            let text = field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!
+            switch wrapper.mode {
+            case .newBoard:
                 wrapper.session.archive.add()
+                wrapper.session.archive[0].name = text
+            case let .newColumn(board):
+                wrapper.session[board].column()
+                wrapper.session[board].title(column: wrapper.session[board].count - 1, text)
+            case let .board(board):
+                wrapper.session.archive[board].name = text
+            case let .column(board, column):
+                wrapper.session[board].title(column: column, text)
             }
-            wrapper.session.archive[wrapper.board ?? 0].name = field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!
+            
             field.text = nil
             return true
         }

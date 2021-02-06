@@ -30,6 +30,7 @@ extension Board {
                         Spacer()
                     }
                     .matchedGeometryEffect(id: "text\(board)", in: global)
+                    .zIndex(1)
                     ForEach(0 ..< session[board].count, id: \.self) {
                         Column(session: $session, fold: $fold, board: board, column: $0)
                         if $0 < session[board].count - 1 {

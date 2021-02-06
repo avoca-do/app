@@ -29,9 +29,8 @@ extension Board.Column {
                 HStack {
                     VStack {
                         Text(verbatim: session[board][column].title)
-                            .multilineTextAlignment(.center)
-                            .lineLimit(2)
-                            .font(Font.body.bold())
+                            .bold()
+                            .lineLimit(1)
                             .frame(maxWidth: Frame.column.height - 4)
                         Text(NSNumber(value: session[board][column].count), formatter: session.decimal)
                             .lineLimit(1)

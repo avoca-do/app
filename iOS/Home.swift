@@ -7,7 +7,7 @@ struct Home: View {
     var body: some View {
         Color.background
             .edgesIgnoringSafeArea(.all)
-        Field(session: $session, board: nil)
+        Field(session: $session, mode: .newBoard)
         if !session.isEmpty {
             ScrollView {
                 ForEach(0 ..< session.count, id: \.self) {

@@ -30,7 +30,7 @@ extension Board {
                                      .cancel()])
                 }
                 
-                Field(session: $session, board: board)
+                Field(session: $session, mode: .board(board))
                     .frame(height: 0)
                 
                 Spacer()
