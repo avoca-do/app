@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE0E839025CEB912001283C6 /* Board.Modify.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E838F25CEB912001283C6 /* Board.Modify.swift */; };
 		CE0E839425CEC054001283C6 /* Field.Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839325CEC054001283C6 /* Field.Mode.swift */; };
+		CE0E839825CEC741001283C6 /* Board.Modify.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */; };
 		CE1A44EA25C2DCBF002011FA /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44E925C2DCBF002011FA /* Neumorphic.swift */; };
 		CE1A44EE25C2E61D002011FA /* Board.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44ED25C2E61D002011FA /* Board.Control.swift */; };
 		CE1E602125CD9B5C00456852 /* Board.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E602025CD9B5C00456852 /* Board.Settings.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		CE0E838F25CEB912001283C6 /* Board.Modify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Modify.swift; sourceTree = "<group>"; };
 		CE0E839325CEC054001283C6 /* Field.Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.Mode.swift; sourceTree = "<group>"; };
+		CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Modify.Column.swift; sourceTree = "<group>"; };
 		CE1A44E925C2DCBF002011FA /* Neumorphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
 		CE1A44ED25C2E61D002011FA /* Board.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Control.swift; sourceTree = "<group>"; };
 		CE1E602025CD9B5C00456852 /* Board.Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Settings.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				CE349F3825CAD46100B3A436 /* Board.Content.swift */,
 				CE1A44ED25C2E61D002011FA /* Board.Control.swift */,
 				CE349F3525CAD3E300B3A436 /* Board.Menu.swift */,
+				CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */,
 				CE0E838F25CEB912001283C6 /* Board.Modify.swift */,
 				CE7183BC25CC3D8B00AD02F8 /* Board.Move.Arrow.swift */,
 				CECEEE4A25CC33C500370036 /* Board.Move.Columns.swift */,
@@ -290,6 +293,7 @@
 				CE8C6EDD25C31D51007D25FC /* Editor.Coordinator.swift in Sources */,
 				CE7183BD25CC3D8B00AD02F8 /* Board.Move.Arrow.swift in Sources */,
 				CEA955A225C2D5A20019BF90 /* Neumorphic.Style.swift in Sources */,
+				CE0E839825CEC741001283C6 /* Board.Modify.Column.swift in Sources */,
 				CE25079A25B8660900F9C526 /* App.swift in Sources */,
 				CEE61FA525CB0A08007CF830 /* Tool.swift in Sources */,
 				CEE61FA125CAFCFB007CF830 /* Board.Options.swift in Sources */,

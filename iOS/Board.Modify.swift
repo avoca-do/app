@@ -4,23 +4,27 @@ extension Board {
     struct Modify: View {
         @Binding var session: Session
         let board: Int
+        @State private var column: Edit?
         
         var body: some View {
             ScrollView {
                 Title(session: $session, title: "Columns")
-                ForEach(0 ..< session[board].count, id: \.self) { column in
+                    .sheet(item: $column) {
+                        Column(session: $session, board: board, column: $0.id)
+                    }
+                ForEach(0 ..< session[board].count, id: \.self) { index in
                     Button {
-                        
+                        column = .init(id: index)
                     } label: {
                         ZStack {
                             Capsule()
                                 .fill(Color.accentColor)
                             HStack {
-                                Text(verbatim: session[board][column].title)
+                                Text(verbatim: session[board][index].title)
                                     .bold()
                                     .padding(.leading)
                                 Spacer()
-                                Text(NSNumber(value: session[board][column].count), formatter: session.decimal)
+                                Text(NSNumber(value: session[board][index].count), formatter: session.decimal)
                                     .bold()
                                     .padding(.trailing)
                             }
@@ -40,4 +44,8 @@ extension Board {
             }
         }
     }
+}
+
+private struct Edit: Identifiable {
+    let id: Int
 }

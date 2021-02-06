@@ -10,6 +10,8 @@ struct Title: View {
         ZStack {
             Text(title)
                 .bold()
+                .lineLimit(1)
+                .frame(maxWidth: 200)
             HStack {
                 Spacer()
                 Button {
