@@ -39,9 +39,6 @@ extension Board.Column {
                     }
                     .frame(width: Frame.column.height)
                     .contentShape(Rectangle())
-                    .onTapGesture {
-                        fold.insert(column)
-                    }
                     .foregroundColor(.black)
                     .rotationEffect(.radians(.pi / -2), anchor: .leading)
                     .padding(.leading, 20)
@@ -49,6 +46,11 @@ extension Board.Column {
                     .offset(y: Frame.column.height / 2)
                     Spacer()
                 }
+                EmptyView()
+                    .frame(width: Frame.bar.width)
+                    .onTapGesture {
+                        fold.insert(column)
+                    }
             }
         }
     }
