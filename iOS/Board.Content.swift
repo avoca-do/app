@@ -18,7 +18,7 @@ extension Board {
                                 Image(systemName: "xmark")
                                     .foregroundColor(.black)
                                     .font(Font.callout.bold())
-                                    .frame(width: Frame.bar.width, height: 60)
+                                    .frame(width: Frame.bar.width, height: 65)
                             }
                             .contentShape(Rectangle())
                         }

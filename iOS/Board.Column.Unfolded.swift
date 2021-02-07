@@ -11,8 +11,9 @@ extension Board.Column {
             if session[board].count > column {
                 HStack(spacing: 0) {
                     Rectangle()
-                        .fill(Color.accentColor)
+                        .fill(Color.accentColor.opacity(0.01))
                         .frame(width: Frame.bar.width - Frame.indicator.hidden)
+                        .allowsHitTesting(true)
                         .onTapGesture {
                             fold.insert(column)
                         }
@@ -21,6 +22,7 @@ extension Board.Column {
                             HStack {
                                 Spacer()
                             }
+                            .frame(height: 120)
                         } else {
                             ForEach(0 ..< session[board][column].count, id: \.self) {
                                 Board.Card(session: $session, board: board, column: column, card: $0)
@@ -39,11 +41,11 @@ extension Board.Column {
                         Text(verbatim: session[board][column].title)
                             .bold()
                             .lineLimit(1)
-                            .frame(maxWidth: Frame.column.height - 4)
+                            .frame(maxWidth: Frame.column.height - 10)
                         Text(NSNumber(value: session[board][column].count), formatter: session.decimal)
                             .lineLimit(1)
                             .font(.footnote)
-                            .frame(maxWidth: Frame.column.height - 4)
+                            .frame(maxWidth: Frame.column.height - 10)
                     }
                     .frame(width: Frame.column.height)
                     .contentShape(Rectangle())
