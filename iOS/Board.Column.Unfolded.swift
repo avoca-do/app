@@ -9,23 +9,31 @@ extension Board.Column {
         
         var body: some View {
             if session[board].count > column {
-                VStack(spacing: 0) {
-                    if session[board][column].isEmpty {
-                        Spacer()
-                            .frame(height: Frame.column.height)
-                    } else {
-                        ForEach(0 ..< session[board][column].count, id: \.self) {
-                            Board.Card(session: $session, board: board, column: column, card: $0)
-                            if $0 < session[board][column].count - 1 {
-                                Rectangle()
-                                    .fill(Color.accentColor.opacity(0.5))
-                                    .frame(height: 1)
-                                    .padding(.leading, Frame.indicator.hidden)
+                HStack(spacing: 0) {
+                    Rectangle()
+                        .fill(Color.accentColor)
+                        .frame(width: Frame.bar.width - Frame.indicator.hidden)
+                        .onTapGesture {
+                            fold.insert(column)
+                        }
+                    VStack(spacing: 0) {
+                        if session[board][column].isEmpty {
+                            HStack {
+                                Spacer()
+                            }
+                        } else {
+                            ForEach(0 ..< session[board][column].count, id: \.self) {
+                                Board.Card(session: $session, board: board, column: column, card: $0)
+                                if $0 < session[board][column].count - 1 {
+                                    Rectangle()
+                                        .fill(Color.accentColor.opacity(0.5))
+                                        .frame(height: 1)
+                                        .padding(.leading, Frame.indicator.hidden)
+                                }
                             }
                         }
                     }
                 }
-                .padding(.leading, Frame.bar.width - Frame.indicator.hidden)
                 HStack {
                     VStack {
                         Text(verbatim: session[board][column].title)
@@ -46,11 +54,7 @@ extension Board.Column {
                     .offset(y: Frame.column.height / 2)
                     Spacer()
                 }
-                EmptyView()
-                    .frame(width: Frame.bar.width)
-                    .onTapGesture {
-                        fold.insert(column)
-                    }
+                .allowsHitTesting(false)
             }
         }
     }

@@ -6,7 +6,7 @@ struct Frame {
     }
     
     struct column {
-        static let height = CGFloat(150)
+        static let height = CGFloat(180)
     }
     
     struct indicator {
