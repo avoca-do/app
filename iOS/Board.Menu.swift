@@ -48,7 +48,7 @@ extension Board {
                         progress = true
                     }
                     .sheet(isPresented: $progress) {
-                        Progress(session: $session, board: board)
+                        Progress(session: $session, board: board, progress: session[board].progress)
                     }
                 }
                 .padding(.bottom)

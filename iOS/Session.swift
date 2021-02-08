@@ -6,6 +6,7 @@ struct Session {
     var archive = Archive()
     var typing = false
     let decimal = NumberFormatter()
+    let percentage = NumberFormatter()
     let become = PassthroughSubject<Field.Mode, Never>()
     let dismiss = PassthroughSubject<Void, Never>()
     let board = PassthroughSubject<Int?, Never>()
@@ -21,6 +22,7 @@ struct Session {
     
     init() {
         decimal.numberStyle = .decimal
+        percentage.numberStyle = .percent
     }
     
     subscript(_ board: Int) -> Kanban.Board {
