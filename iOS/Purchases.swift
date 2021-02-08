@@ -38,10 +38,6 @@ final class Purchases: NSObject, SKRequestDelegate, SKProductsRequestDelegate, S
         update(updatedTransactions)
     }
     
-    func paymentQueue(_: SKPaymentQueue, removedTransactions: [SKPaymentTransaction]) {
-        update(removedTransactions)
-    }
-    
     func paymentQueue(_: SKPaymentQueue, restoreCompletedTransactionsFailedWithError: Error) {
         DispatchQueue.main.async {
             self.error.value = restoreCompletedTransactionsFailedWithError.localizedDescription

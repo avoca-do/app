@@ -1,10 +1,12 @@
 import SwiftUI
+import Kanban
 
 struct Home: View {
     @Binding var session: Session
     let global: Namespace.ID
     @State private var capacity = false
     @State private var settings = false
+    @State private var alert = false
     
     var body: some View {
         Color.background
@@ -38,7 +40,20 @@ struct Home: View {
                 
                 if !session.typing {
                     Neumorphic(image: "plus") {
-                        session.become.send(.newBoard)
+                        if Defaults.capacity > session.count {
+                            session.become.send(.newBoard)
+                        } else {
+                            alert = true
+                        }
+                    }
+                    .actionSheet(isPresented: $alert) {
+                        .init(title: .init("You have reached your maximum capacity for projects"),
+                                     message: .init("Check Capacity for more details"),
+                                     buttons: [
+                                         .default(.init("Capacity")) {
+                                            session.purchases.open.send()
+                                         },
+                                         .cancel()])
                     }
                 }
             }

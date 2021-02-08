@@ -39,6 +39,16 @@ struct Capacity: View {
             }
             .frame(width: 200, height: 10)
             .padding(.bottom)
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("You can purchase more capacity.")
+                    Text("You could also delete any existing project to free up capacity.")
+                }
+                .foregroundColor(.secondary)
+                .padding(.horizontal)
+                Spacer()
+            }
+            .padding()
             if error != nil {
                 HStack {
                     Spacer()
@@ -70,6 +80,7 @@ struct Capacity: View {
             Spacer()
                 .frame(height: 30)
         }
+        .animation(.easeInOut(duration: 1))
         .onReceive(session.purchases.loading) {
             loading = $0
         }
