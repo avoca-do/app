@@ -12,7 +12,7 @@ extension Board.Column {
                 HStack(spacing: 0) {
                     Rectangle()
                         .fill(Color.accentColor.opacity(0.01))
-                        .frame(width: Frame.bar.width - Frame.indicator.hidden)
+                        .frame(width: Metrics.bar.width - Metrics.indicator.hidden)
                         .allowsHitTesting(true)
                         .onTapGesture {
                             fold.insert(column)
@@ -30,7 +30,7 @@ extension Board.Column {
                                     Rectangle()
                                         .fill(Color.accentColor.opacity(0.5))
                                         .frame(height: 1)
-                                        .padding(.leading, Frame.indicator.hidden)
+                                        .padding(.leading, Metrics.indicator.hidden)
                                 }
                             }
                         }
@@ -41,19 +41,19 @@ extension Board.Column {
                         Text(verbatim: session[board][column].title)
                             .bold()
                             .lineLimit(1)
-                            .frame(maxWidth: Frame.column.height - 10)
+                            .frame(maxWidth: Metrics.column.height - 10)
                         Text(NSNumber(value: session[board][column].count), formatter: session.decimal)
                             .lineLimit(1)
                             .font(.footnote)
-                            .frame(maxWidth: Frame.column.height - 10)
+                            .frame(maxWidth: Metrics.column.height - 10)
                     }
-                    .frame(width: Frame.column.height)
+                    .frame(width: Metrics.column.height)
                     .contentShape(Rectangle())
                     .foregroundColor(.black)
                     .rotationEffect(.radians(.pi / -2), anchor: .leading)
                     .padding(.leading, 20)
                     .padding()
-                    .offset(y: Frame.column.height / 2)
+                    .offset(y: Metrics.column.height / 2)
                     Spacer()
                 }
                 .allowsHitTesting(false)

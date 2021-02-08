@@ -52,7 +52,7 @@ extension Board {
                     }
                 }
                 .padding(.bottom)
-                .padding(.leading, fold.count == session[board].count ? 0 : Frame.bar.width)
+                .padding(.leading, fold.count == session[board].count ? 0 : Metrics.bar.width)
             }
         }
     }

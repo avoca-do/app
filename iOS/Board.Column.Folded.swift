@@ -22,7 +22,7 @@ extension Board.Column {
                 }
                 .padding()
                 .padding(.vertical, 3)
-                .padding(.leading, fold.count == session[board].count ? 0 : Frame.bar.width + Frame.indicator.visible)
+                .padding(.leading, fold.count == session[board].count ? 0 : Metrics.bar.width + Metrics.indicator.visible)
                 .contentShape(Rectangle())
                 .onTapGesture {
                     fold.remove(column)

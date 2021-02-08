@@ -75,7 +75,7 @@ extension Board.Options {
                         Spacer()
                     }
                 }
-                .frame(height: Frame.modal.height)
+                .frame(height: Metrics.modal.height)
             }
         }
     }

@@ -1,6 +1,6 @@
 import CoreGraphics
 
-struct Frame {
+struct Metrics {
     struct bar {
         static let width = CGFloat(60)
     }
@@ -17,5 +17,9 @@ struct Frame {
     struct modal {
         static let height = CGFloat(540)
         static let offset = CGFloat(120)
+    }
+    
+    struct progress {
+        static let stroke = CGFloat(30)
     }
 }

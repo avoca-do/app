@@ -6,7 +6,7 @@ extension Board {
         @Binding var session: Session
         let board: Int
         @State private var card: Position!
-        @State private var offset = CGFloat(Frame.modal.height)
+        @State private var offset = CGFloat(Metrics.modal.height)
         @State private var move = false
         
         var body: some View {
@@ -18,7 +18,7 @@ extension Board {
                     VStack {
                         Spacer()
                         Content(session: $session, card: $card, board: board, dismiss: dismiss)
-                            .offset(y: Frame.modal.offset + offset)
+                            .offset(y: Metrics.modal.offset + offset)
                             .highPriorityGesture(
                                 DragGesture()
                                     .onChanged { gesture in
@@ -54,7 +54,7 @@ extension Board {
         
         private func dismiss() {
             withAnimation(.easeInOut(duration: 0.4)) {
-                offset = Frame.modal.height
+                offset = Metrics.modal.height
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 session.card.send(nil)

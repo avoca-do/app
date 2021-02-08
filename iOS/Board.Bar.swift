@@ -14,7 +14,7 @@ extension Board {
                     HStack {
                         Rectangle()
                             .fill(Color.accentColor)
-                            .frame(width: Frame.bar.width + geo.safeAreaInsets.leading)
+                            .frame(width: Metrics.bar.width + geo.safeAreaInsets.leading)
                             .matchedGeometryEffect(id: "bar\(board)", in: global)
                             .matchedGeometryEffect(id: "close", in: local)
                         Spacer()

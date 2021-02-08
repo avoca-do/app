@@ -29,7 +29,8 @@
 		CE349F3925CAD46100B3A436 /* Board.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3825CAD46100B3A436 /* Board.Content.swift */; };
 		CE48895D25CD7C78003F63AC /* Board.Options.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48895C25CD7C78003F63AC /* Board.Options.Content.swift */; };
 		CE575AF525C1730500A6B28D /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE575AF425C1730500A6B28D /* App.Delegate.swift */; };
-		CE69A58125D15EB600EC9DB0 /* Board.Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A58025D15EB600EC9DB0 /* Board.Progress.swift */; };
+		CE69A58125D15EB600EC9DB0 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A58025D15EB600EC9DB0 /* Progress.swift */; };
+		CE69A58725D1611400EC9DB0 /* Progress.Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */; };
 		CE7183B925CC3CAC00AD02F8 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7183B825CC3CAC00AD02F8 /* Title.swift */; };
 		CE7183BD25CC3D8B00AD02F8 /* Board.Move.Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7183BC25CC3D8B00AD02F8 /* Board.Move.Arrow.swift */; };
 		CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D20725B98FF000D0F4E3 /* Board.swift */; };
@@ -37,7 +38,7 @@
 		CE8C6EDD25C31D51007D25FC /* Editor.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */; };
 		CE8C6EE125C31E87007D25FC /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EE025C31E87007D25FC /* Container.swift */; };
 		CEA1819C25C04DE000552DEF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1819B25C04DE000552DEF /* CloudKit.framework */; };
-		CEA652A225C1CBA60099C82E /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA652A125C1CBA60099C82E /* Frame.swift */; };
+		CEA652A225C1CBA60099C82E /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA652A125C1CBA60099C82E /* Metrics.swift */; };
 		CEA955A225C2D5A20019BF90 /* Neumorphic.Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */; };
 		CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB09ADE25B994AF00BF7AD6 /* Kanban */; };
 		CECEEE4725CC15DF00370036 /* Board.Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4625CC15DF00370036 /* Board.Move.swift */; };
@@ -76,7 +77,8 @@
 		CE349F3825CAD46100B3A436 /* Board.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Content.swift; sourceTree = "<group>"; };
 		CE48895C25CD7C78003F63AC /* Board.Options.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Options.Content.swift; sourceTree = "<group>"; };
 		CE575AF425C1730500A6B28D /* App.Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
-		CE69A58025D15EB600EC9DB0 /* Board.Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Progress.swift; sourceTree = "<group>"; };
+		CE69A58025D15EB600EC9DB0 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
+		CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.Ring.swift; sourceTree = "<group>"; };
 		CE7183B825CC3CAC00AD02F8 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		CE7183BC25CC3D8B00AD02F8 /* Board.Move.Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Arrow.swift; sourceTree = "<group>"; };
 		CE71D20725B98FF000D0F4E3 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
@@ -85,7 +87,7 @@
 		CE8C6EE025C31E87007D25FC /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		CEA1819825C04DD200552DEF /* Avocado.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Avocado.entitlements; sourceTree = "<group>"; };
 		CEA1819B25C04DE000552DEF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
-		CEA652A125C1CBA60099C82E /* Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
+		CEA652A125C1CBA60099C82E /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.Style.swift; sourceTree = "<group>"; };
 		CECEEE4625CC15DF00370036 /* Board.Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.swift; sourceTree = "<group>"; };
 		CECEEE4A25CC33C500370036 /* Board.Move.Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Columns.swift; sourceTree = "<group>"; };
@@ -152,7 +154,6 @@
 				CECEEE4625CC15DF00370036 /* Board.Move.swift */,
 				CE48895C25CD7C78003F63AC /* Board.Options.Content.swift */,
 				CEE61FA025CAFCFB007CF830 /* Board.Options.swift */,
-				CE69A58025D15EB600EC9DB0 /* Board.Progress.swift */,
 				CE1E602025CD9B5C00456852 /* Board.Settings.swift */,
 				CE71D20725B98FF000D0F4E3 /* Board.swift */,
 				CE2507C725B8731100F9C526 /* Color.swift */,
@@ -161,11 +162,13 @@
 				CE2507ED25B87DB300F9C526 /* Field.Coordinator.swift */,
 				CE0E839325CEC054001283C6 /* Field.Mode.swift */,
 				CE2507EA25B87D9800F9C526 /* Field.swift */,
-				CEA652A125C1CBA60099C82E /* Frame.swift */,
 				CEF2D7DA25C058C300223C79 /* Home.Item.swift */,
 				CE2507D825B8771000F9C526 /* Home.swift */,
+				CEA652A125C1CBA60099C82E /* Metrics.swift */,
 				CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */,
 				CE1A44E925C2DCBF002011FA /* Neumorphic.swift */,
+				CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */,
+				CE69A58025D15EB600EC9DB0 /* Progress.swift */,
 				CE2507CB25B8733500F9C526 /* Session.swift */,
 				CE7183B825CC3CAC00AD02F8 /* Title.swift */,
 				CEE61FA425CB0A08007CF830 /* Tool.swift */,
@@ -268,7 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA652A225C1CBA60099C82E /* Frame.swift in Sources */,
+				CEA652A225C1CBA60099C82E /* Metrics.swift in Sources */,
 				CECEEE4E25CC342B00370036 /* Board.Move.Item.swift in Sources */,
 				CE2507CC25B8733500F9C526 /* Session.swift in Sources */,
 				CE0E839025CEB912001283C6 /* Board.Modify.swift in Sources */,
@@ -286,7 +289,7 @@
 				CE2507D925B8771000F9C526 /* Home.swift in Sources */,
 				CE349F2825CAD12000B3A436 /* Board.Column.Folded.swift in Sources */,
 				CE349F2B25CAD17E00B3A436 /* Board.Column.Unfolded.swift in Sources */,
-				CE69A58125D15EB600EC9DB0 /* Board.Progress.swift in Sources */,
+				CE69A58125D15EB600EC9DB0 /* Progress.swift in Sources */,
 				CECEEE4B25CC33C500370036 /* Board.Move.Columns.swift in Sources */,
 				CE2507EE25B87DB300F9C526 /* Field.Coordinator.swift in Sources */,
 				CE349F3925CAD46100B3A436 /* Board.Content.swift in Sources */,
@@ -298,6 +301,7 @@
 				CE7183BD25CC3D8B00AD02F8 /* Board.Move.Arrow.swift in Sources */,
 				CEA955A225C2D5A20019BF90 /* Neumorphic.Style.swift in Sources */,
 				CE0E839825CEC741001283C6 /* Board.Modify.Column.swift in Sources */,
+				CE69A58725D1611400EC9DB0 /* Progress.Ring.swift in Sources */,
 				CE25079A25B8660900F9C526 /* App.swift in Sources */,
 				CEE61FA525CB0A08007CF830 /* Tool.swift in Sources */,
 				CEE61FA125CAFCFB007CF830 /* Board.Options.swift in Sources */,

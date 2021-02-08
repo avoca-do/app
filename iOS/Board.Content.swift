@@ -18,7 +18,7 @@ extension Board {
                                 Image(systemName: "xmark")
                                     .foregroundColor(.black)
                                     .font(Font.callout.bold())
-                                    .frame(width: Frame.bar.width, height: 65)
+                                    .frame(width: Metrics.bar.width, height: 65)
                             }
                             .contentShape(Rectangle())
                         }
@@ -26,7 +26,7 @@ extension Board {
                             .font(Font.title2.bold())
                             .fixedSize(horizontal: false, vertical: true)
                             .padding()
-                            .padding(.leading, fold.count == session[board].count ? 0 : Frame.indicator.visible)
+                            .padding(.leading, fold.count == session[board].count ? 0 : Metrics.indicator.visible)
                         Spacer()
                     }
                     .matchedGeometryEffect(id: "text\(board)", in: global)
@@ -37,7 +37,7 @@ extension Board {
                                 if fold.count < session[board].count {
                                     Rectangle()
                                         .fill(Color.black)
-                                        .frame(width: Frame.bar.width, height: 0.5)
+                                        .frame(width: Metrics.bar.width, height: 0.5)
                                 }
                                 Rectangle()
                                     .fill(Color.accentColor)

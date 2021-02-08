@@ -21,7 +21,7 @@ extension Board {
                             RoundedRectangle(cornerRadius: 3)
                                 .fill(Color.accentColor.opacity(0.8))
                                 .frame(minHeight: 6)
-                                .frame(width: Frame.indicator.hidden + Frame.indicator.visible)
+                                .frame(width: Metrics.indicator.hidden + Metrics.indicator.visible)
                             Text(verbatim: session[board][column, card])
                                 .foregroundColor(.primary)
                                 .padding(.horizontal)
