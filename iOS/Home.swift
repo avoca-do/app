@@ -3,6 +3,7 @@ import SwiftUI
 struct Home: View {
     @Binding var session: Session
     let global: Namespace.ID
+    @State private var settings = false
     
     var body: some View {
         Color.background
@@ -23,9 +24,14 @@ struct Home: View {
                 Neumorphic(image: "square.stack") {
                     
                 }
+                
                 Neumorphic(image: "slider.horizontal.3") {
-                    
+                    settings = true
                 }
+                .sheet(isPresented: $settings) {
+                    Settings(session: $session)
+                }
+                
                 if !session.typing {
                     Neumorphic(image: "plus") {
                         session.become.send(.newBoard)

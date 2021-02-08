@@ -1,5 +1,6 @@
 import UIKit
 import Combine
+import Kanban
 
 extension Editor {
     final class Coordinator: UITextView, UITextViewDelegate {
@@ -17,8 +18,8 @@ extension Editor {
             backgroundColor = .clear
             tintColor = UIColor(named: "AccentColor")!
             autocapitalizationType = .sentences
-            autocorrectionType = .no
-            spellCheckingType = .yes
+            autocorrectionType = Defaults.correction ? .yes : .no
+            spellCheckingType = Defaults.spell ? .yes : .no
             alwaysBounceVertical = true
             allowsEditingTextAttributes = false
             keyboardType = .alphabet

@@ -1,5 +1,6 @@
 import UIKit
 import Combine
+import Kanban
 
 extension Field {
     final class Coordinator: UIView, UIKeyInput, UITextFieldDelegate {
@@ -26,9 +27,9 @@ extension Field {
             let field = UITextField()
             field.translatesAutoresizingMaskIntoConstraints = false
             field.clearButtonMode = .always
-            field.autocorrectionType = .no
+            field.autocorrectionType = Defaults.correction ? .yes : .no
             field.autocapitalizationType = .words
-            field.spellCheckingType = .yes
+            field.spellCheckingType = Defaults.spell ? .yes : .no
             field.backgroundColor = .tertiarySystemFill
             field.tintColor = .main
             field.keyboardType = .alphabet

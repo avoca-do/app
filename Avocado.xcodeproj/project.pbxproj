@@ -31,6 +31,8 @@
 		CE575AF525C1730500A6B28D /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE575AF425C1730500A6B28D /* App.Delegate.swift */; };
 		CE69A58125D15EB600EC9DB0 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A58025D15EB600EC9DB0 /* Progress.swift */; };
 		CE69A58725D1611400EC9DB0 /* Progress.Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */; };
+		CE69A59325D1816300EC9DB0 /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A59225D1816300EC9DB0 /* Switch.swift */; };
+		CE69A59625D1817700EC9DB0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A59525D1817700EC9DB0 /* Settings.swift */; };
 		CE7183B925CC3CAC00AD02F8 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7183B825CC3CAC00AD02F8 /* Title.swift */; };
 		CE7183BD25CC3D8B00AD02F8 /* Board.Move.Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7183BC25CC3D8B00AD02F8 /* Board.Move.Arrow.swift */; };
 		CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D20725B98FF000D0F4E3 /* Board.swift */; };
@@ -79,6 +81,8 @@
 		CE575AF425C1730500A6B28D /* App.Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
 		CE69A58025D15EB600EC9DB0 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.Ring.swift; sourceTree = "<group>"; };
+		CE69A59225D1816300EC9DB0 /* Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
+		CE69A59525D1817700EC9DB0 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CE7183B825CC3CAC00AD02F8 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		CE7183BC25CC3D8B00AD02F8 /* Board.Move.Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Arrow.swift; sourceTree = "<group>"; };
 		CE71D20725B98FF000D0F4E3 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */,
 				CE69A58025D15EB600EC9DB0 /* Progress.swift */,
 				CE2507CB25B8733500F9C526 /* Session.swift */,
+				CE69A59525D1817700EC9DB0 /* Settings.swift */,
+				CE69A59225D1816300EC9DB0 /* Switch.swift */,
 				CE7183B825CC3CAC00AD02F8 /* Title.swift */,
 				CEE61FA425CB0A08007CF830 /* Tool.swift */,
 				CE2507DF25B877FF00F9C526 /* UIApplication.swift */,
@@ -280,6 +286,7 @@
 				CE25079C25B8660900F9C526 /* Window.swift in Sources */,
 				CE575AF525C1730500A6B28D /* App.Delegate.swift in Sources */,
 				CE349F3625CAD3E300B3A436 /* Board.Menu.swift in Sources */,
+				CE69A59325D1816300EC9DB0 /* Switch.swift in Sources */,
 				CE7183B925CC3CAC00AD02F8 /* Title.swift in Sources */,
 				CE0E839425CEC054001283C6 /* Field.Mode.swift in Sources */,
 				CE1A44EA25C2DCBF002011FA /* Neumorphic.swift in Sources */,
@@ -289,6 +296,7 @@
 				CE2507D925B8771000F9C526 /* Home.swift in Sources */,
 				CE349F2825CAD12000B3A436 /* Board.Column.Folded.swift in Sources */,
 				CE349F2B25CAD17E00B3A436 /* Board.Column.Unfolded.swift in Sources */,
+				CE69A59625D1817700EC9DB0 /* Settings.swift in Sources */,
 				CE69A58125D15EB600EC9DB0 /* Progress.swift in Sources */,
 				CECEEE4B25CC33C500370036 /* Board.Move.Columns.swift in Sources */,
 				CE2507EE25B87DB300F9C526 /* Field.Coordinator.swift in Sources */,
