@@ -21,8 +21,8 @@ extension Board.Column {
                         if session[board][column].isEmpty {
                             HStack {
                                 Spacer()
+                                    .padding(.vertical)
                             }
-                            .frame(height: 120)
                         } else {
                             ForEach(0 ..< session[board][column].count, id: \.self) {
                                 Board.Card(session: $session, board: board, column: column, card: $0)

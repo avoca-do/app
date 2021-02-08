@@ -11,7 +11,7 @@ struct Title: View {
             Text(title)
                 .bold()
                 .lineLimit(1)
-                .frame(maxWidth: 200)
+                .frame(maxWidth: 240)
             HStack {
                 Spacer()
                 Button {

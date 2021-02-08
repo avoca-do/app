@@ -9,6 +9,7 @@ extension Board {
         @State private var settings = false
         @State private var modify = false
         @State private var add = false
+        @State private var progress = false
         
         var body: some View {
             VStack {
@@ -44,7 +45,10 @@ extension Board {
                     }
 
                     Control(image: "barometer") {
-                        
+                        progress = true
+                    }
+                    .sheet(isPresented: $progress) {
+                        Progress(session: $session, board: board)
                     }
                 }
                 .padding(.bottom)
