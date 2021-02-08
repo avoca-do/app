@@ -7,14 +7,38 @@ struct Capacity: View {
     @State private var products = [(SKProduct, String)]()
     @State private var error: String?
     @State private var loading = true
+    @AppStorage(Defaults.Key.capacity.rawValue) private var capacity = 1
     @Environment(\.presentationMode) private var visible
     
     var body: some View {
         ScrollView {
             Title(session: $session, title: "Capacity")
             HStack {
-                
+                Group {
+                    Text(NSNumber(value: session.count), formatter: session.decimal) +
+                    Text(verbatim: "/") +
+                    Text(NSNumber(value: capacity), formatter: session.decimal)
+                }
+                .font(Font.title.bold())
+                Text("Projects")
             }
+            ZStack {
+                Capsule()
+                    .fill(Color.background)
+                if session.count >= capacity {
+                    Capsule()
+                        .fill(Color.pink)
+                } else {
+                    HStack {
+                        Capsule()
+                            .fill(Color.accentColor)
+                            .frame(width: CGFloat(session.count) / .init(capacity) * 200)
+                        Spacer()
+                    }
+                }
+            }
+            .frame(width: 200, height: 10)
+            .padding(.bottom)
             if error != nil {
                 HStack {
                     Spacer()
