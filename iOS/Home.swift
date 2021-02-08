@@ -3,6 +3,7 @@ import SwiftUI
 struct Home: View {
     @Binding var session: Session
     let global: Namespace.ID
+    @State private var capacity = false
     @State private var settings = false
     
     var body: some View {
@@ -22,7 +23,10 @@ struct Home: View {
             Spacer()
             HStack {
                 Neumorphic(image: "square.stack") {
-                    
+                    capacity = true
+                }
+                .sheet(isPresented: $capacity) {
+                    Capacity(session: $session)
                 }
                 
                 Neumorphic(image: "slider.horizontal.3") {
@@ -39,6 +43,10 @@ struct Home: View {
                 }
             }
             .padding(.bottom, 20)
+        }
+        .onReceive(session.purchases.open) {
+            session.dismiss.send()
+            capacity = true
         }
     }
 }

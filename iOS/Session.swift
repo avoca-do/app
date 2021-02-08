@@ -5,6 +5,7 @@ import Kanban
 struct Session {
     var archive = Archive()
     var typing = false
+    let purchases = Purchases()
     let decimal = NumberFormatter()
     let percentage = NumberFormatter()
     let become = PassthroughSubject<Field.Mode, Never>()

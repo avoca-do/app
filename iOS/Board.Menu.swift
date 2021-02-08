@@ -54,6 +54,14 @@ extension Board {
                 .padding(.bottom)
                 .padding(.leading, fold.count == session[board].count ? 0 : Metrics.bar.width)
             }
+            .onReceive(session.purchases.open) {
+                session.dismiss.send()
+                session.card.send(nil)
+                session.board.send(nil)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    session.purchases.open.send()
+                }
+            }
         }
     }
 }
