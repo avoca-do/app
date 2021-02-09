@@ -13,7 +13,32 @@ struct Home: View {
             .edgesIgnoringSafeArea(.all)
         Field(session: $session, mode: .newBoard)
         if session.isEmpty {
-            
+            VStack {
+                Spacer()
+                Image("logo")
+                    .offset(y: -40)
+                Text(verbatim: "Avocado")
+                    .font(Font.largeTitle.bold())
+                    .offset(y: -70)
+                if !session.typing {
+                    Button(action: add) {
+                        ZStack {
+                            Capsule()
+                                .fill(Color.accentColor)
+                            Text("Get Started")
+                                .font(.headline)
+                                .foregroundColor(.black)
+                                .padding()
+                                .padding(.horizontal)
+                        }
+                        .fixedSize()
+                        .contentShape(Rectangle())
+                    }
+                    .offset(y: -50)
+                    .padding(.bottom, 40)
+                }
+                Spacer()
+            }
         } else {
             ScrollView {
                 ForEach(0 ..< session.count, id: \.self) {
@@ -43,22 +68,16 @@ struct Home: View {
                 }
                 
                 if !session.typing {
-                    Neumorphic(image: "plus") {
-                        if Defaults.capacity > session.count {
-                            session.become.send(.newBoard)
-                        } else {
-                            alert = true
+                    Neumorphic(image: "plus", action: add)
+                        .actionSheet(isPresented: $alert) {
+                            .init(title: .init("You have reached your maximum capacity for projects"),
+                                         message: .init("Check Capacity for more details"),
+                                         buttons: [
+                                             .default(.init("Capacity")) {
+                                                session.purchases.open.send()
+                                             },
+                                             .cancel()])
                         }
-                    }
-                    .actionSheet(isPresented: $alert) {
-                        .init(title: .init("You have reached your maximum capacity for projects"),
-                                     message: .init("Check Capacity for more details"),
-                                     buttons: [
-                                         .default(.init("Capacity")) {
-                                            session.purchases.open.send()
-                                         },
-                                         .cancel()])
-                    }
                 }
             }
             .padding(.bottom, 20)
@@ -66,6 +85,14 @@ struct Home: View {
         .onReceive(session.purchases.open) {
             session.dismiss.send()
             capacity = true
+        }
+    }
+    
+    private func add() {
+        if Defaults.capacity > session.count {
+            session.become.send(.newBoard)
+        } else {
+            alert = true
         }
     }
 }
