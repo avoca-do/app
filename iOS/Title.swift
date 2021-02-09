@@ -15,6 +15,7 @@ struct Title: View {
             HStack {
                 Spacer()
                 Button {
+                    UIApplication.shared.resign()
                     visible.wrappedValue.dismiss()
                 } label: {
                     Image(systemName: "xmark")

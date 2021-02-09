@@ -14,6 +14,7 @@ extension Board {
                     }
                 ForEach(0 ..< session[board].count, id: \.self) { index in
                     Button {
+                        UIApplication.shared.resign()
                         column = .init(id: index)
                     } label: {
                         ZStack {

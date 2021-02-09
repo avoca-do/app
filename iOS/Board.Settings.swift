@@ -16,6 +16,7 @@ extension Board {
                 }
                 
                 Tool(text: "Delete", image: "trash") {
+                    UIApplication.shared.resign()
                     delete = true
                 }
                 .actionSheet(isPresented: $delete) {

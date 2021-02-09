@@ -12,7 +12,9 @@ struct Home: View {
         Color.background
             .edgesIgnoringSafeArea(.all)
         Field(session: $session, mode: .newBoard)
-        if !session.isEmpty {
+        if session.isEmpty {
+            
+        } else {
             ScrollView {
                 ForEach(0 ..< session.count, id: \.self) {
                     Item(session: $session, board: $0, global: global)
@@ -25,6 +27,7 @@ struct Home: View {
             Spacer()
             HStack {
                 Neumorphic(image: "square.stack") {
+                    UIApplication.shared.resign()
                     capacity = true
                 }
                 .sheet(isPresented: $capacity) {
@@ -32,6 +35,7 @@ struct Home: View {
                 }
                 
                 Neumorphic(image: "slider.horizontal.3") {
+                    UIApplication.shared.resign()
                     settings = true
                 }
                 .sheet(isPresented: $settings) {

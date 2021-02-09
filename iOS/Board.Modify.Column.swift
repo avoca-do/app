@@ -19,6 +19,7 @@ extension Board.Modify {
                 }
                 
                 Tool(text: "Delete", image: "trash") {
+                    UIApplication.shared.resign()
                     delete = true
                 }
                 .opacity(session[board].count > 1 ? 1 : 0.3)

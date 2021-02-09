@@ -80,7 +80,7 @@ struct Capacity: View {
             Spacer()
                 .frame(height: 30)
         }
-        .animation(.easeInOut(duration: 1))
+        .animation(.easeInOut(duration: 0.3))
         .onReceive(session.purchases.loading) {
             loading = $0
         }
