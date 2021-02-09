@@ -8,7 +8,7 @@ extension Board.Column {
         let column: Int
         
         var body: some View {
-            if session[board].count > column {
+            if session.count > board, session[board].count > column {
                 HStack(spacing: 0) {
                     Rectangle()
                         .fill(Color.accentColor.opacity(0.01))

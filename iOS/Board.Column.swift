@@ -9,7 +9,7 @@ extension Board {
         
         var body: some View {
             ZStack {
-                if column % 2 != 0 {
+                if session.count > board, column % 2 != 0 {
                     Color.background
                         .padding(.leading, fold.count == session[board].count ? 0 : Metrics.bar.width)
                 }

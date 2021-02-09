@@ -9,7 +9,7 @@ extension Board {
         let local: Namespace.ID
         
         var body: some View {
-            if fold.count < session[board].count {
+            if session.count > board, fold.count < session[board].count {
                 GeometryReader { geo in
                     HStack {
                         Rectangle()

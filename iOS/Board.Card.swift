@@ -9,7 +9,7 @@ extension Board {
         @State private var selected = false
         
         var body: some View {
-            if session[board][column].count > card {
+            if session.count > board, session[board][column].count > card {
                 Button {
                     selected = true
                     session.card.send(.init(column: column, index: card))
