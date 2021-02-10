@@ -35,7 +35,26 @@ final class Purchases: NSObject, SKRequestDelegate, SKProductsRequestDelegate, S
     }
     
     func paymentQueue(_: SKPaymentQueue, updatedTransactions: [SKPaymentTransaction]) {
-        update(updatedTransactions)
+        guard !updatedTransactions.contains(where: { $0.transactionState == .purchasing }) else { return }
+        updatedTransactions.forEach { transation in
+            switch transation.transactionState {
+            case .failed:
+                DispatchQueue.main.async {
+                    self.error.value = NSLocalizedString("Purchase failed", comment: "")
+                }
+            case .purchased:
+                DispatchQueue.main.async {
+                    switch Item(rawValue: transation.payment.productIdentifier)! {
+                    case .plus_one: Defaults.capacity += 1
+                    }
+                }
+            default: break
+            }
+            SKPaymentQueue.default().finishTransaction(transation)
+        }
+        DispatchQueue.main.async {
+            self.loading.value = false
+        }
     }
     
     func paymentQueue(_: SKPaymentQueue, restoreCompletedTransactionsFailedWithError: Error) {
@@ -74,29 +93,6 @@ final class Purchases: NSObject, SKRequestDelegate, SKProductsRequestDelegate, S
     func request(_: SKRequest, didFailWithError: Error) {
         DispatchQueue.main.async {
             self.error.value = didFailWithError.localizedDescription
-        }
-    }
-    
-    private func update(_ transactions: [SKPaymentTransaction]) {
-        guard !transactions.contains(where: { $0.transactionState == .purchasing }) else { return }
-        transactions.forEach { transation in
-            switch transation.transactionState {
-            case .failed:
-                DispatchQueue.main.async {
-                    self.error.value = NSLocalizedString("Purchase failed", comment: "")
-                }
-            case .purchased:
-                DispatchQueue.main.async {
-                    switch Item(rawValue: transation.payment.productIdentifier)! {
-                    case .plus_one: Defaults.capacity += 1
-                    }
-                }
-            default: break
-            }
-            SKPaymentQueue.default().finishTransaction(transation)
-        }
-        DispatchQueue.main.async {
-            self.loading.value = false
         }
     }
 }
