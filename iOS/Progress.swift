@@ -35,7 +35,7 @@ struct Progress: View {
                     Text(NSNumber(value: progress.cards), formatter: session.decimal)
                         .font(Font.title2.bold())
                         .padding(.leading)
-                    Text("Cards")
+                    Text(progress.cards == 1 ? "Card" : "Cards")
                         .font(.footnote)
                     Spacer()
                     Text(NSNumber(value: progress.percentage), formatter: session.percentage)

@@ -3,8 +3,8 @@ import Combine
 import Kanban
 
 struct Session {
-    var archive = Archive()
     var typing = false
+    var archive = Archive()
     let purchases = Purchases()
     let decimal = NumberFormatter()
     let percentage = NumberFormatter()

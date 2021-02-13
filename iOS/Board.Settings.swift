@@ -9,7 +9,9 @@ extension Board {
         
         var body: some View {
             VStack {
-                Title(session: $session, title: "Settings")
+                if session.count > board {
+                    Title(session: $session, title: session[board].name)
+                }
                 
                 Tool(text: "Rename", image: "text.cursor") {
                     session.become.send(.board(board))
