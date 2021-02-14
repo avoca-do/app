@@ -11,43 +11,15 @@ struct Home: View {
     var body: some View {
         Color.background
             .edgesIgnoringSafeArea(.all)
-        Field(session: $session, mode: .newBoard)
-        if session.isEmpty {
-            VStack {
-                Spacer()
-                Image("logo")
-                    .offset(y: -40)
-                Text(verbatim: "Avocado")
-                    .font(Font.largeTitle.bold())
-                    .offset(y: -70)
-                if !session.typing {
-                    Button(action: add) {
-                        ZStack {
-                            Capsule()
-                                .fill(Color.accentColor)
-                            Text("Get Started")
-                                .font(.headline)
-                                .foregroundColor(.black)
-                                .padding()
-                                .padding(.horizontal)
-                        }
-                        .fixedSize()
-                        .contentShape(Rectangle())
-                    }
-                    .offset(y: -50)
-                    .padding(.bottom, 40)
-                }
-                Spacer()
+        ScrollView {
+            ForEach(0 ..< session.archive.count(.archive), id: \.self) {
+                Item(session: $session, path: session.path.down($0), global: global)
             }
-        } else {
-            ScrollView {
-                ForEach(0 ..< session.count, id: \.self) {
-                    Item(session: $session, board: $0, global: global)
-                }
-                Spacer()
-                    .frame(height: 100)
-            }
+            Spacer()
+                .frame(height: 100)
         }
+        Field(session: $session, mode: .newBoard)
+            .frame(width: 0, height: 0)
         VStack {
             Spacer()
             HStack {
@@ -89,7 +61,7 @@ struct Home: View {
     }
     
     private func add() {
-        if Defaults.capacity > session.count {
+        if session.archive.available {
             session.become.send(.newBoard)
         } else {
             alert = true

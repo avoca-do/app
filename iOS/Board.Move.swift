@@ -4,40 +4,42 @@ import Kanban
 extension Board {
     struct Move: View {
         @Binding var session: Session
-        @Binding var card: Position!
+        @Binding var card: Position?
         let board: Int
         
         var body: some View {
             VStack {
-                Title(session: $session, title: "Move")
-                Columns(session: $session, card: $card, board: board)
-                Spacer()
-                    .frame(height: 40)
-                if card.index > 0 {
-                    Item(session: $session, card: $card, board: board, offset: -1)
-                }
-                Item(session: $session, card: $card, board: board, offset: 0)
-                if card.index < session[board][card.column].count - 1 {
-                    Item(session: $session, card: $card, board: board, offset: 1)
-                }
-                Spacer()
-                HStack {
-                    Arrow(active: card.index > 0, image: "arrow.up") {
-                        update(vertical: .init(column: card.column, index: card.index - 1))
+                if card != nil {
+                    Title(session: $session, title: "Move")
+                    Columns(session: $session, card: $card, board: board)
+                    Spacer()
+                        .frame(height: 40)
+                    if card.index > 0 {
+                        Item(session: $session, card: $card, board: board, offset: -1)
                     }
+                    Item(session: $session, card: $card, board: board, offset: 0)
+                    if card.index < session[board][card.column].count - 1 {
+                        Item(session: $session, card: $card, board: board, offset: 1)
+                    }
+                    Spacer()
+                    HStack {
+                        Arrow(active: card.index > 0, image: "arrow.up") {
+                            update(vertical: .init(column: card.column, index: card.index - 1))
+                        }
+                    }
+                    HStack {
+                        Arrow(active: card.column > 0, image: "arrow.left") {
+                            update(horizontal: .init(column: card.column - 1, index: 0))
+                        }
+                        Arrow(active: card.index < session[board][card.column].count - 1, image: "arrow.down") {
+                            update(vertical: .init(column: card.column, index: card.index + 1))
+                        }
+                        Arrow(active: card.column < session[board].count - 1, image: "arrow.right") {
+                            update(horizontal: .init(column: card.column + 1, index: 0))
+                        }
+                    }
+                    .padding(.bottom, 40)
                 }
-                HStack {
-                    Arrow(active: card.column > 0, image: "arrow.left") {
-                        update(horizontal: .init(column: card.column - 1, index: 0))
-                    }
-                    Arrow(active: card.index < session[board][card.column].count - 1, image: "arrow.down") {
-                        update(vertical: .init(column: card.column, index: card.index + 1))
-                    }
-                    Arrow(active: card.column < session[board].count - 1, image: "arrow.right") {
-                        update(horizontal: .init(column: card.column + 1, index: 0))
-                    }
-                }
-                .padding(.bottom, 40)
             }
             .animation(.easeInOut(duration: 0.4))
         }

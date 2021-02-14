@@ -4,30 +4,28 @@ import Kanban
 extension Board {
     struct Options: View {
         @Binding var session: Session
-        let board: Int
-        @State private var card: Position!
         @State private var offset = CGFloat(Metrics.modal.height)
         @State private var move = false
         
         var body: some View {
             ZStack {
-                if card != nil {
+                if case let card = session.path {
                     Color.black.opacity(0.5)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture(perform: dismiss)
                     VStack {
                         Spacer()
-                        Content(session: $session, card: $card, board: board, dismiss: dismiss)
+                        Content(session: $session, dismiss: dismiss)
                             .offset(y: Metrics.modal.offset + offset)
                             .highPriorityGesture(
                                 DragGesture()
                                     .onChanged { gesture in
                                         withAnimation(.easeInOut(duration: 0.2)) {
-                                            offset = max(gesture.translation.height, -100)
+                                            offset = max(gesture.translation.height, Metrics.modal.min)
                                         }
                                     }
                                     .onEnded {
-                                        if $0.translation.height > 100 {
+                                        if $0.translation.height > Metrics.modal.max {
                                             dismiss()
                                         } else {
                                             withAnimation(.easeInOut(duration: 0.3)) {
@@ -40,15 +38,14 @@ extension Board {
                     .edgesIgnoringSafeArea(.bottom)
                 }
             }
-            .onReceive(session.card) { new in
-                if new != nil {
+            .onChange(of: session.path) {
+                if case let .card = $0 {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         withAnimation(.easeInOut(duration: 0.5)) {
                             offset = 0
                         }
                     }
                 }
-                card = new
             }
         }
         
@@ -57,7 +54,7 @@ extension Board {
                 offset = Metrics.modal.height
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                session.card.send(nil)
+                session.path = session.path.up
             }
         }
     }

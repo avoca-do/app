@@ -1,24 +1,25 @@
 import SwiftUI
+import Kanban
 
 extension Home {
     struct Item: View {
         @Binding var session: Session
-        let board: Int
+        let path: Kanban.Path
         let global: Namespace.ID
         @State private var date = ""
         
         var body: some View {
             Button {
                 UIApplication.shared.resign()
-                session.board.send(board)
+                session.path = path
             } label: {
                 ZStack {
                     Capsule()
                         .fill(Color.accentColor)
-                        .matchedGeometryEffect(id: "bar\(board)", in: global)
+                        .matchedGeometryEffect(id: "bar\(path)", in: global)
                     HStack {
                         VStack(alignment: .leading) {
-                            Text(verbatim: session[board].name)
+                            Text(verbatim: session.archive[name: path])
                                 .font(.headline)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .foregroundColor(.black)
@@ -30,19 +31,19 @@ extension Home {
                         Spacer()
                     }
                     .padding()
-                    .matchedGeometryEffect(id: "text\(board)", in: global)
+                    .matchedGeometryEffect(id: "text\(path)", in: global)
                 }
                 .contentShape(Rectangle())
             }
             .padding(.horizontal)
             .onAppear(perform: refresh)
-            .onChange(of: session.count) { _ in
+            .onChange(of: session.archive.count(session.path)) { _ in
                 refresh()
             }
         }
         
         private func refresh() {
-            date = RelativeDateTimeFormatter().localizedString(for: session[board].date, relativeTo: .init())
+            date = RelativeDateTimeFormatter().localizedString(for: session.archive.date(path), relativeTo: .init())
         }
     }
 }

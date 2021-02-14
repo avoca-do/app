@@ -13,8 +13,7 @@ import Kanban
                     guard $0.date > session.archive.date else { return }
                     UIApplication.shared.resign()
                     session.dismiss.send()
-                    session.card.send(nil)
-                    session.board.send(nil)
+                    session.path = .archive
                     session.archive = $0
                 }
         }
