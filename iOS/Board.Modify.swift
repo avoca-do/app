@@ -4,7 +4,6 @@ import Kanban
 extension Board {
     struct Modify: View {
         @Binding var session: Session
-        let board: Int
         @State private var path: Kanban.Path?
         
         var body: some View {

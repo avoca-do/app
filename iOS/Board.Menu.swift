@@ -55,8 +55,7 @@ extension Board {
             }
             .onReceive(session.purchases.open) {
                 session.dismiss.send()
-                session.card.send(nil)
-                session.board.send(nil)
+                session.path = .archive
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     session.purchases.open.send()
                 }

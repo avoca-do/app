@@ -3,8 +3,7 @@ import Kanban
 
 struct Progress: View {
     @Binding var session: Session
-    let board: Int
-    let progress: Kanban.Board.Progress
+    let progress: Kanban.Progress
     
     var body: some View {
         ZStack {
@@ -21,7 +20,7 @@ struct Progress: View {
                 VStack {
                     Text(NSNumber(value: progress.done), formatter: session.decimal)
                         .font(Font.largeTitle.bold())
-                    Text(verbatim: session[board][session[board].count - 1].title)
+                    Text(verbatim: session.archive[title: .column(session.path.board, session.archive.count(session.path.board) - 1)])
                         .bold()
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: 180)
@@ -29,7 +28,7 @@ struct Progress: View {
             }
             .padding()
             VStack {
-                Title(session: $session, title: session[board].name)
+                Title(session: $session, title: session.archive[name: session.path])
                 Spacer()
                 HStack {
                     Text(NSNumber(value: progress.cards), formatter: session.decimal)
