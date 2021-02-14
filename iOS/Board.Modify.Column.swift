@@ -1,41 +1,39 @@
 import SwiftUI
+import Kanban
 
 extension Board.Modify {
     struct Column: View {
         @Binding var session: Session
-        let board: Int
-        let column: Int
+        let path: Kanban.Path
         @State private var delete = false
         @Environment(\.presentationMode) private var visible
         
         var body: some View {
             VStack {
-                if session[board].count > column {
-                    Title(session: $session, title: session[board][column].title)
-                }
+                Title(session: $session, title: session.archive[title: path])
                 
                 Tool(text: "Rename", image: "text.cursor") {
-                    session.become.send(.column(board, column))
+                    session.become.send(.edit(path))
                 }
                 
                 Tool(text: "Delete", image: "trash") {
                     UIApplication.shared.resign()
                     delete = true
                 }
-                .opacity(session[board].count > 1 ? 1 : 0.3)
-                .allowsHitTesting(session[board].count > 1)
+                .opacity(session.archive.count(session.path.board) > 1 ? 1 : 0.3)
+                .allowsHitTesting(session.archive.count(session.path.board) > 1)
                 .actionSheet(isPresented: $delete) {
                     .init(title: .init("Delete"),
                                  message: .init("Remove this column"),
                                  buttons: [
                                      .destructive(.init("Delete")) {
-                                        session[board].drop(column: column)
+                                        session.archive.drop(path)
                                         visible.wrappedValue.dismiss()
                                      },
                                      .cancel()])
                 }
                 
-                Field(session: $session, mode: .column(board, column))
+                Field(session: $session, write: .edit(path))
                     .frame(height: 0)
                 
                 Spacer()

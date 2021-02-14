@@ -4,54 +4,50 @@ import Kanban
 extension Board {
     struct Move: View {
         @Binding var session: Session
-        @Binding var card: Position?
-        let board: Int
         
         var body: some View {
             VStack {
-                if card != nil {
-                    Title(session: $session, title: "Move")
-                    Columns(session: $session, card: $card, board: board)
-                    Spacer()
-                        .frame(height: 40)
-                    if card.index > 0 {
-                        Item(session: $session, card: $card, board: board, offset: -1)
-                    }
-                    Item(session: $session, card: $card, board: board, offset: 0)
-                    if card.index < session[board][card.column].count - 1 {
-                        Item(session: $session, card: $card, board: board, offset: 1)
-                    }
-                    Spacer()
-                    HStack {
-                        Arrow(active: card.index > 0, image: "arrow.up") {
-                            update(vertical: .init(column: card.column, index: card.index - 1))
-                        }
-                    }
-                    HStack {
-                        Arrow(active: card.column > 0, image: "arrow.left") {
-                            update(horizontal: .init(column: card.column - 1, index: 0))
-                        }
-                        Arrow(active: card.index < session[board][card.column].count - 1, image: "arrow.down") {
-                            update(vertical: .init(column: card.column, index: card.index + 1))
-                        }
-                        Arrow(active: card.column < session[board].count - 1, image: "arrow.right") {
-                            update(horizontal: .init(column: card.column + 1, index: 0))
-                        }
-                    }
-                    .padding(.bottom, 40)
+                Title(session: $session, title: "Move")
+                Columns(session: $session)
+                Spacer()
+                    .frame(height: 40)
+                if session.path._card > 0 {
+                    Item(session: $session, offset: -1)
                 }
+                Item(session: $session, offset: 0)
+                if session.path._card < session.archive.count(session.path.column) - 1 {
+                    Item(session: $session, offset: 1)
+                }
+                Spacer()
+                HStack {
+                    Arrow(active: session.path._card > 0, image: "arrow.up") {
+                        update(vertical: session.path._card - 1)
+                    }
+                }
+                HStack {
+                    Arrow(active: session.path._column > 0, image: "arrow.left") {
+                        update(horizontal: session.path._column - 1)
+                    }
+                    Arrow(active: session.path._card < session.archive.count(session.path.column) - 1, image: "arrow.down") {
+                        update(vertical: session.path._card + 1)
+                    }
+                    Arrow(active: session.path._column < session.archive.count(session.path.board) - 1, image: "arrow.right") {
+                        update(horizontal: session.path._column + 1)
+                    }
+                }
+                .padding(.bottom, 40)
             }
             .animation(.easeInOut(duration: 0.4))
         }
         
-        private func update(vertical position: Position) {
-            session[board][vertical: card.column, card.index] = position.index
-            card = position
+        private func update(vertical position: Int) {
+            session.archive.move(session.path, vertical: position)
+            session.path = .card(session.path.column, position)
         }
         
-        private func update(horizontal position: Position) {
-            session[board][horizontal: card.column, card.index] = position.column
-            card = position
+        private func update(horizontal position: Int) {
+            session.archive.move(session.path, horizontal: position)
+            session.path = .card(.column(session.path.board, position), 0)
         }
     }
 }

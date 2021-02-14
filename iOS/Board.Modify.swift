@@ -1,31 +1,32 @@
 import SwiftUI
+import Kanban
 
 extension Board {
     struct Modify: View {
         @Binding var session: Session
         let board: Int
-        @State private var column: Edit?
+        @State private var path: Kanban.Path?
         
         var body: some View {
             ScrollView {
                 Title(session: $session, title: "Columns")
-                    .sheet(item: $column) {
-                        Column(session: $session, board: board, column: $0.id)
+                    .sheet(item: $path) {
+                        Column(session: $session, path: $0)
                     }
-                ForEach(0 ..< session[board].count, id: \.self) { index in
+                ForEach(0 ..< session.archive.count(session.path.board), id: \.self) { index in
                     Button {
                         UIApplication.shared.resign()
-                        column = .init(id: index)
+                        path = .column(session.path.board, index)
                     } label: {
                         ZStack {
                             Capsule()
                                 .fill(Color.accentColor)
                             HStack {
-                                Text(verbatim: session[board][index].title)
+                                Text(verbatim: session.archive[title: .column(session.path.board, index)])
                                     .bold()
                                     .padding(.leading)
                                 Spacer()
-                                Text(NSNumber(value: session[board][index].count), formatter: session.decimal)
+                                Text(NSNumber(value: session.archive.count(.column(session.path.board, index))), formatter: session.decimal)
                                     .bold()
                                     .padding(.trailing)
                             }
@@ -36,17 +37,13 @@ extension Board {
                     }
                     .padding(.horizontal)
                 }
-                Field(session: $session, mode: .newColumn(board))
+                Field(session: $session, write: .new(session.path.board))
                     .frame(height: 0)
                 Tool(text: "New column", image: "plus") {
-                    session.become.send(.newColumn(board))
+                    session.become.send(.new(session.path.board))
                 }
                 .padding(.vertical)
             }
         }
     }
-}
-
-private struct Edit: Identifiable {
-    let id: Int
 }

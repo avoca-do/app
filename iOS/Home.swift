@@ -19,7 +19,7 @@ struct Home: View {
                 .frame(height: 100)
         }
         Field(session: $session, write: .new(.archive))
-            .frame(width: 0, height: 0)
+            .frame(height: 0)
         VStack {
             Spacer()
             HStack {

@@ -34,7 +34,7 @@ extension Board.Options {
                     if session.path._column < session.archive.count(session.path.board) - 1 {
                         Tool(text: "Move to " + session.archive[title: .column(session.path.board, session.path._column + 1)],
                              image: "arrow.right") {
-                            session[board][horizontal: card.column, card.index] = card.column + 1
+                            session.archive.move(session.path, horizontal: session.path._column + 1)
                             dismiss()
                         }
                     }
@@ -43,14 +43,14 @@ extension Board.Options {
                         move = true
                     }
                     .sheet(isPresented: $move, onDismiss: dismiss) {
-                        Board.Move(session: $session, card: $card, board: board)
+                        Board.Move(session: $session)
                     }
                     
                     Tool(text: "Edit", image: "text.redaction") {
                         edit = true
                     }
                     .sheet(isPresented: $edit, onDismiss: dismiss) {
-                        Editor(session: $session, board: board, card: card)
+                        Editor(session: $session, write: .edit(session.path))
                             .padding(.vertical)
                     }
                     
@@ -62,7 +62,7 @@ extension Board.Options {
                                      message: .init("Remove this card from the board"),
                                      buttons: [
                                          .destructive(.init("Delete")) {
-                                            session[board].remove(column: card.column, index: card.index)
+                                            session.archive.remove(session.path)
                                             dismiss()
                                          },
                                          .cancel()])

@@ -4,22 +4,20 @@ import Kanban
 extension Board.Move {
     struct Columns: View {
         @Binding var session: Session
-        @Binding var card: Position?
-        let board: Int
         
         var body: some View {
             HStack {
                 HStack {
                     Spacer()
-                    if card.column > 0 {
-                        Text(verbatim: session[board][card.column - 1].title)
+                    if session.path._column > 0 {
+                        Text(verbatim: session.archive[title: .column(session.path.board, session.path._column - 1)])
                             .font(.footnote)
                             .foregroundColor(.secondary)
                             .padding(.trailing)
                     }
                 }
                 VStack {
-                    Text(verbatim: session[board][card.column].title)
+                    Text(verbatim: session.archive[title: session.path])
                         .font(Font.body.bold())
                         .frame(maxWidth: 160)
                         .padding(.horizontal)
@@ -29,8 +27,8 @@ extension Board.Move {
                 }
                 .fixedSize()
                 HStack {
-                    if card.column < session[board].count - 1 {
-                        Text(verbatim: session[board][card.column + 1].title)
+                    if session.path._column < session.archive.count(session.path.board) - 1 {
+                        Text(verbatim: session.archive[title: .column(session.path.board, session.path._column + 1)])
                             .font(.footnote)
                             .foregroundColor(.secondary)
                             .padding(.leading)
