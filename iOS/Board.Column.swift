@@ -1,22 +1,22 @@
 import SwiftUI
+import Kanban
 
 extension Board {
     struct Column: View {
         @Binding var session: Session
         @Binding var fold: Set<Int>
-        let board: Int
-        let column: Int
+        let path: Kanban.Path
         
         var body: some View {
             ZStack {
-                if session.count > board, column % 2 != 0 {
+                if path._column % 2 != 0 {
                     Color.background
-                        .padding(.leading, fold.count == session[board].count ? 0 : Metrics.bar.width)
+                        .padding(.leading, fold.count == session.archive.count(session.path.board) ? 0 : Metrics.bar.width)
                 }
-                if fold.contains(column) {
-                    Folded(session: $session, fold: $fold, board: board, column: column)
+                if fold.contains(path._column) {
+                    Folded(session: $session, fold: $fold, path: path)
                 } else {
-                    Unfolded(session: $session, fold: $fold, board: board, column: column)
+                    Unfolded(session: $session, fold: $fold, path: path)
                 }
             }
         }

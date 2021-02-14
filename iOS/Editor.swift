@@ -3,8 +3,7 @@ import Kanban
 
 struct Editor: UIViewRepresentable {
     @Binding var session: Session
-    let board: Int
-    let card: Position?
+    let write: Write
     @Environment(\.presentationMode) var visible
     
     func makeCoordinator() -> Coordinator {

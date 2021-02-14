@@ -31,8 +31,9 @@ extension Board.Options {
                     .contentShape(Rectangle())
                     .padding(.top, 10)
                     
-                    if card.column < session[board].count - 1 {
-                        Tool(text: "Move to " + session[board][card.column + 1].title, image: "arrow.right") {
+                    if session.path._column < session.archive.count(session.path.board) - 1 {
+                        Tool(text: "Move to " + session.archive[title: .column(session.path.board, session.path._column + 1)],
+                             image: "arrow.right") {
                             session[board][horizontal: card.column, card.index] = card.column + 1
                             dismiss()
                         }

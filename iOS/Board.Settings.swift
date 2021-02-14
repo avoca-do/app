@@ -3,18 +3,15 @@ import SwiftUI
 extension Board {
     struct Settings: View {
         @Binding var session: Session
-        let board: Int
         @State private var delete = false
         @Environment(\.presentationMode) private var visible
         
         var body: some View {
             VStack {
-                if session.count > board {
-                    Title(session: $session, title: session[board].name)
-                }
+                Title(session: $session, title: session.archive[name: session.path])
                 
                 Tool(text: "Rename", image: "text.cursor") {
-                    session.become.send(.board(board))
+                    session.become.send(.edit(session.path))
                 }
                 
                 Tool(text: "Delete", image: "trash") {
@@ -26,14 +23,14 @@ extension Board {
                                  message: .init("Remove this board"),
                                  buttons: [
                                      .destructive(.init("Delete")) {
-                                        session.archive.delete(board: board)
+                                        session.archive.delete(session.path)
                                         visible.wrappedValue.dismiss()
-                                        session.board.send(nil)
+                                        session.path = .archive
                                      },
                                      .cancel()])
                 }
                 
-                Field(session: $session, mode: .board(board))
+                Field(session: $session, write: .edit(session.path))
                     .frame(height: 0)
                 
                 Spacer()

@@ -16,7 +16,7 @@ extension Home {
                 ZStack {
                     Capsule()
                         .fill(Color.accentColor)
-                        .matchedGeometryEffect(id: "bar\(path)", in: global)
+                        .matchedGeometryEffect(id: "bar\(path._board)", in: global)
                     HStack {
                         VStack(alignment: .leading) {
                             Text(verbatim: session.archive[name: path])
@@ -31,7 +31,7 @@ extension Home {
                         Spacer()
                     }
                     .padding()
-                    .matchedGeometryEffect(id: "text\(path)", in: global)
+                    .matchedGeometryEffect(id: "text\(path._board)", in: global)
                 }
                 .contentShape(Rectangle())
             }

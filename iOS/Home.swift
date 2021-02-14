@@ -13,12 +13,12 @@ struct Home: View {
             .edgesIgnoringSafeArea(.all)
         ScrollView {
             ForEach(0 ..< session.archive.count(.archive), id: \.self) {
-                Item(session: $session, path: session.path.down($0), global: global)
+                Item(session: $session, path: .board($0), global: global)
             }
             Spacer()
                 .frame(height: 100)
         }
-        Field(session: $session, mode: .newBoard)
+        Field(session: $session, write: .new(.archive))
             .frame(width: 0, height: 0)
         VStack {
             Spacer()
@@ -62,7 +62,7 @@ struct Home: View {
     
     private func add() {
         if session.archive.available {
-            session.become.send(.newBoard)
+            session.become.send(.new(.archive))
         } else {
             alert = true
         }

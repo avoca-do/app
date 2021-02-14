@@ -9,7 +9,7 @@ struct Session {
     let purchases = Purchases()
     let decimal = NumberFormatter()
     let percentage = NumberFormatter()
-    let become = PassthroughSubject<Field.Mode, Never>()
+    let become = PassthroughSubject<Write, Never>()
     let dismiss = PassthroughSubject<Void, Never>()
     
     init() {

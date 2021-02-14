@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE0E839025CEB912001283C6 /* Board.Modify.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E838F25CEB912001283C6 /* Board.Modify.swift */; };
-		CE0E839425CEC054001283C6 /* Field.Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839325CEC054001283C6 /* Field.Mode.swift */; };
+		CE0E839425CEC054001283C6 /* Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839325CEC054001283C6 /* Write.swift */; };
 		CE0E839825CEC741001283C6 /* Board.Modify.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */; };
 		CE1A44EA25C2DCBF002011FA /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44E925C2DCBF002011FA /* Neumorphic.swift */; };
 		CE1A44EE25C2E61D002011FA /* Board.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44ED25C2E61D002011FA /* Board.Control.swift */; };
@@ -61,7 +61,7 @@
 
 /* Begin PBXFileReference section */
 		CE0E838F25CEB912001283C6 /* Board.Modify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Modify.swift; sourceTree = "<group>"; };
-		CE0E839325CEC054001283C6 /* Field.Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.Mode.swift; sourceTree = "<group>"; };
+		CE0E839325CEC054001283C6 /* Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Write.swift; sourceTree = "<group>"; };
 		CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Modify.Column.swift; sourceTree = "<group>"; };
 		CE1A44E925C2DCBF002011FA /* Neumorphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
 		CE1A44ED25C2E61D002011FA /* Board.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Control.swift; sourceTree = "<group>"; };
@@ -177,7 +177,6 @@
 				CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */,
 				CE8C6ED225C31A4E007D25FC /* Editor.swift */,
 				CE2507ED25B87DB300F9C526 /* Field.Coordinator.swift */,
-				CE0E839325CEC054001283C6 /* Field.Mode.swift */,
 				CE2507EA25B87D9800F9C526 /* Field.swift */,
 				CEF2D7DA25C058C300223C79 /* Home.Item.swift */,
 				CE2507D825B8771000F9C526 /* Home.swift */,
@@ -195,6 +194,7 @@
 				CEE61FA425CB0A08007CF830 /* Tool.swift */,
 				CE2507DF25B877FF00F9C526 /* UIApplication.swift */,
 				CE25079B25B8660900F9C526 /* Window.swift */,
+				CE0E839325CEC054001283C6 /* Write.swift */,
 				CE25079D25B8660A00F9C526 /* Assets.xcassets */,
 			);
 			path = iOS;
@@ -304,7 +304,7 @@
 				CE349F3625CAD3E300B3A436 /* Board.Menu.swift in Sources */,
 				CE69A59325D1816300EC9DB0 /* Switch.swift in Sources */,
 				CE7183B925CC3CAC00AD02F8 /* Title.swift in Sources */,
-				CE0E839425CEC054001283C6 /* Field.Mode.swift in Sources */,
+				CE0E839425CEC054001283C6 /* Write.swift in Sources */,
 				CE1A44EA25C2DCBF002011FA /* Neumorphic.swift in Sources */,
 				CECEEE4725CC15DF00370036 /* Board.Move.swift in Sources */,
 				CE2507EB25B87D9800F9C526 /* Field.swift in Sources */,

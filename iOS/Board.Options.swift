@@ -9,7 +9,7 @@ extension Board {
         
         var body: some View {
             ZStack {
-                if case let card = session.path {
+                if case .card = session.path {
                     Color.black.opacity(0.5)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture(perform: dismiss)
@@ -39,7 +39,7 @@ extension Board {
                 }
             }
             .onChange(of: session.path) {
-                if case let .card = $0 {
+                if case .card = $0 {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         withAnimation(.easeInOut(duration: 0.5)) {
                             offset = 0
@@ -54,7 +54,7 @@ extension Board {
                 offset = Metrics.modal.height
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                session.path = session.path.up
+                session.path = session.path.board
             }
         }
     }
