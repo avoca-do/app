@@ -23,7 +23,7 @@ extension Purchases {
 Permanently increase your projects capacity by one.
 Your capacity won't expire, you can create and delete projects as many times as you want.
 
-This purchase is consumable and you can purchase it many times but can't be restored.
+This purchase is consumable and you can purchase it many times.
 """, comment: "")
             }
         }
