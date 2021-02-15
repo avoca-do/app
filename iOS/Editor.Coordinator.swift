@@ -91,9 +91,9 @@ extension Editor {
             switch wrapper.write {
             case let .new(path):
                 switch path {
-                case .card:
+                case .board:
                     wrapper.session.archive.card(path)
-                    wrapper.session.archive[content: .card(.column(path.board, 0), 0)] = content
+                    wrapper.session.archive[content: .card(.column(path, 0), 0)] = content
                 default: break
                 }
             case let .edit(path):

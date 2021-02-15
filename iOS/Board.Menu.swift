@@ -39,7 +39,7 @@ extension Board {
                         add = true
                     }
                     .sheet(isPresented: $add) {
-                        Editor(session: $session, write: .edit(session.path.board))
+                        Editor(session: $session, write: .new(session.path.board))
                             .padding(.vertical)
                     }
 
