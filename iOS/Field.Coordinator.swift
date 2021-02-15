@@ -40,17 +40,24 @@ extension Field {
             input.addSubview(field)
             self.field = field
             
-            switch wrapper.mode {
-            case .newBoard:
-                field.placeholder = NSLocalizedString("Kanban Board", comment: "")
-            case .newColumn:
-                field.placeholder = NSLocalizedString("NEW COLUMN", comment: "")
-            case let .board(board):
-                field.text = wrapper.session[board].name
-                field.placeholder = wrapper.session[board].name
-            case let .column(board, column):
-                field.text = wrapper.session[board][column].title
-                field.placeholder = wrapper.session[board][column].title
+            switch wrapper.write {
+            case let .new(path):
+                switch path {
+                case .archive:
+                    field.placeholder = NSLocalizedString("Kanban Board", comment: "")
+                case .board:
+                    field.placeholder = NSLocalizedString("NEW COLUMN", comment: "")
+                default: break
+                }
+            case let .edit(path):
+                switch path {
+                case .board:
+                    field.text = wrapper.session.archive[name: path]
+                case .column:
+                    field.text = wrapper.session.archive[title: path]
+                default: break
+                }
+                field.placeholder = field.text
             }
             
             let cancel = UIButton()
@@ -61,7 +68,7 @@ extension Field {
             input.addSubview(cancel)
             
             wrapper.session.become.sink { [weak self] in
-                guard $0 == wrapper.mode else { return }
+                guard $0 == wrapper.write else { return }
                 self?.becomeFirstResponder()
             }.store(in: &subs)
             
@@ -99,17 +106,27 @@ extension Field {
         func textFieldShouldReturn(_: UITextField) -> Bool {
             field.resignFirstResponder()
             let text = field.text.flatMap { $0.isEmpty ? nil : $0 } ?? field.placeholder!
-            switch wrapper.mode {
-            case .newBoard:
-                wrapper.session.archive.add()
-                wrapper.session.archive[0].name = text
-            case let .newColumn(board):
-                wrapper.session[board].column()
-                wrapper.session[board].title(column: wrapper.session[board].count - 1, text)
-            case let .board(board):
-                wrapper.session.archive[board].name = text
-            case let .column(board, column):
-                wrapper.session[board].title(column: column, text)
+            
+            switch wrapper.write {
+            case let .new(path):
+                switch path {
+                case .archive:
+                    wrapper.session.archive.add()
+                    wrapper.session.archive[name: .board(0)] = text
+                case .board:
+                    wrapper.session.archive.column(path)
+                    wrapper.session.archive[title: .column(path, wrapper.session.archive.count(path) - 1)] = text
+                default: break
+                }
+            case let .edit(path):
+                switch path {
+                case .board:
+                    wrapper.session.archive[name: path] = text
+                case .column:
+                    wrapper.session.archive[title: path] = text
+                default: break
+                }
+                field.placeholder = field.text
             }
             
             field.text = nil

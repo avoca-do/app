@@ -15,7 +15,7 @@ struct Capacity: View {
             Title(session: $session, title: "Capacity")
             HStack {
                 Group {
-                    Text(NSNumber(value: session.count), formatter: session.decimal) +
+                    Text(NSNumber(value: session.archive.count(.archive)), formatter: session.decimal) +
                     Text(verbatim: "/") +
                     Text(NSNumber(value: capacity), formatter: session.decimal)
                 }
@@ -25,16 +25,16 @@ struct Capacity: View {
             ZStack {
                 Capsule()
                     .fill(Color.background)
-                if session.count >= capacity {
-                    Capsule()
-                        .fill(Color.pink)
-                } else {
+                if session.archive.available {
                     HStack {
                         Capsule()
                             .fill(Color.accentColor)
-                            .frame(width: CGFloat(session.count) / .init(capacity) * 200)
+                            .frame(width: .init(session.archive.count(.archive)) / .init(capacity) * 200)
                         Spacer()
                     }
+                } else {
+                    Capsule()
+                        .fill(Color.pink)
                 }
             }
             .frame(width: 200, height: 10)

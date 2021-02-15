@@ -25,8 +25,14 @@ extension Editor {
             keyboardType = .alphabet
             delegate = self
             
-            wrapper.card.map {
-                text = wrapper.session[wrapper.board][$0.column, $0.index]
+            switch wrapper.write {
+            case let .edit(path):
+                switch path {
+                case .card:
+                    text = wrapper.session.archive[content: path]
+                default: break
+                }
+            default: break
             }
             
             let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 54), inputViewStyle: .keyboard)
@@ -81,10 +87,22 @@ extension Editor {
             resignFirstResponder()
             let content = text.trimmingCharacters(in: .whitespacesAndNewlines)
             guard !content.isEmpty else { return }
-            if wrapper.card == nil {
-                wrapper.session.archive[wrapper.board].card()
+            
+            switch wrapper.write {
+            case let .new(path):
+                switch path {
+                case .card:
+                    wrapper.session.archive.card(path)
+                    wrapper.session.archive[content: .card(.column(path.board, 0), 0)] = content
+                default: break
+                }
+            case let .edit(path):
+                switch path {
+                case .card:
+                    wrapper.session.archive[content: path] = content
+                default: break
+                }
             }
-            wrapper.session.archive[wrapper.board][wrapper.card?.column ?? 0, wrapper.card?.index ?? 0] = content
         }
     }
 }
