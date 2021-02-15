@@ -22,6 +22,7 @@ extension Capacity {
                             Capsule()
                                 .fill(Color.blue)
                             Text("Purchase")
+                                .font(.callout)
                                 .foregroundColor(.white)
                                 .padding(.vertical, 10)
                         }
