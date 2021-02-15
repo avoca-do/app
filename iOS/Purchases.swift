@@ -57,21 +57,9 @@ final class Purchases: NSObject, SKRequestDelegate, SKProductsRequestDelegate, S
         }
     }
     
-    func paymentQueue(_: SKPaymentQueue, restoreCompletedTransactionsFailedWithError: Error) {
-        DispatchQueue.main.async {
-            self.error.value = restoreCompletedTransactionsFailedWithError.localizedDescription
-        }
-    }
-    
     func paymentQueue(_: SKPaymentQueue, shouldAddStorePayment: SKPayment, for: SKProduct) -> Bool {
         open.send()
         return true
-    }
-    
-    func paymentQueueRestoreCompletedTransactionsFinished(_: SKPaymentQueue) {
-        DispatchQueue.main.async {
-            self.loading.value = false
-        }
     }
     
     func productsRequest(_: SKProductsRequest, didReceive: SKProductsResponse) {

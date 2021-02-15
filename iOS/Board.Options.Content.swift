@@ -35,7 +35,8 @@ extension Board.Options {
                         Tool(text: "Move to " + session.archive[title: .column(session.path.board, session.path._column + 1)],
                              image: "arrow.right") {
                             session.archive.move(session.path, horizontal: session.path._column + 1)
-                            dismiss()
+                            session.path = .card(.column(session.path.board, session.path._column + 1), 0)
+//                            dismiss()
                         }
                     }
                     

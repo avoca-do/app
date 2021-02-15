@@ -9,7 +9,6 @@ extension Board {
         
         var body: some View {
             Button {
-                selected = true
                 session.path = path
             } label: {
                 ZStack {
@@ -31,8 +30,16 @@ extension Board {
                 .contentShape(Rectangle())
             }
             .onChange(of: session.path) { [old = session.path] in
-                guard old == path, $0 != path else { return }
-                selected = false
+                if old == path && $0 != path {
+                   selected = false
+                } else if old != path && $0 == path {
+                    selected = true
+                }
+            }
+            .onAppear {
+                if session.path == path {
+                    selected = true
+                }
             }
         }
     }

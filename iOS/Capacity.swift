@@ -7,7 +7,6 @@ struct Capacity: View {
     @State private var products = [(SKProduct, String)]()
     @State private var error: String?
     @State private var loading = true
-    @AppStorage(Defaults.Key.capacity.rawValue) private var capacity = 1
     @Environment(\.presentationMode) private var visible
     
     var body: some View {
@@ -17,7 +16,7 @@ struct Capacity: View {
                 Group {
                     Text(NSNumber(value: session.archive.count(.archive)), formatter: session.decimal) +
                     Text(verbatim: "/") +
-                    Text(NSNumber(value: capacity), formatter: session.decimal)
+                        Text(NSNumber(value: Defaults.capacity), formatter: session.decimal)
                 }
                 .font(Font.title.bold())
                 Text("Projects")
@@ -29,7 +28,7 @@ struct Capacity: View {
                     HStack {
                         Capsule()
                             .fill(Color.accentColor)
-                            .frame(width: .init(session.archive.count(.archive)) / .init(capacity) * 200)
+                            .frame(width: CGFloat(min(session.archive.count(.archive), Defaults.capacity)) / .init(Defaults.capacity) * 200)
                         Spacer()
                     }
                 } else {
