@@ -103,6 +103,7 @@
 		CEA1819B25C04DE000552DEF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CEA652A125C1CBA60099C82E /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.Style.swift; sourceTree = "<group>"; };
+		CEB8E56925DAA0C6009737AB /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		CECEEE4625CC15DF00370036 /* Board.Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.swift; sourceTree = "<group>"; };
 		CECEEE4A25CC33C500370036 /* Board.Move.Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Columns.swift; sourceTree = "<group>"; };
 		CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Item.swift; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 				CE6D659C25D1A1060017FE07 /* Settings.bundle */,
 				CEA1819825C04DD200552DEF /* Avocado.entitlements */,
 				CE2507A225B8660A00F9C526 /* Info.plist */,
+				CEB8E56925DAA0C6009737AB /* Configuration.storekit */,
 				CE575AF425C1730500A6B28D /* App.Delegate.swift */,
 				CE25079925B8660900F9C526 /* App.swift */,
 				CE349F3225CAD29300B3A436 /* Board.Bar.swift */,
