@@ -108,7 +108,7 @@
 		CE8C6ED225C31A4E007D25FC /* Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.swift; sourceTree = "<group>"; };
 		CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.Coordinator.swift; sourceTree = "<group>"; };
 		CE8C6EE025C31E87007D25FC /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
-		CE99E67525DBFE9F00E0EA36 /* macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE99E67525DBFE9F00E0EA36 /* Avocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE99E67725DBFE9F00E0EA36 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CE99E67B25DBFEA000E0EA36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE99E68025DBFEA000E0EA36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				CE25079625B8660900F9C526 /* Avocado.app */,
-				CE99E67525DBFE9F00E0EA36 /* macOS.app */,
+				CE99E67525DBFE9F00E0EA36 /* Avocado.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -304,7 +304,7 @@
 				CE99E68D25DC01AB00E0EA36 /* Kanban */,
 			);
 			productName = macOS;
-			productReference = CE99E67525DBFE9F00E0EA36 /* macOS.app */;
+			productReference = CE99E67525DBFE9F00E0EA36 /* Avocado.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -691,7 +691,6 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = avoca.do;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 			};
@@ -731,7 +730,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = avoca.do;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
 			name = Release;
