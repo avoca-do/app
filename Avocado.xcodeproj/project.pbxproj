@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE0B3C3825DC2AAE00317754 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0B3C3725DC2AAE00317754 /* Window.swift */; };
+		CE0B3C3D25DC3A2A00317754 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
 		CE0E839025CEB912001283C6 /* Board.Modify.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E838F25CEB912001283C6 /* Board.Modify.swift */; };
 		CE0E839425CEC054001283C6 /* Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839325CEC054001283C6 /* Write.swift */; };
 		CE0E839825CEC741001283C6 /* Board.Modify.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */; };
@@ -360,6 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0B3C3D25DC3A2A00317754 /* Media.xcassets in Resources */,
 				CE99E67C25DBFEA000E0EA36 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
