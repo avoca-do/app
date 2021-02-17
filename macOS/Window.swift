@@ -17,5 +17,16 @@ final class Window: NSWindow {
         accesory.layoutAttribute = .top
         addTitlebarAccessoryViewController(accesory)
 
+        let sidebar = Sidebar()
+        contentView!.addSubview(sidebar)
+        
+        sidebar.topAnchor.constraint(equalTo: contentView!.topAnchor).isActive = true
+        sidebar.bottomAnchor.constraint(equalTo: contentView!.bottomAnchor).isActive = true
+        sidebar.leftAnchor.constraint(equalTo: contentView!.leftAnchor).isActive = true
+    }
+    
+    override func close() {
+        super.close()
+        NSApp.terminate(nil)
     }
 }

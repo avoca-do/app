@@ -15,6 +15,7 @@
 		CE1A44EA25C2DCBF002011FA /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44E925C2DCBF002011FA /* Neumorphic.swift */; };
 		CE1A44EE25C2E61D002011FA /* Board.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44ED25C2E61D002011FA /* Board.Control.swift */; };
 		CE1E602125CD9B5C00456852 /* Board.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E602025CD9B5C00456852 /* Board.Settings.swift */; };
+		CE221B9C25DD39AF00EFA20B /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221B9B25DD39AF00EFA20B /* Sidebar.swift */; };
 		CE25079A25B8660900F9C526 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25079925B8660900F9C526 /* App.swift */; };
 		CE25079C25B8660900F9C526 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25079B25B8660900F9C526 /* Window.swift */; };
 		CE25079E25B8660A00F9C526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE25079D25B8660A00F9C526 /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		CE1A44E925C2DCBF002011FA /* Neumorphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
 		CE1A44ED25C2E61D002011FA /* Board.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Control.swift; sourceTree = "<group>"; };
 		CE1E602025CD9B5C00456852 /* Board.Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Settings.swift; sourceTree = "<group>"; };
+		CE221B9B25DD39AF00EFA20B /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		CE25079625B8660900F9C526 /* Avocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE25079925B8660900F9C526 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CE25079B25B8660900F9C526 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				CE99E68125DBFEA000E0EA36 /* macOS.entitlements */,
 				CE99E68025DBFEA000E0EA36 /* Info.plist */,
 				CE99E67725DBFE9F00E0EA36 /* App.swift */,
+				CE221B9B25DD39AF00EFA20B /* Sidebar.swift */,
 				CE0B3C3725DC2AAE00317754 /* Window.swift */,
 				CE99E67B25DBFEA000E0EA36 /* Assets.xcassets */,
 			);
@@ -426,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE99E67825DBFE9F00E0EA36 /* App.swift in Sources */,
+				CE221B9C25DD39AF00EFA20B /* Sidebar.swift in Sources */,
 				CE0B3C3825DC2AAE00317754 /* Window.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

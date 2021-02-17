@@ -7,10 +7,6 @@ import AppKit
         delegate = self
     }
     
-    func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool {
-        true
-    }
-    
     func applicationWillFinishLaunching(_: Notification) {
 //        mainMenu = Menu()
         Window().makeKeyAndOrderFront(nil)
