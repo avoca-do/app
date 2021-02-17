@@ -29,4 +29,14 @@ final class Window: NSWindow {
         super.close()
         NSApp.terminate(nil)
     }
+    
+    override func becomeKey() {
+        super.becomeKey()
+        contentView!.alphaValue = 1
+    }
+    
+    override func resignKey() {
+        super.resignKey()
+        contentView!.alphaValue = 0.5
+    }
 }
