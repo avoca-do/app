@@ -2,6 +2,7 @@ import AppKit
 
 final class Sidebar: NSVisualEffectView {
     private(set) weak var projects: Item!
+    private(set) weak var capacity: Item!
     
     required init?(coder: NSCoder) { nil }
     init() {
@@ -13,9 +14,17 @@ final class Sidebar: NSVisualEffectView {
         addSubview(projects)
         self.projects = projects
         
+        let capacity = Item(title: NSLocalizedString("Capacity", comment: ""), icon: "square.stack")
+        addSubview(capacity)
+        self.capacity = capacity
+        
         widthAnchor.constraint(equalToConstant: 150).isActive = true
         
+        [projects, capacity].forEach {
+            $0.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        }
+        
         projects.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
-        projects.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        capacity.topAnchor.constraint(equalTo: projects.bottomAnchor, constant: 5).isActive = true
     }
 }

@@ -29,5 +29,16 @@ extension Sidebar {
             text.topAnchor.constraint(equalTo: topAnchor, constant: 6).isActive = true
             text.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -4).isActive = true
         }
+        
+        override func update() {
+            switch state {
+            case .selected:
+                layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.15).cgColor
+            case .highlighted:
+                layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
+            default:
+                layer!.backgroundColor = .clear
+            }
+        }
     }
 }
