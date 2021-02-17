@@ -13,7 +13,6 @@ import Kanban
         Memory.shared.archive.sink {
             guard $0.date > Session.shared.archive.value.date else { return }
             Session.shared.archive.value = $0
-            Session.shared.dismiss.send()
         }.store(in: &subs)
     }
     
