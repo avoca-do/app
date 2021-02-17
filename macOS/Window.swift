@@ -8,18 +8,13 @@ final class Window: NSWindow {
     init() {
         super.init(contentRect: .init(x: 0, y: 0, width: NSScreen.main!.frame.width * 0.6, height: NSScreen.main!.frame.height * 0.6),
                    styleMask: [.closable, .miniaturizable, .resizable, .titled, .fullSizeContentView], backing: .buffered, defer: false)
-        minSize = .init(width: 400, height: 200)
+        minSize = .init(width: 800, height: 400)
         toolbar = .init()
         titlebarAppearsTransparent = true
         collectionBehavior = .fullScreenNone
         isReleasedWhenClosed = false
         center()
         setFrameAutosaveName("Window")
-        
-        let accesory = NSTitlebarAccessoryViewController()
-        accesory.view = NSView()
-        accesory.layoutAttribute = .top
-        addTitlebarAccessoryViewController(accesory)
 
         let sidebar = Sidebar()
         
@@ -62,10 +57,27 @@ final class Window: NSWindow {
     
     private func projects() {
         select(sidebar.projects)
+        show(Projects())
     }
     
     private func capacity() {
         select(sidebar.capacity)
+        show(Capacity())
+    }
+    
+    private func show(_ view: NSView) {
+        contentView!.subviews.filter {
+            !($0 is Sidebar)
+        }.forEach {
+            $0.removeFromSuperview()
+        }
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        contentView!.addSubview(view)
+        view.topAnchor.constraint(equalTo: contentView!.topAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: contentView!.bottomAnchor).isActive = true
+        view.leftAnchor.constraint(equalTo: sidebar.rightAnchor).isActive = true
+        view.rightAnchor.constraint(equalTo: contentView!.rightAnchor).isActive = true
     }
     
     private func select(_ item: Sidebar.Item) {

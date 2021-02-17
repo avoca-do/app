@@ -19,8 +19,13 @@
 		CE221BA225DD3D3E00EFA20B /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221BA125DD3D3E00EFA20B /* Sidebar.Item.swift */; };
 		CE221BA625DD3D6000EFA20B /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221BA525DD3D6000EFA20B /* Control.swift */; };
 		CE221BAA25DD3D6900EFA20B /* Control.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221BA925DD3D6900EFA20B /* Control.State.swift */; };
-		CE221BB025DD3DFA00EFA20B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221BAF25DD3DFA00EFA20B /* Font.swift */; };
 		CE221BB425DD3E8900EFA20B /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221BB325DD3E8900EFA20B /* Text.swift */; };
+		CE221BBE25DD552E00EFA20B /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221BBD25DD552E00EFA20B /* Projects.swift */; };
+		CE221BC225DD55A400EFA20B /* Projects.Middlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221BC125DD55A400EFA20B /* Projects.Middlebar.swift */; };
+		CE221BCA25DD563400EFA20B /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221BC925DD563400EFA20B /* Metrics.swift */; };
+		CE221BD025DD5A5E00EFA20B /* Projects.Middlebar.Titlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221BCF25DD5A5E00EFA20B /* Projects.Middlebar.Titlebar.swift */; };
+		CE221BD425DD5B2A00EFA20B /* Control.Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221BD325DD5B2A00EFA20B /* Control.Icon.swift */; };
+		CE221BF325DD6C1900EFA20B /* Capacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221BF225DD6C1900EFA20B /* Capacity.swift */; };
 		CE25079A25B8660900F9C526 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25079925B8660900F9C526 /* App.swift */; };
 		CE25079C25B8660900F9C526 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25079B25B8660900F9C526 /* Window.swift */; };
 		CE25079E25B8660A00F9C526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE25079D25B8660A00F9C526 /* Assets.xcassets */; };
@@ -85,8 +90,13 @@
 		CE221BA125DD3D3E00EFA20B /* Sidebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Item.swift; sourceTree = "<group>"; };
 		CE221BA525DD3D6000EFA20B /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		CE221BA925DD3D6900EFA20B /* Control.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.State.swift; sourceTree = "<group>"; };
-		CE221BAF25DD3DFA00EFA20B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		CE221BB325DD3E8900EFA20B /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		CE221BBD25DD552E00EFA20B /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
+		CE221BC125DD55A400EFA20B /* Projects.Middlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Middlebar.swift; sourceTree = "<group>"; };
+		CE221BC925DD563400EFA20B /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		CE221BCF25DD5A5E00EFA20B /* Projects.Middlebar.Titlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Middlebar.Titlebar.swift; sourceTree = "<group>"; };
+		CE221BD325DD5B2A00EFA20B /* Control.Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.Icon.swift; sourceTree = "<group>"; };
+		CE221BF225DD6C1900EFA20B /* Capacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.swift; sourceTree = "<group>"; };
 		CE25079625B8660900F9C526 /* Avocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE25079925B8660900F9C526 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CE25079B25B8660900F9C526 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
@@ -259,9 +269,14 @@
 				CE99E68125DBFEA000E0EA36 /* macOS.entitlements */,
 				CE99E68025DBFEA000E0EA36 /* Info.plist */,
 				CE99E67725DBFE9F00E0EA36 /* App.swift */,
+				CE221BF225DD6C1900EFA20B /* Capacity.swift */,
+				CE221BD325DD5B2A00EFA20B /* Control.Icon.swift */,
 				CE221BA925DD3D6900EFA20B /* Control.State.swift */,
 				CE221BA525DD3D6000EFA20B /* Control.swift */,
-				CE221BAF25DD3DFA00EFA20B /* Font.swift */,
+				CE221BC925DD563400EFA20B /* Metrics.swift */,
+				CE221BC125DD55A400EFA20B /* Projects.Middlebar.swift */,
+				CE221BCF25DD5A5E00EFA20B /* Projects.Middlebar.Titlebar.swift */,
+				CE221BBD25DD552E00EFA20B /* Projects.swift */,
 				CE221BA125DD3D3E00EFA20B /* Sidebar.Item.swift */,
 				CE221B9B25DD39AF00EFA20B /* Sidebar.swift */,
 				CE221BB325DD3E8900EFA20B /* Text.swift */,
@@ -443,12 +458,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE221BBE25DD552E00EFA20B /* Projects.swift in Sources */,
 				CE221BA225DD3D3E00EFA20B /* Sidebar.Item.swift in Sources */,
+				CE221BCA25DD563400EFA20B /* Metrics.swift in Sources */,
+				CE221BD425DD5B2A00EFA20B /* Control.Icon.swift in Sources */,
+				CE221BF325DD6C1900EFA20B /* Capacity.swift in Sources */,
 				CE99E67825DBFE9F00E0EA36 /* App.swift in Sources */,
 				CE221BB425DD3E8900EFA20B /* Text.swift in Sources */,
-				CE221BB025DD3DFA00EFA20B /* Font.swift in Sources */,
+				CE221BC225DD55A400EFA20B /* Projects.Middlebar.swift in Sources */,
 				CE221BAA25DD3D6900EFA20B /* Control.State.swift in Sources */,
 				CE221BA625DD3D6000EFA20B /* Control.swift in Sources */,
+				CE221BD025DD5A5E00EFA20B /* Projects.Middlebar.Titlebar.swift in Sources */,
 				CE221B9C25DD39AF00EFA20B /* Sidebar.swift in Sources */,
 				CE0B3C3825DC2AAE00317754 /* Window.swift in Sources */,
 			);

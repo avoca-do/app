@@ -16,7 +16,6 @@ class Control: NSView {
     init() {
         super.init(frame: .zero)
         wantsLayer = true
-        layer!.cornerRadius = 6
         translatesAutoresizingMaskIntoConstraints = false
         setAccessibilityElement(true)
         setAccessibilityRole(.button)
@@ -53,21 +52,5 @@ class Control: NSView {
         }
     }
     
-    func update() {
-        switch state {
-        case .off:
-            alphaValue = 0.3
-        default:
-            alphaValue = 1
-        }
-        
-        switch state {
-        case .highlighted:
-            layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
-        case .pressed:
-            layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.1).cgColor
-        default:
-            layer!.backgroundColor = .clear
-        }
-    }
+    func update() { }
 }

@@ -10,7 +10,7 @@ extension Sidebar {
             
             let text = Text()
             text.stringValue = title
-            text.font = .regular()
+            text.font = .preferredFont(forTextStyle: .body)
             text.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
             addSubview(text)
             
@@ -19,7 +19,7 @@ extension Sidebar {
             image.contentTintColor = .controlAccentColor
             addSubview(image)
             
-            widthAnchor.constraint(equalToConstant: 130).isActive = true
+            widthAnchor.constraint(equalToConstant: Metrics.sidebar.width - Metrics.sidebar.padding).isActive = true
             bottomAnchor.constraint(equalTo: text.bottomAnchor, constant: 6).isActive = true
             
             image.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true

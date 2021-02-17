@@ -18,7 +18,7 @@ final class Sidebar: NSVisualEffectView {
         addSubview(capacity)
         self.capacity = capacity
         
-        widthAnchor.constraint(equalToConstant: 150).isActive = true
+        widthAnchor.constraint(equalToConstant: Metrics.sidebar.width).isActive = true
         
         [projects, capacity].forEach {
             $0.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

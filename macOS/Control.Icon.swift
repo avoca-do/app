@@ -1,0 +1,31 @@
+import AppKit
+
+extension Control {
+    final class Icon: Control {
+        required init?(coder: NSCoder) { nil }
+        init(icon: String) {
+            super.init()
+            layer!.cornerRadius = 8
+            
+            let image = NSImageView(image: NSImage(systemSymbolName: icon, accessibilityDescription: nil)!)
+            image.translatesAutoresizingMaskIntoConstraints = false
+            image.contentTintColor = .secondaryLabelColor
+            image.symbolConfiguration = .init(textStyle: .title3)
+            addSubview(image)
+            
+            widthAnchor.constraint(equalToConstant: 30).isActive = true
+            heightAnchor.constraint(equalTo: widthAnchor).isActive = true
+            image.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+            image.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        }
+        
+        override func update() {
+            switch state {
+            case .highlighted:
+                layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
+            default:
+                layer!.backgroundColor = .clear
+            }
+        }
+    }
+}
