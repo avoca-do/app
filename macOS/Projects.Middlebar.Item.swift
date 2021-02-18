@@ -5,20 +5,15 @@ import Kanban
 extension Projects.Middlebar {
     final class Item: Control {
         let path: Path
-        private var sub: AnyCancellable?
+        private var subs = Set<AnyCancellable>()
         
         required init?(coder: NSCoder) { nil }
-        init(path: Path, name: String, date: String) {
+        init(path: Path) {
             self.path = path
             super.init()
             translatesAutoresizingMaskIntoConstraints = false
             
             let text = Text()
-            text.attributedStringValue = .make([.init(string: name + "\n", attributes: [
-                                                        .font: NSFont.boldSystemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize)]),
-                                                .init(string: date, attributes: [
-                                                        .font: NSFont.preferredFont(forTextStyle: .footnote),
-                                                        .foregroundColor: NSColor.secondaryLabelColor])])
             text.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
             addSubview(text)
             
@@ -28,10 +23,21 @@ extension Projects.Middlebar {
             text.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
             text.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -16).isActive = true
             
-            sub = click.sink { [weak self] in
+            Session.shared.archive.removeDuplicates {
+                $0[name: path] == $1[name: path]
+            }.sink {
+                text.attributedStringValue = .make(
+                    [.init(string: $0[name: path] + "\n", attributes: [
+                            .font: NSFont.boldSystemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize)]),
+                     .init(string: RelativeDateTimeFormatter().localizedString(for: $0.date(path), relativeTo: .init()), attributes: [
+                            .font: NSFont.preferredFont(forTextStyle: .footnote),
+                            .foregroundColor: NSColor.secondaryLabelColor])])
+            }.store(in: &subs)
+            
+            click.sink { [weak self] in
                 guard let path = self?.path else { return }
                 Session.shared.path.value = path
-            }
+            }.store(in: &subs)
         }
         
         override func update() {

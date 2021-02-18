@@ -16,6 +16,11 @@ final class Window: NSWindow {
         center()
         setFrameAutosaveName("Window")
 
+        let accesory = NSTitlebarAccessoryViewController()
+        accesory.view = .init()
+        accesory.layoutAttribute = .top
+        addTitlebarAccessoryViewController(accesory)
+        
         let sidebar = Sidebar()
         
         sidebar.projects.click.sink { [weak self] in
@@ -43,26 +48,24 @@ final class Window: NSWindow {
     
     override func becomeMain() {
         super.becomeMain()
-        contentView!.subviews.forEach {
-            $0.alphaValue = 1
-        }
+        dim(1)
     }
     
     override func resignMain() {
         super.resignMain()
-        contentView!.subviews.forEach {
-            $0.alphaValue = 0.5
-        }
+        dim(0.5)
     }
     
     private func projects() {
         select(sidebar.projects)
         show(Projects())
+        titlebarAccessoryViewControllers.first!.view = Projects.Titlebar()
     }
     
     private func capacity() {
         select(sidebar.capacity)
         show(Capacity())
+        titlebarAccessoryViewControllers.first!.view = .init()
     }
     
     private func show(_ view: NSView) {
@@ -83,6 +86,12 @@ final class Window: NSWindow {
     private func select(_ item: Sidebar.Item) {
         [sidebar.projects, sidebar.capacity].forEach {
             $0.state = $0 == item ? .selected : .on
+        }
+    }
+    
+    private func dim(_ opacity: CGFloat) {
+        (contentView!.subviews + [titlebarAccessoryViewControllers.first!.view]).forEach {
+            $0.alphaValue = opacity
         }
     }
 }

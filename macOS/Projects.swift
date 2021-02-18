@@ -15,14 +15,6 @@ final class Projects: NSView {
         middlebar.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         middlebar.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         
-        Session.shared.archive.removeDuplicates {
-            $0.count(.archive) == $1.count(.archive)
-        }.sink { archive in
-            DispatchQueue.main.async {
-                Session.shared.path.value = archive.isEmpty(.archive) ? .archive : .board(0)
-            }
-        }.store(in: &subs)
-        
         Session.shared.path.removeDuplicates {
             guard $0 != .archive, $1 != .archive else { return false }
             return $0._board == $1._board

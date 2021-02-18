@@ -11,8 +11,9 @@ import Kanban
         delegate = self
         
         Memory.shared.archive.sink {
-            guard $0.date > Session.shared.archive.value.date else { return }
+            guard $0.date(.archive) > Session.shared.archive.value.date(.archive) else { return }
             Session.shared.archive.value = $0
+            Session.shared.path.value = $0.isEmpty(.archive) ? .archive : .board(0)
         }.store(in: &subs)
     }
     

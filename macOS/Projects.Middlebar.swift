@@ -14,22 +14,16 @@ extension Projects {
             layer!.backgroundColor = .init(gray: 0, alpha: 0.1)
             layer!.borderWidth = 2
             layer!.borderColor = .init(gray: 0, alpha: 0.3)
-            
-            let titlebar = Titlebar()
-            addSubview(titlebar)
-            
+
             let scroll = Scroll()
             scroll.drawsBackground = false
+            scroll.hasVerticalScroller = true
+            scroll.verticalScroller!.controlSize = .mini
             addSubview(scroll)
             
             widthAnchor.constraint(equalToConstant: Metrics.sidebar.width).isActive = true
             
-            titlebar.topAnchor.constraint(equalTo: topAnchor).isActive = true
-            titlebar.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-            titlebar.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-            titlebar.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-            
-            scroll.topAnchor.constraint(equalTo: titlebar.bottomAnchor).isActive = true
+            scroll.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
             scroll.leftAnchor.constraint(equalTo: leftAnchor, constant: 2).isActive = true
             scroll.rightAnchor.constraint(equalTo: rightAnchor, constant: -2).isActive = true
             scroll.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2).isActive = true
@@ -42,8 +36,7 @@ extension Projects {
                 scroll.views.forEach { $0.removeFromSuperview() }
                 var top = scroll.top
                 (0 ..< archive.count(.archive)).forEach {
-                    let item = Item(path: .board(0), name: archive[name: .board($0)], date: RelativeDateTimeFormatter().localizedString(
-                                        for: archive.date(.board($0)), relativeTo: .init()))
+                    let item = Item(path: .board($0))
                     scroll.add(item)
                     
                     item.topAnchor.constraint(equalTo: top).isActive = true
@@ -68,18 +61,22 @@ extension Projects {
                 }
                 
                 if top != scroll.top {
-                    scroll.bottom.constraint(greaterThanOrEqualTo: top, constant: 20).isActive = true
+                    scroll.bottom.constraint(greaterThanOrEqualTo: top).isActive = true
                 }
             }.store(in: &subs)
             
-            Session.shared.path.removeDuplicates {
-                guard $0 != .archive, $1 != .archive else { return false }
-                return $0._board == $1._board
-            }.sink { path in
+            Session.shared.path.sink { path in
                 scroll.views.compactMap {
                     $0 as? Item
-                }.forEach {
-                    $0.state = $0.path == path ? .selected : .on
+                }.forEach { item in
+                    item.state = item.path == path ? .selected : .on
+                    if item.path == path {
+                        DispatchQueue.main.async { [weak item] in
+                            item.map {
+                                scroll.center($0.frame)
+                            }
+                        }
+                    }
                 }
             }.store(in: &subs)
         }
