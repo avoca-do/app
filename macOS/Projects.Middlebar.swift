@@ -42,13 +42,29 @@ extension Projects {
                 scroll.views.forEach { $0.removeFromSuperview() }
                 var top = scroll.top
                 (0 ..< archive.count(.archive)).forEach {
-                    let item = Item(path: .board(0), name: archive[name: .board($0)], date: "world")
+                    let item = Item(path: .board(0), name: archive[name: .board($0)], date: RelativeDateTimeFormatter().localizedString(
+                                        for: archive.date(.board($0)), relativeTo: .init()))
                     scroll.add(item)
                     
                     item.topAnchor.constraint(equalTo: top).isActive = true
                     item.leftAnchor.constraint(equalTo: scroll.left).isActive = true
                     item.rightAnchor.constraint(equalTo: scroll.right).isActive = true
-                    top = item.bottomAnchor
+                    
+                    if $0 < archive.count(.archive) {
+                        let separator = NSView()
+                        separator.translatesAutoresizingMaskIntoConstraints = false
+                        separator.wantsLayer = true
+                        separator.layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.1).cgColor
+                        scroll.add(separator)
+                        
+                        separator.topAnchor.constraint(equalTo: item.bottomAnchor).isActive = true
+                        separator.leftAnchor.constraint(equalTo: scroll.left, constant: 16).isActive = true
+                        separator.rightAnchor.constraint(equalTo: scroll.right).isActive = true
+                        separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
+                        top = separator.bottomAnchor
+                    } else {
+                        top = item.bottomAnchor
+                    }
                 }
                 
                 if top != scroll.top {

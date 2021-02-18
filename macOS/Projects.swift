@@ -17,8 +17,10 @@ final class Projects: NSView {
         
         Session.shared.archive.removeDuplicates {
             $0.count(.archive) == $1.count(.archive)
-        }.sink {
-            Session.shared.path.value = $0.isEmpty(.archive) ? .archive : .board(0)
+        }.sink { archive in
+            DispatchQueue.main.async {
+                Session.shared.path.value = archive.isEmpty(.archive) ? .archive : .board(0)
+            }
         }.store(in: &subs)
         
         Session.shared.path.removeDuplicates {

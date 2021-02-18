@@ -41,6 +41,7 @@
 		CE349F3325CAD29300B3A436 /* Board.Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3225CAD29300B3A436 /* Board.Bar.swift */; };
 		CE349F3625CAD3E300B3A436 /* Board.Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3525CAD3E300B3A436 /* Board.Menu.swift */; };
 		CE349F3925CAD46100B3A436 /* Board.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3825CAD46100B3A436 /* Board.Content.swift */; };
+		CE3832F725DE949700539F4E /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3832F625DE949700539F4E /* NSAttributedString.swift */; };
 		CE4206A225D1853B00E43D49 /* Capacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A125D1853B00E43D49 /* Capacity.swift */; };
 		CE4206A625D18C0600E43D49 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A525D18C0600E43D49 /* Purchases.swift */; };
 		CE4206AA25D18C5F00E43D49 /* Purchases.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */; };
@@ -120,6 +121,7 @@
 		CE349F3225CAD29300B3A436 /* Board.Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Bar.swift; sourceTree = "<group>"; };
 		CE349F3525CAD3E300B3A436 /* Board.Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Menu.swift; sourceTree = "<group>"; };
 		CE349F3825CAD46100B3A436 /* Board.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Content.swift; sourceTree = "<group>"; };
+		CE3832F625DE949700539F4E /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		CE4206A125D1853B00E43D49 /* Capacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.swift; sourceTree = "<group>"; };
 		CE4206A525D18C0600E43D49 /* Purchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
 		CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.Item.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				CE221BA525DD3D6000EFA20B /* Control.swift */,
 				CE5F390E25DD90F50095F4FB /* Flip.swift */,
 				CE221BC925DD563400EFA20B /* Metrics.swift */,
+				CE3832F625DE949700539F4E /* NSAttributedString.swift */,
 				CE5F391C25DD9BE30095F4FB /* Projects.Empty.swift */,
 				CE5F391825DD96490095F4FB /* Projects.Middlebar.Item.swift */,
 				CE221BC125DD55A400EFA20B /* Projects.Middlebar.swift */,
@@ -484,6 +487,7 @@
 				CE221BD425DD5B2A00EFA20B /* Control.Icon.swift in Sources */,
 				CE5F391D25DD9BE30095F4FB /* Projects.Empty.swift in Sources */,
 				CE221BF325DD6C1900EFA20B /* Capacity.swift in Sources */,
+				CE3832F725DE949700539F4E /* NSAttributedString.swift in Sources */,
 				CE5F391325DD91070095F4FB /* Scroll.swift in Sources */,
 				CE99E67825DBFE9F00E0EA36 /* App.swift in Sources */,
 				CE5F390F25DD90F50095F4FB /* Flip.swift in Sources */,
