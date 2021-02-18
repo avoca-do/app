@@ -2,8 +2,8 @@ import AppKit
 import Kanban
 
 extension Board {
-    final class Card: NSView {
-        var content: Map.Content? {
+    final class Cell: NSView {
+        var content: Item? {
             didSet {
 //                if let page = page {
 //                    layer!.borderColor = .clear

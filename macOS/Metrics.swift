@@ -1,4 +1,4 @@
-import CoreGraphics
+import Foundation
 
 struct Metrics {
     struct sidebar {
@@ -10,6 +10,10 @@ struct Metrics {
         struct card {
             static let vertical = CGFloat(10)
             static let horizontal = CGFloat(10)
+        }
+        
+        struct column {
+            static let size = CGSize(width: 200, height: 2000)
         }
     }
 }

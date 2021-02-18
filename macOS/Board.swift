@@ -10,11 +10,13 @@ final class Board: NSScrollView {
         }
     }
     
-    private var items = Set<Item>()
-    private var cards = Set<Card>()
-    private var columns = Set<Column>()
+    private var cells = Set<Cell>()
     private var subs = Set<AnyCancellable>()
-    private let map = Map()
+    private let items = PassthroughSubject<[Path : Item], Never>()
+    
+    
+    
+    
     
     required init?(coder: NSCoder) { nil }
     init() {
@@ -29,27 +31,32 @@ final class Board: NSScrollView {
         contentView.postsBoundsChangedNotifications = true
         drawsBackground = false
         
-        NotificationCenter.default.publisher(for: NSView.boundsDidChangeNotification, object: contentView).sink { [weak self] _ in
-            self.map {
-                $0.map.bounds = $0.contentView.bounds
-            }
-        }.store(in: &subs)
-        
-        
-        
-        
-        
+//        NotificationCenter.default.publisher(for: NSView.boundsDidChangeNotification, object: contentView).sink { [weak self] _ in
+//            self.map {
+//                $0.map.bounds = $0.contentView.bounds
+//            }
+//        }.store(in: &subs)
         
         Session.shared.archive.sink { [weak self] archive in
-            self?.items = (0 ..< archive.count(Session.shared.path.value.board)).map {
+            var x = CGFloat()
+            
+            self?.items.send((0 ..< archive.count(Session.shared.path.value.board)).map {
                 Path.column(Session.shared.path.value.board, $0)
-            }.reduce(into: []) { set, path in
-                let column = Item(path: path)
-                set.insert(column)
-            }
+            }.reduce(into: [Path : Item]()) { map, column in
+                ([(column, Item(path: column))] + (0 ..< archive.count(column)).map {
+                    Path.card(column, $0)
+                }.map {
+                    [($0, Item(path: $0))]
+                }).max {
+                    $0.1.rect.width < $1.1.rect.width
+                }.forEach {
+                    $0.1.origin.x = x
+                    map[$0.0] = $0.1
+                }
+            })
         }.store(in: &subs)
         
-        
+        /*
         
         (NSApp as! App).pages.combineLatest(browser.search).sink { [weak self] in
             self?.map.pages = ({ pages, search in
@@ -86,6 +93,7 @@ final class Board: NSScrollView {
         }.store(in: &subs)
         
         browser.search.send("")
+        */
     }
     
     override func mouseDown(with: NSEvent) {

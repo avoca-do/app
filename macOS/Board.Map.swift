@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 import Kanban
-
+/*
 extension Board {
     final class Map {
         var bounds = CGRect.zero {
@@ -77,3 +77,4 @@ extension Board {
         }
     }
 }
+*/
