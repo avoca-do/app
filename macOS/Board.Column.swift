@@ -2,16 +2,25 @@ import AppKit
 import Kanban
 
 extension Board {
-    final class Column: Control {
-        let path: Path
+    final class Column: NSView {
+        var content: Map.Content? {
+            didSet {
+//                if let page = page {
+//                    layer!.borderColor = .clear
+//                    layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.03).cgColor
+//                    close.state = .on
+//                    text.attributedStringValue = page.text
+//                } else {
+//                    text.attributedStringValue = .init()
+//                }
+            }
+        }
         
         required init?(coder: NSCoder) { nil }
-        init(path: Path) {
-            self.path = path
-            super.init()
+        init() {
+            super.init(frame: .zero)
             
             let title = Text()
-            title.stringValue = Session.shared.archive.value[title: path]
             title.font = .preferredFont(forTextStyle: .title2)
             title.maximumNumberOfLines = 1
             addSubview(title)

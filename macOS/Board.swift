@@ -2,46 +2,101 @@ import AppKit
 import Combine
 import Kanban
 
-final class Board: NSView {
+final class Board: NSScrollView {
+    override var frame: NSRect {
+        didSet {
+            documentView!.frame.size.width = frame.width
+            map.bounds = contentView.bounds
+        }
+    }
+    
+    private var items = Set<Item>()
+    private var cards = Set<Card>()
+    private var columns = Set<Column>()
     private var subs = Set<AnyCancellable>()
+    private let map = Map()
     
     required init?(coder: NSCoder) { nil }
     init() {
         super.init(frame: .zero)
-        let scroll = Scroll()
-        scroll.drawsBackground = false
-        scroll.hasVerticalScroller = true
-        scroll.hasHorizontalScroller = true
-        scroll.verticalScroller!.controlSize = .mini
-        scroll.horizontalScroller!.controlSize = .mini
-        addSubview(scroll)
+        let content = Flip()
+        translatesAutoresizingMaskIntoConstraints = false
+        documentView = content
+        hasVerticalScroller = true
+        hasHorizontalScroller = true
+        verticalScroller!.controlSize = .mini
+        horizontalScroller!.controlSize = .mini
+        contentView.postsBoundsChangedNotifications = true
+        drawsBackground = false
         
-        scroll.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        scroll.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        scroll.rightAnchor.constraint(equalTo: rightAnchor, constant: -1).isActive = true
-        scroll.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -1).isActive = true
-        scroll.right.constraint(greaterThanOrEqualTo: scroll.rightAnchor).isActive = true
-        scroll.bottom.constraint(greaterThanOrEqualTo: scroll.bottomAnchor).isActive = true
-        
-        Session.shared.archive.sink { archive in
-            scroll.views.forEach { $0.removeFromSuperview() }
-            var top = scroll.top
-            (0 ..< archive.count(Session.shared.path.value.board)).map {
-                Path.column(Session.shared.path.value.board, $0)
-            }.forEach { path in
-                let column = Column(path: path)
-                scroll.add(column)
-                
-                column.topAnchor.constraint(equalTo: top).isActive = true
-                column.leftAnchor.constraint(equalTo: scroll.left).isActive = true
-                column.rightAnchor.constraint(equalTo: scroll.right).isActive = true
-                
-                top = column.bottomAnchor
-            }
-            
-            if top != scroll.top {
-                scroll.bottom.constraint(greaterThanOrEqualTo: top).isActive = true
+        NotificationCenter.default.publisher(for: NSView.boundsDidChangeNotification, object: contentView).sink { [weak self] _ in
+            self.map {
+                $0.map.bounds = $0.contentView.bounds
             }
         }.store(in: &subs)
+        
+        
+        
+        
+        
+        
+        Session.shared.archive.sink { [weak self] archive in
+            self?.items = (0 ..< archive.count(Session.shared.path.value.board)).map {
+                Path.column(Session.shared.path.value.board, $0)
+            }.reduce(into: []) { set, path in
+                let column = Item(path: path)
+                set.insert(column)
+            }
+        }.store(in: &subs)
+        
+        
+        
+        (NSApp as! App).pages.combineLatest(browser.search).sink { [weak self] in
+            self?.map.pages = ({ pages, search in
+                search.isEmpty ? pages : pages.filter {
+                    $0.title.localizedCaseInsensitiveContains(search)
+                        || $0.url.absoluteString.localizedCaseInsensitiveContains(search)
+                }
+            } ($0.0, $0.1.trimmingCharacters(in: .whitespacesAndNewlines))).map(Map.Page.init(page:))
+        }.store(in: &subs)
+        
+        map.items.sink { [weak self] items in
+            guard let self = self else { return }
+            self.cells
+                .filter { $0.page != nil }
+                .filter { cell in !items.contains { $0.page.page == cell.page?.page } }
+                .forEach {
+                    $0.removeFromSuperview()
+                    $0.page = nil
+                }
+            items.forEach { item in
+                let cell = self.cells.first { $0.page?.page == item.page.page } ?? self.cells.first { $0.page == nil } ?? {
+                    self.cells.insert($0)
+                    return $0
+                } (Cell())
+                cell.page = item.page
+                cell.frame = item.frame
+                self.documentView!.addSubview(cell)
+            }
+        }.store(in: &subs)
+        
+        map.height.sink { [weak self] in
+            guard let frame = self?.frame else { return }
+            content.frame.size.height = max($0, frame.size.height)
+        }.store(in: &subs)
+        
+        browser.search.send("")
+    }
+    
+    override func mouseDown(with: NSEvent) {
+        super.mouseDown(with: with)
+        window?.makeFirstResponder(self)
+    }
+    
+    override func mouseUp(with: NSEvent) {
+//        guard var page = map.page(for: documentView!.convert(with.locationInWindow, from: nil))?.page else { return }
+//        page.date = .init()
+//        browser.page.value = page
+//        browser.browse.send(page.url)
     }
 }

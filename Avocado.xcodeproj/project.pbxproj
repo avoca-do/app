@@ -13,6 +13,9 @@
 		CE0E839425CEC054001283C6 /* Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839325CEC054001283C6 /* Write.swift */; };
 		CE0E839825CEC741001283C6 /* Board.Modify.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */; };
 		CE12944925DEC027000533B1 /* Board.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12944825DEC027000533B1 /* Board.Column.swift */; };
+		CE12944F25DEC998000533B1 /* Board.Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12944E25DEC998000533B1 /* Board.Map.swift */; };
+		CE12945725DECAC4000533B1 /* Board.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12945625DECAC4000533B1 /* Board.Item.swift */; };
+		CE12945D25DECB89000533B1 /* Board.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12945C25DECB89000533B1 /* Board.Card.swift */; };
 		CE1A44EA25C2DCBF002011FA /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44E925C2DCBF002011FA /* Neumorphic.swift */; };
 		CE1A44EE25C2E61D002011FA /* Board.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44ED25C2E61D002011FA /* Board.Control.swift */; };
 		CE1E602125CD9B5C00456852 /* Board.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E602025CD9B5C00456852 /* Board.Settings.swift */; };
@@ -96,6 +99,9 @@
 		CE0E839325CEC054001283C6 /* Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Write.swift; sourceTree = "<group>"; };
 		CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Modify.Column.swift; sourceTree = "<group>"; };
 		CE12944825DEC027000533B1 /* Board.Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Column.swift; sourceTree = "<group>"; };
+		CE12944E25DEC998000533B1 /* Board.Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Map.swift; sourceTree = "<group>"; };
+		CE12945625DECAC4000533B1 /* Board.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Item.swift; sourceTree = "<group>"; };
+		CE12945C25DECB89000533B1 /* Board.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Card.swift; sourceTree = "<group>"; };
 		CE1A44E925C2DCBF002011FA /* Neumorphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
 		CE1A44ED25C2E61D002011FA /* Board.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Control.swift; sourceTree = "<group>"; };
 		CE1E602025CD9B5C00456852 /* Board.Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Settings.swift; sourceTree = "<group>"; };
@@ -292,7 +298,10 @@
 				CE99E68125DBFEA000E0EA36 /* macOS.entitlements */,
 				CE99E68025DBFEA000E0EA36 /* Info.plist */,
 				CE99E67725DBFE9F00E0EA36 /* App.swift */,
+				CE12945C25DECB89000533B1 /* Board.Card.swift */,
 				CE12944825DEC027000533B1 /* Board.Column.swift */,
+				CE12945625DECAC4000533B1 /* Board.Item.swift */,
+				CE12944E25DEC998000533B1 /* Board.Map.swift */,
 				CE5F392025DD9CD60095F4FB /* Board.swift */,
 				CE221BF225DD6C1900EFA20B /* Capacity.swift */,
 				CE38330C25DE9B1E00539F4E /* Capsule.swift */,
@@ -494,6 +503,7 @@
 			files = (
 				CE5F391925DD96490095F4FB /* Projects.Middlebar.Item.swift in Sources */,
 				CE38331A25DEA83400539F4E /* Write.swift in Sources */,
+				CE12944F25DEC998000533B1 /* Board.Map.swift in Sources */,
 				CE221BF925DD6DC200EFA20B /* Session.swift in Sources */,
 				CE221BBE25DD552E00EFA20B /* Projects.swift in Sources */,
 				CE38330D25DE9B1E00539F4E /* Capsule.swift in Sources */,
@@ -504,11 +514,13 @@
 				CE221BF325DD6C1900EFA20B /* Capacity.swift in Sources */,
 				CE3832F725DE949700539F4E /* NSAttributedString.swift in Sources */,
 				CE5F391325DD91070095F4FB /* Scroll.swift in Sources */,
+				CE12945D25DECB89000533B1 /* Board.Card.swift in Sources */,
 				CE99E67825DBFE9F00E0EA36 /* App.swift in Sources */,
 				CE5F390F25DD90F50095F4FB /* Flip.swift in Sources */,
 				CE221BB425DD3E8900EFA20B /* Text.swift in Sources */,
 				CE3832FF25DE994700539F4E /* Projects.Plus.swift in Sources */,
 				CE12944925DEC027000533B1 /* Board.Column.swift in Sources */,
+				CE12945725DECAC4000533B1 /* Board.Item.swift in Sources */,
 				CE221BC225DD55A400EFA20B /* Projects.Middlebar.swift in Sources */,
 				CE221BAA25DD3D6900EFA20B /* Control.State.swift in Sources */,
 				CE221BA625DD3D6000EFA20B /* Control.swift in Sources */,
