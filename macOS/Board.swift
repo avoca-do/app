@@ -5,14 +5,14 @@ import Kanban
 final class Board: NSScrollView {
     override var frame: NSRect {
         didSet {
-            documentView!.frame.size.width = frame.width
-//            map.bounds = contentView.bounds
+            clip.send(contentView.bounds)
         }
     }
     
     private var cells = Set<Cell>()
     private var subs = Set<AnyCancellable>()
     private let items = PassthroughSubject<[Path : Item], Never>()
+    private let clip = PassthroughSubject<CGRect, Never>()
     
     
     
@@ -31,26 +31,30 @@ final class Board: NSScrollView {
         contentView.postsBoundsChangedNotifications = true
         drawsBackground = false
         
-//        NotificationCenter.default.publisher(for: NSView.boundsDidChangeNotification, object: contentView).sink { [weak self] _ in
-//            self.map {
-//                $0.map.bounds = $0.contentView.bounds
-//            }
-//        }.store(in: &subs)
-        
         Session.shared.archive.sink { [weak self] archive in
-           self?.items.send((0 ..< archive.count(Session.shared.path.value.board)).map {
-                (Path.column(Session.shared.path.value.board, $0),
-                 ((Metrics.board.item.size.width + (Metrics.board.item.padding * 2)) * .init($0)) + Metrics.board.item.padding)
-            }.reduce(into: [Path : Item]()) { map, column in
+            content.frame.size.height = self?.frame.size.height ?? 0
+            self?.items.send((0 ..< archive.count(Session.shared.path.value.board)).map {
+                 (Path.column(Session.shared.path.value.board, $0),
+                  ((Metrics.board.item.size.width + (Metrics.board.item.padding * 2)) * .init($0)) + Metrics.board.item.padding)
+             }.reduce(into: [Path : Item]()) { map, column in
                 map[column.0] = .init(path: column.0, x: column.1, y: Metrics.board.item.padding)
-                _ = (0 ..< archive.count(column.0)).map {
+                content.frame.size.width = map[column.0]!.rect.maxX + Metrics.board.item.padding
+                content.frame.size.height = max((0 ..< archive.count(column.0)).map {
                     Path.card(column.0, $0)
                 }.reduce(map[column.0]!.rect.maxY) {
                     map[$1] = Item(path: $1, x: column.1, y: $0 + Metrics.board.item.padding)
                     return map[$1]!.rect.maxY
-                }
-            })
+                }, content.frame.size.height)
+             })
         }.store(in: &subs)
+        
+        NotificationCenter.default.publisher(for: NSView.boundsDidChangeNotification, object: contentView).sink { [weak self] _ in
+            self?.clip.send(self?.contentView.bounds ?? .zero)
+        }.store(in: &subs)
+        
+        items.combineLatest(clip) { items, clip in
+            
+        }
         
         /*
         
