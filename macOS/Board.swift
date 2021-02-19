@@ -6,7 +6,7 @@ final class Board: NSScrollView {
     override var frame: NSRect {
         didSet {
             documentView!.frame.size.width = frame.width
-            map.bounds = contentView.bounds
+//            map.bounds = contentView.bounds
         }
     }
     
@@ -38,20 +38,16 @@ final class Board: NSScrollView {
 //        }.store(in: &subs)
         
         Session.shared.archive.sink { [weak self] archive in
-            var x = CGFloat()
-            
-            self?.items.send((0 ..< archive.count(Session.shared.path.value.board)).map {
-                Path.column(Session.shared.path.value.board, $0)
+           self?.items.send((0 ..< archive.count(Session.shared.path.value.board)).map {
+                (Path.column(Session.shared.path.value.board, $0),
+                 ((Metrics.board.item.size.width + (Metrics.board.item.padding * 2)) * .init($0)) + Metrics.board.item.padding)
             }.reduce(into: [Path : Item]()) { map, column in
-                ([(column, Item(path: column))] + (0 ..< archive.count(column)).map {
-                    Path.card(column, $0)
-                }.map {
-                    [($0, Item(path: $0))]
-                }).max {
-                    $0.1.rect.width < $1.1.rect.width
-                }.forEach {
-                    $0.1.origin.x = x
-                    map[$0.0] = $0.1
+                map[column.0] = .init(path: column.0, x: column.1, y: Metrics.board.item.padding)
+                _ = (0 ..< archive.count(column.0)).map {
+                    Path.card(column.0, $0)
+                }.reduce(map[column.0]!.rect.maxY) {
+                    map[$1] = Item(path: $1, x: column.1, y: $0 + Metrics.board.item.padding)
+                    return map[$1]!.rect.maxY
                 }
             })
         }.store(in: &subs)

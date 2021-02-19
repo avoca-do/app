@@ -25,10 +25,10 @@ extension Board {
             title.maximumNumberOfLines = 1
             addSubview(title)
             
-            bottomAnchor.constraint(equalTo: title.bottomAnchor, constant: Metrics.board.card.vertical).isActive = true
+            bottomAnchor.constraint(equalTo: title.bottomAnchor, constant: Metrics.board.item.padding).isActive = true
             
             title.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-            title.topAnchor.constraint(equalTo: topAnchor, constant: Metrics.board.card.vertical).isActive = true
+            title.topAnchor.constraint(equalTo: topAnchor, constant: Metrics.board.item.padding).isActive = true
         }
     }
 }

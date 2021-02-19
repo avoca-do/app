@@ -7,13 +7,9 @@ struct Metrics {
     }
     
     struct board {
-        struct card {
-            static let vertical = CGFloat(10)
-            static let horizontal = CGFloat(10)
-        }
-        
-        struct column {
-            static let size = CGSize(width: 200, height: 2000)
+        struct item {
+            static let size = CGSize(width: 180, height: 3000)
+            static let padding = CGFloat(10)
         }
     }
 }
