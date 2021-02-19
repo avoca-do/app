@@ -34,9 +34,9 @@ final class Field: NSTextField, NSTextFieldDelegate {
         case let .edit(path):
             switch path {
             case .board:
-                stringValue = Session.shared.archive.value[name: path]
+                stringValue = Session.archive[name: path]
             case .column:
-                stringValue = Session.shared.archive.value[title: path]
+                stringValue = Session.archive[title: path]
             default: break
             }
             placeholderString = stringValue
@@ -50,20 +50,28 @@ final class Field: NSTextField, NSTextFieldDelegate {
         case let .new(path):
             switch path {
             case .archive:
-                Session.shared.archive.value.add()
-                Session.shared.archive.value[name: .board(0)] = text
-                Session.shared.path.value = .board(0)
+                Session.mutate {
+                    $0.add()
+                    $0[name: .board(0)] = text
+                }
+                Session.path = .board(0)
             case .board:
-                Session.shared.archive.value.column(path)
-                Session.shared.archive.value[title: .column(path, Session.shared.archive.value.count(path) - 1)] = text
+                Session.mutate {
+                    $0.column(path)
+                    $0[title: .column(path, $0.count(path) - 1)] = text
+                }
             default: break
             }
         case let .edit(path):
             switch path {
             case .board:
-                Session.shared.archive.value[name: path] = text
+                Session.mutate {
+                    $0[name: path] = text
+                }
             case .column:
-                Session.shared.archive.value[title: path] = text
+                Session.mutate {
+                    $0[title: path] = text
+                }
             default: break
             }
         }

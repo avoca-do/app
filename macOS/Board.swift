@@ -54,10 +54,10 @@ final class Board: NSScrollView {
             self?.clip.send(self?.contentView.bounds ?? .zero)
         }.store(in: &subs)
         
-        Session.shared.archive.sink { [weak self] archive in
+        Session.archiving.sink { [weak self] archive in
             content.frame.size.height = self?.frame.size.height ?? 0
-            self?.items.send((0 ..< archive.count(Session.shared.path.value.board)).map {
-                 (Path.column(Session.shared.path.value.board, $0),
+            self?.items.send((0 ..< archive.count(Session.path.board)).map {
+                 (Path.column(Session.path.board, $0),
                   ((Metrics.board.item.size.width + (Metrics.board.item.padding * 3)) * .init($0)) + Metrics.board.item.padding)
              }.reduce(into: []) { set, column in
                 let item = Item(path: column.0, x: column.1, y: 0)

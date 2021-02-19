@@ -23,7 +23,7 @@ extension Projects.Middlebar {
             text.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
             text.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -16).isActive = true
             
-            Session.shared.archive.removeDuplicates {
+            Session.archiving.removeDuplicates {
                 $0[name: path] == $1[name: path]
             }.sink {
                 text.attributedStringValue = .make(
@@ -36,7 +36,7 @@ extension Projects.Middlebar {
             
             click.sink { [weak self] in
                 guard let path = self?.path else { return }
-                Session.shared.path.value = path
+                Session.path = path
             }.store(in: &subs)
         }
         

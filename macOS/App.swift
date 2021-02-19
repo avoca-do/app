@@ -10,10 +10,12 @@ import Kanban
         super.init()
         delegate = self
         
-        Memory.shared.archive.sink {
-            guard $0.date(.archive) > Session.shared.archive.value.date(.archive) else { return }
-            Session.shared.archive.value = $0
-            Session.shared.path.value = $0.isEmpty(.archive) ? .archive : .board(0)
+        Memory.shared.archive.sink { archive in
+            guard archive.date(.archive) > Session.archive.date(.archive) else { return }
+            Session.mutate {
+                $0 = archive
+            }
+            Session.path = archive.isEmpty(.archive) ? .archive : .board(0)
         }.store(in: &subs)
     }
     

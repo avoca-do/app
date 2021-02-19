@@ -9,7 +9,7 @@ extension Board {
         
         init(path: Path, x: CGFloat, y: CGFloat) {
             self.path = path
-            text = .make([.init(string: Session.shared.archive.value[title: path],
+            text = .make([.init(string: Session.archive[title: path],
                                 attributes: [.font: NSFont.preferredFont(forTextStyle: .title2)])])
             rect = {
                 .init(x: x, y: y,

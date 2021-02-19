@@ -30,7 +30,7 @@ extension Projects {
             scroll.right.constraint(equalTo: scroll.rightAnchor).isActive = true
             scroll.bottom.constraint(greaterThanOrEqualTo: scroll.bottomAnchor).isActive = true
             
-            Session.shared.archive.removeDuplicates {
+            Session.archiving.removeDuplicates {
                 $0.count(.archive) == $1.count(.archive)
             }.sink { archive in
                 scroll.views.forEach { $0.removeFromSuperview() }
@@ -65,7 +65,7 @@ extension Projects {
                 }
             }.store(in: &subs)
             
-            Session.shared.path.sink { path in
+            Session.pathing.sink { path in
                 scroll.views.compactMap {
                     $0 as? Item
                 }.forEach { item in
