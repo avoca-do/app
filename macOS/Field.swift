@@ -55,7 +55,7 @@ final class Field: NSTextField, NSTextFieldDelegate {
                     $0[name: .board(0)] = text
                 }
                 Session.path = .board(0)
-                Session.middlebarScroll.send()
+                Session.scroll.send()
             case .board:
                 Session.mutate {
                     $0.column(path)

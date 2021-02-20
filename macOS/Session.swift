@@ -24,7 +24,8 @@ final class Session {
         _path.eraseToAnyPublisher()
     }
     
-    static let middlebarScroll = PassthroughSubject<Void, Never>()
+    static let scroll = PassthroughSubject<Void, Never>()
+    static let edit = PassthroughSubject<Write?, Never>()
     
     static func mutate(transform: (inout Archive) -> Void) {
         var archive = self.archive

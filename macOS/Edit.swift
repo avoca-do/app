@@ -1,7 +1,9 @@
 import AppKit
+import Combine
 
 final class Edit: NSView {
-    private weak var text: Text!
+    private(set) weak var text: Text!
+    private var subs = Set<AnyCancellable>()
     
     override var frame: NSRect {
         didSet {
@@ -32,8 +34,14 @@ final class Edit: NSView {
         
         let send = Control.Icon(icon: "arrow.up.circle.fill", color: .controlAccentColor)
         send.image.symbolConfiguration = .init(textStyle: .title1)
+        send.click.sink {
+            text.send()
+        }.store(in: &subs)
         
         let cancel = Control.Icon(icon: "xmark", color: .secondaryLabelColor)
+        cancel.click.sink {
+            text.cancel()
+        }.store(in: &subs)
         
         [top, bottom].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false

@@ -88,7 +88,7 @@ extension Projects {
                 }
             }.store(in: &subs)
             
-            Session.middlebarScroll.debounce(for: .milliseconds(200), scheduler: DispatchQueue.main).sink {
+            Session.scroll.debounce(for: .milliseconds(200), scheduler: DispatchQueue.main).sink {
                 scroll.views.compactMap {
                     $0 as? Item
                 }.first {
@@ -99,7 +99,7 @@ extension Projects {
             }.store(in: &subs)
             
             if Session.path._board != 0 {
-                Session.middlebarScroll.send()
+                Session.scroll.send()
             }
         }
     }

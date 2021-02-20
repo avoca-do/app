@@ -3,8 +3,30 @@ import Kanban
 
 extension Edit {
     final class Text: NSTextView {
+        var write: Write? {
+            didSet {
+                if let write = write {
+                    switch write {
+                    case let .edit(path):
+                        switch path {
+                        case .card:
+                            string = Session.archive[content: path]
+                        default: break
+                        }
+                    default: break
+                    }
+                } else {
+                    string = ""
+                }
+            }
+        }
+        
         override var canBecomeKeyView: Bool { true }
         private let caret = CGFloat(3)
+        
+        override func cancelOperation(_ sender: Any?) {
+            window?.makeFirstResponder(nil)
+        }
 
         required init?(coder: NSCoder) { nil }
         init() {
@@ -39,6 +61,37 @@ extension Edit {
         override func didChangeText() {
             super.didChangeText()
             layoutManager!.ensureLayout(for: textContainer!)
+        }
+        
+        func send() {
+            let content = string.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !content.isEmpty, let write = self.write {
+                switch write {
+                case let .new(path):
+                    switch path {
+                    case .board:
+                        Session.mutate {
+                            $0.card(path)
+                            $0[content: .card(.column(path, 0), 0)] = content
+                        }
+                    default: break
+                    }
+                case let .edit(path):
+                    switch path {
+                    case .card:
+                        Session.mutate {
+                            $0[content: path] = content
+                        }
+                    default: break
+                    }
+                }
+            }
+            cancel()
+        }
+        
+        func cancel() {
+            window?.makeFirstResponder(nil)
+            Session.edit.send(nil)
         }
     }
 }

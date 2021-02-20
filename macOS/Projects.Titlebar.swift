@@ -28,7 +28,7 @@ extension Projects {
             
             let card = Control.Squircle(icon: "plus")
             card.click.sink {
-                
+                Session.edit.send(.new(Session.path.board))
             }.store(in: &subs)
             
             [project, card].forEach {

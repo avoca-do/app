@@ -19,6 +19,8 @@ struct Metrics {
     }
     
     struct edit {
+        static let closed = CGFloat(4)
+        static let height = CGFloat(200)
         static let horizontal = CGFloat(12)
         static let vertical = CGFloat(12)
         static let right = CGFloat(60)
