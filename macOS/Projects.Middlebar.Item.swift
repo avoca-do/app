@@ -31,7 +31,7 @@ extension Projects.Middlebar {
                     [.init(string: $0[name: path] + "\n", attributes: [
                             .font: NSFont.boldSystemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize)]),
                      .init(string: RelativeDateTimeFormatter().localizedString(for: $0.date(path), relativeTo: .init()), attributes: [
-                            .font: NSFont.preferredFont(forTextStyle: .footnote),
+                            .font: NSFont.preferredFont(forTextStyle: .callout),
                             .foregroundColor: NSColor.secondaryLabelColor])])
             }.store(in: &subs)
             
@@ -44,7 +44,7 @@ extension Projects.Middlebar {
         override func update() {
             switch state {
             case .selected:
-                layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.15).cgColor
+                layer!.backgroundColor = NSColor.controlAccentColor.withAlphaComponent(0.2).cgColor
             case .highlighted:
                 layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
             default:

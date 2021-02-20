@@ -60,18 +60,18 @@ final class Board: NSScrollView {
             content.frame.size.height = self?.frame.size.height ?? 0
             self?.items.send((0 ..< archive.count(Session.path.board)).map {
                  (Path.column(Session.path.board, $0),
-                  ((Metrics.board.item.size.width + (Metrics.board.item.padding * 3)) * .init($0)) + Metrics.board.column.horizontal)
+                  ((Metrics.board.item.size.width + Metrics.board.item.padding3) * .init($0)) + Metrics.board.horizontal)
              }.reduce(into: []) { set, column in
-                let item = Item(path: column.0, x: column.1, y: Metrics.board.column.vertical)
+                let item = Item(path: column.0, x: column.1, y: Metrics.board.vertical)
                 set.insert(item)
-                content.frame.size.width = item.rect.maxX + Metrics.board.column.horizontal
+                content.frame.size.width = item.rect.maxX + Metrics.board.horizontal
                 content.frame.size.height = max((0 ..< archive.count(column.0)).map {
                     Path.card(column.0, $0)
                 }.reduce(item.rect.maxY) {
                     let item = Item(path: $1, x: column.1, y: $0 + Metrics.board.item.padding)
                     set.insert(item)
                     return item.rect.maxY
-                } + Metrics.board.column.vertical, content.frame.size.height)
+                } + Metrics.board.vertical, content.frame.size.height)
              })
         }.store(in: &subs)
     }

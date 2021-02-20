@@ -24,6 +24,7 @@ final class Session {
         _path.eraseToAnyPublisher()
     }
     
+    static let decimal = NumberFormatter()
     static let scroll = PassthroughSubject<Void, Never>()
     static let edit = PassthroughSubject<Write?, Never>()
     

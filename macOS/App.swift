@@ -9,6 +9,13 @@ import Kanban
     override init() {
         super.init()
         delegate = self
+    }
+    
+    func applicationWillFinishLaunching(_: Notification) {
+        Session.decimal.numberStyle = .decimal
+        
+//        mainMenu = Menu()
+        Window().makeKeyAndOrderFront(nil)
         
         Memory.shared.archive.sink { archive in
             guard archive.date(.archive) > Session.archive.date(.archive) else { return }
@@ -17,11 +24,6 @@ import Kanban
             }
             Session.path = archive.isEmpty(.archive) ? .archive : .board(0)
         }.store(in: &subs)
-    }
-    
-    func applicationWillFinishLaunching(_: Notification) {
-//        mainMenu = Menu()
-        Window().makeKeyAndOrderFront(nil)
     }
     
     func applicationDidFinishLaunching(_: Notification) {

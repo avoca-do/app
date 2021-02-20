@@ -8,8 +8,17 @@ extension Board {
                 if let item = item {
                     layer!.borderColor = .clear
                     layer!.backgroundColor = .clear
-                    text.attributedStringValue = item.text
                     frame = item.rect
+                    text.attributedStringValue = item.text
+                    
+                    switch item.path {
+                    case .column:
+                        left.constant = Metrics.board.item.padding
+                    case .card:
+                        left.constant = Metrics.board.item.padding + Metrics.board.card.left
+                    default:
+                        left.constant = 0
+                    }
                 } else {
                     text.attributedStringValue = .init()
                 }
@@ -17,13 +26,13 @@ extension Board {
         }
         
         private weak var text: Text!
+        private weak var left: NSLayoutConstraint!
         
         required init?(coder: NSCoder) { nil }
         init() {
             super.init(frame: .zero)
             wantsLayer = true
             layer!.cornerRadius = 8
-            layer!.borderWidth = 1
             
             let text = Text()
             text.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
@@ -31,19 +40,18 @@ extension Board {
             self.text = text
             
             text.topAnchor.constraint(equalTo: topAnchor, constant: Metrics.board.item.padding).isActive = true
-            text.leftAnchor.constraint(equalTo: leftAnchor, constant: Metrics.board.item.padding).isActive = true
-            text.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -Metrics.board.item.padding).isActive = true
+            text.rightAnchor.constraint(equalTo: rightAnchor, constant: -Metrics.board.item.padding).isActive = true
+            left = text.leftAnchor.constraint(equalTo: leftAnchor)
+            left.isActive = true
             
             addTrackingArea(.init(rect: .zero, options: [.mouseEnteredAndExited, .activeInActiveApp, .inVisibleRect], owner: self))
         }
         
         override func mouseEntered(with: NSEvent) {
-            layer!.borderColor = NSColor.controlAccentColor.cgColor
-            layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.03).cgColor
+            layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
         }
         
         override func mouseExited(with: NSEvent) {
-            layer!.borderColor = .clear
             layer!.backgroundColor = .clear
         }
     }

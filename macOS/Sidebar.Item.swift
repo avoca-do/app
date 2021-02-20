@@ -20,20 +20,20 @@ extension Sidebar {
             addSubview(image)
             
             widthAnchor.constraint(equalToConstant: Metrics.sidebar.width - Metrics.sidebar.padding).isActive = true
-            bottomAnchor.constraint(equalTo: text.bottomAnchor, constant: 6).isActive = true
+            bottomAnchor.constraint(equalTo: text.bottomAnchor, constant: 8).isActive = true
             
             image.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
             image.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             
             text.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 4).isActive = true
-            text.topAnchor.constraint(equalTo: topAnchor, constant: 6).isActive = true
+            text.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
             text.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -4).isActive = true
         }
         
         override func update() {
             switch state {
             case .selected:
-                layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.15).cgColor
+                layer!.backgroundColor = NSColor.controlAccentColor.withAlphaComponent(0.2).cgColor
             case .highlighted:
                 layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
             default:

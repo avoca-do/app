@@ -9,13 +9,33 @@ extension Board {
         
         init(path: Path, x: CGFloat, y: CGFloat) {
             self.path = path
-            text = .make([.init(string: Session.archive[title: path],
-                                attributes: [.font: NSFont.preferredFont(forTextStyle: .title2)])])
+            var size = Metrics.board.item.size
+            switch path {
+            case .column:
+                text = .make([.init(string: Session.archive[title: path] + " ",
+                                    attributes: [
+                                        .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title2).pointSize, weight: .bold),
+                                        .foregroundColor: NSColor.labelColor]),
+                              .init(string: Session.decimal.string(from: NSNumber(value: Session.archive.count(path)))!,
+                                                  attributes: [
+                                                    .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .callout).pointSize, weight: .regular),
+                                                    .foregroundColor: NSColor.secondaryLabelColor])])
+            case .card:
+                text = .make([.init(string: Session.archive[content: path],
+                                    attributes: [
+                                        .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize, weight: .regular),
+                                        .foregroundColor: NSColor.labelColor,
+                                        .kern: 1])])
+                size.width -= Metrics.board.card.left
+            default:
+                text = .init()
+            }
+            
             rect = {
                 .init(x: x, y: y,
-                      width: Metrics.board.item.size.width + $1,
-                      height: ceil($0.height) + $1)
-            } (text.boundingRect(with: Metrics.board.item.size, options: [.usesFontLeading, .usesLineFragmentOrigin]), Metrics.board.item.padding * 2)
+                      width: Metrics.board.item.padding2 + Metrics.board.item.size.width,
+                      height: $0.height + Metrics.board.item.padding2)
+            } (CTFramesetterSuggestFrameSizeWithConstraints(CTFramesetterCreateWithAttributedString(text), CFRange(), nil, size, nil))
         }
         
         func hash(into: inout Hasher) {
