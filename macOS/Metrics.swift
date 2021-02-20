@@ -8,7 +8,8 @@ struct Metrics {
     
     struct board {
         struct column {
-            static let top = CGFloat(10)
+            static let vertical = CGFloat(16)
+            static let horizontal = CGFloat(16)
         }
         
         struct item {

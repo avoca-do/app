@@ -85,15 +85,22 @@ extension Projects {
                     $0 as? Item
                 }.forEach { item in
                     item.state = item.path == path ? .selected : .on
-                    if item.path == path {
-                        DispatchQueue.main.async { [weak item] in
-                            item.map {
-                                scroll.center($0.frame)
-                            }
-                        }
-                    }
                 }
             }.store(in: &subs)
+            
+            Session.middlebarScroll.debounce(for: .milliseconds(200), scheduler: DispatchQueue.main).sink {
+                scroll.views.compactMap {
+                    $0 as? Item
+                }.first {
+                    $0.state == .selected
+                }.map {
+                    scroll.center($0.frame)
+                }
+            }.store(in: &subs)
+            
+            if Session.path._board != 0 {
+                Session.middlebarScroll.send()
+            }
         }
     }
 }
