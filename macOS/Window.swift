@@ -77,10 +77,10 @@ final class Window: NSWindow {
         
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView!.addSubview(view)
-        view.topAnchor.constraint(equalTo: contentView!.topAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: contentView!.bottomAnchor).isActive = true
+        view.topAnchor.constraint(equalTo: contentView!.topAnchor, constant: 1).isActive = true
+        view.bottomAnchor.constraint(equalTo: contentView!.bottomAnchor, constant: -1).isActive = true
         view.leftAnchor.constraint(equalTo: sidebar.rightAnchor).isActive = true
-        view.rightAnchor.constraint(equalTo: contentView!.rightAnchor).isActive = true
+        view.rightAnchor.constraint(equalTo: contentView!.rightAnchor, constant: -1).isActive = true
     }
     
     private func select(_ item: Sidebar.Item) {

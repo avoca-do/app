@@ -60,7 +60,7 @@ final class Board: NSScrollView {
             content.frame.size.height = self?.frame.size.height ?? 0
             self?.items.send((0 ..< archive.count(Session.path.board)).map {
                  (Path.column(Session.path.board, $0),
-                  ((Metrics.board.item.size.width + Metrics.board.item.padding3) * .init($0)) + Metrics.board.horizontal)
+                  ((Metrics.board.item.size.width + Metrics.board.item.padding2 + Metrics.board.column.horizontal) * .init($0)) + Metrics.board.horizontal)
              }.reduce(into: []) { set, column in
                 let item = Item(path: column.0, x: column.1, y: Metrics.board.vertical)
                 set.insert(item)
@@ -68,7 +68,7 @@ final class Board: NSScrollView {
                 content.frame.size.height = max((0 ..< archive.count(column.0)).map {
                     Path.card(column.0, $0)
                 }.reduce(item.rect.maxY) {
-                    let item = Item(path: $1, x: column.1, y: $0 + Metrics.board.item.padding)
+                    let item = Item(path: $1, x: column.1, y: $0)
                     set.insert(item)
                     return item.rect.maxY
                 } + Metrics.board.vertical, content.frame.size.height)

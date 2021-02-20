@@ -8,17 +8,20 @@ struct Metrics {
     
     struct board {
         static let vertical = CGFloat(16)
-        static let horizontal = CGFloat(16)
+        static let horizontal = CGFloat(50)
+        
+        struct column {
+            static let horizontal = CGFloat(80)
+        }
         
         struct card {
-            static let left = CGFloat(20)
+            static let left = CGFloat(24)
         }
         
         struct item {
             static let padding = CGFloat(16)
             static let padding2 = padding * 2
-            static let padding3 = padding * 3
-            static let size = CGSize(width: 180, height: 3000)
+            static let size = CGSize(width: 280, height: 3000)
         }
     }
     

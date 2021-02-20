@@ -41,7 +41,7 @@ extension Projects {
             scroll.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
             scroll.leftAnchor.constraint(equalTo: left.rightAnchor).isActive = true
             scroll.rightAnchor.constraint(equalTo: right.leftAnchor).isActive = true
-            scroll.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2).isActive = true
+            scroll.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
             scroll.right.constraint(equalTo: scroll.rightAnchor).isActive = true
             scroll.bottom.constraint(greaterThanOrEqualTo: scroll.bottomAnchor).isActive = true
             

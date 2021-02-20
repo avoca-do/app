@@ -25,7 +25,7 @@ extension Board {
                                     attributes: [
                                         .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize, weight: .regular),
                                         .foregroundColor: NSColor.labelColor,
-                                        .kern: 1])])
+                                        .kern: NSNumber(value: 1)])])
                 size.width -= Metrics.board.card.left
             default:
                 text = .init()
