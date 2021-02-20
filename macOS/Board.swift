@@ -17,6 +17,8 @@ final class Board: NSScrollView {
     required init?(coder: NSCoder) { nil }
     init() {
         super.init(frame: .zero)
+        translatesAutoresizingMaskIntoConstraints = false
+        
         let content = Flip()
         translatesAutoresizingMaskIntoConstraints = false
         documentView = content
@@ -60,7 +62,7 @@ final class Board: NSScrollView {
                  (Path.column(Session.path.board, $0),
                   ((Metrics.board.item.size.width + (Metrics.board.item.padding * 3)) * .init($0)) + Metrics.board.item.padding)
              }.reduce(into: []) { set, column in
-                let item = Item(path: column.0, x: column.1, y: 0)
+                let item = Item(path: column.0, x: column.1, y: Metrics.board.column.top)
                 set.insert(item)
                 content.frame.size.width = item.rect.maxX + Metrics.board.item.padding
                 content.frame.size.height = max((0 ..< archive.count(column.0)).map {

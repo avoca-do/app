@@ -25,7 +25,7 @@ final class Projects: NSView {
             if $0 == .archive {
                 view = Empty()
             } else {
-                view = Board()
+                view = Item()
             }
             
             self.subviews.filter {

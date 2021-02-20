@@ -12,20 +12,35 @@ extension Projects {
             translatesAutoresizingMaskIntoConstraints = false
             wantsLayer = true
             layer!.backgroundColor = .init(gray: 0, alpha: 0.1)
-            layer!.borderWidth = 2
-            layer!.borderColor = .init(gray: 0, alpha: 0.3)
 
+            let left = NSView()
+            let right = NSView()
+            
             let scroll = Scroll()
             scroll.drawsBackground = false
             scroll.hasVerticalScroller = true
             scroll.verticalScroller!.controlSize = .mini
             addSubview(scroll)
             
+            [left, right].forEach {
+                $0.translatesAutoresizingMaskIntoConstraints = false
+                $0.wantsLayer = true
+                $0.layer!.backgroundColor = .init(gray: 0, alpha: 0.4)
+                addSubview($0)
+                
+                $0.widthAnchor.constraint(equalToConstant: 2).isActive = true
+                $0.topAnchor.constraint(equalTo: topAnchor).isActive = true
+                $0.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+            }
+            
             widthAnchor.constraint(equalToConstant: Metrics.sidebar.width).isActive = true
             
+            left.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+            right.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+            
             scroll.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-            scroll.leftAnchor.constraint(equalTo: leftAnchor, constant: 2).isActive = true
-            scroll.rightAnchor.constraint(equalTo: rightAnchor, constant: -2).isActive = true
+            scroll.leftAnchor.constraint(equalTo: left.rightAnchor).isActive = true
+            scroll.rightAnchor.constraint(equalTo: right.leftAnchor).isActive = true
             scroll.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2).isActive = true
             scroll.right.constraint(equalTo: scroll.rightAnchor).isActive = true
             scroll.bottom.constraint(greaterThanOrEqualTo: scroll.bottomAnchor).isActive = true

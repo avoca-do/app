@@ -25,13 +25,22 @@ extension Projects {
             project.click.sink {
                 Plus().show(relativeTo: project.bounds, of: project, preferredEdge: .minY)
             }.store(in: &subs)
-            addSubview(project)
+            
+            let card = Control.Icon(icon: "plus")
+            card.click.sink {
+                
+            }.store(in: &subs)
+            
+            [project, card].forEach {
+                addSubview($0)
+                $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+            }
             
             self.left = left.leftAnchor.constraint(equalTo: leftAnchor)
             self.left!.isActive = true
             
-            project.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             project.leftAnchor.constraint(equalTo: left.leftAnchor, constant: 10).isActive = true
+            card.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -5).isActive = true
         }
     }
 }
