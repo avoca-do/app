@@ -15,7 +15,6 @@ class Control: NSView {
     required init?(coder: NSCoder) { nil }
     init() {
         super.init(frame: .zero)
-        wantsLayer = true
         translatesAutoresizingMaskIntoConstraints = false
         setAccessibilityElement(true)
         setAccessibilityRole(.button)

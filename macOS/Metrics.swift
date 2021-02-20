@@ -17,4 +17,10 @@ struct Metrics {
             static let padding = CGFloat(10)
         }
     }
+    
+    struct edit {
+        static let horizontal = CGFloat(12)
+        static let vertical = CGFloat(12)
+        static let right = CGFloat(60)
+    }
 }

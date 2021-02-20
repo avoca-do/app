@@ -6,6 +6,7 @@ final class Capsule: Control {
     required init?(coder: NSCoder) { nil }
     init(title: String) {
         super.init()
+        wantsLayer = true
         layer!.cornerRadius = 14
         
         let text = Text()

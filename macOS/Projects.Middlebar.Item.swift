@@ -11,6 +11,7 @@ extension Projects.Middlebar {
         init(path: Path) {
             self.path = path
             super.init()
+            wantsLayer = true
             translatesAutoresizingMaskIntoConstraints = false
             
             let text = Text()

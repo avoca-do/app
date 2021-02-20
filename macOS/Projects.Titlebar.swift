@@ -21,12 +21,12 @@ extension Projects {
             left.translatesAutoresizingMaskIntoConstraints = false
             addSubview(left)
             
-            let project = Control.Icon(icon: "plus")
+            let project = Control.Squircle(icon: "plus")
             project.click.sink {
                 Plus().show(relativeTo: project.bounds, of: project, preferredEdge: .minY)
             }.store(in: &subs)
             
-            let card = Control.Icon(icon: "plus")
+            let card = Control.Squircle(icon: "plus")
             card.click.sink {
                 
             }.store(in: &subs)

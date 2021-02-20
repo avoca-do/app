@@ -1,22 +1,23 @@
 import AppKit
 
 extension Control {
-    final class Icon: Control {
-        private(set) weak var image: NSImageView!
-        private let color: NSColor
+    final class Squircle: Control {
+        private weak var image: NSImageView!
         
         required init?(coder: NSCoder) { nil }
-        init(icon: String, color: NSColor) {
-            self.color = color
+        init(icon: String) {
             super.init()
+            wantsLayer = true
+            layer!.cornerRadius = 8
+            
             let image = NSImageView(image: NSImage(systemSymbolName: icon, accessibilityDescription: nil)!)
             image.translatesAutoresizingMaskIntoConstraints = false
-            image.contentTintColor = color
+            image.contentTintColor = .secondaryLabelColor
             image.symbolConfiguration = .init(textStyle: .title3)
             addSubview(image)
             self.image = image
             
-            widthAnchor.constraint(equalToConstant: 35).isActive = true
+            widthAnchor.constraint(equalToConstant: 30).isActive = true
             heightAnchor.constraint(equalTo: widthAnchor).isActive = true
             image.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             image.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
@@ -27,10 +28,10 @@ extension Control {
             case .pressed:
                 image.contentTintColor = .labelColor
             case .highlighted:
-                alphaValue = 0.7
+                layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
             default:
-                alphaValue = 1
-                image.contentTintColor = color
+                layer!.backgroundColor = .clear
+                image.contentTintColor = .secondaryLabelColor
             }
         }
     }
