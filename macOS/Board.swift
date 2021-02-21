@@ -3,16 +3,7 @@ import Combine
 import Kanban
 
 final class Board: NSScrollView {
-    override var frame: NSRect {
-        didSet {
-            clip.send(contentView.bounds)
-        }
-    }
-    
-    private var cells = Set<Cell>()
     private var subs = Set<AnyCancellable>()
-    private let items = PassthroughSubject<Set<Item>, Never>()
-    private let clip = PassthroughSubject<CGRect, Never>()
     
     required init?(coder: NSCoder) { nil }
     init() {
@@ -20,45 +11,52 @@ final class Board: NSScrollView {
         translatesAutoresizingMaskIntoConstraints = false
         
         let content = Flip()
-        translatesAutoresizingMaskIntoConstraints = false
         documentView = content
         hasVerticalScroller = true
         hasHorizontalScroller = true
         verticalScroller!.controlSize = .mini
         horizontalScroller!.controlSize = .mini
+        postsFrameChangedNotifications = true
         contentView.postsBoundsChangedNotifications = true
+        contentView.postsFrameChangedNotifications = true
         drawsBackground = false
         
-        items.combineLatest(clip) { items, clip in
-            items.filter {
-                $0.rect.maxY > clip.minY && $0.rect.minY < clip.maxY
-            }
-        }.removeDuplicates().sink { [weak self] items in
-            guard let self = self else { return }
-            self.cells
-                .filter { $0.item != nil }
-                .filter { cell in !items.contains { $0 == cell.item } }
-                .forEach {
-                    $0.removeFromSuperview()
-                    $0.item = nil
-                }
-            items.forEach { item in
-                let cell = self.cells.first { $0.item == item } ?? self.cells.first { $0.item == nil } ?? {
-                    self.cells.insert($0)
-                    return $0
-                } (Cell())
-                cell.item = item
-                content.addSubview(cell)
-            }
-        }.store(in: &subs)
+        var cells = Set<Cell>()
+        let items = PassthroughSubject<Set<Item>, Never>()
         
-        NotificationCenter.default.publisher(for: NSView.boundsDidChangeNotification, object: contentView).sink { [weak self] _ in
-            self?.clip.send(self?.contentView.bounds ?? .zero)
-        }.store(in: &subs)
+        NotificationCenter.default.publisher(for: NSView.boundsDidChangeNotification, object: contentView)
+            .merge(with: NotificationCenter.default.publisher(for: NSView.frameDidChangeNotification, object: contentView))
+            .compactMap {
+                ($0.object as? NSClipView)?.documentVisibleRect
+            }
+            .debounce(for: .milliseconds(5), scheduler: DispatchQueue.main)
+            .combineLatest(items) { clip, items in
+                items.filter {
+                    clip.intersects($0.rect)
+                }
+            }
+            .removeDuplicates()
+            .sink { items in
+                cells
+                    .filter { $0.item != nil }
+                    .filter { cell in !items.contains { $0 == cell.item } }
+                    .forEach {
+                        $0.removeFromSuperview()
+                        $0.item = nil
+                    }
+                items.forEach { item in
+                    let cell = cells.first { $0.item == item } ?? cells.first { $0.item == nil } ?? {
+                        cells.insert($0)
+                        return $0
+                    } (Cell())
+                    cell.item = item
+                    content.addSubview(cell)
+                }
+            }.store(in: &subs)
         
         Session.archiving.sink { [weak self] archive in
             content.frame.size.height = self?.frame.size.height ?? 0
-            self?.items.send((0 ..< archive.count(Session.path.board)).map {
+            items.send((0 ..< archive.count(Session.path.board)).map {
                  (Path.column(Session.path.board, $0),
                   ((Metrics.board.item.size.width + Metrics.board.item.padding2 + Metrics.board.column.horizontal) * .init($0)) + Metrics.board.horizontal)
              }.reduce(into: []) { set, column in
