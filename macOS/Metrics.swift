@@ -9,6 +9,7 @@ struct Metrics {
     struct board {
         static let vertical = CGFloat(16)
         static let horizontal = CGFloat(50)
+        static let spacing = item.size.width + item.padding2 + column.horizontal
         
         struct column {
             static let horizontal = CGFloat(80)

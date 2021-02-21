@@ -10,6 +10,7 @@ extension Board {
                     layer!.backgroundColor = .clear
                     frame = item.rect
                     text.attributedStringValue = item.text
+                    state = .none
                     
                     switch item.path {
                     case .column:
@@ -28,6 +29,19 @@ extension Board {
             }
         }
         
+        var state = State.none {
+            didSet {
+                switch state {
+                case .none:
+                    layer!.backgroundColor = .clear
+                case .highlighted:
+                    layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
+                case .selected:
+                    layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.1).cgColor
+                }
+            }
+        }
+        
         private weak var text: Text!
         private weak var line: NSView!
         private weak var circle: NSView!
@@ -37,7 +51,7 @@ extension Board {
         init() {
             super.init(frame: .zero)
             wantsLayer = true
-            layer!.cornerRadius = 8
+            layer!.cornerRadius = 10
             
             let line = NSView()
             self.line = line
@@ -73,16 +87,6 @@ extension Board {
             text.rightAnchor.constraint(equalTo: rightAnchor, constant: -Metrics.board.item.padding).isActive = true
             left = text.leftAnchor.constraint(equalTo: leftAnchor)
             left.isActive = true
-            
-            addTrackingArea(.init(rect: .zero, options: [.mouseEnteredAndExited, .activeInActiveApp, .inVisibleRect], owner: self))
-        }
-        
-        override func mouseEntered(with: NSEvent) {
-            layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
-        }
-        
-        override func mouseExited(with: NSEvent) {
-            layer!.backgroundColor = .clear
         }
     }
 }
