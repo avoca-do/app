@@ -12,10 +12,6 @@ final class Board: NSScrollView {
         }
     }
     
-    private var cells: [Cell] {
-        documentView!.subviews.compactMap { $0 as? Cell }
-    }
-    
     required init?(coder: NSCoder) { nil }
     init() {
         super.init(frame: .zero)
@@ -88,22 +84,26 @@ final class Board: NSScrollView {
     override func mouseMoved(with: NSEvent) {
         guard selected == nil else { return }
         point(with: with) { point in
-            cells.forEach {
-                $0.state = $0.frame.contains(point) ? .highlighted : .none
+            cells {
+                $0.forEach {
+                    $0.state = $0.frame.contains(point) ? .highlighted : .none
+                }
             }
         }
     }
     
     override func mouseDown(with: NSEvent) {
         point(with: with) { point in
-            selected = cells.filter {
-                if case .column = $0.item!.path {
-                    return false
+            cells {
+                selected = $0.filter {
+                    if case .column = $0.item!.path {
+                        return false
+                    }
+                    return true
                 }
-                return true
-            }
-            .first {
-                $0.item!.rect.contains(point)
+                .first {
+                    $0.item!.rect.contains(point)
+                }
             }
         }
     }
@@ -123,6 +123,10 @@ final class Board: NSScrollView {
             }
         }
         selected = nil
+    }
+    
+    private func cells(transform: ([Cell]) -> Void) {
+        transform(documentView!.subviews.compactMap { $0 as? Cell })
     }
     
     private func point(with: NSEvent, transform: (CGPoint) -> Void) {

@@ -35,7 +35,12 @@ extension Board {
                 case .none:
                     layer!.backgroundColor = .clear
                 case .highlighted:
-                    layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
+                    switch item?.path {
+                    case .column:
+                        layer!.backgroundColor = NSColor.controlAccentColor.withAlphaComponent(0.2).cgColor
+                    default:
+                        layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
+                    }
                 case .selected:
                     layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.1).cgColor
                 }
