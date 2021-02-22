@@ -36,7 +36,6 @@ extension Board.Options {
                              image: "arrow.right") {
                             session.archive.move(session.path, horizontal: session.path._column + 1)
                             session.path = .card(.column(session.path.board, session.path._column + 1), 0)
-//                            dismiss()
                         }
                     }
                     

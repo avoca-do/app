@@ -110,15 +110,32 @@ final class Board: NSScrollView {
     
     override func mouseUp(with: NSEvent) {
         selected.map { selected in
-            cells {
-                $0.columns.sorted {
+            cells { cells in
+                cells.columns.sorted {
                     $0.frame.minX < $1.frame.minX
                 }.transform {
                     { column in
-                        NSAnimationContext.runAnimationGroup {
-                            $0.duration = 0.3
-                            $0.allowsImplicitAnimation = true
-                            selected.frame.origin.x = column.frame.minX
+                        cells.cards.filter {
+                            $0.item?.path.column == column.item?.path
+                        }.sorted {
+                            $0.frame.minY < $1.frame.minY
+                        }.filter {
+                            $0.frame.midY > selected.frame.midY
+                        }.transform { cards in
+                            NSAnimationContext.runAnimationGroup({
+                                $0.duration = 0.3
+                                $0.allowsImplicitAnimation = true
+                                selected.frame.origin.x = column.frame.minX
+                            }) {
+                                guard
+                                    let path = selected.item?.path,
+                                    let column = column.item?.path
+                                else { return }
+                                Session.mutate {
+                                    $0.move(path, horizontal: column._column)
+                                    $0.move(.card(column, 0), vertical: cards.first?.item?.path._card ?? 0)
+                                }
+                            }
                         }
                     } ($0.filter {
                         $0.frame.maxX > selected.frame.midX
