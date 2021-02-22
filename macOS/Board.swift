@@ -95,13 +95,7 @@ final class Board: NSScrollView {
     override func mouseDown(with: NSEvent) {
         point(with: with) { point in
             cells {
-                selected = $0.filter {
-                    if case .column = $0.item!.path {
-                        return false
-                    }
-                    return true
-                }
-                .first {
+                selected = $0.cards.first {
                     $0.item!.rect.contains(point)
                 }
             }
@@ -116,10 +110,20 @@ final class Board: NSScrollView {
     
     override func mouseUp(with: NSEvent) {
         selected.map { selected in
-            NSAnimationContext.runAnimationGroup {
-                $0.duration = 0.3
-                $0.allowsImplicitAnimation = true
-                selected.frame = selected.item!.rect
+            cells {
+                $0.columns.sorted {
+                    $0.frame.minX < $1.frame.minX
+                }.transform {
+                    { column in
+                        NSAnimationContext.runAnimationGroup {
+                            $0.duration = 0.3
+                            $0.allowsImplicitAnimation = true
+                            selected.frame.origin.x = column.frame.minX
+                        }
+                    } ($0.filter {
+                        $0.frame.maxX > selected.frame.midX
+                    }.first ?? $0.last!)
+                }
             }
         }
         selected = nil
