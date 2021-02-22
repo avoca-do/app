@@ -15,10 +15,7 @@ final class Projects: NSView {
         middlebar.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         middlebar.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         
-        Session.pathing.removeDuplicates {
-            guard $0 != .archive, $1 != .archive else { return false }
-            return $0._board == $1._board
-        }.sink { [weak self] in
+        Session.pathing.sink { [weak self] in
             guard let self = self else { return }
             
             let view: NSView

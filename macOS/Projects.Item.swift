@@ -26,7 +26,7 @@ extension Projects {
             board.topAnchor.constraint(equalTo: edit.bottomAnchor).isActive = true
             board.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
             
-            Session.edit.sink { [weak self] write in
+            Session.edit.removeDuplicates().sink { [weak self] write in
                 edit.text.write = write
                 top.constant = write == nil ? -Metrics.edit.closed : 0
                 height.constant = write == nil ? Metrics.edit.closed : Metrics.edit.height

@@ -93,6 +93,7 @@ final class Board: NSScrollView {
     }
     
     override func mouseDown(with: NSEvent) {
+        Session.edit.send(nil)
         point(with: with) { point in
             cells {
                 selected = $0.cards.first {
@@ -136,7 +137,7 @@ final class Board: NSScrollView {
                                 let card = (cards.last?.item?.path._card ?? -1) + 1
                                 Session.mutate {
                                     if path.column == column {
-                                        $0.move(path, vertical: card)
+                                        $0.move(path, vertical: card > path._card ? card - 1 : card)
                                     } else {
                                         $0.move(path, horizontal: column._column)
                                         $0.move(.card(column, 0), vertical: card)
