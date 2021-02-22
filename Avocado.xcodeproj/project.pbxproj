@@ -14,6 +14,7 @@
 		CE0E839825CEC741001283C6 /* Board.Modify.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */; };
 		CE12944925DEC027000533B1 /* Board.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12944825DEC027000533B1 /* Board.Cell.swift */; };
 		CE12945725DECAC4000533B1 /* Board.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12945625DECAC4000533B1 /* Board.Item.swift */; };
+		CE15FB7D25E4268E00704E20 /* Control.Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE15FB7C25E4268E00704E20 /* Control.Tool.swift */; };
 		CE1A44EA25C2DCBF002011FA /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44E925C2DCBF002011FA /* Neumorphic.swift */; };
 		CE1A44EE25C2E61D002011FA /* Board.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44ED25C2E61D002011FA /* Board.Control.swift */; };
 		CE1B806525E2B5A30075ACE4 /* Board.Cell.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B806425E2B5A30075ACE4 /* Board.Cell.State.swift */; };
@@ -46,7 +47,7 @@
 		CE349F3925CAD46100B3A436 /* Board.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3825CAD46100B3A436 /* Board.Content.swift */; };
 		CE3832F725DE949700539F4E /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3832F625DE949700539F4E /* NSAttributedString.swift */; };
 		CE3832FF25DE994700539F4E /* Projects.Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3832FE25DE994700539F4E /* Projects.Plus.swift */; };
-		CE38330D25DE9B1E00539F4E /* Capsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38330C25DE9B1E00539F4E /* Capsule.swift */; };
+		CE38330D25DE9B1E00539F4E /* Control.Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38330C25DE9B1E00539F4E /* Control.Rectangle.swift */; };
 		CE38331725DEA75400539F4E /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38331625DEA75400539F4E /* Field.swift */; };
 		CE38331A25DEA83400539F4E /* Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839325CEC054001283C6 /* Write.swift */; };
 		CE4206A225D1853B00E43D49 /* Capacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A125D1853B00E43D49 /* Capacity.swift */; };
@@ -95,6 +96,7 @@
 		CED3399725B9E050008BD131 /* Board.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3399625B9E050008BD131 /* Board.Card.swift */; };
 		CEE61FA125CAFCFB007CF830 /* Board.Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA025CAFCFB007CF830 /* Board.Options.swift */; };
 		CEE61FA525CB0A08007CF830 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA425CB0A08007CF830 /* Tool.swift */; };
+		CEF1B84125E41F6A004B72AF /* Projects.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1B84025E41F6A004B72AF /* Projects.Settings.swift */; };
 		CEF2D7D825C0554700223C79 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
 		CEF2D7DB25C058C300223C79 /* Home.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2D7DA25C058C300223C79 /* Home.Item.swift */; };
 /* End PBXBuildFile section */
@@ -106,6 +108,7 @@
 		CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Modify.Column.swift; sourceTree = "<group>"; };
 		CE12944825DEC027000533B1 /* Board.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.swift; sourceTree = "<group>"; };
 		CE12945625DECAC4000533B1 /* Board.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Item.swift; sourceTree = "<group>"; };
+		CE15FB7C25E4268E00704E20 /* Control.Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.Tool.swift; sourceTree = "<group>"; };
 		CE1A44E925C2DCBF002011FA /* Neumorphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
 		CE1A44ED25C2E61D002011FA /* Board.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Control.swift; sourceTree = "<group>"; };
 		CE1B806425E2B5A30075ACE4 /* Board.Cell.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.State.swift; sourceTree = "<group>"; };
@@ -140,7 +143,7 @@
 		CE349F3825CAD46100B3A436 /* Board.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Content.swift; sourceTree = "<group>"; };
 		CE3832F625DE949700539F4E /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		CE3832FE25DE994700539F4E /* Projects.Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Plus.swift; sourceTree = "<group>"; };
-		CE38330C25DE9B1E00539F4E /* Capsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capsule.swift; sourceTree = "<group>"; };
+		CE38330C25DE9B1E00539F4E /* Control.Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.Rectangle.swift; sourceTree = "<group>"; };
 		CE38331625DEA75400539F4E /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		CE4206A125D1853B00E43D49 /* Capacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.swift; sourceTree = "<group>"; };
 		CE4206A525D18C0600E43D49 /* Purchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
@@ -190,6 +193,7 @@
 		CED3399625B9E050008BD131 /* Board.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Card.swift; sourceTree = "<group>"; };
 		CEE61FA025CAFCFB007CF830 /* Board.Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Options.swift; sourceTree = "<group>"; };
 		CEE61FA425CB0A08007CF830 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		CEF1B84025E41F6A004B72AF /* Projects.Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Settings.swift; sourceTree = "<group>"; };
 		CEF2D7D725C0554700223C79 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CEF2D7DA25C058C300223C79 /* Home.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -316,11 +320,12 @@
 				CE12945625DECAC4000533B1 /* Board.Item.swift */,
 				CE5F392025DD9CD60095F4FB /* Board.swift */,
 				CE221BF225DD6C1900EFA20B /* Capacity.swift */,
-				CE38330C25DE9B1E00539F4E /* Capsule.swift */,
 				CE4E4A8325E15DCA007A46BB /* Control.Icon.swift */,
+				CE38330C25DE9B1E00539F4E /* Control.Rectangle.swift */,
 				CE221BD325DD5B2A00EFA20B /* Control.Squircle.swift */,
 				CE221BA925DD3D6900EFA20B /* Control.State.swift */,
 				CE221BA525DD3D6000EFA20B /* Control.swift */,
+				CE15FB7C25E4268E00704E20 /* Control.Tool.swift */,
 				CE4E4A7125E14CFA007A46BB /* Edit.swift */,
 				CE4E4A8925E16323007A46BB /* Edit.Text.swift */,
 				CE38331625DEA75400539F4E /* Field.swift */,
@@ -332,6 +337,7 @@
 				CE5F391825DD96490095F4FB /* Projects.Middlebar.Item.swift */,
 				CE221BC125DD55A400EFA20B /* Projects.Middlebar.swift */,
 				CE3832FE25DE994700539F4E /* Projects.Plus.swift */,
+				CEF1B84025E41F6A004B72AF /* Projects.Settings.swift */,
 				CE221BBD25DD552E00EFA20B /* Projects.swift */,
 				CE221BCF25DD5A5E00EFA20B /* Projects.Titlebar.swift */,
 				CE5F391225DD91070095F4FB /* Scroll.swift */,
@@ -522,7 +528,7 @@
 				CE221BF925DD6DC200EFA20B /* Session.swift in Sources */,
 				CECFD8C225E3EA0000BD3532 /* Array.swift in Sources */,
 				CE221BBE25DD552E00EFA20B /* Projects.swift in Sources */,
-				CE38330D25DE9B1E00539F4E /* Capsule.swift in Sources */,
+				CE38330D25DE9B1E00539F4E /* Control.Rectangle.swift in Sources */,
 				CE221BA225DD3D3E00EFA20B /* Sidebar.Item.swift in Sources */,
 				CE221BCA25DD563400EFA20B /* Metrics.swift in Sources */,
 				CE4E4A8425E15DCA007A46BB /* Control.Icon.swift in Sources */,
@@ -535,12 +541,14 @@
 				CE5F391325DD91070095F4FB /* Scroll.swift in Sources */,
 				CE99E67825DBFE9F00E0EA36 /* App.swift in Sources */,
 				CE5F390F25DD90F50095F4FB /* Flip.swift in Sources */,
+				CE15FB7D25E4268E00704E20 /* Control.Tool.swift in Sources */,
 				CE4E4A8A25E16323007A46BB /* Edit.Text.swift in Sources */,
 				CE221BB425DD3E8900EFA20B /* Text.swift in Sources */,
 				CE3832FF25DE994700539F4E /* Projects.Plus.swift in Sources */,
 				CE12944925DEC027000533B1 /* Board.Cell.swift in Sources */,
 				CE12945725DECAC4000533B1 /* Board.Item.swift in Sources */,
 				CE1B806525E2B5A30075ACE4 /* Board.Cell.State.swift in Sources */,
+				CEF1B84125E41F6A004B72AF /* Projects.Settings.swift in Sources */,
 				CE221BC225DD55A400EFA20B /* Projects.Middlebar.swift in Sources */,
 				CE221BAA25DD3D6900EFA20B /* Control.State.swift in Sources */,
 				CE221BA625DD3D6000EFA20B /* Control.swift in Sources */,

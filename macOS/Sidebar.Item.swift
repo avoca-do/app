@@ -31,6 +31,8 @@ extension Sidebar {
         }
         
         override func update() {
+            super.update()
+            
             switch state {
             case .selected:
                 layer!.backgroundColor = NSColor.controlAccentColor.withAlphaComponent(0.2).cgColor

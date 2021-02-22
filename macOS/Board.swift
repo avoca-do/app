@@ -27,7 +27,7 @@ final class Board: NSScrollView {
         contentView.postsBoundsChangedNotifications = true
         contentView.postsFrameChangedNotifications = true
         drawsBackground = false
-        addTrackingArea(.init(rect: .zero, options: [.mouseMoved, .activeInActiveApp, .inVisibleRect], owner: self))
+        addTrackingArea(.init(rect: .zero, options: [.mouseEnteredAndExited, .mouseMoved, .activeInActiveApp, .inVisibleRect], owner: self))
         
         var cells = Set<Cell>()
         
@@ -39,6 +39,7 @@ final class Board: NSScrollView {
             .debounce(for: .milliseconds(5), scheduler: DispatchQueue.main)
             .combineLatest(
                 Session.archiving
+                    .debounce(for: .milliseconds(100), scheduler: DispatchQueue.main)
                     .map { archive in
                         (0 ..< archive.count(Session.path.board)).map {
                              (Path.column(Session.path.board, $0), (Metrics.board.spacing * .init($0)) + Metrics.board.horizontal)
@@ -55,30 +56,43 @@ final class Board: NSScrollView {
                             } + Metrics.board.vertical, content.frame.size.height)
                          }
                     }) { clip, items -> Set<Item> in
-                        content.frame.size.width = max(content.frame.width, clip.width)
-                        content.frame.size.height = max(content.frame.height, clip.height)
-                        return items.filter {
-                            clip.intersects($0.rect)
-                        }
+//                content.frame = .init(
+//                    x: clip.origin.x,
+//                    y: clip.origin.y,
+//                    width: max(content.frame.width, clip.width),
+//                    height: max(content.frame.height, clip.height))
+                return items.filter {
+                    clip.intersects($0.rect)
+                }
+            }
+            .removeDuplicates()
+            .sink { items in
+                cells
+                    .filter { $0.item != nil }
+                    .filter { cell in !items.contains { $0 == cell.item } }
+                    .forEach {
+                        $0.removeFromSuperview()
+                        $0.item = nil
                     }
-                    .removeDuplicates()
-                    .sink { items in
-                        cells
-                            .filter { $0.item != nil }
-                            .filter { cell in !items.contains { $0 == cell.item } }
-                            .forEach {
-                                $0.removeFromSuperview()
-                                $0.item = nil
-                            }
-                        items.forEach { item in
-                            let cell = cells.first { $0.item == item } ?? cells.first { $0.item == nil } ?? {
-                                cells.insert($0)
-                                return $0
-                            } (Cell())
-                            cell.item = item
-                            content.addSubview(cell)
-                        }
-                    }.store(in: &subs)
+                items.forEach { item in
+                    let cell = cells.first { $0.item == item } ?? cells.first { $0.item == nil } ?? {
+                        cells.insert($0)
+                        return $0
+                    } (Cell())
+                    cell.item = item
+                    content.addSubview(cell)
+                }
+            }.store(in: &subs)
+    }
+    
+    override func mouseExited(with: NSEvent) {
+        cells {
+            $0.filter{
+                $0.state != .none
+            }.forEach {
+                $0.state = .none
+            }
+        }
     }
     
     override func mouseMoved(with: NSEvent) {
@@ -126,6 +140,7 @@ final class Board: NSScrollView {
                             NSAnimationContext.runAnimationGroup({
                                 $0.duration = 0.3
                                 $0.allowsImplicitAnimation = true
+                                $0.timingFunction = .init(name: .easeInEaseOut)
                                 selected.frame.origin = .init(
                                     x: column.frame.minX,
                                     y: cards.last?.frame.maxY ?? column.frame.maxY)

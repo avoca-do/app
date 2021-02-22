@@ -24,6 +24,8 @@ extension Control {
         }
         
         override func update() {
+            super.update()
+            
             switch state {
             case .pressed:
                 image.contentTintColor = .labelColor

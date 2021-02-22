@@ -51,5 +51,7 @@ class Control: NSView {
         }
     }
     
-    func update() { }
+    func update() {
+        isHidden = state == .hidden
+    }
 }

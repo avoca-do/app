@@ -26,12 +26,17 @@ extension Projects {
                 Plus().show(relativeTo: project.bounds, of: project, preferredEdge: .minY)
             }.store(in: &subs)
             
+            let settings = Control.Squircle(icon: "slider.vertical.3")
+            settings.click.sink {
+                Settings().show(relativeTo: settings.bounds, of: settings, preferredEdge: .minY)
+            }.store(in: &subs)
+            
             let card = Control.Squircle(icon: "plus")
             card.click.sink {
                 Session.edit.send(.new(Session.path.board))
             }.store(in: &subs)
             
-            [project, card].forEach {
+            [project, settings, card].forEach {
                 addSubview($0)
                 $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             }
@@ -40,6 +45,7 @@ extension Projects {
             self.left!.isActive = true
             
             project.leftAnchor.constraint(equalTo: left.leftAnchor, constant: 10).isActive = true
+            settings.rightAnchor.constraint(equalTo: card.leftAnchor, constant: -5).isActive = true
             card.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -5).isActive = true
         }
     }
