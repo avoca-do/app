@@ -43,25 +43,22 @@ final class Board: NSScrollView {
                     .map { archive in
                         (0 ..< archive.count(Session.path.board)).map {
                              (Path.column(Session.path.board, $0), (Metrics.board.spacing * .init($0)) + Metrics.board.horizontal)
-                         }.reduce(into: Set<Item>()) { set, column in
+                        }.reduce(into: (CGSize.zero, Set<Item>())) { set, column in
                             let item = Item(path: column.0, x: column.1, y: Metrics.board.vertical)
-                            set.insert(item)
-                            content.frame.size.width = item.rect.maxX + Metrics.board.horizontal
-                            content.frame.size.height = max((0 ..< archive.count(column.0)).map {
+                            set.1.insert(item)
+                            set.0.width = item.rect.maxX + Metrics.board.horizontal
+                            set.0.height = max((0 ..< archive.count(column.0)).map {
                                 Path.card(column.0, $0)
                             }.reduce(item.rect.maxY) {
                                 let item = Item(path: $1, x: column.1, y: $0)
-                                set.insert(item)
+                                set.1.insert(item)
                                 return item.rect.maxY
-                            } + Metrics.board.vertical, content.frame.size.height)
+                            } + Metrics.board.vertical, set.0.height)
                          }
-                    }) { clip, items -> Set<Item> in
-//                content.frame = .init(
-//                    x: clip.origin.x,
-//                    y: clip.origin.y,
-//                    width: max(content.frame.width, clip.width),
-//                    height: max(content.frame.height, clip.height))
-                return items.filter {
+                    }) { clip, set -> Set<Item> in
+                content.frame.size.width = max(set.0.width, clip.width)
+                content.frame.size.height = max(set.0.height, clip.height)
+                return set.1.filter {
                     clip.intersects($0.rect)
                 }
             }
@@ -163,6 +160,7 @@ final class Board: NSScrollView {
                     } ($0.filter {
                         $0.frame.maxX > selected.frame.midX
                     }.first ?? $0.last!)
+                    // fix here
                 }
             }
         }
