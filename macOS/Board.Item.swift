@@ -40,10 +40,11 @@ extension Board {
         
         func hash(into: inout Hasher) {
             into.combine(path)
+            into.combine(text)
         }
         
         static func == (lhs: Self, rhs: Self) -> Bool {
-            lhs.path == rhs.path
+            lhs.path == rhs.path && lhs.text == rhs.text
         }
     }
 }

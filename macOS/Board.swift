@@ -120,20 +120,27 @@ final class Board: NSScrollView {
                         }.sorted {
                             $0.frame.minY < $1.frame.minY
                         }.filter {
-                            $0.frame.midY > selected.frame.midY
+                            $0.frame.midY < selected.frame.midY
                         }.transform { cards in
                             NSAnimationContext.runAnimationGroup({
                                 $0.duration = 0.3
                                 $0.allowsImplicitAnimation = true
-                                selected.frame.origin.x = column.frame.minX
+                                selected.frame.origin = .init(
+                                    x: column.frame.minX,
+                                    y: cards.last?.frame.maxY ?? column.frame.maxY)
                             }) {
                                 guard
                                     let path = selected.item?.path,
                                     let column = column.item?.path
                                 else { return }
+                                let card = (cards.last?.item?.path._card ?? -1) + 1
                                 Session.mutate {
-                                    $0.move(path, horizontal: column._column)
-                                    $0.move(.card(column, 0), vertical: cards.first?.item?.path._card ?? 0)
+                                    if path.column == column {
+                                        $0.move(path, vertical: card)
+                                    } else {
+                                        $0.move(path, horizontal: column._column)
+                                        $0.move(.card(column, 0), vertical: card)
+                                    }
                                 }
                             }
                         }
