@@ -5,12 +5,16 @@ import Kanban
 final class Board: NSScrollView {
     private var subs = Set<AnyCancellable>()
     
-    private weak var selected: Cell? {
-        didSet {
-            selected?.state = .selected
-            oldValue?.state = .none
-        }
-    }
+//    private weak var selected: Cell? {
+//        didSet {
+//            selected?.state = .selected
+//            oldValue?.state = .none
+//        }
+//    }
+    
+    private let selected = PassthroughSubject<Cell?, Never>()
+    private let drag = PassthroughSubject<CGSize, Never>()
+    private let drop = PassthroughSubject<Void, Never>()
     
     required init?(coder: NSCoder) { nil }
     init() {
@@ -30,6 +34,42 @@ final class Board: NSScrollView {
         addTrackingArea(.init(rect: .zero, options: [.mouseEnteredAndExited, .mouseMoved, .activeInActiveApp, .inVisibleRect], owner: self))
         
         var cells = Set<Cell>()
+        let items = PassthroughSubject<Set<Item>, Never>()
+        let clip = PassthroughSubject<CGRect, Never>()
+        let size = PassthroughSubject<CGSize, Never>()
+            
+        clip.combineLatest(size) {
+            .init(width: max($0.width, $1.width), height: max($0.height, $1.height))
+        }
+        .removeDuplicates()
+        .sink {
+            content.frame.size = $0
+        }
+        .store(in: &subs)
+        
+        items.combineLatest(clip) { items, clip in
+            items.filter {
+                clip.intersects($0.rect)
+            }
+        }
+        .removeDuplicates()
+        .sink { items in
+            cells
+                .filter { $0.item != nil }
+                .filter { cell in !items.contains { $0 == cell.item } }
+                .forEach {
+                    $0.removeFromSuperview()
+                    $0.item = nil
+                }
+            items.forEach { item in
+                let cell = cells.first { $0.item == item } ?? cells.first { $0.item == nil } ?? {
+                    cells.insert($0)
+                    return $0
+                } (Cell())
+                cell.item = item
+                content.addSubview(cell)
+            }
+        }.store(in: &subs)
         
         NotificationCenter.default.publisher(for: NSView.boundsDidChangeNotification, object: contentView)
             .merge(with: NotificationCenter.default.publisher(for: NSView.frameDidChangeNotification, object: contentView))
@@ -37,49 +77,29 @@ final class Board: NSScrollView {
                 ($0.object as? NSClipView)?.documentVisibleRect
             }
             .debounce(for: .milliseconds(5), scheduler: DispatchQueue.main)
-            .combineLatest(
-                Session.archiving
-                    .debounce(for: .milliseconds(100), scheduler: DispatchQueue.main)
-                    .map { archive in
-                        (0 ..< archive.count(Session.path.board)).map {
-                             (Path.column(Session.path.board, $0), (Metrics.board.spacing * .init($0)) + Metrics.board.horizontal)
-                        }.reduce(into: (CGSize.zero, Set<Item>())) { set, column in
-                            let item = Item(path: column.0, x: column.1, y: Metrics.board.vertical)
-                            set.1.insert(item)
-                            set.0.width = item.rect.maxX + Metrics.board.horizontal
-                            set.0.height = max((0 ..< archive.count(column.0)).map {
-                                Path.card(column.0, $0)
-                            }.reduce(item.rect.maxY) {
-                                let item = Item(path: $1, x: column.1, y: $0)
-                                set.1.insert(item)
-                                return item.rect.maxY
-                            } + Metrics.board.vertical, set.0.height)
-                         }
-                    }) { clip, set -> Set<Item> in
-                content.frame.size.width = max(set.0.width, clip.width)
-                content.frame.size.height = max(set.0.height, clip.height)
-                return set.1.filter {
-                    clip.intersects($0.rect)
-                }
-            }
-            .removeDuplicates()
-            .sink { items in
-                cells
-                    .filter { $0.item != nil }
-                    .filter { cell in !items.contains { $0 == cell.item } }
-                    .forEach {
-                        $0.removeFromSuperview()
-                        $0.item = nil
-                    }
-                items.forEach { item in
-                    let cell = cells.first { $0.item == item } ?? cells.first { $0.item == nil } ?? {
-                        cells.insert($0)
-                        return $0
-                    } (Cell())
-                    cell.item = item
-                    content.addSubview(cell)
-                }
-            }.store(in: &subs)
+            .sink(receiveValue: clip.send)
+            .store(in: &subs)
+        
+        Session.archiving.sink { archive in
+            var set = Set<Item>()
+            var rect = CGSize.zero
+            (0 ..< archive.count(Session.path.board)).map {
+                 (Path.column(Session.path.board, $0), (Metrics.board.spacing * .init($0)) + Metrics.board.horizontal)
+            }.forEach { column in
+                let item = Item(path: column.0, x: column.1, y: Metrics.board.vertical)
+                set.insert(item)
+                rect.width = item.rect.maxX + Metrics.board.horizontal
+                rect.height = max((0 ..< archive.count(column.0)).map {
+                    Path.card(column.0, $0)
+                }.reduce(item.rect.maxY) {
+                    let item = Item(path: $1, x: column.1, y: $0)
+                    set.insert(item)
+                    return item.rect.maxY
+                } + Metrics.board.vertical, rect.height)
+             }
+            items.send(set)
+            size.send(rect)
+        }.store(in: &subs)
     }
     
     override func mouseExited(with: NSEvent) {
