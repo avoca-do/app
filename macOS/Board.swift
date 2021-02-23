@@ -4,14 +4,6 @@ import Kanban
 
 final class Board: NSScrollView {
     private var subs = Set<AnyCancellable>()
-    
-//    private weak var selected: Cell? {
-//        didSet {
-//            selected?.state = .selected
-//            oldValue?.state = .none
-//        }
-//    }
-    
     private let select = PassthroughSubject<CGPoint, Never>()
     private let drag = PassthroughSubject<CGSize, Never>()
     private let drop = PassthroughSubject<Date, Never>()
