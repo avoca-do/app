@@ -12,6 +12,15 @@ final class Menu: NSMenu, NSMenuDelegate {
     
     func menuNeedsUpdate(_ menu: NSMenu) {
         switch menu.title {
+        case "File":
+            menu.items = [
+                .child("New Project", #selector(triggerProject), "n") {
+                    $0.target = self
+                    $0.isEnabled = NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view is Projects.Titlebar
+                },
+                .separator(),
+                .child("Close", #selector(Window.close), "w"),
+                .separator()]
         case "Window":
             menu.items = [
                 .child("Minimize", #selector(NSWindow.miniaturize), "m"),
@@ -52,11 +61,9 @@ final class Menu: NSMenu, NSMenuDelegate {
     }
     
     private var file: NSMenuItem {
-        .parent("File", [
-                    .child("New Window", #selector(App.preferences), "n"),
-                    .separator(),
-                    .child("Close", #selector(Window.close), "w"),
-                    .separator()])
+        .parent("File") {
+            $0.submenu!.delegate = self
+        }
     }
     
     private var edit: NSMenuItem {
@@ -79,6 +86,10 @@ final class Menu: NSMenu, NSMenuDelegate {
     
     private var help: NSMenuItem {
         .parent("Help")
+    }
+    
+    @objc private func triggerProject() {
+        (NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view as? Projects.Titlebar)?.triggerProject()
     }
     
     @objc private func focus(_ item: NSMenuItem) {
