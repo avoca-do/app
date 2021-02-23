@@ -72,7 +72,7 @@ extension Projects {
             delete.click.sink {
                 let alert = NSAlert()
                 alert.messageText = NSLocalizedString("Delete", comment: "")
-                alert.informativeText = NSLocalizedString("Remove this board", comment: "")
+                alert.informativeText = Session.archive[name: Session.path]
                 let delete = alert.addButton(withTitle: NSLocalizedString("Delete", comment: ""))
                 let cancel = alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
                 delete.keyEquivalent = "\r"
