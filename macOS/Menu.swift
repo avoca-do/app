@@ -28,6 +28,11 @@ final class Menu: NSMenu, NSMenuDelegate {
                     $0.isEnabled = projects
                 },
                 .separator(),
+                .child("Settings", #selector(triggerSettings)) {
+                    $0.target = self
+                    $0.isEnabled = projects
+                },
+                .separator(),
                 .child("Save", #selector(Edit.Text.send), "s") {
                     $0.isEnabled = projects && editing
                 },
@@ -110,6 +115,10 @@ final class Menu: NSMenu, NSMenuDelegate {
     
     @objc private func triggerCard() {
         (NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view as? Projects.Titlebar)?.triggerCard()
+    }
+    
+    @objc private func triggerSettings() {
+        (NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view as? Projects.Titlebar)?.triggerSettings()
     }
     
     @objc private func cancel() {
