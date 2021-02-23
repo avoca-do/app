@@ -6,6 +6,7 @@ extension Projects {
         private weak var left: NSLayoutConstraint?
         private weak var project: Control!
         private weak var settings: Control!
+        private weak var columns: Control!
         private weak var card: Control!
         private var subs = Set<AnyCancellable>()
         
@@ -35,13 +36,19 @@ extension Projects {
             }.store(in: &subs)
             self.settings = settings
             
+            let columns = Control.Squircle(icon: "line.horizontal.3.decrease")
+            columns.click.sink { [weak self] in
+                self?.triggerColumns()
+            }.store(in: &subs)
+            self.columns = columns
+            
             let card = Control.Squircle(icon: "plus")
             card.click.sink { [weak self] in
                 self?.triggerCard()
             }.store(in: &subs)
             self.card = card
             
-            [project, settings, card].forEach {
+            [project, settings, columns, card].forEach {
                 addSubview($0)
                 $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             }
@@ -50,7 +57,8 @@ extension Projects {
             self.left!.isActive = true
             
             project.leftAnchor.constraint(equalTo: left.leftAnchor, constant: 10).isActive = true
-            settings.rightAnchor.constraint(equalTo: card.leftAnchor, constant: -5).isActive = true
+            settings.rightAnchor.constraint(equalTo: columns.leftAnchor, constant: -5).isActive = true
+            columns.rightAnchor.constraint(equalTo: card.leftAnchor, constant: -5).isActive = true
             card.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -5).isActive = true
         }
         
@@ -60,6 +68,10 @@ extension Projects {
         
         func triggerSettings() {
             Settings().show(relativeTo: settings.bounds, of: settings, preferredEdge: .minY)
+        }
+        
+        func triggerColumns() {
+            Columns().show(relativeTo: columns.bounds, of: columns, preferredEdge: .minY)
         }
         
         func triggerCard() {

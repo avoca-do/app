@@ -96,11 +96,6 @@ extension Projects {
             }
             
             name.topAnchor.constraint(equalTo: contentViewController!.view.topAnchor, constant: 20).isActive = true
-            
-//            field.centerXAnchor.constraint(equalTo: contentViewController!.view.centerXAnchor).isActive = true
-//            field.topAnchor.constraint(equalTo: contentViewController!.view.topAnchor, constant: 40).isActive = true
-//            field.widthAnchor.constraint(equalToConstant: 160).isActive = true
-            
             field.bottomAnchor.constraint(equalTo: save.topAnchor, constant: -20).isActive = true
             save.bottomAnchor.constraint(equalTo: cancel.topAnchor, constant: -5).isActive = true
             cancel.bottomAnchor.constraint(equalTo: rename.topAnchor, constant: -5).isActive = true

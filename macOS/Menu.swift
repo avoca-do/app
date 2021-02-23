@@ -28,6 +28,10 @@ final class Menu: NSMenu, NSMenuDelegate {
                     $0.isEnabled = projects
                 },
                 .separator(),
+                .child("Columns", #selector(triggerColumns)) {
+                    $0.target = self
+                    $0.isEnabled = projects
+                },
                 .child("Settings", #selector(triggerSettings)) {
                     $0.target = self
                     $0.isEnabled = projects
@@ -119,6 +123,10 @@ final class Menu: NSMenu, NSMenuDelegate {
     
     @objc private func triggerSettings() {
         (NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view as? Projects.Titlebar)?.triggerSettings()
+    }
+    
+    @objc private func triggerColumns() {
+        (NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view as? Projects.Titlebar)?.triggerColumns()
     }
     
     @objc private func cancel() {
