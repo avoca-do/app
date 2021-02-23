@@ -56,6 +56,8 @@
 		CE4206AE25D1937E00E43D49 /* Capacity.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206AD25D1937E00E43D49 /* Capacity.Item.swift */; };
 		CE48895D25CD7C78003F63AC /* Board.Options.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48895C25CD7C78003F63AC /* Board.Options.Content.swift */; };
 		CE4C49DE25E523CA00BCF746 /* Set.Board.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C49DD25E523CA00BCF746 /* Set.Board.Item.swift */; };
+		CE4C49ED25E5325800BCF746 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C49EC25E5325800BCF746 /* Menu.swift */; };
+		CE4C49F125E533F500BCF746 /* NSMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C49F025E533F500BCF746 /* NSMenuItem.swift */; };
 		CE4E4A6E25E14BF0007A46BB /* Projects.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E4A6D25E14BF0007A46BB /* Projects.Item.swift */; };
 		CE4E4A7225E14CFA007A46BB /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E4A7125E14CFA007A46BB /* Edit.swift */; };
 		CE4E4A8425E15DCA007A46BB /* Control.Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E4A8325E15DCA007A46BB /* Control.Icon.swift */; };
@@ -152,6 +154,8 @@
 		CE4206AD25D1937E00E43D49 /* Capacity.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.Item.swift; sourceTree = "<group>"; };
 		CE48895C25CD7C78003F63AC /* Board.Options.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Options.Content.swift; sourceTree = "<group>"; };
 		CE4C49DD25E523CA00BCF746 /* Set.Board.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.Board.Item.swift; sourceTree = "<group>"; };
+		CE4C49EC25E5325800BCF746 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		CE4C49F025E533F500BCF746 /* NSMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMenuItem.swift; sourceTree = "<group>"; };
 		CE4E4A6D25E14BF0007A46BB /* Projects.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Item.swift; sourceTree = "<group>"; };
 		CE4E4A7125E14CFA007A46BB /* Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edit.swift; sourceTree = "<group>"; };
 		CE4E4A8325E15DCA007A46BB /* Control.Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.Icon.swift; sourceTree = "<group>"; };
@@ -331,8 +335,10 @@
 				CE4E4A8925E16323007A46BB /* Edit.Text.swift */,
 				CE38331625DEA75400539F4E /* Field.swift */,
 				CE5F390E25DD90F50095F4FB /* Flip.swift */,
+				CE4C49EC25E5325800BCF746 /* Menu.swift */,
 				CE221BC925DD563400EFA20B /* Metrics.swift */,
 				CE3832F625DE949700539F4E /* NSAttributedString.swift */,
+				CE4C49F025E533F500BCF746 /* NSMenuItem.swift */,
 				CE5F391C25DD9BE30095F4FB /* Projects.Empty.swift */,
 				CE4E4A6D25E14BF0007A46BB /* Projects.Item.swift */,
 				CE5F391825DD96490095F4FB /* Projects.Middlebar.Item.swift */,
@@ -548,6 +554,7 @@
 				CE15FB7D25E4268E00704E20 /* Control.Tool.swift in Sources */,
 				CE4E4A8A25E16323007A46BB /* Edit.Text.swift in Sources */,
 				CE221BB425DD3E8900EFA20B /* Text.swift in Sources */,
+				CE4C49F125E533F500BCF746 /* NSMenuItem.swift in Sources */,
 				CE3832FF25DE994700539F4E /* Projects.Plus.swift in Sources */,
 				CE12944925DEC027000533B1 /* Board.Cell.swift in Sources */,
 				CE12945725DECAC4000533B1 /* Board.Item.swift in Sources */,
@@ -556,6 +563,7 @@
 				CE221BC225DD55A400EFA20B /* Projects.Middlebar.swift in Sources */,
 				CE221BAA25DD3D6900EFA20B /* Control.State.swift in Sources */,
 				CE221BA625DD3D6000EFA20B /* Control.swift in Sources */,
+				CE4C49ED25E5325800BCF746 /* Menu.swift in Sources */,
 				CE221BD025DD5A5E00EFA20B /* Projects.Titlebar.swift in Sources */,
 				CE221B9C25DD39AF00EFA20B /* Sidebar.swift in Sources */,
 				CE4E4A8D25E163A2007A46BB /* Container.swift in Sources */,

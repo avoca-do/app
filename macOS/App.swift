@@ -13,8 +13,7 @@ import Kanban
     
     func applicationWillFinishLaunching(_: Notification) {
         Session.decimal.numberStyle = .decimal
-        
-//        mainMenu = Menu()
+        mainMenu = Menu()
         Window().makeKeyAndOrderFront(nil)
         
         Memory.shared.archive.sink { archive in
@@ -40,5 +39,9 @@ import Kanban
 //                Defaults.created = .init()
 //            }
 //        }
+    }
+    
+    @objc func preferences() {
+//        (windows.first { $0 is Preferences } ?? Preferences()).makeKeyAndOrderFront(nil)
     }
 }
