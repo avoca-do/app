@@ -63,7 +63,7 @@ extension Edit {
             layoutManager!.ensureLayout(for: textContainer!)
         }
         
-        func send() {
+        @objc func send() {
             let content = string.trimmingCharacters(in: .whitespacesAndNewlines)
             if !content.isEmpty, let write = self.write {
                 switch write {

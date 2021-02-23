@@ -37,11 +37,12 @@ extension Projects {
                     edit.alphaValue = write == nil ? 0 : 1
                     self?.layoutSubtreeIfNeeded()
                 } completionHandler: {
-                    if write != nil {
+                    if write == nil {
+                        self?.window?.makeFirstResponder(nil)
+                    } else {
                         self?.window?.makeFirstResponder(edit.text)
                     }
                 }
-
             }.store(in: &subs)
         }
     }

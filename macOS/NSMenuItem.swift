@@ -11,9 +11,9 @@ extension NSMenuItem {
         return menu
     }
     
-    class func child(_ title: String, _ action: Selector? = nil, _ key: String = "", transform: ((NSMenuItem) -> Void)? = nil) -> NSMenuItem {
+    class func child(_ title: String, _ action: Selector? = nil, _ key: String = "", transform: ((NSMenuItem) -> Void) = { _ in }) -> NSMenuItem {
         let item = NSMenuItem(title: title, action: action, keyEquivalent: key)
-        transform?(item)
+        transform(item)
         return item
     }
 }

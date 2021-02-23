@@ -3,24 +3,39 @@ import Combine
 
 final class Menu: NSMenu, NSMenuDelegate {
     private var sub: AnyCancellable?
+    private var editing = false
     
     required init(coder: NSCoder) { super.init(coder: coder) }
     init() {
         super.init(title: "")
         items = [app, file, edit, window, help]
+        sub = Session.edit.sink { [weak self] in
+            self?.editing = $0 != nil
+        }
     }
     
     func menuNeedsUpdate(_ menu: NSMenu) {
         switch menu.title {
         case "File":
+            let projects = NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view is Projects.Titlebar
             menu.items = [
                 .child("New Project", #selector(triggerProject), "n") {
                     $0.target = self
-                    $0.isEnabled = NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view is Projects.Titlebar
+                    $0.isEnabled = projects
+                },
+                .child("New Card", #selector(triggerCard), "N") {
+                    $0.target = self
+                    $0.isEnabled = projects
                 },
                 .separator(),
-                .child("Close", #selector(Window.close), "w"),
-                .separator()]
+                .child("Save", #selector(Edit.Text.send), "s") {
+                    $0.isEnabled = projects && editing
+                },
+                .separator(),
+                .child("Cancel", #selector(cancel), "X") {
+                    $0.target = self
+                    $0.isEnabled = projects && editing
+                }]
         case "Window":
             menu.items = [
                 .child("Minimize", #selector(NSWindow.miniaturize), "m"),
@@ -63,6 +78,7 @@ final class Menu: NSMenu, NSMenuDelegate {
     private var file: NSMenuItem {
         .parent("File") {
             $0.submenu!.delegate = self
+            $0.submenu!.autoenablesItems = false
         }
     }
     
@@ -90,6 +106,14 @@ final class Menu: NSMenu, NSMenuDelegate {
     
     @objc private func triggerProject() {
         (NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view as? Projects.Titlebar)?.triggerProject()
+    }
+    
+    @objc private func triggerCard() {
+        (NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view as? Projects.Titlebar)?.triggerCard()
+    }
+    
+    @objc private func cancel() {
+        Session.edit.send(nil)
     }
     
     @objc private func focus(_ item: NSMenuItem) {
