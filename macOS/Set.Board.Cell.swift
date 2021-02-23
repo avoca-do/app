@@ -1,6 +1,6 @@
 import Foundation
 
-extension Array where Element == Board.Cell {
+extension Set where Element == Board.Cell {
     var columns: Self {
         filter {
             if case .column = $0.item?.path {

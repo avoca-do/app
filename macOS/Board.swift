@@ -12,9 +12,11 @@ final class Board: NSScrollView {
 //        }
 //    }
     
-    private let selected = PassthroughSubject<Cell?, Never>()
+    private let select = PassthroughSubject<CGPoint, Never>()
     private let drag = PassthroughSubject<CGSize, Never>()
-    private let drop = PassthroughSubject<Void, Never>()
+    private let drop = PassthroughSubject<Date, Never>()
+    private let highlight = PassthroughSubject<CGPoint, Never>()
+    private let clear = PassthroughSubject<Void, Never>()
     
     required init?(coder: NSCoder) { nil }
     init() {
@@ -37,6 +39,7 @@ final class Board: NSScrollView {
         let items = PassthroughSubject<Set<Item>, Never>()
         let clip = PassthroughSubject<CGRect, Never>()
         let size = PassthroughSubject<CGSize, Never>()
+        let selected = PassthroughSubject<Cell?, Never>()
             
         clip.combineLatest(size) {
             .init(width: max($0.width, $1.width), height: max($0.height, $1.height))
@@ -71,6 +74,63 @@ final class Board: NSScrollView {
             }
         }.store(in: &subs)
         
+        items
+            .combineLatest(selected, drop)
+            .filter { _, selected, _ in
+                selected != nil
+            }.removeDuplicates {
+                $0.2 == $1.2
+            }.sink { items, cell, _ in
+                items.columns.sorted {
+                    $0.rect.minX < $1.rect.minX
+                }.transform {
+                    { column in
+                        items.cards.filter {
+                            $0.path.column == column.path
+                        }.sorted {
+                            $0.rect.minY < $1.rect.minY
+                        }.filter {
+                            $0.rect.midY < cell!.frame.midY
+                        }.transform { cards in
+                            let path = cell!.item!.path
+                            let card = cards.last == nil
+                                ? 0
+                                : path.column == column.path
+                                    ? cards.last!.path._card >= path._card
+                                        ? cards.last!.path._card
+                                        : cards.last!.path._card + 1
+                                    : cards.last!.path._card + 1
+                                
+                            NSAnimationContext.runAnimationGroup({
+                                $0.duration = 0.3
+                                $0.allowsImplicitAnimation = true
+                                $0.timingFunction = .init(name: .easeInEaseOut)
+                                if path == .card(column.path, card) {
+                                    cell!.frame.origin = cell!.item!.rect.origin
+                                } else {
+                                    cell!.frame.origin = .init(
+                                        x: column.rect.minX,
+                                        y: cards.last?.rect.maxY ?? column.rect.maxY)
+                                }
+                            }) {
+                                Session.mutate {
+                                    if path.column == column.path {
+                                        $0.move(path, vertical: card)
+                                    } else {
+                                        $0.move(path, horizontal: column.path._column)
+                                        $0.move(.card(column.path, 0), vertical: card)
+                                    }
+                                }
+                            }
+                        }
+                    } (
+                        $0.filter {
+                            $0.rect.maxX > cell!.frame.midX
+                        }.first ?? $0.last!
+                    )
+                }
+            }.store(in: &subs)
+        
         NotificationCenter.default.publisher(for: NSView.boundsDidChangeNotification, object: contentView)
             .merge(with: NotificationCenter.default.publisher(for: NSView.frameDidChangeNotification, object: contentView))
             .compactMap {
@@ -96,102 +156,72 @@ final class Board: NSScrollView {
                     set.insert(item)
                     return item.rect.maxY
                 } + Metrics.board.vertical, rect.height)
-             }
+            }
             items.send(set)
             size.send(rect)
         }.store(in: &subs)
-    }
-    
-    override func mouseExited(with: NSEvent) {
-        cells {
-            $0.filter{
+        
+        highlight.combineLatest(selected) {
+            $1 == nil ? $0 : nil
+        }.compactMap {
+            $0
+        }.sink { point in
+            cells.forEach {
+                $0.state = $0.frame.contains(point) ? .highlighted : .none
+            }
+        }.store(in: &subs)
+        
+        drag.combineLatest(selected).filter {
+            $1 != nil
+        }.sink {
+            $1!.frame = $1!.frame.offsetBy(dx: $0.width, dy: $0.height)
+        }.store(in: &subs)
+        
+        select.sink { point in
+            selected.send(
+                cells.cards.first {
+                    $0.item!.rect.contains(point)
+                }
+            )
+        }.store(in: &subs)
+        
+        clear.sink {
+            cells.filter{
                 $0.state != .none
             }.forEach {
                 $0.state = .none
             }
-        }
+        }.store(in: &subs)
+        
+        drop.delay(for: .milliseconds(100), scheduler: DispatchQueue.main).sink { _ in
+            selected.send(nil)
+        }.store(in: &subs)
+        
+        selected.send(nil)
+    }
+    
+    override func mouseExited(with: NSEvent) {
+        clear.send()
     }
     
     override func mouseMoved(with: NSEvent) {
-        guard selected == nil else { return }
-        point(with: with) { point in
-            cells {
-                $0.forEach {
-                    $0.state = $0.frame.contains(point) ? .highlighted : .none
-                }
-            }
-        }
+        highlight.send(point(with: with))
     }
     
     override func mouseDown(with: NSEvent) {
         Session.edit.send(nil)
-        point(with: with) { point in
-            cells {
-                selected = $0.cards.first {
-                    $0.item!.rect.contains(point)
-                }
-            }
-        }
+        select.send(point(with: with))
     }
     
     override func mouseDragged(with: NSEvent) {
-        selected.map {
-            $0.frame = $0.frame.offsetBy(dx: with.deltaX, dy: with.deltaY)
-        }
+        drag.send(.init(width: with.deltaX, height: with.deltaY))
     }
     
     override func mouseUp(with: NSEvent) {
-        selected.map { selected in
-            cells { cells in
-                cells.columns.sorted {
-                    $0.frame.minX < $1.frame.minX
-                }.transform {
-                    { column in
-                        cells.cards.filter {
-                            $0.item?.path.column == column.item?.path
-                        }.sorted {
-                            $0.frame.minY < $1.frame.minY
-                        }.filter {
-                            $0.frame.midY < selected.frame.midY
-                        }.transform { cards in
-                            NSAnimationContext.runAnimationGroup({
-                                $0.duration = 0.3
-                                $0.allowsImplicitAnimation = true
-                                $0.timingFunction = .init(name: .easeInEaseOut)
-                                selected.frame.origin = .init(
-                                    x: column.frame.minX,
-                                    y: cards.last?.frame.maxY ?? column.frame.maxY)
-                            }) {
-                                guard
-                                    let path = selected.item?.path,
-                                    let column = column.item?.path
-                                else { return }
-                                let card = (cards.last?.item?.path._card ?? -1) + 1
-                                Session.mutate {
-                                    if path.column == column {
-                                        $0.move(path, vertical: card > path._card ? card - 1 : card)
-                                    } else {
-                                        $0.move(path, horizontal: column._column)
-                                        $0.move(.card(column, 0), vertical: card)
-                                    }
-                                }
-                            }
-                        }
-                    } ($0.filter {
-                        $0.frame.maxX > selected.frame.midX
-                    }.first ?? $0.last!)
-                    // fix here
-                }
-            }
-        }
-        selected = nil
+        drop.send(.init())
     }
-    
-    private func cells(transform: ([Cell]) -> Void) {
-        transform(documentView!.subviews.compactMap { $0 as? Cell })
-    }
-    
-    private func point(with: NSEvent, transform: (CGPoint) -> Void) {
-        transform(documentView!.convert(with.locationInWindow, from: nil))
+ 
+    private func point(with: NSEvent) -> CGPoint {
+        documentView!.convert(with.locationInWindow, from: nil)
     }
 }
