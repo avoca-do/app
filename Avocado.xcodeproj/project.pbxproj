@@ -93,6 +93,7 @@
 		CEA652A225C1CBA60099C82E /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA652A125C1CBA60099C82E /* Metrics.swift */; };
 		CEA955A225C2D5A20019BF90 /* Neumorphic.Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */; };
 		CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB09ADE25B994AF00BF7AD6 /* Kanban */; };
+		CEC22CAC25E6818F0035E674 /* Board.Cell.Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */; };
 		CECEEE4725CC15DF00370036 /* Board.Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4625CC15DF00370036 /* Board.Move.swift */; };
 		CECEEE4B25CC33C500370036 /* Board.Move.Columns.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4A25CC33C500370036 /* Board.Move.Columns.swift */; };
 		CECEEE4E25CC342B00370036 /* Board.Move.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */; };
@@ -195,6 +196,7 @@
 		CEA652A125C1CBA60099C82E /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.Style.swift; sourceTree = "<group>"; };
 		CEB8E56925DAA0C6009737AB /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.Edit.swift; sourceTree = "<group>"; };
 		CECEEE4625CC15DF00370036 /* Board.Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.swift; sourceTree = "<group>"; };
 		CECEEE4A25CC33C500370036 /* Board.Move.Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Columns.swift; sourceTree = "<group>"; };
 		CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Item.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				CE99E68025DBFEA000E0EA36 /* Info.plist */,
 				CE99E67725DBFE9F00E0EA36 /* App.swift */,
 				CECFD8C125E3EA0000BD3532 /* Array.swift */,
+				CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */,
 				CE1B806425E2B5A30075ACE4 /* Board.Cell.State.swift */,
 				CE12944825DEC027000533B1 /* Board.Cell.swift */,
 				CE12945625DECAC4000533B1 /* Board.Item.swift */,
@@ -578,6 +581,7 @@
 				CE221B9C25DD39AF00EFA20B /* Sidebar.swift in Sources */,
 				CE4E4A8D25E163A2007A46BB /* Container.swift in Sources */,
 				CECFD8BC25E3E3A500BD3532 /* Set.Board.Cell.swift in Sources */,
+				CEC22CAC25E6818F0035E674 /* Board.Cell.Edit.swift in Sources */,
 				CE5F392125DD9CD60095F4FB /* Board.swift in Sources */,
 				CE0B3C3825DC2AAE00317754 /* Window.swift in Sources */,
 				CE38331725DEA75400539F4E /* Plus.Field.swift in Sources */,

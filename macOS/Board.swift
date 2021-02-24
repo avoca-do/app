@@ -2,13 +2,15 @@ import AppKit
 import Combine
 import Kanban
 
-final class Board: NSScrollView {
+final class Board: NSScrollView, NSPopoverDelegate {
     private var subs = Set<AnyCancellable>()
-    private let select = PassthroughSubject<CGPoint, Never>()
     private let drag = PassthroughSubject<CGSize, Never>()
-    private let drop = PassthroughSubject<Date, Never>()
+    private let select = PassthroughSubject<CGPoint, Never>()
+    private let edit = PassthroughSubject<CGPoint, Never>()
     private let highlight = PassthroughSubject<CGPoint, Never>()
-    private let clear = PassthroughSubject<Void, Never>()
+    private let drop = PassthroughSubject<Date, Never>()
+    private let clear = PassthroughSubject<Date, Never>()
+    private let editing = PassthroughSubject<Bool, Never>()
     
     required init?(coder: NSCoder) { nil }
     init() {
@@ -153,15 +155,15 @@ final class Board: NSScrollView {
             size.send(rect)
         }.store(in: &subs)
         
-        highlight.combineLatest(selected) {
-            $1 == nil ? $0 : nil
-        }.compactMap {
-            $0
-        }.sink { point in
-            cells.forEach {
-                $0.state = $0.frame.contains(point) ? .highlighted : .none
-            }
-        }.store(in: &subs)
+        highlight
+            .combineLatest(selected, editing)
+            .filter {
+                $1 == nil && !$2
+            }.sink { point, _, _ in
+                cells.forEach {
+                    $0.state = $0.frame.contains(point) ? .highlighted : .none
+                }
+            }.store(in: &subs)
         
         drag.combineLatest(selected).filter {
             $1 != nil
@@ -177,23 +179,45 @@ final class Board: NSScrollView {
             )
         }.store(in: &subs)
         
-        clear.sink {
-            cells.filter{
-                $0.state != .none
-            }.forEach {
-                $0.state = .none
+        edit.sink { [weak self] point in
+            cells.cards.first {
+                $0.item!.rect.contains(point)
+            }.map {
+                self?.editing.send(true)
+                
+                let edit = Cell.Edit(path: Session.path)
+                edit.delegate = self
+                edit.show(relativeTo: $0.bounds, of: $0, preferredEdge: .minY)
+                $0.state = .highlighted
             }
         }.store(in: &subs)
+        
+        clear
+            .combineLatest(editing)
+            .filter {
+                !$1
+            }
+            .removeDuplicates {
+                $0.0 == $1.0
+            }
+            .sink { _, _ in
+                cells.filter{
+                    $0.state != .none
+                }.forEach {
+                    $0.state = .none
+                }
+            }.store(in: &subs)
         
         drop.delay(for: .milliseconds(100), scheduler: DispatchQueue.main).sink { _ in
             selected.send(nil)
         }.store(in: &subs)
         
         selected.send(nil)
+        editing.send(false)
     }
     
     override func mouseExited(with: NSEvent) {
-        clear.send()
+        clear.send(.init())
     }
     
     override func mouseMoved(with: NSEvent) {
@@ -205,12 +229,25 @@ final class Board: NSScrollView {
         select.send(point(with: with))
     }
     
+    override func rightMouseDown(with: NSEvent) {
+        Session.edit.send(nil)
+        edit.send(point(with: with))
+    }
+    
     override func mouseDragged(with: NSEvent) {
         drag.send(.init(width: with.deltaX, height: with.deltaY))
     }
     
     override func mouseUp(with: NSEvent) {
         drop.send(.init())
+    }
+    
+    func popoverDidShow(_: Notification) {
+        editing.send(true)
+    }
+    
+    func popoverWillClose(_: Notification) {
+        editing.send(false)
     }
  
     private func point(with: NSEvent) -> CGPoint {
