@@ -62,7 +62,23 @@ extension Projects {
         }
         
         func triggerProject() {
-            Plus(write: .new(.archive)).show(relativeTo: project.bounds, of: project, preferredEdge: .minY)
+            if Session.archive.available {
+                Plus(write: .new(.archive)).show(relativeTo: project.bounds, of: project, preferredEdge: .minY)
+            } else {
+                let alert = NSAlert()
+                alert.alertStyle = .informational
+                alert.icon = NSImage(systemSymbolName: "paperplane.fill", accessibilityDescription: nil)
+                alert.messageText = NSLocalizedString("You have reached your maximum capacity for projects", comment: "")
+                alert.informativeText = NSLocalizedString("Check Capacity for more details", comment: "")
+                
+                let capacity = alert.addButton(withTitle: NSLocalizedString("Capacity", comment: ""))
+                let cancel = alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
+                capacity.keyEquivalent = "\r"
+                cancel.keyEquivalent = "\u{1b}"
+                if alert.runModal().rawValue == capacity.tag {
+                    Session.capacity.send()
+                }
+            }
         }
         
         func triggerSettings() {

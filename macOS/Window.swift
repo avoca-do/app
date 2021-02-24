@@ -38,6 +38,10 @@ final class Window: NSWindow {
         sidebar.bottomAnchor.constraint(equalTo: contentView!.bottomAnchor).isActive = true
         sidebar.leftAnchor.constraint(equalTo: contentView!.leftAnchor).isActive = true
         
+        Session.capacity.sink { [weak self] in
+            self?.capacity()
+        }.store(in: &subs)
+        
         projects()
     }
     
