@@ -24,6 +24,7 @@ extension NSAlert {
         delete.keyEquivalent = "\r"
         cancel.keyEquivalent = "\u{1b}"
         if alert.runModal().rawValue == delete.tag {
+            Session.edit.send(nil)
             Session.mutate {
                 switch path {
                 case .column:

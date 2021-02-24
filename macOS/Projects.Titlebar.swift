@@ -19,7 +19,6 @@ extension Projects {
         required init?(coder: NSCoder) { nil }
         init() {
             super.init(frame: .zero)
-            translatesAutoresizingMaskIntoConstraints = false
             let left = NSView()
             left.translatesAutoresizingMaskIntoConstraints = false
             addSubview(left)

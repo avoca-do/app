@@ -95,6 +95,7 @@
 		CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB09ADE25B994AF00BF7AD6 /* Kanban */; };
 		CEC22CAC25E6818F0035E674 /* Board.Cell.Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */; };
 		CEC22CB225E695B90035E674 /* NSAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CB125E695B90035E674 /* NSAlert.swift */; };
+		CEC22CBA25E69D630035E674 /* Capacity.Titlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */; };
 		CECEEE4725CC15DF00370036 /* Board.Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4625CC15DF00370036 /* Board.Move.swift */; };
 		CECEEE4B25CC33C500370036 /* Board.Move.Columns.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4A25CC33C500370036 /* Board.Move.Columns.swift */; };
 		CECEEE4E25CC342B00370036 /* Board.Move.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */; };
@@ -199,6 +200,7 @@
 		CEB8E56925DAA0C6009737AB /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.Edit.swift; sourceTree = "<group>"; };
 		CEC22CB125E695B90035E674 /* NSAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAlert.swift; sourceTree = "<group>"; };
+		CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.Titlebar.swift; sourceTree = "<group>"; };
 		CECEEE4625CC15DF00370036 /* Board.Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.swift; sourceTree = "<group>"; };
 		CECEEE4A25CC33C500370036 /* Board.Move.Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Columns.swift; sourceTree = "<group>"; };
 		CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Item.swift; sourceTree = "<group>"; };
@@ -263,7 +265,6 @@
 				CE6D659C25D1A1060017FE07 /* Settings.bundle */,
 				CEA1819825C04DD200552DEF /* Avocado.entitlements */,
 				CE2507A225B8660A00F9C526 /* Info.plist */,
-				CEB8E56925DAA0C6009737AB /* Configuration.storekit */,
 				CE575AF425C1730500A6B28D /* App.Delegate.swift */,
 				CE25079925B8660900F9C526 /* App.swift */,
 				CE349F3225CAD29300B3A436 /* Board.Bar.swift */,
@@ -315,6 +316,7 @@
 		CE2507F125B88CCD00F9C526 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				CEB8E56925DAA0C6009737AB /* Configuration.storekit */,
 				CE8C6EE025C31E87007D25FC /* Container.swift */,
 				CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */,
 				CE0E839325CEC054001283C6 /* Write.swift */,
@@ -336,6 +338,7 @@
 				CE12945625DECAC4000533B1 /* Board.Item.swift */,
 				CE5F392025DD9CD60095F4FB /* Board.swift */,
 				CE221BF225DD6C1900EFA20B /* Capacity.swift */,
+				CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */,
 				CE4E4A8325E15DCA007A46BB /* Control.Icon.swift */,
 				CE38330C25DE9B1E00539F4E /* Control.Rectangle.swift */,
 				CE221BD325DD5B2A00EFA20B /* Control.Squircle.swift */,
@@ -579,6 +582,7 @@
 				CEF1B84125E41F6A004B72AF /* Projects.Settings.swift in Sources */,
 				CE221BC225DD55A400EFA20B /* Projects.Middlebar.swift in Sources */,
 				CE221BAA25DD3D6900EFA20B /* Control.State.swift in Sources */,
+				CEC22CBA25E69D630035E674 /* Capacity.Titlebar.swift in Sources */,
 				CE221BA625DD3D6000EFA20B /* Control.swift in Sources */,
 				CE4C49ED25E5325800BCF746 /* Menu.swift in Sources */,
 				CE221BD025DD5A5E00EFA20B /* Projects.Titlebar.swift in Sources */,

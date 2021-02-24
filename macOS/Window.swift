@@ -65,7 +65,7 @@ final class Window: NSWindow {
     private func capacity() {
         select(sidebar.capacity)
         show(Capacity())
-        titlebarAccessoryViewControllers.first!.view = .init()
+        titlebarAccessoryViewControllers.first!.view = Capacity.Titlebar()
     }
     
     private func show(_ view: NSView) {
