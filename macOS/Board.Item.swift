@@ -16,7 +16,7 @@ extension Board {
                                     attributes: [
                                         .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title2).pointSize, weight: .bold),
                                         .foregroundColor: NSColor.labelColor]),
-                              .init(string: Session.decimal.string(from: NSNumber(value: Session.archive.count(path)))!,
+                              .init(string: Session.decimal.string(from: .init(value: Session.archive.count(path)))!,
                                                   attributes: [
                                                     .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .callout).pointSize, weight: .regular),
                                                     .foregroundColor: NSColor.secondaryLabelColor])])

@@ -6,10 +6,20 @@ extension Capacity {
         required init?(coder: NSCoder) { nil }
         init() {
             super.init(frame: .zero)
-            let view = NSView()
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.wantsLayer = true
-            addSubview(view)
+            let bar = NSView()
+            bar.translatesAutoresizingMaskIntoConstraints = false
+            bar.wantsLayer = true
+            
+            let count = Text()
+            count.stringValue = Session.decimal.string(from: .init(value: Session.archive.count(.archive)))!
+                + "/" + Session.decimal.string(from: .init(value: Defaults.capacity))!
+            count.textColor = .labelColor
+            count.font = .systemFont(ofSize: 16, weight: .bold)
+            
+            let title = Text()
+            title.stringValue = NSLocalizedString("Projects", comment: "")
+            title.font = .preferredFont(forTextStyle: .callout)
+            title.textColor = .secondaryLabelColor
             
             let total = CAShapeLayer()
             total.frame = .init(x: 20, y: 0, width: 200, height: 10)
@@ -22,7 +32,7 @@ extension Capacity {
                 $0.addLine(to: .init(x: 200, y: 5))
                 return $0
             } (CGMutablePath())
-            view.layer!.addSublayer(total)
+            bar.layer!.addSublayer(total)
             
             let used = CAShapeLayer()
             used.frame = .init(x: 20, y: 0, width: 200, height: 10)
@@ -35,12 +45,19 @@ extension Capacity {
                 $0.addLine(to: .init(x: CGFloat(min(Session.archive.count(.archive), Defaults.capacity)) / .init(Defaults.capacity) * 200, y: 5))
                 return $0
             } (CGMutablePath())
-            view.layer!.addSublayer(used)
+            bar.layer!.addSublayer(used)
             
-            view.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-            view.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -2).isActive = true
-            view.widthAnchor.constraint(equalToConstant: 240).isActive = true
-            view.heightAnchor.constraint(equalToConstant: 10).isActive = true
+            [bar, count, title].forEach {
+                addSubview($0)
+                $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+            }
+            
+            bar.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -2).isActive = true
+            bar.widthAnchor.constraint(equalToConstant: 240).isActive = true
+            bar.heightAnchor.constraint(equalToConstant: 10).isActive = true
+            
+            count.rightAnchor.constraint(equalTo: title.leftAnchor, constant: -5).isActive = true
+            title.rightAnchor.constraint(equalTo: bar.leftAnchor).isActive = true
         }
     }
 }
