@@ -63,7 +63,7 @@ extension Projects {
         }
         
         func triggerProject() {
-            Plus().show(relativeTo: project.bounds, of: project, preferredEdge: .minY)
+            Plus(write: .new(.archive)).show(relativeTo: project.bounds, of: project, preferredEdge: .minY)
         }
         
         func triggerSettings() {

@@ -19,7 +19,7 @@ extension Projects {
             name.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
             name.maximumNumberOfLines = 2
             
-            let field = Field(write: .edit(Session.path.board))
+            let field = Plus.Field(write: .edit(Session.path.board))
             field.isHidden = true
             
             let save = Control.Rectangle(title: NSLocalizedString("Save", comment: ""))

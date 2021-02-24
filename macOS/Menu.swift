@@ -9,7 +9,7 @@ final class Menu: NSMenu, NSMenuDelegate {
     init() {
         super.init(title: "")
         items = [app, file, edit, window, help]
-        sub = Session.edit.sink { [weak self] in
+        sub = Session.edit.removeDuplicates().sink { [weak self] in
             self?.editing = $0 != nil
         }
     }
