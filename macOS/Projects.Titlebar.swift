@@ -67,7 +67,7 @@ extension Projects {
         }
         
         func triggerSettings() {
-            Settings().show(relativeTo: settings.bounds, of: settings, preferredEdge: .minY)
+            Settings(path: Session.path.board).show(relativeTo: settings.bounds, of: settings, preferredEdge: .minY)
         }
         
         func triggerColumns() {

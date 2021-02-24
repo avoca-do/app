@@ -16,12 +16,12 @@ extension Board.Cell {
             
             let edit = Control.Tool(title: NSLocalizedString("Edit", comment: ""), icon: "text.cursor")
             edit.click.sink {
-                
+                Session.edit.send(.edit(path))
             }.store(in: &subs)
             
             let delete = Control.Tool(title: NSLocalizedString("Delete", comment: ""), icon: "trash")
             delete.click.sink {
-                
+                NSAlert.delete(path)
             }.store(in: &subs)
             
             [edit, delete].forEach {

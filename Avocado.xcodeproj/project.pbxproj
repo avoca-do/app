@@ -94,6 +94,7 @@
 		CEA955A225C2D5A20019BF90 /* Neumorphic.Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */; };
 		CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB09ADE25B994AF00BF7AD6 /* Kanban */; };
 		CEC22CAC25E6818F0035E674 /* Board.Cell.Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */; };
+		CEC22CB225E695B90035E674 /* NSAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CB125E695B90035E674 /* NSAlert.swift */; };
 		CECEEE4725CC15DF00370036 /* Board.Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4625CC15DF00370036 /* Board.Move.swift */; };
 		CECEEE4B25CC33C500370036 /* Board.Move.Columns.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4A25CC33C500370036 /* Board.Move.Columns.swift */; };
 		CECEEE4E25CC342B00370036 /* Board.Move.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */; };
@@ -197,6 +198,7 @@
 		CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.Style.swift; sourceTree = "<group>"; };
 		CEB8E56925DAA0C6009737AB /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.Edit.swift; sourceTree = "<group>"; };
+		CEC22CB125E695B90035E674 /* NSAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAlert.swift; sourceTree = "<group>"; };
 		CECEEE4625CC15DF00370036 /* Board.Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.swift; sourceTree = "<group>"; };
 		CECEEE4A25CC33C500370036 /* Board.Move.Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Columns.swift; sourceTree = "<group>"; };
 		CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Item.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				CE5F390E25DD90F50095F4FB /* Flip.swift */,
 				CE4C49EC25E5325800BCF746 /* Menu.swift */,
 				CE221BC925DD563400EFA20B /* Metrics.swift */,
+				CEC22CB125E695B90035E674 /* NSAlert.swift */,
 				CE3832F625DE949700539F4E /* NSAttributedString.swift */,
 				CE4C49F025E533F500BCF746 /* NSMenuItem.swift */,
 				CE38331625DEA75400539F4E /* Plus.Field.swift */,
@@ -547,6 +550,7 @@
 				CE38331A25DEA83400539F4E /* Write.swift in Sources */,
 				CE9A9ECE25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift in Sources */,
 				CE221BF925DD6DC200EFA20B /* Session.swift in Sources */,
+				CEC22CB225E695B90035E674 /* NSAlert.swift in Sources */,
 				CECFD8C225E3EA0000BD3532 /* Array.swift in Sources */,
 				CE221BBE25DD552E00EFA20B /* Projects.swift in Sources */,
 				CE38330D25DE9B1E00539F4E /* Control.Rectangle.swift in Sources */,

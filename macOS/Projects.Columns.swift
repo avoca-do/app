@@ -34,7 +34,7 @@ extension Projects {
                 let item = Control.Rectangle(title: Session.archive[title: .column(Session.path.board, column)])
                 item.layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
                 item.click.sink {
-                    Plus(write: .edit(.column(Session.path.board, column))).show(relativeTo: item.bounds, of: item, preferredEdge: .minY)
+                    Settings(path: .column(Session.path.board, column)).show(relativeTo: item.bounds, of: item, preferredEdge: .minY)
                 }.store(in: &subs)
                 contentViewController!.view.addSubview(item)
                 

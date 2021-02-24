@@ -86,6 +86,8 @@ final class Board: NSScrollView, NSPopoverDelegate {
                         }.filter {
                             $0.rect.midY < cell!.frame.midY
                         }.transform { cards in
+                            Session.edit.send(nil)
+                            
                             let path = cell!.item!.path
                             let card = cards.last == nil
                                 ? 0
@@ -185,7 +187,7 @@ final class Board: NSScrollView, NSPopoverDelegate {
             }.map {
                 self?.editing.send(true)
                 
-                let edit = Cell.Edit(path: Session.path)
+                let edit = Cell.Edit(path: $0.item!.path)
                 edit.delegate = self
                 edit.show(relativeTo: $0.bounds, of: $0, preferredEdge: .minY)
                 $0.state = .highlighted
@@ -225,12 +227,10 @@ final class Board: NSScrollView, NSPopoverDelegate {
     }
     
     override func mouseDown(with: NSEvent) {
-        Session.edit.send(nil)
         select.send(point(with: with))
     }
     
     override func rightMouseDown(with: NSEvent) {
-        Session.edit.send(nil)
         edit.send(point(with: with))
     }
     
