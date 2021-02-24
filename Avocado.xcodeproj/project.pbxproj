@@ -96,6 +96,8 @@
 		CEC22CAC25E6818F0035E674 /* Board.Cell.Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */; };
 		CEC22CB225E695B90035E674 /* NSAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CB125E695B90035E674 /* NSAlert.swift */; };
 		CEC22CBA25E69D630035E674 /* Capacity.Titlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */; };
+		CEC22CC125E6AC0C0035E674 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A525D18C0600E43D49 /* Purchases.swift */; };
+		CEC22CC425E6AC0F0035E674 /* Purchases.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */; };
 		CECEEE4725CC15DF00370036 /* Board.Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4625CC15DF00370036 /* Board.Move.swift */; };
 		CECEEE4B25CC33C500370036 /* Board.Move.Columns.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4A25CC33C500370036 /* Board.Move.Columns.swift */; };
 		CECEEE4E25CC342B00370036 /* Board.Move.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */; };
@@ -299,8 +301,6 @@
 				CE1A44E925C2DCBF002011FA /* Neumorphic.swift */,
 				CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */,
 				CE69A58025D15EB600EC9DB0 /* Progress.swift */,
-				CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */,
-				CE4206A525D18C0600E43D49 /* Purchases.swift */,
 				CE2507CB25B8733500F9C526 /* Session.swift */,
 				CE69A59525D1817700EC9DB0 /* Settings.swift */,
 				CE69A59225D1816300EC9DB0 /* Switch.swift */,
@@ -318,6 +318,8 @@
 			children = (
 				CEB8E56925DAA0C6009737AB /* Configuration.storekit */,
 				CE8C6EE025C31E87007D25FC /* Container.swift */,
+				CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */,
+				CE4206A525D18C0600E43D49 /* Purchases.swift */,
 				CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */,
 				CE0E839325CEC054001283C6 /* Write.swift */,
 				CEF2D7D725C0554700223C79 /* Media.xcassets */,
@@ -575,7 +577,9 @@
 				CE4E4A8A25E16323007A46BB /* Edit.Text.swift in Sources */,
 				CE221BB425DD3E8900EFA20B /* Text.swift in Sources */,
 				CE4C49F125E533F500BCF746 /* NSMenuItem.swift in Sources */,
+				CEC22CC125E6AC0C0035E674 /* Purchases.swift in Sources */,
 				CE3832FF25DE994700539F4E /* Plus.swift in Sources */,
+				CEC22CC425E6AC0F0035E674 /* Purchases.Item.swift in Sources */,
 				CE12944925DEC027000533B1 /* Board.Cell.swift in Sources */,
 				CE12945725DECAC4000533B1 /* Board.Item.swift in Sources */,
 				CE1B806525E2B5A30075ACE4 /* Board.Cell.State.swift in Sources */,

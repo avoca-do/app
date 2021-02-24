@@ -27,6 +27,7 @@ final class Session {
     static let decimal = NumberFormatter()
     static let scroll = PassthroughSubject<Void, Never>()
     static let edit = PassthroughSubject<Write?, Never>()
+    static let purchases = Purchases()
     
     static func mutate(transform: (inout Archive) -> Void) {
         var archive = self.archive

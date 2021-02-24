@@ -12,7 +12,7 @@ extension Capacity {
                     .fill(Color.background)
                 VStack {
                     Image(purchase.image)
-                        .padding(.top)
+                        .padding(.top, 30)
                     Text(verbatim: purchase.title)
                         .font(Font.largeTitle.bold())
                     Text(verbatim: price)
