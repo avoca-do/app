@@ -25,18 +25,20 @@ extension Projects.Middlebar {
             text.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -16).isActive = true
             
             Session.archiving.removeDuplicates {
-                $0[name: path] == $1[name: path]
-            }.sink {
+                $0[name: path] == $1[name: path] && $0.date(path.board) == $1.date(path.board)
+            }
+            .sink {
                 text.attributedStringValue = .make(
                     [.init(string: $0[name: path] + "\n", attributes: [
                             .font: NSFont.boldSystemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize)]),
-                     .init(string: RelativeDateTimeFormatter().localizedString(for: $0.date(path), relativeTo: .init()), attributes: [
+                     .init(string: RelativeDateTimeFormatter().string(from: $0.date(path), to: .init()), attributes: [
                             .font: NSFont.preferredFont(forTextStyle: .callout),
                             .foregroundColor: NSColor.secondaryLabelColor])])
             }.store(in: &subs)
             
             click.sink { [weak self] in
                 guard let path = self?.path else { return }
+                Session.edit.send(nil)
                 Session.path = path
             }.store(in: &subs)
         }

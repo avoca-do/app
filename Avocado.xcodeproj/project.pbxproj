@@ -86,6 +86,8 @@
 		CE99E68A25DC009300E0EA36 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE99E68925DC009300E0EA36 /* StoreKit.framework */; };
 		CE99E68C25DC00A200E0EA36 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE99E68B25DC00A200E0EA36 /* CloudKit.framework */; };
 		CE99E68E25DC01AB00E0EA36 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CE99E68D25DC01AB00E0EA36 /* Kanban */; };
+		CE9A9ECD25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */; };
+		CE9A9ECE25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */; };
 		CE9DD44825E576730087CC8C /* Projects.Columns.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DD44725E576730087CC8C /* Projects.Columns.swift */; };
 		CEA1819C25C04DE000552DEF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1819B25C04DE000552DEF /* CloudKit.framework */; };
 		CEA652A225C1CBA60099C82E /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA652A125C1CBA60099C82E /* Metrics.swift */; };
@@ -186,6 +188,7 @@
 		CE99E68725DC008700E0EA36 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CE99E68925DC009300E0EA36 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.4.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE99E68B25DC00A200E0EA36 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeDateTimeFormatter.swift; sourceTree = "<group>"; };
 		CE9DD44725E576730087CC8C /* Projects.Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Columns.swift; sourceTree = "<group>"; };
 		CEA1819825C04DD200552DEF /* Avocado.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Avocado.entitlements; sourceTree = "<group>"; };
 		CEA1819B25C04DE000552DEF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -309,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				CE8C6EE025C31E87007D25FC /* Container.swift */,
+				CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */,
 				CE0E839325CEC054001283C6 /* Write.swift */,
 				CEF2D7D725C0554700223C79 /* Media.xcassets */,
 			);
@@ -526,6 +530,7 @@
 				CE8C6EE125C31E87007D25FC /* Container.swift in Sources */,
 				CE8C6ED325C31A4E007D25FC /* Editor.swift in Sources */,
 				CE1E602125CD9B5C00456852 /* Board.Settings.swift in Sources */,
+				CE9A9ECD25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift in Sources */,
 				CE4206AA25D18C5F00E43D49 /* Purchases.Item.swift in Sources */,
 				CE2507C825B8731100F9C526 /* Color.swift in Sources */,
 			);
@@ -537,6 +542,7 @@
 			files = (
 				CE5F391925DD96490095F4FB /* Projects.Middlebar.Item.swift in Sources */,
 				CE38331A25DEA83400539F4E /* Write.swift in Sources */,
+				CE9A9ECE25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift in Sources */,
 				CE221BF925DD6DC200EFA20B /* Session.swift in Sources */,
 				CECFD8C225E3EA0000BD3532 /* Array.swift in Sources */,
 				CE221BBE25DD552E00EFA20B /* Projects.swift in Sources */,

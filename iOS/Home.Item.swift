@@ -43,7 +43,7 @@ extension Home {
         }
         
         private func refresh() {
-            date = RelativeDateTimeFormatter().localizedString(for: session.archive.date(path), relativeTo: .init())
+            date = RelativeDateTimeFormatter().string(from: session.archive.date(path), to: .init())
         }
     }
 }

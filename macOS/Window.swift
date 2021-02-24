@@ -84,6 +84,7 @@ final class Window: NSWindow {
     }
     
     private func select(_ item: Sidebar.Item) {
+        Session.edit.send(nil)
         [sidebar.projects, sidebar.capacity].forEach {
             $0.state = $0 == item ? .selected : .on
         }
