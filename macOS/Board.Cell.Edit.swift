@@ -10,7 +10,7 @@ extension Board.Cell {
         init(path: Path) {
             super.init()
             behavior = .transient
-            contentSize = .init(width: 180, height: 120)
+            contentSize = .init(width: 200, height: 120)
             contentViewController = .init()
             contentViewController!.view = .init(frame: .init(origin: .zero, size: contentSize))
             

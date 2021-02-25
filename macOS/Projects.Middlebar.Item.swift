@@ -31,7 +31,7 @@ extension Projects.Middlebar {
             .sink {
                 text.attributedStringValue = .make(
                     [.init(string: $0[name: path] + "\n", attributes: [
-                            .font: NSFont.boldSystemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize)]),
+                            .font: NSFont.boldSystemFont(ofSize: NSFont.preferredFont(forTextStyle: .callout).pointSize)]),
                      .init(string: RelativeDateTimeFormatter().string(from: $0.date(path), to: .init()), attributes: [
                             .font: NSFont.preferredFont(forTextStyle: .callout),
                             .foregroundColor: NSColor.secondaryLabelColor])])

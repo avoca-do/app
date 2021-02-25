@@ -10,7 +10,7 @@ final class Sidebar: NSVisualEffectView {
         translatesAutoresizingMaskIntoConstraints = false
         material = .sidebar
         
-        let projects = Item(title: NSLocalizedString("Projects", comment: ""), icon: "square.stack.3d.up")
+        let projects = Item(title: NSLocalizedString("Projects", comment: ""), icon: "paperplane")
         addSubview(projects)
         self.projects = projects
         

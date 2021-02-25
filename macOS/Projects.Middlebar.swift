@@ -54,18 +54,18 @@ extension Projects {
                     let item = Item(path: .board($0))
                     scroll.add(item)
                     
-                    item.topAnchor.constraint(equalTo: top).isActive = true
+                    item.topAnchor.constraint(equalTo: top, constant: 1).isActive = true
                     item.leftAnchor.constraint(equalTo: scroll.left, constant: Metrics.middlebar.padding).isActive = true
                     item.rightAnchor.constraint(equalTo: scroll.right, constant: -Metrics.middlebar.padding).isActive = true
                     
-                    if $0 < archive.count(.archive) {
+                    if $0 < archive.count(.archive) - 1 {
                         let separator = NSView()
                         separator.translatesAutoresizingMaskIntoConstraints = false
                         separator.wantsLayer = true
                         separator.layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.1).cgColor
                         scroll.add(separator)
                         
-                        separator.topAnchor.constraint(equalTo: item.bottomAnchor).isActive = true
+                        separator.topAnchor.constraint(equalTo: item.bottomAnchor, constant: 1).isActive = true
                         separator.leftAnchor.constraint(equalTo: scroll.left, constant: Metrics.middlebar.margin).isActive = true
                         separator.rightAnchor.constraint(equalTo: scroll.right, constant: -Metrics.middlebar.margin).isActive = true
                         separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
@@ -76,7 +76,7 @@ extension Projects {
                 }
                 
                 if top != scroll.top {
-                    scroll.bottom.constraint(greaterThanOrEqualTo: top).isActive = true
+                    scroll.bottom.constraint(greaterThanOrEqualTo: top, constant: 1).isActive = true
                 }
             }.store(in: &subs)
             
