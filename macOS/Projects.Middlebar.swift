@@ -33,7 +33,7 @@ extension Projects {
                 $0.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
             }
             
-            widthAnchor.constraint(equalToConstant: Metrics.sidebar.width).isActive = true
+            widthAnchor.constraint(equalToConstant: Metrics.middlebar.width).isActive = true
             
             left.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
             right.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
@@ -55,8 +55,8 @@ extension Projects {
                     scroll.add(item)
                     
                     item.topAnchor.constraint(equalTo: top).isActive = true
-                    item.leftAnchor.constraint(equalTo: scroll.left).isActive = true
-                    item.rightAnchor.constraint(equalTo: scroll.right).isActive = true
+                    item.leftAnchor.constraint(equalTo: scroll.left, constant: Metrics.middlebar.padding).isActive = true
+                    item.rightAnchor.constraint(equalTo: scroll.right, constant: -Metrics.middlebar.padding).isActive = true
                     
                     if $0 < archive.count(.archive) {
                         let separator = NSView()
@@ -66,8 +66,8 @@ extension Projects {
                         scroll.add(separator)
                         
                         separator.topAnchor.constraint(equalTo: item.bottomAnchor).isActive = true
-                        separator.leftAnchor.constraint(equalTo: scroll.left, constant: 16).isActive = true
-                        separator.rightAnchor.constraint(equalTo: scroll.right).isActive = true
+                        separator.leftAnchor.constraint(equalTo: scroll.left, constant: Metrics.middlebar.margin).isActive = true
+                        separator.rightAnchor.constraint(equalTo: scroll.right, constant: -Metrics.middlebar.margin).isActive = true
                         separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
                         top = separator.bottomAnchor
                     } else {

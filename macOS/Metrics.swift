@@ -6,6 +6,12 @@ struct Metrics {
         static let padding = CGFloat(40)
     }
     
+    struct middlebar {
+        static let width = CGFloat(240)
+        static let padding = CGFloat(10)
+        static let margin = CGFloat(16)
+    }
+    
     struct board {
         static let vertical = CGFloat(16)
         static let horizontal = CGFloat(50)

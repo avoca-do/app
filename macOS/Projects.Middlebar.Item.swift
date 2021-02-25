@@ -12,6 +12,7 @@ extension Projects.Middlebar {
             self.path = path
             super.init()
             wantsLayer = true
+            layer!.cornerRadius = 8
             translatesAutoresizingMaskIntoConstraints = false
             
             let text = Text()
