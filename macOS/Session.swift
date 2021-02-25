@@ -25,6 +25,7 @@ final class Session {
     }
     
     static let decimal = NumberFormatter()
+    static let percentage = NumberFormatter()
     static let scroll = PassthroughSubject<Void, Never>()
     static let capacity = PassthroughSubject<Void, Never>()
     static let edit = PassthroughSubject<Write?, Never>()

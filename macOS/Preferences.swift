@@ -6,7 +6,7 @@ final class Preferences: NSWindow {
     private var subs = Set<AnyCancellable>()
     
     init() {
-        super.init(contentRect: .init(x: 0, y: 0, width: 360, height: 22§0),
+        super.init(contentRect: .init(x: 0, y: 0, width: 360, height: 220),
                    styleMask: [.closable, .titled, .fullSizeContentView], backing: .buffered, defer: false)
         toolbar = .init()
         title = NSLocalizedString("Preferences", comment: "")

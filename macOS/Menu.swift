@@ -37,6 +37,11 @@ final class Menu: NSMenu, NSMenuDelegate {
                     $0.isEnabled = projects
                 },
                 .separator(),
+                .child("Progress", #selector(triggerProgress)) {
+                    $0.target = self
+                    $0.isEnabled = projects
+                },
+                .separator(),
                 .child("Save", #selector(Edit.Text.send), "s") {
                     $0.isEnabled = projects && editing
                 },
@@ -117,20 +122,28 @@ final class Menu: NSMenu, NSMenuDelegate {
         .parent("Help")
     }
     
+    private var titlebar: Projects.Titlebar? {
+        NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view as? Projects.Titlebar
+    }
+    
     @objc private func triggerProject() {
-        (NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view as? Projects.Titlebar)?.triggerProject()
+        titlebar?.triggerProject()
     }
     
     @objc private func triggerCard() {
-        (NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view as? Projects.Titlebar)?.triggerCard()
+        titlebar?.triggerCard()
     }
     
     @objc private func triggerSettings() {
-        (NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view as? Projects.Titlebar)?.triggerSettings()
+        titlebar?.triggerSettings()
     }
     
     @objc private func triggerColumns() {
-        (NSApp.keyWindow?.titlebarAccessoryViewControllers.first?.view as? Projects.Titlebar)?.triggerColumns()
+        titlebar?.triggerColumns()
+    }
+    
+    @objc private func triggerProgress() {
+        titlebar?.triggerProgress()
     }
     
     @objc private func cancel() {

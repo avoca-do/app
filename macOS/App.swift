@@ -13,6 +13,7 @@ import Kanban
     
     func applicationWillFinishLaunching(_: Notification) {
         Session.decimal.numberStyle = .decimal
+        Session.percentage.numberStyle = .percent
         mainMenu = Menu()
         Window().makeKeyAndOrderFront(nil)
         

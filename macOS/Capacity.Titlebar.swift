@@ -19,8 +19,12 @@ extension Capacity {
                 bar.wantsLayer = true
                 
                 let count = Text()
-                count.stringValue = Session.decimal.string(from: .init(value: Session.archive.count(.archive)))!
-                    + "/" + Session.decimal.string(from: .init(value: Defaults.capacity))!
+                count.attributedStringValue = .make(
+                    [.init(string: Session.decimal.string(from: .init(value: Session.archive.count(.archive)))!
+                            + " / ",
+                           attributes: [.foregroundColor: NSColor.labelColor]),
+                     .init(string: Session.decimal.string(from: .init(value: Defaults.capacity))!,
+                            attributes: [.foregroundColor: NSColor.tertiaryLabelColor])])
                 count.textColor = .labelColor
                 count.font = .systemFont(ofSize: 16, weight: .bold)
                 

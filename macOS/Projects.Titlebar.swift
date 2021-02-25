@@ -7,6 +7,7 @@ extension Projects {
         private weak var project: Control!
         private weak var settings: Control!
         private weak var columns: Control!
+        private weak var progress: Control!
         private weak var card: Control!
         private var subs = Set<AnyCancellable>()
         
@@ -41,13 +42,19 @@ extension Projects {
             }.store(in: &subs)
             self.columns = columns
             
+            let progress = Control.Squircle(icon: "barometer")
+            progress.click.sink { [weak self] in
+                self?.triggerProgress()
+            }.store(in: &subs)
+            self.progress = progress
+            
             let card = Control.Squircle(icon: "plus")
             card.click.sink { [weak self] in
                 self?.triggerCard()
             }.store(in: &subs)
             self.card = card
             
-            [project, settings, columns, card].forEach {
+            [project, settings, columns, progress, card].forEach {
                 addSubview($0)
                 $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             }
@@ -56,6 +63,7 @@ extension Projects {
             self.left!.isActive = true
             
             project.leftAnchor.constraint(equalTo: left.leftAnchor, constant: 10).isActive = true
+            progress.rightAnchor.constraint(equalTo: settings.leftAnchor, constant: -5).isActive = true
             settings.rightAnchor.constraint(equalTo: columns.leftAnchor, constant: -5).isActive = true
             columns.rightAnchor.constraint(equalTo: card.leftAnchor, constant: -5).isActive = true
             card.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -5).isActive = true
@@ -87,6 +95,10 @@ extension Projects {
         
         func triggerColumns() {
             Columns().show(relativeTo: columns.bounds, of: columns, preferredEdge: .minY)
+        }
+        
+        func triggerProgress() {
+            Progress().show(relativeTo: progress.bounds, of: progress, preferredEdge: .minY)
         }
         
         func triggerCard() {

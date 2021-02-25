@@ -52,6 +52,7 @@
 		CE38331A25DEA83400539F4E /* Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839325CEC054001283C6 /* Write.swift */; };
 		CE418AE425E80198000F2546 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE418AE325E80198000F2546 /* Preferences.swift */; };
 		CE418AE825E801AA000F2546 /* Preferences.Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE418AE725E801AA000F2546 /* Preferences.Toggle.swift */; };
+		CE418AEE25E805A9000F2546 /* Projects.Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE418AED25E805A9000F2546 /* Projects.Progress.swift */; };
 		CE4206A225D1853B00E43D49 /* Capacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A125D1853B00E43D49 /* Capacity.swift */; };
 		CE4206A625D18C0600E43D49 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A525D18C0600E43D49 /* Purchases.swift */; };
 		CE4206AA25D18C5F00E43D49 /* Purchases.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */; };
@@ -160,6 +161,7 @@
 		CE38331625DEA75400539F4E /* Plus.Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.Field.swift; sourceTree = "<group>"; };
 		CE418AE325E80198000F2546 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		CE418AE725E801AA000F2546 /* Preferences.Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.Toggle.swift; sourceTree = "<group>"; };
+		CE418AED25E805A9000F2546 /* Projects.Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Progress.swift; sourceTree = "<group>"; };
 		CE4206A125D1853B00E43D49 /* Capacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.swift; sourceTree = "<group>"; };
 		CE4206A525D18C0600E43D49 /* Purchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
 		CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.Item.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				CE4E4A6D25E14BF0007A46BB /* Projects.Item.swift */,
 				CE5F391825DD96490095F4FB /* Projects.Middlebar.Item.swift */,
 				CE221BC125DD55A400EFA20B /* Projects.Middlebar.swift */,
+				CE418AED25E805A9000F2546 /* Projects.Progress.swift */,
 				CEF1B84025E41F6A004B72AF /* Projects.Settings.swift */,
 				CE221BBD25DD552E00EFA20B /* Projects.swift */,
 				CE221BCF25DD5A5E00EFA20B /* Projects.Titlebar.swift */,
@@ -574,6 +577,7 @@
 				CE5F391D25DD9BE30095F4FB /* Projects.Empty.swift in Sources */,
 				CE4E4A6E25E14BF0007A46BB /* Projects.Item.swift in Sources */,
 				CE221BF325DD6C1900EFA20B /* Capacity.swift in Sources */,
+				CE418AEE25E805A9000F2546 /* Projects.Progress.swift in Sources */,
 				CE4E4A7225E14CFA007A46BB /* Edit.swift in Sources */,
 				CE3832F725DE949700539F4E /* NSAttributedString.swift in Sources */,
 				CE5F391325DD91070095F4FB /* Scroll.swift in Sources */,
