@@ -88,11 +88,11 @@ final class Capacity: NSView {
                 image.topAnchor.constraint(equalTo: base.topAnchor, constant: 30).isActive = true
                 image.leftAnchor.constraint(equalTo: base.leftAnchor, constant: 30).isActive = true
                 
-                name.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 10).isActive = true
-                name.centerYAnchor.constraint(equalTo: image.centerYAnchor).isActive = true
+                name.bottomAnchor.constraint(equalTo: price.topAnchor, constant: -10).isActive = true
+                name.centerXAnchor.constraint(equalTo: base.centerXAnchor).isActive = true
                 
                 subtitle.topAnchor.constraint(equalTo: image.topAnchor).isActive = true
-                subtitle.leftAnchor.constraint(equalTo: name.rightAnchor, constant: 20).isActive = true
+                subtitle.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 20).isActive = true
                 subtitle.rightAnchor.constraint(lessThanOrEqualTo: base.rightAnchor, constant: -30).isActive = true
                 
                 price.bottomAnchor.constraint(equalTo: purchase.topAnchor, constant: -10).isActive = true

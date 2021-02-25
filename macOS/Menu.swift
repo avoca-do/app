@@ -52,7 +52,11 @@ final class Menu: NSMenu, NSMenuDelegate {
                 .separator(),
                 .child("Bring All to Front", #selector(NSApplication.arrangeInFront)),
                 .separator()] + ((0 ..< NSApp.windows.count).filter {
-                    NSApp.windows[$0] is Window || NSApp.windows[$0] is NSPanel
+                    switch NSApp.windows[$0] {
+                    case is Window, is Preferences, is NSPanel:
+                        return true
+                    default: return false
+                    }
                 }.map { index in
                     return NSMenuItem.child(NSApp.windows[index] is Window
                                                 ? "Avocado"
