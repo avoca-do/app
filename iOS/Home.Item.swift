@@ -12,25 +12,25 @@ extension Home {
             Button {
                 UIApplication.shared.resign()
                 session.path = path
+                session.selected = true
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.accentColor)
+                        .fill(Color(.tertiarySystemBackground))
                         .matchedGeometryEffect(id: "bar\(path._board)", in: global)
                     HStack {
                         VStack(alignment: .leading) {
                             Text(verbatim: session.archive[name: path])
-                                .font(.headline)
+                                .fontWeight(.medium)
                                 .fixedSize(horizontal: false, vertical: true)
-                                .foregroundColor(.black)
+                                .matchedGeometryEffect(id: "text\(path._board)", in: global)
                             Text(verbatim: date)
                                 .font(.footnote)
-                                .foregroundColor(.black)
                         }
+                        .foregroundColor(.primary)
                         Spacer()
                     }
                     .padding()
-                    .matchedGeometryEffect(id: "text\(path._board)", in: global)
                 }
                 .contentShape(Rectangle())
             }

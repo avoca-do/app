@@ -14,7 +14,7 @@ extension Board {
                         Rectangle()
                             .fill(Color.accentColor)
                             .frame(width: Metrics.bar.width + geo.safeAreaInsets.leading)
-                            .matchedGeometryEffect(id: "bar0", in: global)
+                            
                             .matchedGeometryEffect(id: "close", in: local)
                         Spacer()
                     }

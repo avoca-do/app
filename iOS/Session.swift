@@ -4,6 +4,7 @@ import Kanban
 
 struct Session {
     var typing = false
+    var selected = false
     var path = Path.archive
     var archive = Archive()
     let purchases = Purchases()
