@@ -10,7 +10,7 @@ extension Capacity {
         init() {
             super.init(frame: .zero)
             
-            Session.purchases.plusOne.sink { [weak self] in
+            Session.purchases.plusOne.delay(for: .seconds(1), scheduler: DispatchQueue.main).sink { [weak self] in
                 self?.refresh()
             }.store(in: &subs)
             refresh()
