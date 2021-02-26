@@ -20,11 +20,15 @@ extension Capacity {
                 
                 let count = Text()
                 count.attributedStringValue = .make(
-                    [.init(string: Session.decimal.string(from: .init(value: Session.archive.count(.archive)))!
-                            + " / ",
-                           attributes: [.foregroundColor: NSColor.labelColor]),
+                    [.init(string: Session.decimal.string(from: .init(value: Session.archive.count(.archive)))!,
+                           attributes: [.foregroundColor: NSColor.labelColor,
+                                        .font: NSFont.systemFont(ofSize: 16, weight: .bold)]),
+                     .init(string: " / ",
+                            attributes: [.foregroundColor: NSColor.labelColor,
+                                         .font: NSFont.systemFont(ofSize: 16, weight: .regular)]),
                      .init(string: Session.decimal.string(from: .init(value: Defaults.capacity))!,
-                            attributes: [.foregroundColor: NSColor.tertiaryLabelColor])])
+                            attributes: [.foregroundColor: NSColor.tertiaryLabelColor,
+                                         .font: NSFont.systemFont(ofSize: 16, weight: .bold)])])
                 count.textColor = .labelColor
                 count.font = .systemFont(ofSize: 16, weight: .bold)
                 

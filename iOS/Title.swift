@@ -8,8 +8,13 @@ struct Title: View {
     
     var body: some View {
         ZStack {
+            Rectangle()
+                .fill(Color.border)
+                .frame(height: 2)
+                .padding(.top, 58)
             Text(title)
                 .bold()
+                .foregroundColor(.secondary)
                 .lineLimit(1)
                 .frame(maxWidth: 240)
             HStack {
@@ -21,12 +26,12 @@ struct Title: View {
                     Image(systemName: "xmark")
                         .font(.callout)
                         .foregroundColor(.secondary)
-                        .frame(width: 60, height: 50)
+                        .frame(width: 60, height: 60)
                 }
                 .contentShape(Rectangle())
             }
         }
-        .padding(.vertical)
+        .frame(height: 60)
         .onReceive(session.dismiss) {
             visible.wrappedValue.dismiss()
         }

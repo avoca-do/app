@@ -8,17 +8,20 @@ struct Settings: View {
     @Environment(\.presentationMode) private var visible
     
     var body: some View {
-        ScrollView {
+        VStack(spacing: 0) {
             Title(session: $session, title: "Settings")
-            HStack {
-                Text("Features")
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
-                    .padding(.leading)
-                Spacer()
+            ScrollView {
+                HStack {
+                    Text("Features")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                        .padding(.leading)
+                    Spacer()
+                }
+                .padding(.top, 40)
+                Switch(text: "Spell checking", value: $spell)
+                Switch(text: "Auto correction", value: $correction)
             }
-            Switch(text: "Spell checking", value: $spell)
-            Switch(text: "Auto correction", value: $correction)
         }
     }
 }

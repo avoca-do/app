@@ -9,6 +9,7 @@ extension Board {
             VStack {
                 Title(session: $session, title: "Move")
                 Columns(session: $session)
+                    .padding(.top)
                 Spacer()
                     .frame(height: 40)
                 if session.path._card > 0 {

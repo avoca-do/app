@@ -13,6 +13,7 @@ extension Board {
                 Tool(text: "Rename", image: "text.cursor") {
                     session.become.send(.edit(session.path))
                 }
+                .padding(.top, 40)
                 
                 Tool(text: "Delete", image: "trash") {
                     UIApplication.shared.resign()
