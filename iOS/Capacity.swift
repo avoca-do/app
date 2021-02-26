@@ -19,7 +19,7 @@ struct Capacity: View {
                             .font(Font.title.bold()) +
                         Text(verbatim: " / ")
                             .font(.title) +
-                        Text(NSNumber(value: Defaults.capacity), formatter: session.decimal)
+                        Text(NSNumber(value: session.archive.capacity), formatter: session.decimal)
                             .font(Font.title.bold())
                             .foregroundColor(.init(.tertiaryLabel))
                     }
@@ -33,7 +33,7 @@ struct Capacity: View {
                         HStack {
                             Capsule()
                                 .fill(Color.accentColor)
-                                .frame(width: CGFloat(min(session.archive.count(.archive), Defaults.capacity)) / .init(Defaults.capacity) * 200)
+                                .frame(width: CGFloat(min(session.archive.count(.archive), session.archive.capacity)) / .init(session.archive.capacity) * 200)
                             Spacer()
                         }
                     } else {

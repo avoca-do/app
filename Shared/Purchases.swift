@@ -7,6 +7,7 @@ final class Purchases: NSObject, SKRequestDelegate, SKProductsRequestDelegate, S
     let loading = CurrentValueSubject<Bool, Never>(true)
     let error = CurrentValueSubject<String?, Never>(nil)
     let open = PassthroughSubject<Void, Never>()
+    let plusOne = PassthroughSubject<Void, Never>()
     private weak var request: SKProductsRequest?
     
     override init() {
@@ -43,9 +44,10 @@ final class Purchases: NSObject, SKRequestDelegate, SKProductsRequestDelegate, S
                     self.error.value = NSLocalizedString("Purchase failed", comment: "")
                 }
             case .purchased:
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
                     switch Item(rawValue: transation.payment.productIdentifier)! {
-                    case .plus_one: Defaults.capacity += 1
+                    case .plus_one:
+                        self?.plusOne.send()
                     }
                 }
             default: break

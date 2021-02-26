@@ -14,7 +14,7 @@ extension Home {
                 session.path = path
             } label: {
                 ZStack {
-                    Capsule()
+                    RoundedRectangle(cornerRadius: 10)
                         .fill(Color.accentColor)
                         .matchedGeometryEffect(id: "bar\(path._board)", in: global)
                     HStack {

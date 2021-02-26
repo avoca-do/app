@@ -22,12 +22,25 @@ import Kanban
             Session.mutate {
                 $0 = archive
             }
+            
+            if Defaults.capacity > archive.capacity {
+                Session.mutate {
+                    $0.capacity = Defaults.capacity
+                }
+            }
+            
             Session.path = archive.isEmpty(.archive) ? .archive : .board(0)
         }.store(in: &subs)
     }
     
     func applicationDidFinishLaunching(_: Notification) {
         Memory.shared.refresh()
+        
+        Session.purchases.plusOne.sink {
+            Session.mutate {
+                $0.capacity += 1
+            }
+        }.store(in: &subs)
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
 //            if let created = Defaults.created {
 //                if !Defaults.rated && Calendar.current.dateComponents([.day], from: created, to: .init()).day! > 4 {

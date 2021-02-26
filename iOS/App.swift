@@ -15,6 +15,13 @@ import Kanban
                     session.dismiss.send()
                     session.path = .archive
                     session.archive = $0
+                    
+                    if Defaults.capacity > $0.capacity {
+                        session.archive.capacity = Defaults.capacity
+                    }
+                }
+                .onReceive(session.purchases.plusOne) {
+                    session.archive.capacity += 1
                 }
         }
         .onChange(of: phase) {

@@ -21,7 +21,7 @@ extension Board {
                             path = .column(session.path.board, index)
                         } label: {
                             ZStack {
-                                Capsule()
+                                RoundedRectangle(cornerRadius: 8)
                                     .fill(Color.accentColor)
                                 HStack {
                                     Text(verbatim: session.archive[title: .column(session.path.board, index)])

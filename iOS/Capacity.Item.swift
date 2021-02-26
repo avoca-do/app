@@ -13,14 +13,20 @@ extension Capacity {
                 VStack {
                     Image(purchase.image)
                         .padding(.top, 30)
+                        .padding(.bottom)
+                    Text(verbatim: purchase.subtitle)
+                        .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .foregroundColor(.secondary)
+                        .padding()
                     Text(verbatim: purchase.title)
                         .font(Font.largeTitle.bold())
+                        .padding(.top)
                     Text(verbatim: price)
                         .bold()
-                        .padding(.top, 40)
                     Button(action: action) {
                         ZStack {
-                            Capsule()
+                            RoundedRectangle(cornerRadius: 8)
                                 .fill(Color.blue)
                             Text("Purchase")
                                 .font(.callout)
@@ -31,11 +37,7 @@ extension Capacity {
                         .padding(.bottom)
                     }
                     .contentShape(Rectangle())
-                    Text(verbatim: purchase.subtitle)
-                        .multilineTextAlignment(.center)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .foregroundColor(.secondary)
-                        .padding()
+                    .padding(.bottom)
                 }
                 .padding()
             }
