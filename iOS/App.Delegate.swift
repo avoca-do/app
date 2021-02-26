@@ -16,10 +16,5 @@ extension App {
                 }
             }
         }
-        
-        func application(_: UIApplication, willFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-            UIScrollView.appearance().scrollsToTop = true
-            return true
-        }
     }
 }
