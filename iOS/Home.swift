@@ -11,12 +11,23 @@ struct Home: View {
     var body: some View {
         Color.background
             .edgesIgnoringSafeArea(.all)
-        ScrollView {
-            ForEach(0 ..< session.archive.count(.archive), id: \.self) {
-                Item(session: $session, path: .board($0), global: global)
+        if session.archive.isEmpty(.archive) {
+            HStack(alignment: .top) {
+                Text("Click +\nto start a project")
+                    .font(.title3)
+                    .foregroundColor(.init(UIColor.tertiaryLabel))
+                    .padding([.top, .leading], 40)
+                Spacer()
             }
-            Spacer()
-                .frame(height: 100)
+            .frame(maxHeight: .greatestFiniteMagnitude, alignment: .top)
+        } else {
+            ScrollView {
+                ForEach(0 ..< session.archive.count(.archive), id: \.self) {
+                    Item(session: $session, path: .board($0), global: global)
+                }
+                Spacer()
+                    .frame(height: 100)
+            }
         }
         Field(session: $session, write: .new(.archive))
             .frame(height: 0)
