@@ -24,10 +24,9 @@ extension Home {
                                 .fixedSize(horizontal: false, vertical: true)
                                 .foregroundColor(.black)
                             Text(verbatim: date)
-                                .font(.caption2)
+                                .font(.footnote)
                                 .foregroundColor(.black)
                         }
-                        .padding(.horizontal)
                         Spacer()
                     }
                     .padding()

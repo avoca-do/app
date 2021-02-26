@@ -28,7 +28,7 @@ extension Board {
                             .padding(.leading, fold.count == session.archive.count(session.path.board) ? 0 : Metrics.indicator.visible)
                         Spacer()
                     }
-                    .matchedGeometryEffect(id: "text\(session.path._board)", in: global)
+                    .matchedGeometryEffect(id: "text0", in: global)
                     ForEach(0 ..< session.archive.count(session.path.board), id: \.self) {
                         Column(session: $session, fold: $fold, path: .column(session.path.board, $0))
                         if $0 < session.archive.count(session.path.board) - 1 {
