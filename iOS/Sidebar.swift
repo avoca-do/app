@@ -6,17 +6,16 @@ struct Sidebar: View {
     var body: some View {
         VStack {
             Button {
-                
-            } label: { }.buttonStyle(Style(image: "paperplane.fill", selected: false))
+                session.section = .projects
+            } label: { }.buttonStyle(Style(image: "paperplane.fill", selected: session.section == .projects))
             Button {
-                
-            } label: { }.buttonStyle(Style(image: "square.stack.fill", selected: false))
+                session.section = .capacity
+            } label: { }.buttonStyle(Style(image: "square.stack.fill", selected: session.section == .capacity))
             Button {
-                
-            } label: { }.buttonStyle(Style(image: "slider.horizontal.3", selected: false))
+                session.section = .settings
+            } label: { }.buttonStyle(Style(image: "gear", selected: session.section == .settings))
             Spacer()
         }
         .frame(width: Metrics.sidebar.width)
-        .padding([.top, .leading])
     }
 }

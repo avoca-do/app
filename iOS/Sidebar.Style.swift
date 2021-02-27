@@ -7,7 +7,7 @@ extension Sidebar {
         
         func makeBody(configuration: Configuration) -> some View {
             ZStack {
-                RoundedRectangle(cornerRadius: 8)
+                RoundedRectangle(cornerRadius: Metrics.corners)
                     .fill(selected || configuration.isPressed ? Color(.secondarySystemBackground) : .clear)
                     .frame(width: 44, height: 44)
                 Image(systemName: image)

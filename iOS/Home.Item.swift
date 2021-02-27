@@ -12,7 +12,7 @@ extension Home {
             Button {
                 UIApplication.shared.resign()
                 session.path = path
-                session.selected = true
+//                session.selected = true
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)

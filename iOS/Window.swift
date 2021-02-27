@@ -7,8 +7,15 @@ struct Window: View {
         if session.path == .archive {
             HStack {
                 Sidebar(session: $session)
-                Spacer()
+                switch session.section {
+                case .projects: Middlebar(session: $session)
+                case .capacity:
+                    Rectangle()
+                case .settings:
+                    RoundedRectangle(cornerRadius: Metrics.corners)
+                }
             }
+            .padding()
         } else {
             
         }

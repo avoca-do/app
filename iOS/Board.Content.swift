@@ -16,7 +16,7 @@ extension Board {
                         .matchedGeometryEffect(id: "text\(session.path._board)", in: global)
                     Spacer()
                     Button {
-                        session.selected = false
+//                        session.selected = false
                     } label: {
                         Image(systemName: "xmark")
                             .foregroundColor(.primary)
