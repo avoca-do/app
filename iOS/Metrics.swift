@@ -1,6 +1,19 @@
 import CoreGraphics
 
-struct Metrics {
+extension Metrics {
+    struct sidebar {
+        static let width = CGFloat(60)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     struct bar {
         static let width = CGFloat(60)
     }
