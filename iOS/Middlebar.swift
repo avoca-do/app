@@ -7,14 +7,27 @@ struct Middlebar: View {
         ZStack {
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color(.secondarySystemBackground))
-            VStack {
+            ScrollView {
                 HStack {
                     Text("Projects")
                         .bold()
-                        .padding()
+                        .padding([.top, .leading])
                     Spacer()
                 }
-                Spacer()
+                if session.archive.isEmpty(.archive) {
+                    HStack(alignment: .top) {
+                        Text("Tab +\nto start a project")
+                            .foregroundColor(.init(UIColor.tertiaryLabel))
+                            .padding([.top, .leading])
+                        Spacer()
+                    }
+                } else {
+                    ForEach(0 ..< session.archive.count(.archive), id: \.self) {
+                        Item(session: $session, path: .board($0))
+                    }
+                    Spacer()
+                        .frame(height: 100)
+                }
             }
             VStack {
                 Spacer()

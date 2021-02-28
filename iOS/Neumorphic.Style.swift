@@ -11,6 +11,7 @@ extension Neumorphic {
                     Circle()
                         .fill(UIApplication.dark ? Color.black : .white)
                         .frame(width: 44, height: 44)
+                        .padding(4)
                 } else {
                     Circle()
                         .fill(Color.background)

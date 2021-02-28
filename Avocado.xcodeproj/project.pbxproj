@@ -97,6 +97,7 @@
 		CE9A9ECD25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */; };
 		CE9A9ECE25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */; };
 		CE9DD44825E576730087CC8C /* Projects.Columns.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DD44725E576730087CC8C /* Projects.Columns.swift */; };
+		CEA0D18E25EC45110011FFC0 /* Middlebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0D18D25EC45110011FFC0 /* Middlebar.Item.swift */; };
 		CEA1819C25C04DE000552DEF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1819B25C04DE000552DEF /* CloudKit.framework */; };
 		CEA652A225C1CBA60099C82E /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA652A125C1CBA60099C82E /* Metrics.swift */; };
 		CEA955A225C2D5A20019BF90 /* Neumorphic.Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */; };
@@ -211,6 +212,7 @@
 		CE99E68B25DC00A200E0EA36 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeDateTimeFormatter.swift; sourceTree = "<group>"; };
 		CE9DD44725E576730087CC8C /* Projects.Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Columns.swift; sourceTree = "<group>"; };
+		CEA0D18D25EC45110011FFC0 /* Middlebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlebar.Item.swift; sourceTree = "<group>"; };
 		CEA1819825C04DD200552DEF /* Avocado.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Avocado.entitlements; sourceTree = "<group>"; };
 		CEA1819B25C04DE000552DEF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CEA652A125C1CBA60099C82E /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				CEF2D7DA25C058C300223C79 /* Home.Item.swift */,
 				CE2507D825B8771000F9C526 /* Home.swift */,
 				CEA652A125C1CBA60099C82E /* Metrics.swift */,
+				CEA0D18D25EC45110011FFC0 /* Middlebar.Item.swift */,
 				CEDBD48725EA80FA00C689CF /* Middlebar.swift */,
 				CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */,
 				CE1A44E925C2DCBF002011FA /* Neumorphic.swift */,
@@ -559,6 +562,7 @@
 				CE95053625EA795A00EB178E /* Sidebar.Style.swift in Sources */,
 				CE7183BD25CC3D8B00AD02F8 /* Board.Move.Arrow.swift in Sources */,
 				CEA955A225C2D5A20019BF90 /* Neumorphic.Style.swift in Sources */,
+				CEA0D18E25EC45110011FFC0 /* Middlebar.Item.swift in Sources */,
 				CE0E839825CEC741001283C6 /* Board.Modify.Column.swift in Sources */,
 				CE69A58725D1611400EC9DB0 /* Progress.Ring.swift in Sources */,
 				CE4206A225D1853B00E43D49 /* Capacity.swift in Sources */,
