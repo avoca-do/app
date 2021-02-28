@@ -20,6 +20,10 @@ import Kanban
                         session.archive.capacity = Defaults.capacity
                     }
                 }
+                .onReceive(session.purchases.open) {
+                    session.dismiss.send()
+                    session.section = .capacity
+                }
                 .onReceive(session.purchases.plusOne) {
                     session.archive.capacity += 1
                 }

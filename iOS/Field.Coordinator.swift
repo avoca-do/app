@@ -7,7 +7,7 @@ extension Field {
         private weak var field: UITextField!
         private var editable = true
         private var subs = Set<AnyCancellable>()
-        private let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 62), inputViewStyle: .keyboard)
+        private let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 54), inputViewStyle: .keyboard)
         private let wrapper: Field
         override var inputAccessoryView: UIView? { input }
         override var canBecomeFirstResponder: Bool { editable }
@@ -31,7 +31,7 @@ extension Field {
             field.autocapitalizationType = .words
             field.spellCheckingType = Defaults.spell ? .yes : .no
             field.backgroundColor = .tertiarySystemFill
-            field.tintColor = .main
+            field.tintColor = .label
             field.keyboardType = .alphabet
             field.allowsEditingTextAttributes = false
             field.delegate = self

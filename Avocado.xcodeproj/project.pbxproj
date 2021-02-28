@@ -98,6 +98,7 @@
 		CE9A9ECE25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */; };
 		CE9DD44825E576730087CC8C /* Projects.Columns.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DD44725E576730087CC8C /* Projects.Columns.swift */; };
 		CEA0D18E25EC45110011FFC0 /* Middlebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0D18D25EC45110011FFC0 /* Middlebar.Item.swift */; };
+		CEA0D19625EC4C650011FFC0 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0D19525EC4C650011FFC0 /* Project.swift */; };
 		CEA1819C25C04DE000552DEF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1819B25C04DE000552DEF /* CloudKit.framework */; };
 		CEA652A225C1CBA60099C82E /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA652A125C1CBA60099C82E /* Metrics.swift */; };
 		CEA955A225C2D5A20019BF90 /* Neumorphic.Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */; };
@@ -213,6 +214,7 @@
 		CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeDateTimeFormatter.swift; sourceTree = "<group>"; };
 		CE9DD44725E576730087CC8C /* Projects.Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Columns.swift; sourceTree = "<group>"; };
 		CEA0D18D25EC45110011FFC0 /* Middlebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlebar.Item.swift; sourceTree = "<group>"; };
+		CEA0D19525EC4C650011FFC0 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		CEA1819825C04DD200552DEF /* Avocado.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Avocado.entitlements; sourceTree = "<group>"; };
 		CEA1819B25C04DE000552DEF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CEA652A125C1CBA60099C82E /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				CE1A44E925C2DCBF002011FA /* Neumorphic.swift */,
 				CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */,
 				CE69A58025D15EB600EC9DB0 /* Progress.swift */,
+				CEA0D19525EC4C650011FFC0 /* Project.swift */,
 				CE95053F25EA7D5E00EB178E /* Session.Section.swift */,
 				CE2507CB25B8733500F9C526 /* Session.swift */,
 				CE69A59525D1817700EC9DB0 /* Settings.swift */,
@@ -554,6 +557,7 @@
 				CE2507EE25B87DB300F9C526 /* Field.Coordinator.swift in Sources */,
 				CE4206AE25D1937E00E43D49 /* Capacity.Item.swift in Sources */,
 				CE349F3925CAD46100B3A436 /* Board.Content.swift in Sources */,
+				CEA0D19625EC4C650011FFC0 /* Project.swift in Sources */,
 				CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */,
 				CE1A44EE25C2E61D002011FA /* Board.Control.swift in Sources */,
 				CED3399725B9E050008BD131 /* Board.Card.swift in Sources */,

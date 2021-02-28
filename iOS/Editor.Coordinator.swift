@@ -35,7 +35,7 @@ extension Editor {
             default: break
             }
             
-            let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 54), inputViewStyle: .keyboard)
+            let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 50), inputViewStyle: .keyboard)
             
             let cancel = UIButton()
             cancel.translatesAutoresizingMaskIntoConstraints = false

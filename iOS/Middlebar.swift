@@ -2,10 +2,11 @@ import SwiftUI
 
 struct Middlebar: View {
     @Binding var session: Session
+    @State private var alert = false
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 12)
+            RoundedRectangle(cornerRadius: Metrics.corners)
                 .fill(Color(.secondarySystemBackground))
             ScrollView {
                 HStack {
@@ -29,24 +30,28 @@ struct Middlebar: View {
                         .frame(height: 100)
                 }
             }
-            VStack {
+            VStack(alignment: .trailing) {
                 Spacer()
+                Field(session: $session, write: .new(.archive))
+                    .frame(height: 0)
                 if !session.typing {
                     Button {
-                        
+                        if session.archive.available {
+                            session.become.send(.new(.archive))
+                        } else {
+                            alert = true
+                        }
                     } label: { }.buttonStyle(Neumorphic.Style(image: "plus"))
                     .padding([.trailing, .bottom], 20)
-                    
-//                    Neumorphic(image: "plus", action: add)
-//                        .actionSheet(isPresented: $alert) {
-//                            .init(title: .init("You have reached your maximum capacity for projects"),
-//                                         message: .init("Check Capacity for more details"),
-//                                         buttons: [
-//                                             .default(.init("Capacity")) {
-//                                                session.purchases.open.send()
-//                                             },
-//                                             .cancel()])
-//                        }
+                    .actionSheet(isPresented: $alert) {
+                        .init(title: .init("You have reached your capacity for projects"),
+                                     message: .init("Check Capacity for more details"),
+                                     buttons: [
+                                         .default(.init("Capacity")) {
+                                            session.purchases.open.send()
+                                         },
+                                         .cancel()])
+                    }
                 }
             }
             .frame(maxWidth: .greatestFiniteMagnitude, alignment: .trailing)

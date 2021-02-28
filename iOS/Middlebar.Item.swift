@@ -10,7 +10,9 @@ extension Middlebar {
         var body: some View {
             Button {
                 UIApplication.shared.resign()
-                session.path = path
+                withAnimation(.easeInOut(duration: 0.4)) {
+                    session.path = path
+                }
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: Metrics.corners)
