@@ -6,14 +6,14 @@ struct Card: View {
     let path: Kanban.Path
     
     var body: some View {
-        HStack(spacing: 0) {
+        HStack {
             Text(verbatim: session.archive[content: path])
                 .foregroundColor(.primary)
-                .padding(.horizontal)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding()
             Spacer()
         }
-        .fixedSize(horizontal: false, vertical: true)
-        .padding(.vertical)
+        
 //        .onChange(of: session.path) { [old = session.path] in
 //            if old == path && $0 != path {
 //               selected = false
