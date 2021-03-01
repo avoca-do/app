@@ -115,6 +115,9 @@
 		CECFD8C225E3EA0000BD3532 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFD8C125E3EA0000BD3532 /* Array.swift */; };
 		CED3399125B9BA36008BD131 /* Board.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3399025B9BA36008BD131 /* Board.Column.swift */; };
 		CED3399725B9E050008BD131 /* Board.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3399625B9E050008BD131 /* Board.Card.swift */; };
+		CEDB78E925ECFA7D001A02A4 /* Project.Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78E825ECFA7D001A02A4 /* Project.Tab.swift */; };
+		CEDB78F025ECFC8B001A02A4 /* Project.Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78EF25ECFC8B001A02A4 /* Project.Title.swift */; };
+		CEDB78F425ECFCCF001A02A4 /* Project.Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */; };
 		CEDBD48825EA80FA00C689CF /* Middlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBD48725EA80FA00C689CF /* Middlebar.swift */; };
 		CEE61FA125CAFCFB007CF830 /* Board.Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA025CAFCFB007CF830 /* Board.Options.swift */; };
 		CEE61FA525CB0A08007CF830 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA425CB0A08007CF830 /* Tool.swift */; };
@@ -230,6 +233,9 @@
 		CECFD8C125E3EA0000BD3532 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		CED3399025B9BA36008BD131 /* Board.Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Column.swift; sourceTree = "<group>"; };
 		CED3399625B9E050008BD131 /* Board.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Card.swift; sourceTree = "<group>"; };
+		CEDB78E825ECFA7D001A02A4 /* Project.Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Tab.swift; sourceTree = "<group>"; };
+		CEDB78EF25ECFC8B001A02A4 /* Project.Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Title.swift; sourceTree = "<group>"; };
+		CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Options.swift; sourceTree = "<group>"; };
 		CEDBD48725EA80FA00C689CF /* Middlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlebar.swift; sourceTree = "<group>"; };
 		CEE61FA025CAFCFB007CF830 /* Board.Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Options.swift; sourceTree = "<group>"; };
 		CEE61FA425CB0A08007CF830 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
@@ -324,7 +330,10 @@
 				CE1A44E925C2DCBF002011FA /* Neumorphic.swift */,
 				CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */,
 				CE69A58025D15EB600EC9DB0 /* Progress.swift */,
+				CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */,
 				CEA0D19525EC4C650011FFC0 /* Project.swift */,
+				CEDB78E825ECFA7D001A02A4 /* Project.Tab.swift */,
+				CEDB78EF25ECFC8B001A02A4 /* Project.Title.swift */,
 				CE95053F25EA7D5E00EB178E /* Session.Section.swift */,
 				CE2507CB25B8733500F9C526 /* Session.swift */,
 				CE69A59525D1817700EC9DB0 /* Settings.swift */,
@@ -536,6 +545,7 @@
 				CE2507E025B877FF00F9C526 /* UIApplication.swift in Sources */,
 				CE95054025EA7D5E00EB178E /* Session.Section.swift in Sources */,
 				CE349F3325CAD29300B3A436 /* Board.Bar.swift in Sources */,
+				CEDB78F425ECFCCF001A02A4 /* Project.Options.swift in Sources */,
 				CE25079C25B8660900F9C526 /* Window.swift in Sources */,
 				CEDBD48825EA80FA00C689CF /* Middlebar.swift in Sources */,
 				CE575AF525C1730500A6B28D /* App.Delegate.swift in Sources */,
@@ -551,6 +561,7 @@
 				CE2507D925B8771000F9C526 /* Home.swift in Sources */,
 				CE349F2825CAD12000B3A436 /* Board.Column.Folded.swift in Sources */,
 				CE349F2B25CAD17E00B3A436 /* Board.Column.Unfolded.swift in Sources */,
+				CEDB78E925ECFA7D001A02A4 /* Project.Tab.swift in Sources */,
 				CE69A59625D1817700EC9DB0 /* Settings.swift in Sources */,
 				CE69A58125D15EB600EC9DB0 /* Progress.swift in Sources */,
 				CECEEE4B25CC33C500370036 /* Board.Move.Columns.swift in Sources */,
@@ -568,6 +579,7 @@
 				CEA955A225C2D5A20019BF90 /* Neumorphic.Style.swift in Sources */,
 				CEA0D18E25EC45110011FFC0 /* Middlebar.Item.swift in Sources */,
 				CE0E839825CEC741001283C6 /* Board.Modify.Column.swift in Sources */,
+				CEDB78F025ECFC8B001A02A4 /* Project.Title.swift in Sources */,
 				CE69A58725D1611400EC9DB0 /* Progress.Ring.swift in Sources */,
 				CE4206A225D1853B00E43D49 /* Capacity.swift in Sources */,
 				CE25079A25B8660900F9C526 /* App.swift in Sources */,
