@@ -7,19 +7,15 @@ struct Project: View {
         VStack(spacing: 0) {
             Title(session: $session)
             GeometryReader { proxy in
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
+                HStack(spacing: 0) {
                     ForEach(0 ..< session.archive.count(session.path.board), id: \.self) {
                         Column(session: $session, path: .column(session.path.board, $0))
                             .frame(width: proxy.size.width * Metrics.paging.width)
-                            .padding($0 == 0 ? [.leading] : [])
-                            .padding($0 < session.archive.count(session.path.board) - 1 ? [] : [.trailing])
+                            .padding(.leading, $0 == 0 ? Metrics.paging.space : Metrics.paging.padding)
+                            .padding(.trailing, $0 == session.archive.count(session.path.board) - 1 ? Metrics.paging.space : 0)
                     }
-                    Spacer()
-                        .frame(width: 20)
                 }
-                .offset(x: offset(for: session.path._column, width: proxy.size.width))
+                .offset(x: ((proxy.size.width * Metrics.paging.width) + Metrics.paging.padding) * .init(-session.path._column))
             }
             HStack {
                 ForEach(0 ..< session.archive.count(session.path.board), id: \.self) { index in
@@ -40,9 +36,5 @@ struct Project: View {
             }
             Options(session: $session)
         }
-    }
-    
-    func offset(for index: Int, width: CGFloat) -> CGFloat {
-        width * Metrics.paging.width * CGFloat(-index) + (20 * CGFloat(index))
     }
 }
