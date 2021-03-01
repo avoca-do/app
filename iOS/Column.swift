@@ -23,6 +23,7 @@ struct Column: View {
                     Spacer()
                     Text(NSNumber(value: session.archive.count(path)), formatter: session.decimal)
                         .bold()
+                        .padding(.leading)
                 }
                 .padding()
                 Rectangle()
@@ -37,6 +38,6 @@ struct Column: View {
             .disabled(session.path.column != path)
             .allowsHitTesting(session.path.column == path)
         }
-//        .opacity(session.path.column == path ? 1 : 0.5)
+        .opacity(session.path.column == path ? 1 : 0.5)
     }
 }

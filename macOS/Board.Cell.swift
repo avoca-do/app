@@ -76,16 +76,16 @@ extension Board {
                 addSubview($0)
             }
             
-            circle.layer!.cornerRadius = 3
+            circle.layer!.cornerRadius = Metrics.card.radius
             
             line.topAnchor.constraint(equalTo: circle.bottomAnchor).isActive = true
             line.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Metrics.board.item.padding).isActive = true
             line.leftAnchor.constraint(equalTo: leftAnchor, constant: Metrics.board.card.left).isActive = true
-            line.widthAnchor.constraint(equalToConstant: 1).isActive = true
+            line.widthAnchor.constraint(equalToConstant: Metrics.card.line).isActive = true
             
             circle.centerXAnchor.constraint(equalTo: line.centerXAnchor).isActive = true
             circle.topAnchor.constraint(equalTo: topAnchor, constant: Metrics.board.item.padding).isActive = true
-            circle.widthAnchor.constraint(equalToConstant: 6).isActive = true
+            circle.widthAnchor.constraint(equalToConstant: Metrics.card.circle).isActive = true
             circle.heightAnchor.constraint(equalTo: circle.widthAnchor).isActive = true
             
             text.topAnchor.constraint(equalTo: topAnchor, constant: Metrics.board.item.padding).isActive = true

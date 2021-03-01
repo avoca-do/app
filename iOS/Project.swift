@@ -17,14 +17,14 @@ struct Project: View {
                 }
                 .offset(x: ((proxy.size.width * Metrics.paging.width) + Metrics.paging.padding) * .init(-session.path._column))
             }
-            HStack {
+            HStack(spacing: 0) {
                 ForEach(0 ..< session.archive.count(session.path.board), id: \.self) { index in
                     ZStack {
                         Circle()
                             .fill(session.path._column == index ? Color.primary : .secondary)
                             .frame(width: 6, height: 6)
                     }
-                    .frame(height: 30)
+                    .frame(width: 16, height: 40)
                     .contentShape(Rectangle())
                     .onTapGesture {
                         withAnimation(.easeIn(duration: 0.3)) {
