@@ -19,7 +19,7 @@ struct Window: View {
             .transition(.move(edge: .leading))
         } else {
             Project(session: $session)
-                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing)))
         }
     }
 }
