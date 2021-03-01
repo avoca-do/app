@@ -2,56 +2,39 @@ import SwiftUI
 
 struct Project: View {
     @Binding var session: Session
-    @State private var tab = 0
     
     var body: some View {
-        Title(session: $session)
-        ZStack {
+        VStack(spacing: 0) {
+            Title(session: $session)
+            GeometryReader { proxy in
+                HStack {
+                    ForEach(0 ..< session.archive.count(session.path.board), id: \.self) {
+                        Column(session: $session, path: .column(session.path.board, $0))
+                            .frame(width: proxy.size.width * Metrics.paging.width)
+                            .padding($0 == 0 ? [.leading] : [])
+                            .padding($0 < session.archive.count(session.path.board) - 1 ? [] : [.trailing])
+                    }
+                }
+                .offset(x: proxy.size.width * Metrics.paging.width * .init(-session.path._column))
+            }
             HStack {
-                if tab > 0 {
-                    RoundedRectangle(cornerRadius: Metrics.corners)
-                        .fill(Color(.secondarySystemBackground))
-                        .frame(width: Metrics.paging.width)
-                        .offset(x: -Metrics.paging.offset)
-                        .onTapGesture {
-                            withAnimation(.easeInOut(duration: 3)) {
-                                tab -= 1
-                            }
+                ForEach(0 ..< session.archive.count(session.path.board), id: \.self) { index in
+                    ZStack {
+                        Circle()
+                            .fill(session.path._column == index ? Color.primary : .secondary)
+                            .frame(width: 6, height: 6)
+                    }
+                    .frame(height: 30)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        withAnimation(.easeIn(duration: 0.3)) {
+                            session.path = .column(session.path.board, index)
                         }
-                }
-                Spacer()
-                if tab < session.archive.count(session.path) - 1 {
-                    RoundedRectangle(cornerRadius: Metrics.corners)
-                        .fill(Color(.secondarySystemBackground))
-                        .frame(width: Metrics.paging.width)
-                        .offset(x: Metrics.paging.offset)
-                        .onTapGesture {
-                            withAnimation(.easeInOut(duration: 3)) {
-                                tab += 1
-                            }
-                        }
+                    }
+                    .disabled(session.path._column == index)
                 }
             }
-            if tab == 0 {
-                Column(session: $session, path: .column(session.path, tab))
-                    .padding(.trailing, tab < session.archive.count(session.path) - 1 ? Metrics.paging.padding : 0)
-                    .padding(.leading, tab > 0 ? Metrics.paging.padding : 0)
-                    .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
-            } else if tab == 1 {
-                Column(session: $session, path: .column(session.path, tab))
-                    .padding(.trailing, tab < session.archive.count(session.path) - 1 ? Metrics.paging.padding : 0)
-                    .padding(.leading, tab > 0 ? Metrics.paging.padding : 0)
-                    .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
-            }
+            Options(session: $session)
         }
-//        .offset(x: Metrics.paging.offset)
-        HStack {
-            ForEach(0 ..< session.archive.count(session.path), id: \.self) {
-                Circle()
-                    .fill($0 == tab ? Color.primary : .secondary)
-                    .frame(width: 6, height: 6)
-            }
-        }
-        Options(session: $session)
     }
 }

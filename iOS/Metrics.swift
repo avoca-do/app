@@ -6,9 +6,7 @@ extension Metrics {
     }
     
     struct paging {
-        static let width = CGFloat(120)
-        static let offset = CGFloat(90)
-        static let padding = width - offset
+        static let width = CGFloat(0.8)
     }
     
     

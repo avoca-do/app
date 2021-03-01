@@ -11,7 +11,7 @@ extension Middlebar {
             Button {
                 UIApplication.shared.resign()
                 withAnimation(.easeInOut(duration: 0.35)) {
-                    session.path = path
+                    session.path = .column(path, 0)
                 }
             } label: {
                 ZStack {

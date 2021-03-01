@@ -318,7 +318,9 @@
 				CE71D20725B98FF000D0F4E3 /* Board.swift */,
 				CE4206AD25D1937E00E43D49 /* Capacity.Item.swift */,
 				CE4206A125D1853B00E43D49 /* Capacity.swift */,
+				CEDB78FD25ED0E08001A02A4 /* Card.swift */,
 				CE2507C725B8731100F9C526 /* Color.swift */,
+				CEDB78E825ECFA7D001A02A4 /* Column.swift */,
 				CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */,
 				CE8C6ED225C31A4E007D25FC /* Editor.swift */,
 				CE2507ED25B87DB300F9C526 /* Field.Coordinator.swift */,
@@ -334,7 +336,6 @@
 				CE69A58025D15EB600EC9DB0 /* Progress.swift */,
 				CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */,
 				CEA0D19525EC4C650011FFC0 /* Project.swift */,
-				CEDB78E825ECFA7D001A02A4 /* Column.swift */,
 				CEDB78EF25ECFC8B001A02A4 /* Project.Title.swift */,
 				CE95053F25EA7D5E00EB178E /* Session.Section.swift */,
 				CE2507CB25B8733500F9C526 /* Session.swift */,
@@ -347,7 +348,6 @@
 				CE2507DF25B877FF00F9C526 /* UIApplication.swift */,
 				CE25079B25B8660900F9C526 /* Window.swift */,
 				CE25079D25B8660A00F9C526 /* Assets.xcassets */,
-				CEDB78FD25ED0E08001A02A4 /* Card.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
