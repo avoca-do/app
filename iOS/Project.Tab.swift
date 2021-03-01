@@ -10,17 +10,22 @@ extension Project {
             ZStack {
                 RoundedRectangle(cornerRadius: Metrics.corners)
                     .fill(Color(.secondarySystemBackground))
-                VStack {
+                VStack(spacing: 0) {
                     HStack {
                         Text(verbatim: session.archive[title: path])
-                            .font(Font.body.bold())
+                            .bold()
                         Spacer()
                         Text(NSNumber(value: session.archive.count(path)), formatter: session.decimal)
-                            .foregroundColor(.secondary)
+                            .bold()
                     }
-                    .padding([.top, .horizontal])
+                    .padding()
+                    Rectangle()
+                        .fill(Color(white: 0, opacity: 1))
+                        .frame(height: 1)
                     ScrollView {
-                        
+                        ForEach(0 ..< session.archive.count(path), id: \.self) {
+                            Card(session: $session, path: .card(path, $0))
+                        }
                     }
                 }
             }
