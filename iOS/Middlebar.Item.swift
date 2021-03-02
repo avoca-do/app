@@ -10,7 +10,7 @@ extension Middlebar {
         var body: some View {
             Button {
                 UIApplication.shared.resign()
-                withAnimation(.easeInOut(duration: 0.35)) {
+                withAnimation(.easeInOut(duration: 0.4)) {
                     session.path = .column(path, 0)
                 }
             } label: {
