@@ -28,7 +28,7 @@ struct Capacity: View {
                 .padding(.top, 40)
                 ZStack {
                     Capsule()
-                        .fill(Color.background)
+                        .fill(Color(.secondarySystemBackground))
                     if session.archive.available {
                         HStack {
                             Capsule()

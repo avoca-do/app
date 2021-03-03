@@ -7,7 +7,7 @@ extension Project {
         var body: some View {
             HStack {
                 Button {
-                    withAnimation(.easeInOut(duration: 0.35)) {
+                    withAnimation(.spring(blendDuration: 0.35)) {
                         session.open = false
                     }
                 } label: {

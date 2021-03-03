@@ -9,7 +9,7 @@ extension Capacity {
         var body: some View {
             ZStack {
                 RoundedRectangle(cornerRadius: 30)
-                    .fill(Color.background)
+                    .fill(Color(.secondarySystemBackground))
                 VStack {
                     Image(purchase.image)
                         .padding(.top, 30)

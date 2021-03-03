@@ -10,25 +10,21 @@ extension Modal {
         
         var body: some View {
             ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.background)
+                RoundedRectangle(cornerRadius: Metrics.corners)
+                    .fill(Color(.tertiarySystemBackground))
                 VStack {
                     Button(action: dismiss) {
-                        HStack {
-                            Text(verbatim: session.archive[content: session.path])
-                                .lineLimit(1)
-                                .foregroundColor(.primary)
-                                .padding(.horizontal)
-                                .padding(.leading)
-                            Spacer()
-                            Image(systemName: "xmark")
-                                .font(.callout)
-                                .foregroundColor(.secondary)
-                                .frame(width: 60, height: 45)
-                        }
+                        Text(verbatim: session.archive[content: session.path])
+                            .lineLimit(2)
+                            .foregroundColor(.primary)
+                            .padding(.horizontal)
+                            .padding(.top)
+                            .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                     }
                     .contentShape(Rectangle())
-                    .padding(.top, 10)
+                    
+                    
+                    
                     
                     if session.path._column < session.archive.count(session.path.board) - 1 {
                         Tool(text: "Move to " + session.archive[title: .column(session.path.board, session.path._column + 1)],
