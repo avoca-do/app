@@ -13,15 +13,17 @@ extension Modal {
                 RoundedRectangle(cornerRadius: Metrics.corners)
                     .fill(Color(.tertiarySystemBackground))
                 VStack {
-                    Button(action: dismiss) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: Metrics.corners)
+                            .fill(Color.secondary)
                         Text(verbatim: session.archive[content: session.path])
-                            .lineLimit(2)
-                            .foregroundColor(.primary)
-                            .padding(.horizontal)
-                            .padding(.top)
-                            .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                            .font(.footnote)
+                            .foregroundColor(Color(.secondarySystemBackground))
+                            .padding()
+                            .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
                     }
-                    .contentShape(Rectangle())
+                    .frame(width: 200, height: 100)
+                    .padding(.top, 20)
                     
                     
                     
