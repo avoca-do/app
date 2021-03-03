@@ -30,28 +30,28 @@ extension Board {
                     .frame(height: 1)
                     .matchedGeometryEffect(id: "bar\(session.path._board)", in: global)
                 
-                ScrollView {
-                    VStack(spacing: 0) {
-                        ForEach(0 ..< session.archive.count(session.path.board), id: \.self) {
-                            Column(session: $session, fold: $fold, path: .column(session.path.board, $0))
-                            if $0 < session.archive.count(session.path.board) - 1 {
-                                HStack(spacing: 0) {
-                                    if fold.count < session.archive.count(session.path.board) {
-                                        Rectangle()
-                                            .fill(Color.black)
-                                            .frame(width: Metrics.bar.width, height: 0.5)
-                                    }
-                                    Rectangle()
-                                        .fill(Color.accentColor)
-                                        .frame(height: 2)
-                                }
-                                
-                            }
-                        }
-                        Spacer()
-                            .frame(height: 80)
-                    }
-                }
+//                ScrollView {
+//                    VStack(spacing: 0) {
+//                        ForEach(0 ..< session.archive.count(session.path.board), id: \.self) {
+//                            Column(session: $session, fold: $fold, path: .column(session.path.board, $0))
+//                            if $0 < session.archive.count(session.path.board) - 1 {
+//                                HStack(spacing: 0) {
+//                                    if fold.count < session.archive.count(session.path.board) {
+//                                        Rectangle()
+//                                            .fill(Color.black)
+//                                            .frame(width: Metrics.bar.width, height: 0.5)
+//                                    }
+//                                    Rectangle()
+//                                        .fill(Color.accentColor)
+//                                        .frame(height: 2)
+//                                }
+//
+//                            }
+//                        }
+//                        Spacer()
+//                            .frame(height: 80)
+//                    }
+//                }
             }
         }
     }

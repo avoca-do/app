@@ -2,14 +2,18 @@ import SwiftUI
 
 struct Board: View {
     @Binding var session: Session
-    let global: Namespace.ID
-    @State private var fold = Set<Int>()
-    @Namespace private var local
     
     var body: some View {
-        Bar(session: $session, fold: $fold, global: global, local: local)
-        Content(session: $session, fold: $fold, global: global)
-        Menu(session: $session, fold: $fold, local: local)
-        Options(session: $session)
+        GeometryReader { proxy in
+            HStack(spacing: 0) {
+                ForEach(0 ..< session.archive.count(session.path.board), id: \.self) {
+                    Column(session: $session, path: .column(session.path.board, $0))
+                        .frame(width: proxy.size.width * Metrics.paging.width)
+                        .padding(.leading, $0 == 0 ? Metrics.paging.space : Metrics.paging.padding)
+                        .padding(.trailing, $0 == session.archive.count(session.path.board) - 1 ? Metrics.paging.space : 0)
+                }
+            }
+            .offset(x: ((proxy.size.width * Metrics.paging.width) + Metrics.paging.padding) * .init(-session.path._column))
+        }
     }
 }
