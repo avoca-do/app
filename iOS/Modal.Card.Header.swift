@@ -11,7 +11,7 @@ extension Modal.Card {
                 HStack {
                     if session.path._column > 0 {
                         Button {
-                            
+                            update(session.path._column - 1)
                         } label: {
                             Text(verbatim: session.archive[title: .column(session.path.board, session.path._column - 1)])
                                 .lineLimit(1)
@@ -19,13 +19,15 @@ extension Modal.Card {
                             Image(systemName: "arrow.left")
                                 .padding(.trailing)
                         }
+                        .foregroundColor(.black)
+                        .font(.title3)
                         .frame(maxHeight: .greatestFiniteMagnitude)
                         .contentShape(Rectangle())
                     }
                     Spacer()
                     if session.path._column < session.archive.count(session.path.board) - 1 {
                         Button {
-                            
+                            update(session.path._column + 1)
                         } label: {
                             Image(systemName: "arrow.right")
                                 .padding(.leading)
@@ -33,6 +35,8 @@ extension Modal.Card {
                                 .lineLimit(1)
                                 .padding(.trailing)
                         }
+                        .foregroundColor(.black)
+                        .font(.title3)
                         .frame(maxHeight: .greatestFiniteMagnitude)
                         .contentShape(Rectangle())
                     }
@@ -41,6 +45,8 @@ extension Modal.Card {
                     move = true
                 } label: {
                     Image(systemName: "arrow.up.arrow.down")
+                        .foregroundColor(.black)
+                        .font(.title3)
                 }
                 .frame(width: 60)
                 .frame(maxHeight: .greatestFiniteMagnitude)
@@ -50,7 +56,11 @@ extension Modal.Card {
                 }
             }
             .frame(height: 60)
-            .font(.title3)
+        }
+        
+        private func update(_ position: Int) {
+            session.archive.move(session.path, horizontal: position)
+            session.path = .card(.column(session.path.board, position), 0)
         }
     }
 }

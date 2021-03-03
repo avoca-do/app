@@ -11,7 +11,11 @@ extension Sidebar {
                     .fill(selected || configuration.isPressed ? Color(.secondarySystemBackground) : .clear)
                     .frame(width: 44, height: 44)
                 Image(systemName: image)
-                    .foregroundColor(selected || configuration.isPressed ? .accentColor : .secondary)
+                    .foregroundColor(selected || configuration.isPressed
+                                        ? .accentColor
+                                        : UIApplication.dark
+                                            ? .secondary
+                                            : .init(.tertiaryLabel))
             }
         }
     }

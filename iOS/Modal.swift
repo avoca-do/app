@@ -7,17 +7,17 @@ struct Modal: View {
     var body: some View {
         ZStack {
             if case .card = session.path {
-                Color.black.opacity(0.5)
+                Color.black.opacity(UIApplication.dark ? 0.5 : 0.7)
                     .edgesIgnoringSafeArea(.all)
                     .onTapGesture(perform: dismiss)
                 VStack(spacing: 0) {
                     Spacer()
                     HStack {
                         Capsule()
-                            .fill(Color.secondary)
-                            .frame(width: 60, height: 5)
-                            .padding(.bottom, 12)
-                            .padding(.top, 30)
+                            .fill(Color.accentColor)
+                            .frame(width: 60, height: 4)
+                            .padding(.bottom, 10)
+                            .padding(.top, 40)
                     }
                     .frame(maxWidth: .greatestFiniteMagnitude)
                     .contentShape(Rectangle())

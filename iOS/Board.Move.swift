@@ -4,14 +4,27 @@ import Kanban
 extension Board {
     struct Move: View {
         @Binding var session: Session
+        @Environment(\.presentationMode) private var visible
         
         var body: some View {
             VStack {
-                Title(session: $session, title: "Move")
-                Columns(session: $session)
-                    .padding(.top)
-                Spacer()
-                    .frame(height: 40)
+                HStack {
+                    Spacer()
+                    Button {
+                        visible.wrappedValue.dismiss()
+                    } label: {
+                        Text("Done")
+                            .foregroundColor(.primary)
+                            .frame(width: 86, height: 54)
+                            .contentShape(Rectangle())
+                    }
+                    
+                    
+                }
+
+                if session.path._card > 1 {
+                    Item(session: $session, offset: -2)
+                }
                 if session.path._card > 0 {
                     Item(session: $session, offset: -1)
                 }
@@ -19,26 +32,19 @@ extension Board {
                 if session.path._card < session.archive.count(session.path.column) - 1 {
                     Item(session: $session, offset: 1)
                 }
+                if session.path._card < session.archive.count(session.path.column) - 2 {
+                    Item(session: $session, offset: 2)
+                }
                 Spacer()
                 HStack {
                     Arrow(active: session.path._card > 0, image: "arrow.up") {
                         update(vertical: session.path._card - 1)
                     }
-                }
-                HStack {
-                    Arrow(active: session.path._column > 0, image: "arrow.left") {
-                        update(horizontal: session.path._column - 1)
-                    }
                     Arrow(active: session.path._card < session.archive.count(session.path.column) - 1, image: "arrow.down") {
                         update(vertical: session.path._card + 1)
                     }
-                    Arrow(active: session.path._column < session.archive.count(session.path.board) - 1, image: "arrow.right") {
-                        update(horizontal: session.path._column + 1)
-                    }
                 }
-                .padding(.bottom, 40)
             }
-            .animation(.easeInOut(duration: 0.4))
         }
         
         private func update(vertical position: Int) {

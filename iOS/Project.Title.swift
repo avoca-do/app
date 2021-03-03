@@ -13,9 +13,10 @@ extension Project {
                     }
                 } label: {
                     Image(systemName: "line.horizontal.3")
+                        .font(.title2)
                         .foregroundColor(.secondary)
                 }
-                .frame(width: 50, height: 46)
+                .frame(width: 50, height: 54)
                 .contentShape(Rectangle())
                 Text(verbatim: session.archive[name: session.path])
                     .bold()

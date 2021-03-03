@@ -58,7 +58,6 @@ extension Modal {
 //
                     Spacer()
                 }
-                .foregroundColor(.black)
             }
             .frame(height: Metrics.modal.height)
         }

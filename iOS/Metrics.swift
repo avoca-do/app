@@ -14,7 +14,7 @@ extension Metrics {
     struct modal {
         static let height = CGFloat(600)
         static let offset = CGFloat(300)
-        static let min = CGFloat(-180)
+        static let min = CGFloat(-300)
         static let max = CGFloat(120)
     }
     

@@ -27,7 +27,7 @@ struct Column: View {
                 }
                 .padding()
                 Rectangle()
-                    .fill(Color(white: 0, opacity: 1))
+                    .fill(UIApplication.dark ? .black : Color(white: 0, opacity: 0.1))
                     .frame(height: 1)
                 ScrollView(session.path.column == path ? .vertical : []) {
                     ForEach(0 ..< session.archive.count(path), id: \.self) {
@@ -38,6 +38,10 @@ struct Column: View {
             .disabled(session.path.column != path)
             .allowsHitTesting(session.path.column == path)
         }
-        .opacity(session.path.column == path ? 1 : 0.5)
+        .opacity(session.path.column == path
+                    ? 1
+                    : UIApplication.dark
+                        ? 0.4
+                        : 0.2)
     }
 }

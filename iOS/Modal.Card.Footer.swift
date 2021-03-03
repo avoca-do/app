@@ -10,6 +10,7 @@ extension Modal.Card {
                     
                 } label: {
                     Image(systemName: "trash")
+                        .foregroundColor(.black)
                 }
                 .frame(width: 64, height: 60)
                 .contentShape(Rectangle())
@@ -17,6 +18,7 @@ extension Modal.Card {
                     
                 } label: {
                     Image(systemName: "text.cursor")
+                        .foregroundColor(.black)
                 }
                 .frame(width: 64, height: 60)
                 .contentShape(Rectangle())
