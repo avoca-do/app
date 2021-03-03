@@ -41,7 +41,7 @@ struct Middlebar: View {
                         } else {
                             alert = true
                         }
-                    } label: { }.buttonStyle(Neumorphic.Style(image: "plus"))
+                    } label: { }.buttonStyle(Neumorphic(image: "plus"))
                     .padding([.trailing, .bottom], 20)
                     .actionSheet(isPresented: $alert) {
                         .init(title: .init("You have reached your capacity for projects"),
