@@ -11,6 +11,12 @@ extension Metrics {
         static let space = CGFloat(20)
     }
     
+    struct modal {
+        static let height = CGFloat(540)
+        static let offset = CGFloat(120)
+        static let min = CGFloat(-100)
+        static let max = CGFloat(100)
+    }
     
     
     
@@ -33,12 +39,6 @@ extension Metrics {
         static let visible = CGFloat(6)
     }
     
-    struct modal {
-        static let height = CGFloat(540)
-        static let offset = CGFloat(120)
-        static let min = CGFloat(-100)
-        static let max = CGFloat(100)
-    }
     
     struct progress {
         static let stroke = CGFloat(30)

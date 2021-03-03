@@ -58,7 +58,7 @@
 		CE4206A625D18C0600E43D49 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A525D18C0600E43D49 /* Purchases.swift */; };
 		CE4206AA25D18C5F00E43D49 /* Purchases.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */; };
 		CE4206AE25D1937E00E43D49 /* Capacity.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206AD25D1937E00E43D49 /* Capacity.Item.swift */; };
-		CE48895D25CD7C78003F63AC /* Board.Options.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48895C25CD7C78003F63AC /* Board.Options.Content.swift */; };
+		CE48895D25CD7C78003F63AC /* Modal.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48895C25CD7C78003F63AC /* Modal.Content.swift */; };
 		CE4C49DE25E523CA00BCF746 /* Set.Board.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C49DD25E523CA00BCF746 /* Set.Board.Item.swift */; };
 		CE4C49ED25E5325800BCF746 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C49EC25E5325800BCF746 /* Menu.swift */; };
 		CE4C49F125E533F500BCF746 /* NSMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C49F025E533F500BCF746 /* NSMenuItem.swift */; };
@@ -121,7 +121,7 @@
 		CEDB78F425ECFCCF001A02A4 /* Project.Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */; };
 		CEDB78FE25ED0E08001A02A4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78FD25ED0E08001A02A4 /* Card.swift */; };
 		CEDBD48825EA80FA00C689CF /* Middlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBD48725EA80FA00C689CF /* Middlebar.swift */; };
-		CEE61FA125CAFCFB007CF830 /* Board.Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA025CAFCFB007CF830 /* Board.Options.swift */; };
+		CEE61FA125CAFCFB007CF830 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA025CAFCFB007CF830 /* Modal.swift */; };
 		CEE61FA525CB0A08007CF830 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA425CB0A08007CF830 /* Tool.swift */; };
 		CEF1B84125E41F6A004B72AF /* Projects.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1B84025E41F6A004B72AF /* Projects.Settings.swift */; };
 		CEF2D7D825C0554700223C79 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
@@ -180,7 +180,7 @@
 		CE4206A525D18C0600E43D49 /* Purchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
 		CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.Item.swift; sourceTree = "<group>"; };
 		CE4206AD25D1937E00E43D49 /* Capacity.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.Item.swift; sourceTree = "<group>"; };
-		CE48895C25CD7C78003F63AC /* Board.Options.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Options.Content.swift; sourceTree = "<group>"; };
+		CE48895C25CD7C78003F63AC /* Modal.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.Content.swift; sourceTree = "<group>"; };
 		CE4C49DD25E523CA00BCF746 /* Set.Board.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.Board.Item.swift; sourceTree = "<group>"; };
 		CE4C49EC25E5325800BCF746 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		CE4C49F025E533F500BCF746 /* NSMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMenuItem.swift; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 		CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Options.swift; sourceTree = "<group>"; };
 		CEDB78FD25ED0E08001A02A4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		CEDBD48725EA80FA00C689CF /* Middlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlebar.swift; sourceTree = "<group>"; };
-		CEE61FA025CAFCFB007CF830 /* Board.Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Options.swift; sourceTree = "<group>"; };
+		CEE61FA025CAFCFB007CF830 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		CEE61FA425CB0A08007CF830 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		CEF1B84025E41F6A004B72AF /* Projects.Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Settings.swift; sourceTree = "<group>"; };
 		CEF2D7D725C0554700223C79 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -314,8 +314,6 @@
 				CECEEE4A25CC33C500370036 /* Board.Move.Columns.swift */,
 				CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */,
 				CECEEE4625CC15DF00370036 /* Board.Move.swift */,
-				CE48895C25CD7C78003F63AC /* Board.Options.Content.swift */,
-				CEE61FA025CAFCFB007CF830 /* Board.Options.swift */,
 				CE1E602025CD9B5C00456852 /* Board.Settings.swift */,
 				CE71D20725B98FF000D0F4E3 /* Board.swift */,
 				CE4206AD25D1937E00E43D49 /* Capacity.Item.swift */,
@@ -332,6 +330,8 @@
 				CEA652A125C1CBA60099C82E /* Metrics.swift */,
 				CEA0D18D25EC45110011FFC0 /* Middlebar.Item.swift */,
 				CEDBD48725EA80FA00C689CF /* Middlebar.swift */,
+				CE48895C25CD7C78003F63AC /* Modal.Content.swift */,
+				CEE61FA025CAFCFB007CF830 /* Modal.swift */,
 				CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */,
 				CE1A44E925C2DCBF002011FA /* Neumorphic.swift */,
 				CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */,
@@ -563,7 +563,7 @@
 				CE1A44EA25C2DCBF002011FA /* Neumorphic.swift in Sources */,
 				CECEEE4725CC15DF00370036 /* Board.Move.swift in Sources */,
 				CE2507EB25B87D9800F9C526 /* Field.swift in Sources */,
-				CE48895D25CD7C78003F63AC /* Board.Options.Content.swift in Sources */,
+				CE48895D25CD7C78003F63AC /* Modal.Content.swift in Sources */,
 				CE2507D925B8771000F9C526 /* Home.swift in Sources */,
 				CE349F2825CAD12000B3A436 /* Board.Column.Folded.swift in Sources */,
 				CE349F2B25CAD17E00B3A436 /* Board.Column.Unfolded.swift in Sources */,
@@ -592,7 +592,7 @@
 				CE4206A225D1853B00E43D49 /* Capacity.swift in Sources */,
 				CE25079A25B8660900F9C526 /* App.swift in Sources */,
 				CEE61FA525CB0A08007CF830 /* Tool.swift in Sources */,
-				CEE61FA125CAFCFB007CF830 /* Board.Options.swift in Sources */,
+				CEE61FA125CAFCFB007CF830 /* Modal.swift in Sources */,
 				CE4206A625D18C0600E43D49 /* Purchases.swift in Sources */,
 				CEF2D7DB25C058C300223C79 /* Home.Item.swift in Sources */,
 				CE8C6EE125C31E87007D25FC /* Container.swift in Sources */,

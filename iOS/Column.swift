@@ -10,7 +10,7 @@ struct Column: View {
             RoundedRectangle(cornerRadius: Metrics.corners)
                 .fill(Color(.secondarySystemBackground))
                 .onTapGesture {
-                    withAnimation(.easeInOut(duration: 0.3)) {
+                    withAnimation(.spring(blendDuration: 0.35)) {
                         session.path = path
                     }
                 }

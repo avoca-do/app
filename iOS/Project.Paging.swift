@@ -39,7 +39,7 @@ extension Project {
         }
         
         private func show(_ index: Int) {
-            withAnimation(.easeIn(duration: 0.35)) {
+            withAnimation(.spring(blendDuration: 0.35)) {
                 session.path = .column(session.path.board, index)
             }
         }

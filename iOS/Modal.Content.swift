@@ -1,7 +1,6 @@
 import SwiftUI
-import Kanban
 
-extension Board.Options {
+extension Modal {
     struct Content: View {
         @Binding var session: Session
         let dismiss: () -> Void

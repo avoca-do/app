@@ -13,7 +13,7 @@ import Kanban
                     guard $0.date(.archive) > session.archive.date(.archive) else { return }
                     UIApplication.shared.resign()
                     session.dismiss.send()
-                    session.path = .archive
+                    session.open = false
                     session.archive = $0
                     
                     if Defaults.capacity > $0.capacity {
