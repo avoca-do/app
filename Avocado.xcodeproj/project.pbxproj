@@ -15,8 +15,6 @@
 		CE12944925DEC027000533B1 /* Board.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12944825DEC027000533B1 /* Board.Cell.swift */; };
 		CE12945725DECAC4000533B1 /* Board.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12945625DECAC4000533B1 /* Board.Item.swift */; };
 		CE15FB7D25E4268E00704E20 /* Control.Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE15FB7C25E4268E00704E20 /* Control.Tool.swift */; };
-		CE1A44EA25C2DCBF002011FA /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44E925C2DCBF002011FA /* Neumorphic.swift */; };
-		CE1A44EE25C2E61D002011FA /* Board.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A44ED25C2E61D002011FA /* Board.Control.swift */; };
 		CE1B806525E2B5A30075ACE4 /* Board.Cell.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B806425E2B5A30075ACE4 /* Board.Cell.State.swift */; };
 		CE1E602125CD9B5C00456852 /* Board.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E602025CD9B5C00456852 /* Board.Settings.swift */; };
 		CE221B9C25DD39AF00EFA20B /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221B9B25DD39AF00EFA20B /* Sidebar.swift */; };
@@ -36,15 +34,10 @@
 		CE25079E25B8660A00F9C526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE25079D25B8660A00F9C526 /* Assets.xcassets */; };
 		CE2507C825B8731100F9C526 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507C725B8731100F9C526 /* Color.swift */; };
 		CE2507CC25B8733500F9C526 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507CB25B8733500F9C526 /* Session.swift */; };
-		CE2507D925B8771000F9C526 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507D825B8771000F9C526 /* Home.swift */; };
 		CE2507E025B877FF00F9C526 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507DF25B877FF00F9C526 /* UIApplication.swift */; };
 		CE2507EB25B87D9800F9C526 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507EA25B87D9800F9C526 /* Field.swift */; };
 		CE2507EE25B87DB300F9C526 /* Field.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507ED25B87DB300F9C526 /* Field.Coordinator.swift */; };
-		CE349F2825CAD12000B3A436 /* Board.Column.Folded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F2725CAD12000B3A436 /* Board.Column.Folded.swift */; };
-		CE349F2B25CAD17E00B3A436 /* Board.Column.Unfolded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F2A25CAD17E00B3A436 /* Board.Column.Unfolded.swift */; };
-		CE349F3325CAD29300B3A436 /* Board.Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3225CAD29300B3A436 /* Board.Bar.swift */; };
 		CE349F3625CAD3E300B3A436 /* Board.Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3525CAD3E300B3A436 /* Board.Menu.swift */; };
-		CE349F3925CAD46100B3A436 /* Board.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349F3825CAD46100B3A436 /* Board.Content.swift */; };
 		CE36F6B025EE5F1400774635 /* Project.Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36F6AF25EE5F1400774635 /* Project.Paging.swift */; };
 		CE3832F725DE949700539F4E /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3832F625DE949700539F4E /* NSAttributedString.swift */; };
 		CE3832FF25DE994700539F4E /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3832FE25DE994700539F4E /* Plus.swift */; };
@@ -114,8 +107,6 @@
 		CECEEE4E25CC342B00370036 /* Board.Move.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */; };
 		CECFD8BC25E3E3A500BD3532 /* Set.Board.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFD8BB25E3E3A500BD3532 /* Set.Board.Cell.swift */; };
 		CECFD8C225E3EA0000BD3532 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFD8C125E3EA0000BD3532 /* Array.swift */; };
-		CED3399125B9BA36008BD131 /* Board.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3399025B9BA36008BD131 /* Board.Column.swift */; };
-		CED3399725B9E050008BD131 /* Board.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3399625B9E050008BD131 /* Board.Card.swift */; };
 		CEDB78E925ECFA7D001A02A4 /* Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78E825ECFA7D001A02A4 /* Column.swift */; };
 		CEDB78F025ECFC8B001A02A4 /* Project.Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78EF25ECFC8B001A02A4 /* Project.Title.swift */; };
 		CEDB78F425ECFCCF001A02A4 /* Project.Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */; };
@@ -125,7 +116,6 @@
 		CEE61FA525CB0A08007CF830 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA425CB0A08007CF830 /* Tool.swift */; };
 		CEF1B84125E41F6A004B72AF /* Projects.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1B84025E41F6A004B72AF /* Projects.Settings.swift */; };
 		CEF2D7D825C0554700223C79 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
-		CEF2D7DB25C058C300223C79 /* Home.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2D7DA25C058C300223C79 /* Home.Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,8 +126,6 @@
 		CE12944825DEC027000533B1 /* Board.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.swift; sourceTree = "<group>"; };
 		CE12945625DECAC4000533B1 /* Board.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Item.swift; sourceTree = "<group>"; };
 		CE15FB7C25E4268E00704E20 /* Control.Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.Tool.swift; sourceTree = "<group>"; };
-		CE1A44E925C2DCBF002011FA /* Neumorphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
-		CE1A44ED25C2E61D002011FA /* Board.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Control.swift; sourceTree = "<group>"; };
 		CE1B806425E2B5A30075ACE4 /* Board.Cell.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.State.swift; sourceTree = "<group>"; };
 		CE1E602025CD9B5C00456852 /* Board.Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Settings.swift; sourceTree = "<group>"; };
 		CE221B9B25DD39AF00EFA20B /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -159,15 +147,10 @@
 		CE2507A225B8660A00F9C526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE2507C725B8731100F9C526 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CE2507CB25B8733500F9C526 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		CE2507D825B8771000F9C526 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		CE2507DF25B877FF00F9C526 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CE2507EA25B87D9800F9C526 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		CE2507ED25B87DB300F9C526 /* Field.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.Coordinator.swift; sourceTree = "<group>"; };
-		CE349F2725CAD12000B3A436 /* Board.Column.Folded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Column.Folded.swift; sourceTree = "<group>"; };
-		CE349F2A25CAD17E00B3A436 /* Board.Column.Unfolded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Column.Unfolded.swift; sourceTree = "<group>"; };
-		CE349F3225CAD29300B3A436 /* Board.Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Bar.swift; sourceTree = "<group>"; };
 		CE349F3525CAD3E300B3A436 /* Board.Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Menu.swift; sourceTree = "<group>"; };
-		CE349F3825CAD46100B3A436 /* Board.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Content.swift; sourceTree = "<group>"; };
 		CE36F6AF25EE5F1400774635 /* Project.Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Paging.swift; sourceTree = "<group>"; };
 		CE3832F625DE949700539F4E /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		CE3832FE25DE994700539F4E /* Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
@@ -234,8 +217,6 @@
 		CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Item.swift; sourceTree = "<group>"; };
 		CECFD8BB25E3E3A500BD3532 /* Set.Board.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.Board.Cell.swift; sourceTree = "<group>"; };
 		CECFD8C125E3EA0000BD3532 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
-		CED3399025B9BA36008BD131 /* Board.Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Column.swift; sourceTree = "<group>"; };
-		CED3399625B9E050008BD131 /* Board.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Card.swift; sourceTree = "<group>"; };
 		CEDB78E825ECFA7D001A02A4 /* Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Column.swift; sourceTree = "<group>"; };
 		CEDB78EF25ECFC8B001A02A4 /* Project.Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Title.swift; sourceTree = "<group>"; };
 		CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Options.swift; sourceTree = "<group>"; };
@@ -245,7 +226,6 @@
 		CEE61FA425CB0A08007CF830 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		CEF1B84025E41F6A004B72AF /* Projects.Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Settings.swift; sourceTree = "<group>"; };
 		CEF2D7D725C0554700223C79 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		CEF2D7DA25C058C300223C79 /* Home.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,13 +280,6 @@
 				CE2507A225B8660A00F9C526 /* Info.plist */,
 				CE575AF425C1730500A6B28D /* App.Delegate.swift */,
 				CE25079925B8660900F9C526 /* App.swift */,
-				CE349F3225CAD29300B3A436 /* Board.Bar.swift */,
-				CED3399625B9E050008BD131 /* Board.Card.swift */,
-				CE349F2725CAD12000B3A436 /* Board.Column.Folded.swift */,
-				CED3399025B9BA36008BD131 /* Board.Column.swift */,
-				CE349F2A25CAD17E00B3A436 /* Board.Column.Unfolded.swift */,
-				CE349F3825CAD46100B3A436 /* Board.Content.swift */,
-				CE1A44ED25C2E61D002011FA /* Board.Control.swift */,
 				CE349F3525CAD3E300B3A436 /* Board.Menu.swift */,
 				CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */,
 				CE0E838F25CEB912001283C6 /* Board.Modify.swift */,
@@ -325,15 +298,12 @@
 				CE8C6ED225C31A4E007D25FC /* Editor.swift */,
 				CE2507ED25B87DB300F9C526 /* Field.Coordinator.swift */,
 				CE2507EA25B87D9800F9C526 /* Field.swift */,
-				CEF2D7DA25C058C300223C79 /* Home.Item.swift */,
-				CE2507D825B8771000F9C526 /* Home.swift */,
 				CEA652A125C1CBA60099C82E /* Metrics.swift */,
 				CEA0D18D25EC45110011FFC0 /* Middlebar.Item.swift */,
 				CEDBD48725EA80FA00C689CF /* Middlebar.swift */,
 				CE48895C25CD7C78003F63AC /* Modal.Content.swift */,
 				CEE61FA025CAFCFB007CF830 /* Modal.swift */,
 				CEA955A125C2D5A20019BF90 /* Neumorphic.Style.swift */,
-				CE1A44E925C2DCBF002011FA /* Neumorphic.swift */,
 				CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */,
 				CE69A58025D15EB600EC9DB0 /* Progress.swift */,
 				CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */,
@@ -550,7 +520,6 @@
 				CE0E839025CEB912001283C6 /* Board.Modify.swift in Sources */,
 				CE2507E025B877FF00F9C526 /* UIApplication.swift in Sources */,
 				CE95054025EA7D5E00EB178E /* Session.Section.swift in Sources */,
-				CE349F3325CAD29300B3A436 /* Board.Bar.swift in Sources */,
 				CEDB78F425ECFCCF001A02A4 /* Project.Options.swift in Sources */,
 				CE25079C25B8660900F9C526 /* Window.swift in Sources */,
 				CEDBD48825EA80FA00C689CF /* Middlebar.swift in Sources */,
@@ -560,13 +529,9 @@
 				CE69A59325D1816300EC9DB0 /* Switch.swift in Sources */,
 				CE7183B925CC3CAC00AD02F8 /* Title.swift in Sources */,
 				CE0E839425CEC054001283C6 /* Write.swift in Sources */,
-				CE1A44EA25C2DCBF002011FA /* Neumorphic.swift in Sources */,
 				CECEEE4725CC15DF00370036 /* Board.Move.swift in Sources */,
 				CE2507EB25B87D9800F9C526 /* Field.swift in Sources */,
 				CE48895D25CD7C78003F63AC /* Modal.Content.swift in Sources */,
-				CE2507D925B8771000F9C526 /* Home.swift in Sources */,
-				CE349F2825CAD12000B3A436 /* Board.Column.Folded.swift in Sources */,
-				CE349F2B25CAD17E00B3A436 /* Board.Column.Unfolded.swift in Sources */,
 				CEDB78E925ECFA7D001A02A4 /* Column.swift in Sources */,
 				CE69A59625D1817700EC9DB0 /* Settings.swift in Sources */,
 				CE69A58125D15EB600EC9DB0 /* Progress.swift in Sources */,
@@ -574,12 +539,8 @@
 				CE2507EE25B87DB300F9C526 /* Field.Coordinator.swift in Sources */,
 				CE36F6B025EE5F1400774635 /* Project.Paging.swift in Sources */,
 				CE4206AE25D1937E00E43D49 /* Capacity.Item.swift in Sources */,
-				CE349F3925CAD46100B3A436 /* Board.Content.swift in Sources */,
 				CEA0D19625EC4C650011FFC0 /* Project.swift in Sources */,
 				CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */,
-				CE1A44EE25C2E61D002011FA /* Board.Control.swift in Sources */,
-				CED3399725B9E050008BD131 /* Board.Card.swift in Sources */,
-				CED3399125B9BA36008BD131 /* Board.Column.swift in Sources */,
 				CE8C6EDD25C31D51007D25FC /* Editor.Coordinator.swift in Sources */,
 				CE95053625EA795A00EB178E /* Sidebar.Style.swift in Sources */,
 				CE7183BD25CC3D8B00AD02F8 /* Board.Move.Arrow.swift in Sources */,
@@ -594,7 +555,6 @@
 				CEE61FA525CB0A08007CF830 /* Tool.swift in Sources */,
 				CEE61FA125CAFCFB007CF830 /* Modal.swift in Sources */,
 				CE4206A625D18C0600E43D49 /* Purchases.swift in Sources */,
-				CEF2D7DB25C058C300223C79 /* Home.Item.swift in Sources */,
 				CE8C6EE125C31E87007D25FC /* Container.swift in Sources */,
 				CE8C6ED325C31A4E007D25FC /* Editor.swift in Sources */,
 				CE1E602125CD9B5C00456852 /* Board.Settings.swift in Sources */,
