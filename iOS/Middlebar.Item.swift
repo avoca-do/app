@@ -12,6 +12,7 @@ extension Middlebar {
                 UIApplication.shared.resign()
                 withAnimation(.easeInOut(duration: 0.4)) {
                     session.path = .column(path, 0)
+                    session.open = true
                 }
             } label: {
                 ZStack {

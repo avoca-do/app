@@ -8,7 +8,7 @@ extension Project {
             HStack {
                 Button {
                     withAnimation(.easeInOut(duration: 0.35)) {
-                        session.path = .archive
+                        session.open = false
                     }
                 } label: {
                     Image(systemName: "line.horizontal.3")

@@ -4,7 +4,10 @@ struct Window: View {
     @Binding var session: Session
     
     var body: some View {
-        if session.path == .archive {
+        if session.open {
+            Project(session: $session)
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing)))
+        } else {
             HStack {
                 Sidebar(session: $session)
                 switch session.section {
@@ -17,9 +20,6 @@ struct Window: View {
             }
             .padding()
             .transition(.move(edge: .leading))
-        } else {
-            Project(session: $session)
-                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing)))
         }
     }
 }
