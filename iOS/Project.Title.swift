@@ -8,6 +8,7 @@ extension Project {
             HStack {
                 Button {
                     withAnimation(.spring(blendDuration: 0.35)) {
+                        session.path = .column(session.path.board, 0)
                         session.open = false
                     }
                 } label: {
