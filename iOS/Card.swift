@@ -7,7 +7,7 @@ struct Card: View {
     
     var body: some View {
         Button {
-            withAnimation(.easeInOut(duration: 0.3)) {
+            withAnimation(.easeInOut(duration: 0.25)) {
                 session.path = path
             }
         } label: {

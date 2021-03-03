@@ -22,7 +22,7 @@ struct Modal: View {
                     .frame(maxWidth: .greatestFiniteMagnitude)
                     .contentShape(Rectangle())
                     .onTapGesture(perform: dismiss)
-                    Content(session: $session, dismiss: dismiss)
+                    Card(session: $session, dismiss: dismiss)
                 }
                 .offset(y: Metrics.modal.offset + offset)
                 .edgesIgnoringSafeArea(.bottom)
@@ -47,7 +47,7 @@ struct Modal: View {
         }
         .onChange(of: session.path) {
             if case .card = $0 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                     withAnimation(.spring(blendDuration: 0.3)) {
                         offset = 0
                     }
