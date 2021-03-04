@@ -10,7 +10,11 @@ extension Modal {
                 RoundedRectangle(cornerRadius: Metrics.corners)
                     .fill(Color.accentColor)
                 VStack {
-                    Header(session: $session, dismiss: dismiss)
+                    ZStack {
+                        Horizontal(session: $session)
+                        Vertical(session: $session)
+                    }
+                    .frame(height: 60)
                     Text(verbatim: session.archive[content: session.path])
                         .foregroundColor(Color.black)
                         .frame(height: 140, alignment: .top)

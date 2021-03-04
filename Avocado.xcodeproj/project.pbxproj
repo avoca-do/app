@@ -43,6 +43,7 @@
 		CE38330D25DE9B1E00539F4E /* Control.Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38330C25DE9B1E00539F4E /* Control.Rectangle.swift */; };
 		CE38331725DEA75400539F4E /* Plus.Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38331625DEA75400539F4E /* Plus.Field.swift */; };
 		CE38331A25DEA83400539F4E /* Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839325CEC054001283C6 /* Write.swift */; };
+		CE40E9F925F0F18700BC194F /* Modal.Card.Horizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40E9F825F0F18700BC194F /* Modal.Card.Horizontal.swift */; };
 		CE418AE425E80198000F2546 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE418AE325E80198000F2546 /* Preferences.swift */; };
 		CE418AE825E801AA000F2546 /* Preferences.Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE418AE725E801AA000F2546 /* Preferences.Toggle.swift */; };
 		CE418AEE25E805A9000F2546 /* Projects.Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE418AED25E805A9000F2546 /* Projects.Progress.swift */; };
@@ -71,7 +72,6 @@
 		CE69A59625D1817700EC9DB0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A59525D1817700EC9DB0 /* Settings.swift */; };
 		CE6D659D25D1A1060017FE07 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE6D659C25D1A1060017FE07 /* Settings.bundle */; };
 		CE7183B925CC3CAC00AD02F8 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7183B825CC3CAC00AD02F8 /* Title.swift */; };
-		CE7183BD25CC3D8B00AD02F8 /* Board.Move.Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7183BC25CC3D8B00AD02F8 /* Board.Move.Arrow.swift */; };
 		CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D20725B98FF000D0F4E3 /* Board.swift */; };
 		CE8C6ED325C31A4E007D25FC /* Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6ED225C31A4E007D25FC /* Editor.swift */; };
 		CE8C6EDD25C31D51007D25FC /* Editor.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */; };
@@ -95,7 +95,7 @@
 		CEA1819C25C04DE000552DEF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1819B25C04DE000552DEF /* CloudKit.framework */; };
 		CEA652A225C1CBA60099C82E /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA652A125C1CBA60099C82E /* Metrics.swift */; };
 		CEA955A225C2D5A20019BF90 /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA955A125C2D5A20019BF90 /* Neumorphic.swift */; };
-		CEAFE88C25EFE78D00B45B8C /* Modal.Card.Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFE88B25EFE78D00B45B8C /* Modal.Card.Header.swift */; };
+		CEAFE88C25EFE78D00B45B8C /* Modal.Card.Vertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFE88B25EFE78D00B45B8C /* Modal.Card.Vertical.swift */; };
 		CEAFE89225EFE80F00B45B8C /* Modal.Card.Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFE89125EFE80F00B45B8C /* Modal.Card.Footer.swift */; };
 		CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB09ADE25B994AF00BF7AD6 /* Kanban */; };
 		CEC22CAC25E6818F0035E674 /* Board.Cell.Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */; };
@@ -103,8 +103,6 @@
 		CEC22CBA25E69D630035E674 /* Capacity.Titlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */; };
 		CEC22CC125E6AC0C0035E674 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A525D18C0600E43D49 /* Purchases.swift */; };
 		CEC22CC425E6AC0F0035E674 /* Purchases.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */; };
-		CECEEE4725CC15DF00370036 /* Board.Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4625CC15DF00370036 /* Board.Move.swift */; };
-		CECEEE4E25CC342B00370036 /* Board.Move.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */; };
 		CECFD8BC25E3E3A500BD3532 /* Set.Board.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFD8BB25E3E3A500BD3532 /* Set.Board.Cell.swift */; };
 		CECFD8C225E3EA0000BD3532 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFD8C125E3EA0000BD3532 /* Array.swift */; };
 		CEDB78E925ECFA7D001A02A4 /* Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78E825ECFA7D001A02A4 /* Column.swift */; };
@@ -155,6 +153,7 @@
 		CE3832FE25DE994700539F4E /* Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
 		CE38330C25DE9B1E00539F4E /* Control.Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.Rectangle.swift; sourceTree = "<group>"; };
 		CE38331625DEA75400539F4E /* Plus.Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.Field.swift; sourceTree = "<group>"; };
+		CE40E9F825F0F18700BC194F /* Modal.Card.Horizontal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.Card.Horizontal.swift; sourceTree = "<group>"; };
 		CE418AE325E80198000F2546 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		CE418AE725E801AA000F2546 /* Preferences.Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.Toggle.swift; sourceTree = "<group>"; };
 		CE418AED25E805A9000F2546 /* Projects.Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Progress.swift; sourceTree = "<group>"; };
@@ -182,7 +181,6 @@
 		CE69A59525D1817700EC9DB0 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CE6D659C25D1A1060017FE07 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CE7183B825CC3CAC00AD02F8 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
-		CE7183BC25CC3D8B00AD02F8 /* Board.Move.Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Arrow.swift; sourceTree = "<group>"; };
 		CE71D20725B98FF000D0F4E3 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		CE8C6ED225C31A4E007D25FC /* Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.swift; sourceTree = "<group>"; };
 		CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.Coordinator.swift; sourceTree = "<group>"; };
@@ -207,14 +205,12 @@
 		CEA1819B25C04DE000552DEF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CEA652A125C1CBA60099C82E /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		CEA955A125C2D5A20019BF90 /* Neumorphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
-		CEAFE88B25EFE78D00B45B8C /* Modal.Card.Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.Card.Header.swift; sourceTree = "<group>"; };
+		CEAFE88B25EFE78D00B45B8C /* Modal.Card.Vertical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.Card.Vertical.swift; sourceTree = "<group>"; };
 		CEAFE89125EFE80F00B45B8C /* Modal.Card.Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.Card.Footer.swift; sourceTree = "<group>"; };
 		CEB8E56925DAA0C6009737AB /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.Edit.swift; sourceTree = "<group>"; };
 		CEC22CB125E695B90035E674 /* NSAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAlert.swift; sourceTree = "<group>"; };
 		CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.Titlebar.swift; sourceTree = "<group>"; };
-		CECEEE4625CC15DF00370036 /* Board.Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.swift; sourceTree = "<group>"; };
-		CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Move.Item.swift; sourceTree = "<group>"; };
 		CECFD8BB25E3E3A500BD3532 /* Set.Board.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.Board.Cell.swift; sourceTree = "<group>"; };
 		CECFD8C125E3EA0000BD3532 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		CEDB78E825ECFA7D001A02A4 /* Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Column.swift; sourceTree = "<group>"; };
@@ -282,9 +278,6 @@
 				CE25079925B8660900F9C526 /* App.swift */,
 				CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */,
 				CE0E838F25CEB912001283C6 /* Board.Modify.swift */,
-				CE7183BC25CC3D8B00AD02F8 /* Board.Move.Arrow.swift */,
-				CECEEE4D25CC342B00370036 /* Board.Move.Item.swift */,
-				CECEEE4625CC15DF00370036 /* Board.Move.swift */,
 				CE1E602025CD9B5C00456852 /* Board.Settings.swift */,
 				CE71D20725B98FF000D0F4E3 /* Board.swift */,
 				CE4206AD25D1937E00E43D49 /* Capacity.Item.swift */,
@@ -299,9 +292,10 @@
 				CEA652A125C1CBA60099C82E /* Metrics.swift */,
 				CEA0D18D25EC45110011FFC0 /* Middlebar.Item.swift */,
 				CEDBD48725EA80FA00C689CF /* Middlebar.swift */,
-				CE48895C25CD7C78003F63AC /* Modal.Card.swift */,
-				CEAFE88B25EFE78D00B45B8C /* Modal.Card.Header.swift */,
 				CEAFE89125EFE80F00B45B8C /* Modal.Card.Footer.swift */,
+				CE40E9F825F0F18700BC194F /* Modal.Card.Horizontal.swift */,
+				CE48895C25CD7C78003F63AC /* Modal.Card.swift */,
+				CEAFE88B25EFE78D00B45B8C /* Modal.Card.Vertical.swift */,
 				CEE61FA025CAFCFB007CF830 /* Modal.swift */,
 				CEA955A125C2D5A20019BF90 /* Neumorphic.swift */,
 				CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */,
@@ -515,13 +509,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA652A225C1CBA60099C82E /* Metrics.swift in Sources */,
-				CECEEE4E25CC342B00370036 /* Board.Move.Item.swift in Sources */,
 				CE2507CC25B8733500F9C526 /* Session.swift in Sources */,
 				CE0E839025CEB912001283C6 /* Board.Modify.swift in Sources */,
 				CE2507E025B877FF00F9C526 /* UIApplication.swift in Sources */,
 				CE95054025EA7D5E00EB178E /* Session.Section.swift in Sources */,
-				CEAFE88C25EFE78D00B45B8C /* Modal.Card.Header.swift in Sources */,
+				CEAFE88C25EFE78D00B45B8C /* Modal.Card.Vertical.swift in Sources */,
 				CEDB78F425ECFCCF001A02A4 /* Project.Options.swift in Sources */,
+				CE40E9F925F0F18700BC194F /* Modal.Card.Horizontal.swift in Sources */,
 				CE25079C25B8660900F9C526 /* Window.swift in Sources */,
 				CEDBD48825EA80FA00C689CF /* Middlebar.swift in Sources */,
 				CE575AF525C1730500A6B28D /* App.Delegate.swift in Sources */,
@@ -529,7 +523,6 @@
 				CE69A59325D1816300EC9DB0 /* Switch.swift in Sources */,
 				CE7183B925CC3CAC00AD02F8 /* Title.swift in Sources */,
 				CE0E839425CEC054001283C6 /* Write.swift in Sources */,
-				CECEEE4725CC15DF00370036 /* Board.Move.swift in Sources */,
 				CE2507EB25B87D9800F9C526 /* Field.swift in Sources */,
 				CE48895D25CD7C78003F63AC /* Modal.Card.swift in Sources */,
 				CEDB78E925ECFA7D001A02A4 /* Column.swift in Sources */,
@@ -543,7 +536,6 @@
 				CEAFE89225EFE80F00B45B8C /* Modal.Card.Footer.swift in Sources */,
 				CE8C6EDD25C31D51007D25FC /* Editor.Coordinator.swift in Sources */,
 				CE95053625EA795A00EB178E /* Sidebar.Style.swift in Sources */,
-				CE7183BD25CC3D8B00AD02F8 /* Board.Move.Arrow.swift in Sources */,
 				CEA955A225C2D5A20019BF90 /* Neumorphic.swift in Sources */,
 				CEA0D18E25EC45110011FFC0 /* Middlebar.Item.swift in Sources */,
 				CEDB78FE25ED0E08001A02A4 /* Card.swift in Sources */,
