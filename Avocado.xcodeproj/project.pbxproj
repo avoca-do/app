@@ -9,14 +9,13 @@
 /* Begin PBXBuildFile section */
 		CE0B3C3825DC2AAE00317754 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0B3C3725DC2AAE00317754 /* Window.swift */; };
 		CE0B3C3D25DC3A2A00317754 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
-		CE0E839025CEB912001283C6 /* Board.Modify.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E838F25CEB912001283C6 /* Board.Modify.swift */; };
+		CE0E839025CEB912001283C6 /* Project.Columns.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E838F25CEB912001283C6 /* Project.Columns.swift */; };
 		CE0E839425CEC054001283C6 /* Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839325CEC054001283C6 /* Write.swift */; };
-		CE0E839825CEC741001283C6 /* Board.Modify.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */; };
 		CE12944925DEC027000533B1 /* Board.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12944825DEC027000533B1 /* Board.Cell.swift */; };
 		CE12945725DECAC4000533B1 /* Board.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12945625DECAC4000533B1 /* Board.Item.swift */; };
 		CE15FB7D25E4268E00704E20 /* Control.Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE15FB7C25E4268E00704E20 /* Control.Tool.swift */; };
 		CE1B806525E2B5A30075ACE4 /* Board.Cell.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B806425E2B5A30075ACE4 /* Board.Cell.State.swift */; };
-		CE1E602125CD9B5C00456852 /* Project.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E602025CD9B5C00456852 /* Project.Settings.swift */; };
+		CE1E602125CD9B5C00456852 /* Project.Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E602025CD9B5C00456852 /* Project.Edit.swift */; };
 		CE221B9C25DD39AF00EFA20B /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221B9B25DD39AF00EFA20B /* Sidebar.swift */; };
 		CE221BA225DD3D3E00EFA20B /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221BA125DD3D3E00EFA20B /* Sidebar.Item.swift */; };
 		CE221BA625DD3D6000EFA20B /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE221BA525DD3D6000EFA20B /* Control.swift */; };
@@ -118,14 +117,13 @@
 
 /* Begin PBXFileReference section */
 		CE0B3C3725DC2AAE00317754 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
-		CE0E838F25CEB912001283C6 /* Board.Modify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Modify.swift; sourceTree = "<group>"; };
+		CE0E838F25CEB912001283C6 /* Project.Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Columns.swift; sourceTree = "<group>"; };
 		CE0E839325CEC054001283C6 /* Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Write.swift; sourceTree = "<group>"; };
-		CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Modify.Column.swift; sourceTree = "<group>"; };
 		CE12944825DEC027000533B1 /* Board.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.swift; sourceTree = "<group>"; };
 		CE12945625DECAC4000533B1 /* Board.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Item.swift; sourceTree = "<group>"; };
 		CE15FB7C25E4268E00704E20 /* Control.Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.Tool.swift; sourceTree = "<group>"; };
 		CE1B806425E2B5A30075ACE4 /* Board.Cell.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.State.swift; sourceTree = "<group>"; };
-		CE1E602025CD9B5C00456852 /* Project.Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Settings.swift; sourceTree = "<group>"; };
+		CE1E602025CD9B5C00456852 /* Project.Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Edit.swift; sourceTree = "<group>"; };
 		CE221B9B25DD39AF00EFA20B /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		CE221BA125DD3D3E00EFA20B /* Sidebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Item.swift; sourceTree = "<group>"; };
 		CE221BA525DD3D6000EFA20B /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
@@ -276,9 +274,6 @@
 				CE2507A225B8660A00F9C526 /* Info.plist */,
 				CE575AF425C1730500A6B28D /* App.Delegate.swift */,
 				CE25079925B8660900F9C526 /* App.swift */,
-				CE0E839725CEC741001283C6 /* Board.Modify.Column.swift */,
-				CE0E838F25CEB912001283C6 /* Board.Modify.swift */,
-				CE1E602025CD9B5C00456852 /* Project.Settings.swift */,
 				CE71D20725B98FF000D0F4E3 /* Board.swift */,
 				CE4206AD25D1937E00E43D49 /* Capacity.Item.swift */,
 				CE4206A125D1853B00E43D49 /* Capacity.swift */,
@@ -301,6 +296,8 @@
 				CEA955A125C2D5A20019BF90 /* Neumorphic.swift */,
 				CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */,
 				CE69A58025D15EB600EC9DB0 /* Progress.swift */,
+				CE0E838F25CEB912001283C6 /* Project.Columns.swift */,
+				CE1E602025CD9B5C00456852 /* Project.Edit.swift */,
 				CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */,
 				CE36F6AF25EE5F1400774635 /* Project.Paging.swift */,
 				CEA0D19525EC4C650011FFC0 /* Project.swift */,
@@ -510,7 +507,7 @@
 			files = (
 				CEA652A225C1CBA60099C82E /* Metrics.swift in Sources */,
 				CE2507CC25B8733500F9C526 /* Session.swift in Sources */,
-				CE0E839025CEB912001283C6 /* Board.Modify.swift in Sources */,
+				CE0E839025CEB912001283C6 /* Project.Columns.swift in Sources */,
 				CE2507E025B877FF00F9C526 /* UIApplication.swift in Sources */,
 				CE95054025EA7D5E00EB178E /* Session.Section.swift in Sources */,
 				CEAFE88C25EFE78D00B45B8C /* Modal.Card.Vertical.swift in Sources */,
@@ -539,7 +536,6 @@
 				CEA955A225C2D5A20019BF90 /* Neumorphic.swift in Sources */,
 				CEA0D18E25EC45110011FFC0 /* Middlebar.Item.swift in Sources */,
 				CEDB78FE25ED0E08001A02A4 /* Card.swift in Sources */,
-				CE0E839825CEC741001283C6 /* Board.Modify.Column.swift in Sources */,
 				CEDB78F025ECFC8B001A02A4 /* Project.Title.swift in Sources */,
 				CE69A58725D1611400EC9DB0 /* Progress.Ring.swift in Sources */,
 				CE4206A225D1853B00E43D49 /* Capacity.swift in Sources */,
@@ -549,7 +545,7 @@
 				CE4206A625D18C0600E43D49 /* Purchases.swift in Sources */,
 				CE8C6EE125C31E87007D25FC /* Container.swift in Sources */,
 				CE8C6ED325C31A4E007D25FC /* Editor.swift in Sources */,
-				CE1E602125CD9B5C00456852 /* Project.Settings.swift in Sources */,
+				CE1E602125CD9B5C00456852 /* Project.Edit.swift in Sources */,
 				CE9A9ECD25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift in Sources */,
 				CE4206AA25D18C5F00E43D49 /* Purchases.Item.swift in Sources */,
 				CE2507C825B8731100F9C526 /* Color.swift in Sources */,

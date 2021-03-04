@@ -6,6 +6,7 @@ extension Project {
         @State private var add = false
         @State private var progress = false
         @State private var settings = false
+        @State private var columns = false
         
         var body: some View {
             ZStack {
@@ -33,17 +34,20 @@ extension Project {
                     .frame(width: 64, height: 64)
                     .contentShape(Rectangle())
                     .sheet(isPresented: $settings) {
-                        Settings(session: $session)
+                        Edit(session: $session, path: session.path.board)
                     }
                     
                     Button {
-                        
+                        columns = true
                     } label: {
                         Image(systemName: "line.horizontal.3.decrease")
                             .foregroundColor(.secondary)
                     }
                     .frame(width: 64, height: 64)
                     .contentShape(Rectangle())
+                    .sheet(isPresented: $columns) {
+                        Columns(session: $session)
+                    }
                     
                     Button {
                         add = true

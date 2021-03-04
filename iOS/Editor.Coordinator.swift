@@ -117,6 +117,7 @@ extension Editor {
                 case .board:
                     wrapper.session.archive.card(path)
                     wrapper.session.archive[content: .card(.column(path, 0), 0)] = content
+                    wrapper.session.path = .column(path, 0)
                 default: break
                 }
             case let .edit(path):
