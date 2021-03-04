@@ -12,8 +12,9 @@ extension Editor {
             self.wrapper = wrapper
             super.init(frame: .zero, textContainer: Container())
             typingAttributes[.font] = UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize + 2, weight: .medium)
-            font = .monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize + 2, weight: .medium)
-            textContainerInset = .init(top: 20, left: 20, bottom: 20, right: 20)
+            typingAttributes[.kern] = 1
+            font = typingAttributes[.font] as? UIFont
+            textContainerInset = .init(top: 30, left: 20, bottom: 30, right: 20)
             keyboardDismissMode = .none
             backgroundColor = .clear
             tintColor = UIColor(named: "AccentColor")!
@@ -22,7 +23,7 @@ extension Editor {
             spellCheckingType = Defaults.spell ? .yes : .no
             alwaysBounceVertical = true
             allowsEditingTextAttributes = false
-            keyboardType = .alphabet
+            keyboardType = .twitter
             delegate = self
             
             switch wrapper.write {
@@ -35,31 +36,57 @@ extension Editor {
             default: break
             }
             
-            let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 50), inputViewStyle: .keyboard)
+            let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 48), inputViewStyle: .keyboard)
             
             let cancel = UIButton()
-            cancel.translatesAutoresizingMaskIntoConstraints = false
-            cancel.setImage(UIImage(systemName: "xmark"), for: .normal)
-            cancel.addTarget(self, action: #selector(resignFirstResponder), for: .touchUpInside)
+            cancel.setImage(UIImage(systemName: "xmark")?
+                                .withConfiguration(UIImage.SymbolConfiguration(textStyle: .callout)), for: .normal)
             cancel.imageView!.tintColor = .secondaryLabel
-            input.addSubview(cancel)
-            
-            let send = UIButton()
-            send.translatesAutoresizingMaskIntoConstraints = false
-            send.setImage(UIImage(systemName: "arrow.up.circle.fill")?
-                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title1)), for: .normal)
-            send.addTarget(self, action: #selector(self.send), for: .touchUpInside)
-            input.addSubview(send)
-            
-            cancel.leftAnchor.constraint(equalTo: input.safeAreaLayoutGuide.leftAnchor).isActive = true
-            cancel.topAnchor.constraint(equalTo: input.topAnchor).isActive = true
-            cancel.bottomAnchor.constraint(equalTo: input.bottomAnchor).isActive = true
+            cancel.imageEdgeInsets.left = -10
+            cancel.addTarget(self, action: #selector(resignFirstResponder), for: .touchUpInside)
             cancel.widthAnchor.constraint(equalToConstant: 60).isActive = true
             
-            send.rightAnchor.constraint(equalTo: input.safeAreaLayoutGuide.rightAnchor).isActive = true
-            send.topAnchor.constraint(equalTo: input.topAnchor).isActive = true
-            send.bottomAnchor.constraint(equalTo: input.bottomAnchor).isActive = true
+            let send = UIButton()
+            send.setImage(UIImage(systemName: "arrow.up.square.fill")?
+                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title1)), for: .normal)
+            send.imageEdgeInsets.right = -10
+            send.addTarget(self, action: #selector(self.send), for: .touchUpInside)
             send.widthAnchor.constraint(equalToConstant: 60).isActive = true
+            
+            let number = UIButton()
+            number.setImage(UIImage(systemName: "number.square.fill")?
+                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title2)), for: .normal)
+            number.addTarget(self, action: #selector(self.number), for: .touchUpInside)
+            
+            let minus = UIButton()
+            minus.setImage(UIImage(systemName: "minus.square.fill")?
+                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title2)), for: .normal)
+            minus.addTarget(self, action: #selector(self.minus), for: .touchUpInside)
+            
+            let asterisk = UIButton()
+            asterisk.setImage(UIImage(systemName: "asterisk.circle.fill")?
+                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title2)), for: .normal)
+            asterisk.addTarget(self, action: #selector(self.asterisk), for: .touchUpInside)
+            
+            [cancel, send, number, minus, asterisk].forEach {
+                $0.translatesAutoresizingMaskIntoConstraints = false
+                $0.imageEdgeInsets.top = 4
+                input.addSubview($0)
+                
+                $0.topAnchor.constraint(equalTo: input.topAnchor).isActive = true
+                $0.bottomAnchor.constraint(equalTo: input.bottomAnchor).isActive = true
+            }
+            
+            [number, minus, asterisk].forEach {
+                $0.imageView!.tintColor = .tertiaryLabel
+                $0.widthAnchor.constraint(equalToConstant: 45).isActive = true
+            }
+            
+            cancel.leftAnchor.constraint(equalTo: input.safeAreaLayoutGuide.leftAnchor).isActive = true
+            send.rightAnchor.constraint(equalTo: input.safeAreaLayoutGuide.rightAnchor).isActive = true
+            asterisk.centerXAnchor.constraint(equalTo: input.centerXAnchor).isActive = true
+            minus.rightAnchor.constraint(equalTo: asterisk.leftAnchor).isActive = true
+            number.leftAnchor.constraint(equalTo: asterisk.rightAnchor).isActive = true
             
             inputAccessoryView = input
             
@@ -79,7 +106,7 @@ extension Editor {
         
         override func caretRect(for position: UITextPosition) -> CGRect {
             var rect = super.caretRect(for: position)
-            rect.size.width += 2
+            rect.size.width += 1
             return rect
         }
         
@@ -103,6 +130,18 @@ extension Editor {
                 default: break
                 }
             }
+        }
+        
+        @objc private func asterisk() {
+            insertText("*")
+        }
+        
+        @objc private func minus() {
+            insertText("-")
+        }
+        
+        @objc private func number() {
+            insertText("#")
         }
     }
 }

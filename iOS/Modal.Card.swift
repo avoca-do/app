@@ -3,6 +3,7 @@ import SwiftUI
 extension Modal {
     struct Card: View {
         @Binding var session: Session
+        @State private var edit = false
         let dismiss: () -> Void
         
         var body: some View {
@@ -16,11 +17,16 @@ extension Modal {
                     }
                     .frame(height: 60)
                     Text(verbatim: session.archive[content: session.path])
+                        .kerning(1)
                         .foregroundColor(Color.black)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            edit = true
+                        }
                         .frame(height: 140, alignment: .top)
                         .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                         .padding(.horizontal)
-                    Footer(session: $session)
+                    Footer(session: $session, edit: $edit, dismiss: dismiss)
                     
 //
 //                    if session.path._column < session.archive.count(session.path.board) - 1 {

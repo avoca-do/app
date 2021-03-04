@@ -9,6 +9,7 @@ import Kanban
     var body: some Scene {
         WindowGroup {
             Window(session: $session)
+                .ignoresSafeArea(.keyboard)
                 .onReceive(Memory.shared.archive) {
                     guard $0.date(.archive) > session.archive.date(.archive) else { return }
                     UIApplication.shared.resign()

@@ -19,6 +19,7 @@ struct Column: View {
             VStack(spacing: 0) {
                 HStack {
                     Text(verbatim: session.archive[title: path])
+                        .kerning(1)
                         .bold()
                     Spacer()
                     Text(NSNumber(value: session.archive.count(path)), formatter: session.decimal)

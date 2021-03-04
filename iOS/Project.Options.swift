@@ -3,6 +3,7 @@ import SwiftUI
 extension Project {
     struct Options: View {
         @Binding var session: Session
+        @State private var add = false
         
         var body: some View {
             ZStack {
@@ -31,12 +32,16 @@ extension Project {
                     .frame(width: 64, height: 64)
                     .contentShape(Rectangle())
                     Button {
-                        
+                        add = true
                     } label: {
                         Image(systemName: "plus")
                     }
                     .frame(width: 64, height: 64)
                     .contentShape(Rectangle())
+                    .sheet(isPresented: $add) {
+                        Editor(session: $session, write: .new(session.path.board))
+                            .padding(.vertical)
+                    }
                 }
                 .foregroundColor(.secondary)
             }
