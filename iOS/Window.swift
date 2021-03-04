@@ -10,12 +10,17 @@ struct Window: View {
         } else {
             HStack {
                 Sidebar(session: $session)
-                switch session.section {
-                case .projects: Middlebar(session: $session)
-                case .capacity:
-                    Rectangle()
-                case .settings:
+                ZStack {
                     RoundedRectangle(cornerRadius: Metrics.corners)
+                        .fill(Color(.secondarySystemBackground))
+                    switch session.section {
+                    case .projects:
+                        Middlebar(session: $session)
+                    case .capacity:
+                        Capacity(session: $session)
+                    case .settings:
+                        Settings(session: $session)
+                    }
                 }
             }
             .padding()

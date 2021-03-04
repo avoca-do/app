@@ -6,13 +6,22 @@ struct Sidebar: View {
     var body: some View {
         VStack {
             Button {
-                session.section = .projects
+                UIApplication.shared.resign()
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    session.section = .projects
+                }
             } label: { }.buttonStyle(Style(image: "paperplane.fill", selected: session.section == .projects))
             Button {
-                session.section = .capacity
+                UIApplication.shared.resign()
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    session.section = .capacity
+                }
             } label: { }.buttonStyle(Style(image: "square.stack.fill", selected: session.section == .capacity))
             Button {
-                session.section = .settings
+                UIApplication.shared.resign()
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    session.section = .settings
+                }
             } label: { }.buttonStyle(Style(image: "gear", selected: session.section == .settings))
             Spacer()
         }
