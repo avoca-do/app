@@ -31,12 +31,11 @@ import Kanban
             }
             
             Session.path = archive.isEmpty(.archive) ? .archive : .board(0)
+            Session.scroll.send()
         }.store(in: &subs)
     }
     
     func applicationDidFinishLaunching(_: Notification) {
-        Memory.shared.refresh()
-        
         Session.purchases.plusOne.sink {
             Session.mutate {
                 $0.capacity += 1
@@ -53,6 +52,10 @@ import Kanban
                 Defaults.created = .init()
             }
         }
+    }
+    
+    func applicationDidBecomeActive(_: Notification) {
+        Memory.shared.refresh()
     }
     
     @objc func preferences() {
