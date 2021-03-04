@@ -6,14 +6,14 @@ struct Switch: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 8)
-                .foregroundColor(Color(.secondarySystemBackground).opacity(0.3))
+            RoundedRectangle(cornerRadius: Metrics.corners)
+                .fill(Color.primary.opacity(0.05))
             Toggle(text, isOn: $value)
                 .toggleStyle(SwitchToggleStyle(tint: .accentColor))
                 .font(.footnote)
                 .padding(.horizontal)
         }
         .frame(height: 50)
-        .padding(.horizontal)
+        .padding(.horizontal, 30)
     }
 }

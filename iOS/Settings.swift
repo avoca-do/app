@@ -8,20 +8,15 @@ struct Settings: View {
     @Environment(\.presentationMode) private var visible
     
     var body: some View {
-        VStack(spacing: 0) {
-            Dismisser(session: $session)
-            ScrollView {
-                HStack {
-                    Text("Features")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                        .padding(.leading)
-                    Spacer()
-                }
-                .padding(.top, 40)
-                Switch(text: "Spell checking", value: $spell)
-                Switch(text: "Auto correction", value: $correction)
-            }
+        VStack {
+            Text("Features")
+                .font(.footnote)
+                .foregroundColor(.secondary)
+                .padding([.leading, .top], 30)
+                .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+            Switch(text: "Spell checking", value: $spell)
+            Switch(text: "Auto correction", value: $correction)
+            Spacer()
         }
     }
 }
