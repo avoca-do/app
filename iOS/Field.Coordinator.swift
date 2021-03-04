@@ -32,7 +32,6 @@ extension Field {
             field.spellCheckingType = Defaults.spell ? .yes : .no
             field.backgroundColor = UIColor.label.withAlphaComponent(0.05)
             field.tintColor = .label
-            field.keyboardType = .alphabet
             field.allowsEditingTextAttributes = false
             field.delegate = self
             field.borderStyle = .roundedRect

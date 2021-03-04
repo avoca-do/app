@@ -23,7 +23,6 @@ extension Editor {
             spellCheckingType = Defaults.spell ? .yes : .no
             alwaysBounceVertical = true
             allowsEditingTextAttributes = false
-            keyboardType = .twitter
             delegate = self
             
             switch wrapper.write {
@@ -41,17 +40,14 @@ extension Editor {
             let cancel = UIButton()
             cancel.setImage(UIImage(systemName: "xmark")?
                                 .withConfiguration(UIImage.SymbolConfiguration(textStyle: .callout)), for: .normal)
-            cancel.imageView!.tintColor = .secondaryLabel
             cancel.imageEdgeInsets.left = -10
             cancel.addTarget(self, action: #selector(resignFirstResponder), for: .touchUpInside)
-            cancel.widthAnchor.constraint(equalToConstant: 60).isActive = true
             
             let send = UIButton()
             send.setImage(UIImage(systemName: "arrow.up.square.fill")?
                             .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title1)), for: .normal)
             send.imageEdgeInsets.right = -10
             send.addTarget(self, action: #selector(self.send), for: .touchUpInside)
-            send.widthAnchor.constraint(equalToConstant: 60).isActive = true
             
             let number = UIButton()
             number.setImage(UIImage(systemName: "number.square.fill")?
@@ -75,11 +71,11 @@ extension Editor {
                 
                 $0.topAnchor.constraint(equalTo: input.topAnchor).isActive = true
                 $0.bottomAnchor.constraint(equalTo: input.bottomAnchor).isActive = true
+                $0.widthAnchor.constraint(equalToConstant: 60).isActive = true
             }
             
-            [number, minus, asterisk].forEach {
-                $0.imageView!.tintColor = .tertiaryLabel
-                $0.widthAnchor.constraint(equalToConstant: 45).isActive = true
+            [cancel, number, minus, asterisk].forEach {
+                $0.imageView!.tintColor = .secondaryLabel
             }
             
             cancel.leftAnchor.constraint(equalTo: input.safeAreaLayoutGuide.leftAnchor).isActive = true
