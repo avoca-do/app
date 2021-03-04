@@ -7,7 +7,7 @@ struct Modal: View {
     var body: some View {
         ZStack {
             if case .card = session.path {
-                Color.black.opacity(UIApplication.dark ? 0.5 : 0.7)
+                Color.black.opacity(UIApplication.dark ? 0.4 : 0.7)
                     .edgesIgnoringSafeArea(.all)
                     .onTapGesture(perform: dismiss)
                 VStack(spacing: 0) {
