@@ -1,4 +1,5 @@
 import AppKit
+import StoreKit
 import Combine
 import Kanban
 
@@ -41,18 +42,17 @@ import Kanban
                 $0.capacity += 1
             }
         }.store(in: &subs)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-//            if let created = Defaults.created {
-//                if !Defaults.rated && Calendar.current.dateComponents([.day], from: created, to: .init()).day! > 4 {
-//                    Defaults.rated = true
-//                    SKStoreReviewController.requestReview()
-//                } else if !Defaults.premium && Calendar.current.dateComponents([.day], from: created, to: .init()).day! > 6 {
-//                    self?.froob()
-//                }
-//            } else {
-//                Defaults.created = .init()
-//            }
-//        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            if let created = Defaults.created {
+                if !Defaults.rated && Calendar.current.dateComponents([.day], from: created, to: .init()).day! > 4 {
+                    Defaults.rated = true
+                    SKStoreReviewController.requestReview()
+                }
+            } else {
+                Defaults.created = .init()
+            }
+        }
     }
     
     @objc func preferences() {
