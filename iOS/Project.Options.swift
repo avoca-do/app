@@ -4,6 +4,8 @@ extension Project {
     struct Options: View {
         @Binding var session: Session
         @State private var add = false
+        @State private var progress = false
+        @State private var settings = false
         
         var body: some View {
             ZStack {
@@ -11,39 +13,50 @@ extension Project {
                     .edgesIgnoringSafeArea(.all)
                 HStack {
                     Button {
-                        
+                        progress = true
                     } label: {
                         Image(systemName: "barometer")
+                            .foregroundColor(.secondary)
                     }
                     .frame(width: 64, height: 64)
                     .contentShape(Rectangle())
+                    .sheet(isPresented: $progress) {
+                        Progress(session: $session, progress: session.archive.progress(session.path))
+                    }
+                    
                     Button {
-                        
+                        settings = true
                     } label: {
                         Image(systemName: "slider.vertical.3")
+                            .foregroundColor(.secondary)
                     }
                     .frame(width: 64, height: 64)
                     .contentShape(Rectangle())
+                    .sheet(isPresented: $settings) {
+                        Settings(session: $session)
+                    }
+                    
                     Button {
                         
                     } label: {
                         Image(systemName: "line.horizontal.3.decrease")
+                            .foregroundColor(.secondary)
                     }
                     .frame(width: 64, height: 64)
                     .contentShape(Rectangle())
+                    
                     Button {
                         add = true
                     } label: {
                         Image(systemName: "plus")
+                            .foregroundColor(.secondary)
                     }
                     .frame(width: 64, height: 64)
                     .contentShape(Rectangle())
                     .sheet(isPresented: $add) {
                         Editor(session: $session, write: .new(session.path.board))
-                            .padding(.vertical)
                     }
                 }
-                .foregroundColor(.secondary)
             }
             .fixedSize(horizontal: false, vertical: true)
         }

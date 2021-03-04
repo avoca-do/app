@@ -39,8 +39,4 @@ extension Metrics {
         static let vertical = CGFloat(12)
         static let right = CGFloat(60)
     }
-    
-    struct progress {
-        static let stroke = CGFloat(30)
-    }
 }

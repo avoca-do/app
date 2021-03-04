@@ -10,8 +10,8 @@ extension Board.Modify {
         
         var body: some View {
             VStack {
-                Title(session: $session, title: session.archive[title: path])
-                
+                Dismisser(session: $session)
+                Text(verbatim: session.archive[title: path])
                 Tool(text: "Rename", image: "text.cursor") {
                     session.become.send(.edit(path))
                 }

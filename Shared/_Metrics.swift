@@ -8,4 +8,8 @@ struct Metrics {
         static let circle = CGFloat(6)
         static let radius = circle / 2
     }
+    
+    struct progress {
+        static let stroke = CGFloat(30)
+    }
 }

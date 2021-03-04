@@ -8,10 +8,11 @@ extension Board {
         
         var body: some View {
             VStack {
-                Title(session: $session, title: "Columns")
+                Dismisser(session: $session)
                     .sheet(item: $path) {
                         Column(session: $session, path: $0)
                     }
+                Text("Columns")
                 ScrollView {
                     Spacer()
                         .frame(height: 40)

@@ -40,7 +40,5 @@ extension Metrics {
     }
     
     
-    struct progress {
-        static let stroke = CGFloat(30)
-    }
+    
 }

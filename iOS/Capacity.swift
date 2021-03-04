@@ -11,7 +11,6 @@ struct Capacity: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Title(session: $session, title: "Capacity")
             ScrollView {
                 HStack {
                     Group {

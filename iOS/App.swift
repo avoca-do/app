@@ -22,6 +22,7 @@ import Kanban
                     }
                 }
                 .onReceive(session.purchases.open) {
+                    UIApplication.shared.resign()
                     session.dismiss.send()
                     session.section = .capacity
                 }

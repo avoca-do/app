@@ -8,8 +8,8 @@ struct Tool: View {
     var body: some View {
         Button(action: action) {
             ZStack {
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(Color(.tertiarySystemBackground))
+                RoundedRectangle(cornerRadius: Metrics.corners)
+                    .fill(Color.primary.opacity(0.05))
                 HStack {
                     Text(text)
                         .font(.callout)
@@ -23,6 +23,6 @@ struct Tool: View {
             .frame(height: 50)
             .contentShape(Rectangle())
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 30)
     }
 }

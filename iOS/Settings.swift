@@ -9,7 +9,7 @@ struct Settings: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Title(session: $session, title: "Settings")
+            Dismisser(session: $session)
             ScrollView {
                 HStack {
                     Text("Features")
