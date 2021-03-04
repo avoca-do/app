@@ -24,6 +24,7 @@ import Kanban
                 .onReceive(session.purchases.open) {
                     UIApplication.shared.resign()
                     session.dismiss.send()
+                    session.open = false
                     session.section = .capacity
                 }
                 .onReceive(session.purchases.plusOne) {
