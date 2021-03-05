@@ -5,41 +5,23 @@ struct Middlebar: View {
     @State private var alert = false
     
     var body: some View {
-        ScrollView {
+        VStack(spacing: 0) {
             HStack {
                 Text("Projects")
                     .bold()
-                    .padding([.top, .leading])
+                    .padding(.leading)
                 Spacer()
-            }
-            if session.archive.isEmpty(.archive) {
-                HStack(alignment: .top) {
-                    Text("Tab +\nto start a project")
-                        .foregroundColor(.init(UIColor.tertiaryLabel))
-                        .padding([.top, .leading])
-                    Spacer()
-                }
-            } else {
-                ForEach(0 ..< session.archive.count(.archive), id: \.self) {
-                    Item(session: $session, path: .board($0))
-                }
-                Spacer()
-                    .frame(height: 100)
-            }
-        }
-        VStack(alignment: .trailing) {
-            Spacer()
-            Field(session: $session, write: .new(.archive))
-                .frame(height: 0)
-            if !session.typing {
                 Button {
                     if session.archive.available {
                         session.become.send(.new(.archive))
                     } else {
                         alert = true
                     }
-                } label: { }.buttonStyle(Neumorphic(image: "plus"))
-                .padding([.trailing, .bottom], 20)
+                } label: {
+                    Image(systemName: "plus.circle.fill")
+                        .font(.title2)
+                        .frame(width: 60, height: 50)
+                }
                 .actionSheet(isPresented: $alert) {
                     .init(title: .init("You have reached your capacity for projects"),
                                  message: .init("Check Capacity for more details"),
@@ -50,7 +32,28 @@ struct Middlebar: View {
                                      .cancel()])
                 }
             }
+            ZStack {
+                RoundedRectangle(cornerRadius: Metrics.corners)
+                    .fill(Color(.secondarySystemBackground))
+                if session.archive.isEmpty(.archive) {
+                    Text("Tab +\nto start a project")
+                        .foregroundColor(.secondary)
+                        .padding([.top, .leading], 20)
+                        .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
+                } else {
+                    ScrollView {
+                        Spacer()
+                            .frame(height: 10)
+                        ForEach(0 ..< session.archive.count(.archive), id: \.self) {
+                            Item(session: $session, path: .board($0))
+                        }
+                        Spacer()
+                            .frame(height: 20)
+                    }
+                }
+            }
+            Field(session: $session, write: .new(.archive))
+                .frame(height: 0)
         }
-        .frame(maxWidth: .greatestFiniteMagnitude, alignment: .trailing)
     }
 }

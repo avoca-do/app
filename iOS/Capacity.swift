@@ -17,7 +17,7 @@ struct Capacity: View {
                 Text(verbatim: " / ")
                     .font(.title3) +
                 Text(NSNumber(value: session.archive.capacity), formatter: session.decimal)
-                    .font(Font.title3.bold())
+                    .font(.title3)
                     .foregroundColor(.init(.tertiaryLabel))
                 Text("Projects")
                     .foregroundColor(.secondary)

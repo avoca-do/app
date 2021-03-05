@@ -14,7 +14,7 @@ extension Capacity {
                 .fixedSize(horizontal: false, vertical: true)
                 .padding()
             Text(verbatim: purchase.title)
-                .font(Font.largeTitle.bold())
+                .font(.largeTitle)
                 .padding(.top)
             Text(verbatim: price)
                 .fontWeight(.medium)

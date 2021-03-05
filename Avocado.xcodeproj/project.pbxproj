@@ -69,6 +69,7 @@
 		CE6D659D25D1A1060017FE07 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE6D659C25D1A1060017FE07 /* Settings.bundle */; };
 		CE7183B925CC3CAC00AD02F8 /* Dismisser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7183B825CC3CAC00AD02F8 /* Dismisser.swift */; };
 		CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D20725B98FF000D0F4E3 /* Board.swift */; };
+		CE7D6FBC25F256E30028BB2A /* Middelbar.Item.Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D6FBB25F256E30028BB2A /* Middelbar.Item.Style.swift */; };
 		CE8C6ED325C31A4E007D25FC /* Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6ED225C31A4E007D25FC /* Editor.swift */; };
 		CE8C6EDD25C31D51007D25FC /* Editor.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */; };
 		CE8C6EE125C31E87007D25FC /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EE025C31E87007D25FC /* Container.swift */; };
@@ -175,6 +176,7 @@
 		CE6D659C25D1A1060017FE07 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CE7183B825CC3CAC00AD02F8 /* Dismisser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dismisser.swift; sourceTree = "<group>"; };
 		CE71D20725B98FF000D0F4E3 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		CE7D6FBB25F256E30028BB2A /* Middelbar.Item.Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middelbar.Item.Style.swift; sourceTree = "<group>"; };
 		CE8C6ED225C31A4E007D25FC /* Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.swift; sourceTree = "<group>"; };
 		CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.Coordinator.swift; sourceTree = "<group>"; };
 		CE8C6EE025C31E87007D25FC /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				CE2507ED25B87DB300F9C526 /* Field.Coordinator.swift */,
 				CE2507EA25B87D9800F9C526 /* Field.swift */,
 				CEA652A125C1CBA60099C82E /* Metrics.swift */,
+				CE7D6FBB25F256E30028BB2A /* Middelbar.Item.Style.swift */,
 				CEA0D18D25EC45110011FFC0 /* Middlebar.Item.swift */,
 				CEDBD48725EA80FA00C689CF /* Middlebar.swift */,
 				CEAFE89125EFE80F00B45B8C /* Modal.Card.Footer.swift */,
@@ -519,6 +522,7 @@
 				CE69A58125D15EB600EC9DB0 /* Progress.swift in Sources */,
 				CE2507EE25B87DB300F9C526 /* Field.Coordinator.swift in Sources */,
 				CE36F6B025EE5F1400774635 /* Project.Paging.swift in Sources */,
+				CE7D6FBC25F256E30028BB2A /* Middelbar.Item.Style.swift in Sources */,
 				CE4206AE25D1937E00E43D49 /* Capacity.Item.swift in Sources */,
 				CEA0D19625EC4C650011FFC0 /* Project.swift in Sources */,
 				CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */,

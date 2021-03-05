@@ -8,14 +8,10 @@ extension Sidebar {
         func makeBody(configuration: Configuration) -> some View {
             ZStack {
                 RoundedRectangle(cornerRadius: Metrics.corners)
-                    .fill(selected || configuration.isPressed ? Color(.secondarySystemBackground) : .clear)
+                    .fill(selected ? Color.accentColor : .clear)
                     .frame(width: 44, height: 44)
                 Image(systemName: image)
-                    .foregroundColor(selected || configuration.isPressed
-                                        ? .accentColor
-                                        : UIApplication.dark
-                                            ? .secondary
-                                            : .init(.tertiaryLabel))
+                    .foregroundColor(selected ? .black : .secondary)
             }
         }
     }

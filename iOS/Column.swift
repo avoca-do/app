@@ -7,27 +7,20 @@ struct Column: View {
     
     var body: some View {
         VStack {
-            HStack {
+            Group {
                 Text(verbatim: session.archive[title: path])
                     .kerning(1)
-                    .bold()
-                Spacer()
+                    .fontWeight(.black) +
+                Text(verbatim: " # ") +
                 Text(NSNumber(value: session.archive.count(path)), formatter: session.decimal)
                     .kerning(1)
-                    .padding(.leading)
             }
             .foregroundColor(.secondary)
-            .padding([.horizontal])
+            .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+            .padding(.horizontal)
             ZStack {
                 RoundedRectangle(cornerRadius: Metrics.corners)
                     .fill(Color(.secondarySystemBackground))
-                    .onTapGesture {
-                        withAnimation(.spring(blendDuration: 0.35)) {
-                            session.path = path
-                        }
-                    }
-                    .disabled(session.path.column == path)
-                    .allowsHitTesting(session.path.column != path)
                 ScrollView(session.path.column == path ? .vertical : []) {
                     Spacer()
                         .frame(height: 10)
@@ -39,6 +32,12 @@ struct Column: View {
                 }
                 .disabled(session.path.column != path)
                 .allowsHitTesting(session.path.column == path)
+            }
+        }
+        .onTapGesture {
+            guard session.path.column != path else { return }
+            withAnimation(.spring(blendDuration: 0.35)) {
+                session.path = path
             }
         }
         .opacity(session.path.column == path
