@@ -7,7 +7,7 @@ extension Projects {
         override init() {
             super.init()
             behavior = .transient
-            contentSize = .init(width: 300, height: 360)
+            contentSize = .init(width: 320, height: 400)
             contentViewController = .init()
             contentViewController!.view = .init(frame: .init(origin: .zero, size: contentSize))
             contentViewController!.view.wantsLayer = true
@@ -15,13 +15,13 @@ extension Projects {
             let progress = Session.archive.progress(Session.path.board)
             
             let ring = CAShapeLayer()
-            ring.frame = .init(x: 20, y: 80, width: 260, height: 260)
+            ring.frame = .init(x: 40, y: 120, width: 240, height: 240)
             ring.strokeColor = NSColor.controlAccentColor.withAlphaComponent(0.2).cgColor
             ring.fillColor = .clear
             ring.lineWidth = Metrics.progress.stroke
             ring.lineCap = .round
             ring.path = {
-                $0.addArc(center: .init(x: 130, y: 130), radius: 130 - Metrics.progress.stroke, startAngle: 0, endAngle: 2 * .pi, clockwise: false)
+                $0.addArc(center: .init(x: 120, y: 120), radius: 120 - Metrics.progress.stroke, startAngle: 0, endAngle: 2 * .pi, clockwise: false)
                 return $0
             } (CGMutablePath())
             contentViewController!.view.layer!.addSublayer(ring)
@@ -33,9 +33,17 @@ extension Projects {
             current.lineWidth = Metrics.progress.stroke
             current.lineCap = .round
             current.path = {
-                $0.addArc(center: .init(x: 130, y: 130), radius: 130 - Metrics.progress.stroke, startAngle: .pi / 2, endAngle: .pi / 2 + (.pi * -2 * .init(progress.percentage)), clockwise: true)
+                $0.addArc(center: .init(x: 120, y: 120), radius: 120 - Metrics.progress.stroke, startAngle: .pi / 2, endAngle: .pi / 2 + (.pi * -2 * .init(progress.percentage)), clockwise: true)
                 return $0
             } (CGMutablePath())
+            
+            current.add({
+                $0.duration = 1.5
+                $0.fromValue = 0
+                $0.toValue = 1
+                $0.timingFunction = .init(name: .easeInEaseOut)
+                return $0
+            } (CABasicAnimation(keyPath: "strokeEnd")), forKey: "strokeEnd")
             
             let gradient = CAGradientLayer()
             gradient.frame = ring.frame
@@ -47,48 +55,59 @@ extension Projects {
             contentViewController!.view.layer!.addSublayer(gradient)
             
             let percent = Text()
-            percent.stringValue = Session.percentage.string(from: .init(value: progress.percentage)) ?? ""
             percent.font = .systemFont(ofSize: NSFont.preferredFont(forTextStyle: .largeTitle).pointSize, weight: .bold)
             contentViewController!.view.addSubview(percent)
             
+            let paragraph = NSMutableParagraphStyle()
+            paragraph.alignment = .center
+            
             let cards = Text()
-            cards.stringValue = Session.decimal.string(from: .init(value: progress.cards)) ?? ""
+            cards.attributedStringValue = .make(
+                [.init(string: Session.decimal.string(from: .init(value: progress.cards)) ?? "", attributes: [
+                        .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title1).pointSize, weight: .bold),
+                        .paragraphStyle: paragraph]),
+                 .init(string: NSLocalizedString("\nCards", comment: ""), attributes: [
+                        .font: NSFont.preferredFont(forTextStyle: .body),
+                        .foregroundColor: NSColor.secondaryLabelColor,
+                        .paragraphStyle: paragraph])])
             
             let done = Text()
-            done.stringValue = Session.decimal.string(from: .init(value: progress.done)) ?? ""
-            
-            let cardsTitle = Text()
-            cardsTitle.stringValue = NSLocalizedString("Cards", comment: "")
-            
-            let doneTitle = Text()
-            doneTitle.stringValue = Session.archive[title: .column(Session.path.board, Session.archive.count(Session.path.board) - 1)]
-            doneTitle.lineBreakMode = .byTruncatingTail
-            doneTitle.maximumNumberOfLines = 1
-            doneTitle.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+            done.attributedStringValue = .make(
+                [.init(string: Session.decimal.string(from: .init(value: progress.done)) ?? "", attributes: [
+                        .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title1).pointSize, weight: .bold),
+                        .paragraphStyle: paragraph]),
+                 .init(string: "\n" + Session.archive[title: .column(Session.path.board, Session.archive.count(Session.path.board) - 1)], attributes: [
+                        .font: NSFont.preferredFont(forTextStyle: .body),
+                        .foregroundColor: NSColor.secondaryLabelColor,
+                        .paragraphStyle: paragraph])])
             
             [cards, done].forEach {
-                $0.font = .systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title1).pointSize, weight: .bold)
+                $0.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
                 contentViewController!.view.addSubview($0)
                 
-                $0.bottomAnchor.constraint(equalTo: contentViewController!.view.bottomAnchor, constant: -30).isActive = true
-            }
-            
-            [cardsTitle, doneTitle].forEach {
-                $0.font = .preferredFont(forTextStyle: .body)
-                contentViewController!.view.addSubview($0)
-                
-                $0.centerYAnchor.constraint(equalTo: cards.centerYAnchor).isActive = true
+                $0.topAnchor.constraint(equalTo: percent.bottomAnchor, constant: 140).isActive = true
+                $0.widthAnchor.constraint(lessThanOrEqualToConstant: 90).isActive = true
             }
             
             percent.centerXAnchor.constraint(equalTo: contentViewController!.view.centerXAnchor).isActive = true
-            percent.centerYAnchor.constraint(equalTo: contentViewController!.view.topAnchor, constant: 150).isActive = true
+            percent.centerYAnchor.constraint(equalTo: contentViewController!.view.bottomAnchor, constant: -240).isActive = true
             
-            cards.leftAnchor.constraint(equalTo: contentViewController!.view.leftAnchor, constant: 30).isActive = true
-            done.rightAnchor.constraint(equalTo: contentViewController!.view.rightAnchor, constant: -30).isActive = true
+            cards.rightAnchor.constraint(equalTo: contentViewController!.view.centerXAnchor, constant: -30).isActive = true
+            done.leftAnchor.constraint(equalTo: contentViewController!.view.centerXAnchor, constant: 30).isActive = true
             
-            cardsTitle.leftAnchor.constraint(equalTo: cards.rightAnchor, constant: 5).isActive = true
-            doneTitle.rightAnchor.constraint(equalTo: done.leftAnchor, constant: -5).isActive = true
-            doneTitle.leftAnchor.constraint(greaterThanOrEqualTo: cardsTitle.rightAnchor, constant: 10).isActive = true
+            let timer = Timer.publish(every: 0.04, on: .main, in: .common).autoconnect()
+            var counter = Double()
+            var sub: AnyCancellable?
+            sub = timer.sink { _ in
+                if counter < progress.percentage {
+                    counter += progress.percentage / 37
+                } else {
+                    timer.upstream.connect().cancel()
+                    sub?.cancel()
+                    counter = progress.percentage
+                }
+                percent.stringValue = Session.percentage.string(from: .init(value: counter)) ?? ""
+            }
         }
     }
 }
