@@ -5,7 +5,7 @@ extension Project {
         @Binding var session: Session
         
         var body: some View {
-            HStack {
+            HStack(spacing: 0) {
                 Button {
                     withAnimation(.spring(blendDuration: 0.35)) {
                         session.path = .column(session.path.board, 0)
@@ -13,10 +13,10 @@ extension Project {
                     }
                 } label: {
                     Image(systemName: "line.horizontal.3")
-                        .font(.title2)
-                        .foregroundColor(.secondary)
+                        .font(.title3)
+                        .foregroundColor(.primary)
                 }
-                .frame(width: 50, height: 54)
+                .frame(width: 60, height: 60)
                 .contentShape(Rectangle())
                 Text(verbatim: session.archive[name: session.path])
                     .bold()

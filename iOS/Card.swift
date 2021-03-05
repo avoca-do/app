@@ -23,6 +23,7 @@ struct Card: View {
                 .padding(.vertical, 2)
                 Text(verbatim: session.archive[content: path])
                     .kerning(1)
+                    .font(.callout)
                     .foregroundColor(.primary)
                     .padding(.leading, 5)
                 Spacer()

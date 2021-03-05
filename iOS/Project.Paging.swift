@@ -9,7 +9,7 @@ extension Project {
                 Rectangle()
                     .fill(Color.clear)
                     .contentShape(Rectangle())
-                    .frame(width: 60, height: 45)
+                    .frame(width: 60, height: 50)
                     .onTapGesture {
                         guard session.path._column > 0 else { return }
                         show(session.path._column - 1)
@@ -20,7 +20,7 @@ extension Project {
                             .fill(session.path._column == index ? Color.primary : Color(.tertiaryLabel))
                             .frame(width: 6, height: 6)
                     }
-                    .frame(width: 14, height: 50)
+                    .frame(width: 14, height: 55)
                     .contentShape(Rectangle())
                     .onTapGesture {
                         show(index)
@@ -30,7 +30,7 @@ extension Project {
                 Rectangle()
                     .fill(Color.clear)
                     .contentShape(Rectangle())
-                    .frame(width: 60, height: 45)
+                    .frame(width: 60, height: 50)
                     .onTapGesture {
                         guard session.path._column < session.archive.count(session.path.board) - 1 else { return }
                         show(session.path._column + 1)
