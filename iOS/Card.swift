@@ -31,19 +31,5 @@ struct Card: View {
             .padding()
             .contentShape(Rectangle())
         }
-
-        
-//        .onChange(of: session.path) { [old = session.path] in
-//            if old == path && $0 != path {
-//               selected = false
-//            } else if old != path && $0 == path {
-//                selected = true
-//            }
-//        }
-//        .onAppear {
-//            if session.path == path {
-//                selected = true
-//            }
-//        }
     }
 }

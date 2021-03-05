@@ -1,4 +1,5 @@
 import SwiftUI
+import Kanban
 
 struct Field: UIViewRepresentable {
     @Binding var session: Session

@@ -17,28 +17,4 @@ extension Metrics {
         static let min = CGFloat(-300)
         static let max = CGFloat(120)
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    struct bar {
-        static let width = CGFloat(60)
-    }
-    
-    struct column {
-        static let height = CGFloat(160)
-    }
-    
-    struct indicator {
-        static let hidden = CGFloat(6)
-        static let visible = CGFloat(6)
-    }
-    
-    
-    
 }
