@@ -9,13 +9,24 @@ struct Settings: View {
     
     var body: some View {
         VStack {
-            Text("Features")
-                .font(.footnote)
-                .foregroundColor(.secondary)
-                .padding([.leading, .top], 30)
+            Text("Settings")
+                .bold()
+                .padding([.leading, .top])
                 .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
-            Switch(text: "Spell checking", value: $spell)
-            Switch(text: "Auto correction", value: $correction)
+            ZStack {
+                RoundedRectangle(cornerRadius: Metrics.corners)
+                    .fill(Color(.secondarySystemBackground))
+                VStack {
+                    Text("Features")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                        .padding([.leading, .top])
+                        .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                    Switch(text: "Spell checking", value: $spell)
+                    Switch(text: "Auto correction", value: $correction)
+                    Spacer()
+                }
+            }
             Spacer()
         }
     }

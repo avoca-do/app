@@ -14,6 +14,6 @@ struct Switch: View {
                 .padding(.horizontal)
         }
         .frame(height: 50)
-        .padding(.horizontal, 30)
+        .padding(.horizontal)
     }
 }

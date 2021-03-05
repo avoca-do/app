@@ -8,7 +8,6 @@ extension Capacity {
         
         var body: some View {
             Image(purchase.image)
-                .padding(.top)
             Text(verbatim: purchase.subtitle)
                 .font(.callout)
                 .fixedSize(horizontal: false, vertical: true)
@@ -17,19 +16,20 @@ extension Capacity {
                 .font(.largeTitle)
                 .padding(.top)
             Text(verbatim: price)
-                .fontWeight(.medium)
+                .font(.callout)
             Button(action: action) {
                 ZStack {
                     RoundedRectangle(cornerRadius: Metrics.corners)
                         .fill(Color.blue)
                     Text("Purchase")
                         .font(.callout)
+                        .fontWeight(.medium)
                         .foregroundColor(.white)
-                        .padding(.vertical, 10)
+                        .padding(.vertical)
                 }
-                .frame(width: 160)
+                .frame(maxWidth: .greatestFiniteMagnitude)
             }
-            .contentShape(Rectangle())
+            .padding(.horizontal)
         }
     }
 }
