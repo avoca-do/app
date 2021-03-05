@@ -91,7 +91,6 @@
 		CEA0D19625EC4C650011FFC0 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0D19525EC4C650011FFC0 /* Project.swift */; };
 		CEA1819C25C04DE000552DEF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1819B25C04DE000552DEF /* CloudKit.framework */; };
 		CEA652A225C1CBA60099C82E /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA652A125C1CBA60099C82E /* Metrics.swift */; };
-		CEA955A225C2D5A20019BF90 /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA955A125C2D5A20019BF90 /* Neumorphic.swift */; };
 		CEAFE88C25EFE78D00B45B8C /* Modal.Card.Vertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFE88B25EFE78D00B45B8C /* Modal.Card.Vertical.swift */; };
 		CEAFE89225EFE80F00B45B8C /* Modal.Card.Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFE89125EFE80F00B45B8C /* Modal.Card.Footer.swift */; };
 		CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB09ADE25B994AF00BF7AD6 /* Kanban */; };
@@ -199,7 +198,6 @@
 		CEA1819825C04DD200552DEF /* Avocado.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Avocado.entitlements; sourceTree = "<group>"; };
 		CEA1819B25C04DE000552DEF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CEA652A125C1CBA60099C82E /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
-		CEA955A125C2D5A20019BF90 /* Neumorphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
 		CEAFE88B25EFE78D00B45B8C /* Modal.Card.Vertical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.Card.Vertical.swift; sourceTree = "<group>"; };
 		CEAFE89125EFE80F00B45B8C /* Modal.Card.Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.Card.Footer.swift; sourceTree = "<group>"; };
 		CEB8E56925DAA0C6009737AB /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
@@ -290,7 +288,6 @@
 				CE48895C25CD7C78003F63AC /* Modal.Card.swift */,
 				CEAFE88B25EFE78D00B45B8C /* Modal.Card.Vertical.swift */,
 				CEE61FA025CAFCFB007CF830 /* Modal.swift */,
-				CEA955A125C2D5A20019BF90 /* Neumorphic.swift */,
 				CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */,
 				CE69A58025D15EB600EC9DB0 /* Progress.swift */,
 				CE0E838F25CEB912001283C6 /* Project.Columns.swift */,
@@ -529,7 +526,6 @@
 				CEAFE89225EFE80F00B45B8C /* Modal.Card.Footer.swift in Sources */,
 				CE8C6EDD25C31D51007D25FC /* Editor.Coordinator.swift in Sources */,
 				CE95053625EA795A00EB178E /* Sidebar.Style.swift in Sources */,
-				CEA955A225C2D5A20019BF90 /* Neumorphic.swift in Sources */,
 				CEA0D18E25EC45110011FFC0 /* Middlebar.Item.swift in Sources */,
 				CEDB78FE25ED0E08001A02A4 /* Card.swift in Sources */,
 				CEDB78F025ECFC8B001A02A4 /* Project.Title.swift in Sources */,
