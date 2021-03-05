@@ -42,10 +42,11 @@ extension Modal.Card {
                     }
                 }
                 
-                Text("Position ") +
-                Text(NSNumber(value: session.path._card + 1), formatter: session.decimal) +
+                Text(NSNumber(value: session.path._card + 1), formatter: session.decimal)
+                    .kerning(1) +
                 Text(" / ") +
                 Text(NSNumber(value: session.archive.count(session.path.column)), formatter: session.decimal)
+                    .kerning(1)
             } label: {
                 Image(systemName: "arrow.up.arrow.down")
                     .foregroundColor(.black)
