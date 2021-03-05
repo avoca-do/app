@@ -12,7 +12,7 @@ extension Preferences {
             translatesAutoresizingMaskIntoConstraints = false
             wantsLayer = true
             layer!.backgroundColor = NSColor.underPageBackgroundColor.cgColor
-            layer!.cornerRadius = 8
+            layer!.cornerRadius = Metrics.corners
             
             let text = Text()
             text.stringValue = title

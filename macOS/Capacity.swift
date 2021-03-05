@@ -48,7 +48,7 @@ final class Capacity: NSView {
                 base.translatesAutoresizingMaskIntoConstraints = false
                 base.wantsLayer = true
                 base.layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
-                base.layer!.cornerRadius = 18
+                base.layer!.cornerRadius = Metrics.corners
                 self.addSubview(base)
                 
                 let image = NSImageView(image: NSImage(named: item.image)!)

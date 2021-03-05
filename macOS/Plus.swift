@@ -1,5 +1,6 @@
 import AppKit
 import Combine
+import Kanban
 
 final class Plus: NSPopover {
     private var subs = Set<AnyCancellable>()

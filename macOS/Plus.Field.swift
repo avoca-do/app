@@ -1,5 +1,6 @@
 import AppKit
 import Combine
+import Kanban
 
 extension Plus {
     final class Field: NSTextField, NSTextFieldDelegate {

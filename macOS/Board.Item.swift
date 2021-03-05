@@ -15,17 +15,19 @@ extension Board {
                 text = .make([.init(string: Session.archive[title: path] + " ",
                                     attributes: [
                                         .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title2).pointSize, weight: .bold),
-                                        .foregroundColor: NSColor.labelColor]),
+                                        .foregroundColor: NSColor.labelColor,
+                                        .kern: 1]),
                               .init(string: Session.decimal.string(from: .init(value: Session.archive.count(path)))!,
                                                   attributes: [
                                                     .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .callout).pointSize, weight: .regular),
-                                                    .foregroundColor: NSColor.secondaryLabelColor])])
+                                                    .foregroundColor: NSColor.secondaryLabelColor,
+                                                    .kern: 1])])
             case .card:
                 text = .make([.init(string: Session.archive[content: path],
                                     attributes: [
                                         .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize, weight: .regular),
                                         .foregroundColor: NSColor.labelColor,
-                                        .kern: NSNumber(value: 1)])])
+                                        .kern: 1])])
                 size.width -= Metrics.board.card.left
             default:
                 text = .init()

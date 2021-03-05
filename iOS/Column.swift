@@ -11,9 +11,10 @@ struct Column: View {
                 Text(verbatim: session.archive[title: path])
                     .kerning(1)
                     .fontWeight(.black) +
-                Text(verbatim: " # ") +
+                Text(verbatim: " ") +
                 Text(NSNumber(value: session.archive.count(path)), formatter: session.decimal)
                     .kerning(1)
+                    .font(.callout)
             }
             .foregroundColor(.secondary)
             .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)

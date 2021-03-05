@@ -8,7 +8,7 @@ extension Control {
         init(icon: String) {
             super.init()
             wantsLayer = true
-            layer!.cornerRadius = 8
+            layer!.cornerRadius = Metrics.corners
             
             let image = NSImageView(image: NSImage(systemSymbolName: icon, accessibilityDescription: nil)!)
             image.translatesAutoresizingMaskIntoConstraints = false

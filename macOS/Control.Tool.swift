@@ -6,7 +6,7 @@ extension Control {
         init(title: String, icon: String) {
             super.init()
             wantsLayer = true
-            layer!.cornerRadius = 8
+            layer!.cornerRadius = Metrics.corners
             
             let text = Text()
             text.stringValue = title

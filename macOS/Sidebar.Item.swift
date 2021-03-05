@@ -6,7 +6,7 @@ extension Sidebar {
         init(title: String, icon: String) {
             super.init()
             wantsLayer = true
-            layer!.cornerRadius = 6
+            layer!.cornerRadius = Metrics.corners
             
             let text = Text()
             text.stringValue = title

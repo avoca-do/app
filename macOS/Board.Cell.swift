@@ -56,7 +56,7 @@ extension Board {
         init() {
             super.init(frame: .zero)
             wantsLayer = true
-            layer!.cornerRadius = 10
+            layer!.cornerRadius = Metrics.corners
             
             let line = NSView()
             self.line = line
