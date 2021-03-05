@@ -7,13 +7,14 @@ extension Edit {
             didSet {
                 if let write = write {
                     switch write {
+                    case .new:
+                        string = ""
                     case let .edit(path):
                         switch path {
                         case .card:
                             string = Session.archive[content: path]
                         default: break
                         }
-                    default: break
                     }
                 } else {
                     string = ""

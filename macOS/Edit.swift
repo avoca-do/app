@@ -32,8 +32,8 @@ final class Edit: NSView {
         scroll.documentView = text
         self.text = text
         
-        let send = Control.Icon(icon: "arrow.up.circle.fill", color: .controlAccentColor)
-        send.image.symbolConfiguration = .init(textStyle: .title1)
+        let send = Control.Icon(icon: "arrow.up.square.fill", color: .controlAccentColor)
+        send.image.symbolConfiguration = .init(textStyle: .largeTitle)
         send.click.sink {
             text.send()
         }.store(in: &subs)
