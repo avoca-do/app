@@ -35,7 +35,7 @@ extension Sidebar {
             
             switch state {
             case .selected:
-                layer!.backgroundColor = NSColor.controlAccentColor.withAlphaComponent(0.2).cgColor
+                layer!.backgroundColor = NSColor.controlAccentColor.withAlphaComponent(Metrics.accent.low).cgColor
             case .highlighted:
                 layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
             default:

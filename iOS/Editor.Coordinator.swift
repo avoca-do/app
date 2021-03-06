@@ -51,17 +51,17 @@ extension Editor {
             
             let number = UIButton()
             number.setImage(UIImage(systemName: "number.square.fill")?
-                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title2)), for: .normal)
+                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title1)), for: .normal)
             number.addTarget(self, action: #selector(self.number), for: .touchUpInside)
             
             let minus = UIButton()
             minus.setImage(UIImage(systemName: "minus.square.fill")?
-                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title2)), for: .normal)
+                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title1)), for: .normal)
             minus.addTarget(self, action: #selector(self.minus), for: .touchUpInside)
             
             let asterisk = UIButton()
             asterisk.setImage(UIImage(systemName: "asterisk.circle.fill")?
-                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title2)), for: .normal)
+                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title1)), for: .normal)
             asterisk.addTarget(self, action: #selector(self.asterisk), for: .touchUpInside)
             
             [cancel, send, number, minus, asterisk].forEach {

@@ -25,11 +25,11 @@ extension Capacity {
                         .font(.callout)
                         .fontWeight(.medium)
                         .foregroundColor(.white)
-                        .padding(.vertical)
+                        .padding(.vertical, 10)
                 }
                 .frame(maxWidth: .greatestFiniteMagnitude)
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 20)
         }
     }
 }

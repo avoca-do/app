@@ -16,7 +16,7 @@ extension Projects {
             
             let ring = CAShapeLayer()
             ring.frame = .init(x: 40, y: 120, width: 240, height: 240)
-            ring.strokeColor = NSColor.controlAccentColor.withAlphaComponent(0.2).cgColor
+            ring.strokeColor = NSColor.controlAccentColor.withAlphaComponent(Metrics.accent.low).cgColor
             ring.fillColor = .clear
             ring.lineWidth = Metrics.progress.stroke
             ring.lineCap = .round

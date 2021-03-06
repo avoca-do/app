@@ -14,7 +14,7 @@ struct Progress: View {
             Dismisser(session: $session)
             ZStack {
                 Ring(amount: 1)
-                    .stroke(Color.accentColor.opacity(0.2), lineWidth: Metrics.progress.stroke)
+                    .stroke(Color.accentColor.opacity(Metrics.accent.low), lineWidth: Metrics.progress.stroke)
                 Ring(amount: percentage)
                     .stroke(LinearGradient(
                                 gradient: .init(colors: [.accentColor, .purple]),

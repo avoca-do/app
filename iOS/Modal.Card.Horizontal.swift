@@ -19,7 +19,7 @@ extension Modal.Card {
                                 .font(.title3)
                                 .padding(.trailing)
                         }
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                         .frame(maxWidth: proxy.size.width * 0.43, maxHeight: .greatestFiniteMagnitude, alignment: .leading)
                         .contentShape(Rectangle())
                     }
@@ -36,7 +36,7 @@ extension Modal.Card {
                                 .font(Font.callout.bold())
                                 .padding(.trailing)
                         }
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                         .frame(maxWidth: proxy.size.width * 0.43, maxHeight: .greatestFiniteMagnitude, alignment: .trailing)
                         .contentShape(Rectangle())
                     }

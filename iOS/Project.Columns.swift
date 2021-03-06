@@ -24,7 +24,7 @@ extension Project {
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: Metrics.corners)
-                                .fill(Color.accentColor.opacity(0.2))
+                                .fill(Color.accentColor.opacity(Metrics.accent.low))
                             HStack {
                                 Text(verbatim: session.archive[title: .column(session.path.board, index)])
                                     .kerning(1)

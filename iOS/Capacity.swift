@@ -73,6 +73,7 @@ struct Capacity: View {
                     Spacer()
                         .frame(height: 20)
                 }
+                .padding(2)
             }
             .padding(.top)
         }

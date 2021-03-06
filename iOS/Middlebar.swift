@@ -50,6 +50,7 @@ struct Middlebar: View {
                         Spacer()
                             .frame(height: 20)
                     }
+                    .padding(2)
                 }
             }
             Field(session: $session, write: .new(.archive))

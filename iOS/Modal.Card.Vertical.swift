@@ -49,7 +49,7 @@ extension Modal.Card {
                     .kerning(1)
             } label: {
                 Image(systemName: "arrow.up.arrow.down")
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                     .font(.title3)
                     .contentShape(Rectangle())
                     .frame(width: 60)

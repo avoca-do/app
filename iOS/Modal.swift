@@ -15,8 +15,8 @@ struct Modal: View {
                     HStack {
                         Capsule()
                             .fill(Color.accentColor)
-                            .frame(width: 60, height: 4)
-                            .padding(.bottom, 10)
+                            .frame(width: 60, height: 3)
+                            .padding(.bottom, 12)
                             .padding(.top, 40)
                     }
                     .frame(maxWidth: .greatestFiniteMagnitude)

@@ -20,12 +20,12 @@ struct Card: View {
                         .fill(Color(.tertiaryLabel))
                         .frame(width: Metrics.card.line)
                 }
-                .padding(.vertical, 2)
+                .padding(2)
                 Text(verbatim: session.archive[content: path])
                     .kerning(1)
-                    .font(.callout)
+                    .font(.footnote)
                     .foregroundColor(.primary)
-                    .padding(.leading, 5)
+                    .padding(.leading, 6)
                 Spacer()
             }
             .fixedSize(horizontal: false, vertical: true)

@@ -6,11 +6,11 @@ struct Column: View {
     let path: Kanban.Path
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Group {
                 Text(verbatim: session.archive[title: path])
                     .kerning(1)
-                    .fontWeight(.black) +
+                    .bold() +
                 Text(verbatim: " ") +
                 Text(NSNumber(value: session.archive.count(path)), formatter: session.decimal)
                     .kerning(1)
@@ -19,10 +19,13 @@ struct Column: View {
             .foregroundColor(.secondary)
             .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
             .padding(.horizontal)
-            ZStack {
-                RoundedRectangle(cornerRadius: Metrics.corners)
-                    .fill(Color(.secondarySystemBackground))
-                ScrollView(session.path.column == path ? .vertical : []) {
+            Rectangle()
+                .fill(Color(.tertiaryLabel))
+                .frame(height: 1)
+                .padding(.horizontal)
+                .padding(.top, 7)
+            ScrollView(session.path.column == path ? .vertical : []) {
+                VStack(spacing: 0) {
                     Spacer()
                         .frame(height: 10)
                     ForEach(0 ..< session.archive.count(path), id: \.self) {
@@ -31,9 +34,12 @@ struct Column: View {
                     Spacer()
                         .frame(height: 20)
                 }
-                .disabled(session.path.column != path)
-                .allowsHitTesting(session.path.column == path)
             }
+            .disabled(session.path.column != path)
+            Rectangle()
+                .fill(Color(.tertiaryLabel))
+                .frame(height: 1)
+                .padding(.horizontal)
         }
         .onTapGesture {
             guard session.path.column != path else { return }
@@ -44,7 +50,7 @@ struct Column: View {
         .opacity(session.path.column == path
                     ? 1
                     : UIApplication.dark
-                        ? 0.4
-                        : 0.2)
+                        ? 0.35
+                        : 0.15)
     }
 }

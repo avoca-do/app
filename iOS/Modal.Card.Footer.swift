@@ -14,7 +14,8 @@ extension Modal.Card {
                     delete = true
                 } label: {
                     Image(systemName: "trash")
-                        .foregroundColor(.black)
+                        .font(.title3)
+                        .foregroundColor(.primary)
                 }
                 .frame(width: 64, height: 60)
                 .contentShape(Rectangle())
@@ -33,7 +34,8 @@ extension Modal.Card {
                     edit = true
                 } label: {
                     Image(systemName: "text.cursor")
-                        .foregroundColor(.black)
+                        .font(.title3)
+                        .foregroundColor(.primary)
                 }
                 .frame(width: 64, height: 60)
                 .contentShape(Rectangle())
@@ -41,7 +43,6 @@ extension Modal.Card {
                     Editor(session: $session, write: .edit(session.path))
                 }
             }
-            .font(.title3)
         }
     }
 }

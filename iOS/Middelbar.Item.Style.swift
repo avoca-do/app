@@ -8,7 +8,7 @@ extension Middlebar.Item {
         func makeBody(configuration: Configuration) -> some View {
             ZStack {
                 RoundedRectangle(cornerRadius: Metrics.corners)
-                    .fill(configuration.isPressed ? Color.accentColor.opacity(0.4) : .clear)
+                    .fill(configuration.isPressed ? Color.accentColor.opacity(Metrics.accent.high) : .clear)
                 VStack(alignment: .leading) {
                     Text(verbatim: name)
                         .font(.callout)

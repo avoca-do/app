@@ -9,7 +9,9 @@ extension Modal {
         var body: some View {
             ZStack {
                 RoundedRectangle(cornerRadius: Metrics.corners)
-                    .fill(Color.accentColor)
+                    .fill(Color(.systemBackground))
+                RoundedRectangle(cornerRadius: Metrics.corners)
+                    .fill(Color.accentColor.opacity(Metrics.accent.low))
                 VStack {
                     ZStack {
                         Horizontal(session: $session)
@@ -18,12 +20,12 @@ extension Modal {
                     .frame(height: 60)
                     Text(verbatim: session.archive[content: session.path])
                         .kerning(1)
-                        .foregroundColor(Color.black)
+                        .foregroundColor(.secondary)
                         .contentShape(Rectangle())
                         .onTapGesture {
                             edit = true
                         }
-                        .frame(height: 140, alignment: .top)
+                        .frame(height: 145, alignment: .top)
                         .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                         .padding(.horizontal)
                     Footer(session: $session, edit: $edit, dismiss: dismiss)
