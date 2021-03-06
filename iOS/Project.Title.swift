@@ -13,8 +13,8 @@ extension Project {
                     }
                 } label: {
                     Image(systemName: "line.horizontal.3")
-                        .font(.title3)
-                        .foregroundColor(.primary)
+                        .font(.title2)
+                        .foregroundColor(.secondary)
                 }
                 .frame(width: 60, height: 60)
                 .contentShape(Rectangle())

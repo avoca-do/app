@@ -11,6 +11,7 @@ extension Sidebar {
                     .fill(selected ? Color.accentColor : .clear)
                     .frame(width: 44, height: 44)
                 Image(systemName: image)
+                    .font(.title3)
                     .foregroundColor(selected ? .black : .secondary)
             }
         }

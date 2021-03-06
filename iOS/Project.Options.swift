@@ -17,9 +17,10 @@ extension Project {
                         progress = true
                     } label: {
                         Image(systemName: "barometer")
+                            .font(.title3)
                             .foregroundColor(.secondary)
                     }
-                    .frame(width: 64, height: 64)
+                    .frame(width: 64, height: Metrics.options.height)
                     .contentShape(Rectangle())
                     .sheet(isPresented: $progress) {
                         Progress(session: $session, progress: session.archive.progress(session.path))
@@ -29,9 +30,10 @@ extension Project {
                         settings = true
                     } label: {
                         Image(systemName: "slider.vertical.3")
+                            .font(.title3)
                             .foregroundColor(.secondary)
                     }
-                    .frame(width: 64, height: 64)
+                    .frame(width: 64, height: Metrics.options.height)
                     .contentShape(Rectangle())
                     .sheet(isPresented: $settings) {
                         Edit(session: $session, path: session.path.board)
@@ -41,9 +43,10 @@ extension Project {
                         columns = true
                     } label: {
                         Image(systemName: "line.horizontal.3.decrease")
+                            .font(.title3)
                             .foregroundColor(.secondary)
                     }
-                    .frame(width: 64, height: 64)
+                    .frame(width: 64, height: Metrics.options.height)
                     .contentShape(Rectangle())
                     .sheet(isPresented: $columns) {
                         Columns(session: $session)
@@ -53,9 +56,10 @@ extension Project {
                         add = true
                     } label: {
                         Image(systemName: "plus")
+                            .font(.title3)
                             .foregroundColor(.secondary)
                     }
-                    .frame(width: 64, height: 64)
+                    .frame(width: 64, height: Metrics.options.height)
                     .contentShape(Rectangle())
                     .sheet(isPresented: $add) {
                         Editor(session: $session, write: .new(session.path.board))
