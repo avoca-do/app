@@ -37,7 +37,7 @@ extension Board {
                 case .highlighted:
                     switch item?.path {
                     case .column:
-                        layer!.backgroundColor = NSColor.controlAccentColor.withAlphaComponent(Metrics.accent.low).cgColor
+                        layer!.backgroundColor = NSColor.controlAccentColor.withAlphaComponent(.init(Metrics.accent.low)).cgColor
                     default:
                         layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
                     }

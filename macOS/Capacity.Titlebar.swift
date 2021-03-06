@@ -27,26 +27,21 @@ extension Capacity {
             count.attributedStringValue = .make(
                 [.init(string: Session.decimal.string(from: .init(value: Session.archive.count(.archive)))!,
                        attributes: [.foregroundColor: NSColor.labelColor,
-                                    .font: NSFont.systemFont(ofSize: 16, weight: .bold)]),
+                                    .font: NSFont.systemFont(ofSize: 16, weight: .regular)]),
                  .init(string: " / ",
                         attributes: [.foregroundColor: NSColor.labelColor,
                                      .font: NSFont.systemFont(ofSize: 16, weight: .regular)]),
                  .init(string: Session.decimal.string(from: .init(value: Session.archive.capacity))!,
                         attributes: [.foregroundColor: NSColor.tertiaryLabelColor,
-                                     .font: NSFont.systemFont(ofSize: 16, weight: .bold)])])
+                                     .font: NSFont.systemFont(ofSize: 16, weight: .regular)])])
             count.textColor = .labelColor
             count.font = .systemFont(ofSize: 16, weight: .bold)
             
-            let title = Text()
-            title.stringValue = NSLocalizedString("Projects", comment: "")
-            title.font = .preferredFont(forTextStyle: .callout)
-            title.textColor = .secondaryLabelColor
-            
             let total = CAShapeLayer()
             total.frame = .init(x: 20, y: 0, width: 200, height: 10)
-            total.strokeColor = .init(gray: 0, alpha: 0.3)
+            total.strokeColor = NSColor.labelColor.withAlphaComponent(0.1).cgColor
             total.fillColor = .clear
-            total.lineWidth = 8
+            total.lineWidth = Metrics.capacity.height
             total.lineCap = .round
             total.path = {
                 $0.move(to: .init(x: 0, y: 5))
@@ -59,7 +54,7 @@ extension Capacity {
             used.frame = .init(x: 20, y: 0, width: 200, height: 10)
             used.strokeColor = Session.archive.available ? NSColor.controlAccentColor.cgColor : NSColor.systemPink.cgColor
             used.fillColor = .clear
-            used.lineWidth = 6
+            used.lineWidth = Metrics.capacity.height
             used.lineCap = .round
             used.path = {
                 $0.move(to: .init(x: 0, y: 5))
@@ -68,7 +63,7 @@ extension Capacity {
             } (CGMutablePath())
             bar.layer!.addSublayer(used)
             
-            [bar, count, title].forEach {
+            [bar, count].forEach {
                 addSubview($0)
                 $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             }
@@ -77,8 +72,7 @@ extension Capacity {
             bar.widthAnchor.constraint(equalToConstant: 240).isActive = true
             bar.heightAnchor.constraint(equalToConstant: 10).isActive = true
             
-            count.rightAnchor.constraint(equalTo: title.leftAnchor, constant: -5).isActive = true
-            title.rightAnchor.constraint(equalTo: bar.leftAnchor).isActive = true
+            count.rightAnchor.constraint(equalTo: bar.leftAnchor).isActive = true
         }
     }
 }

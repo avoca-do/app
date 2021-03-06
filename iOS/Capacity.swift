@@ -39,7 +39,7 @@ struct Capacity: View {
                 }
                 .frame(width: proxy.size.width)
             }
-            .frame(height: 6)
+            .frame(height: Metrics.capacity.height)
             .padding(.horizontal)
             Text("You can purchase more capacity.\nYou could also delete any existing project to free up capacity.")
                 .font(.footnote)

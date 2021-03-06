@@ -17,4 +17,8 @@ struct Metrics {
     struct progress {
         static let stroke = CGFloat(30)
     }
+    
+    struct capacity {
+        static let height = CGFloat(6)
+    }
 }

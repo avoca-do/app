@@ -4,6 +4,8 @@ import Combine
 import Kanban
 
 @NSApplicationMain final class App: NSApplication, NSApplicationDelegate {
+    static let dark = NSApp.windows.first?.effectiveAppearance == NSAppearance(named: .darkAqua)
+    
     private var subs = Set<AnyCancellable>()
     
     required init?(coder: NSCoder) { nil }

@@ -19,7 +19,7 @@ extension Control {
             addSubview(text)
             self.text = text
             
-            heightAnchor.constraint(equalToConstant: 36).isActive = true
+            heightAnchor.constraint(equalToConstant: 32).isActive = true
             text.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             text.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
             text.leftAnchor.constraint(greaterThanOrEqualTo: leftAnchor, constant: 10).isActive = true

@@ -56,14 +56,13 @@ final class Capacity: NSView {
                 base.addSubview(image)
                 
                 let name = Text()
-                name.font = .systemFont(ofSize: NSFont.preferredFont(forTextStyle: .largeTitle).pointSize, weight: .bold)
+                name.font = .preferredFont(forTextStyle: .largeTitle)
                 name.stringValue = item.title
                 base.addSubview(name)
                 
                 let subtitle = Text()
                 subtitle.font = .preferredFont(forTextStyle: .callout)
                 subtitle.stringValue = item.subtitle
-                subtitle.textColor = .secondaryLabelColor
                 subtitle.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
                 base.addSubview(subtitle)
                 
@@ -82,13 +81,13 @@ final class Capacity: NSView {
                 
                 base.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 20).isActive = true
                 base.leftAnchor.constraint(equalTo: title.leftAnchor).isActive = true
-                base.widthAnchor.constraint(equalToConstant: 560).isActive = true
-                base.heightAnchor.constraint(equalToConstant: 280).isActive = true
+                base.widthAnchor.constraint(equalToConstant: 460).isActive = true
+                base.heightAnchor.constraint(equalToConstant: 300).isActive = true
                 
                 image.topAnchor.constraint(equalTo: base.topAnchor, constant: 30).isActive = true
                 image.leftAnchor.constraint(equalTo: base.leftAnchor, constant: 30).isActive = true
                 
-                name.bottomAnchor.constraint(equalTo: price.topAnchor, constant: -10).isActive = true
+                name.bottomAnchor.constraint(equalTo: price.topAnchor, constant: -5).isActive = true
                 name.centerXAnchor.constraint(equalTo: base.centerXAnchor).isActive = true
                 
                 subtitle.topAnchor.constraint(equalTo: image.topAnchor).isActive = true
@@ -100,7 +99,7 @@ final class Capacity: NSView {
                 
                 purchase.bottomAnchor.constraint(equalTo: base.bottomAnchor, constant: -30).isActive = true
                 purchase.centerXAnchor.constraint(equalTo: base.centerXAnchor).isActive = true
-                purchase.widthAnchor.constraint(equalToConstant: 160).isActive = true
+                purchase.widthAnchor.constraint(equalToConstant: 120).isActive = true
             }
         }.store(in: &subs)
         

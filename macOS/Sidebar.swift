@@ -10,11 +10,11 @@ final class Sidebar: NSVisualEffectView {
         translatesAutoresizingMaskIntoConstraints = false
         material = .sidebar
         
-        let projects = Item(title: NSLocalizedString("Projects", comment: ""), icon: "paperplane")
+        let projects = Item(title: NSLocalizedString("Projects", comment: ""), icon: "paperplane.fill")
         addSubview(projects)
         self.projects = projects
         
-        let capacity = Item(title: NSLocalizedString("Capacity", comment: ""), icon: "square.stack")
+        let capacity = Item(title: NSLocalizedString("Capacity", comment: ""), icon: "square.stack.fill")
         addSubview(capacity)
         self.capacity = capacity
         
