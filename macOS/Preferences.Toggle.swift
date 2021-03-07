@@ -11,7 +11,7 @@ extension Preferences {
             super.init(frame: .zero)
             translatesAutoresizingMaskIntoConstraints = false
             wantsLayer = true
-            layer!.backgroundColor = NSColor.underPageBackgroundColor.cgColor
+            layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
             layer!.cornerRadius = Metrics.corners
             
             let text = Text()

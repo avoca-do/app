@@ -16,7 +16,7 @@ final class Edit: NSView {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         wantsLayer = true
-        layer!.backgroundColor = .init(gray: 0, alpha: App.dark ? 0.1 : 0.05)
+        layer!.backgroundColor = .init(gray: 0, alpha: App.dark ? 0.1 : 0.025)
         
         let top = NSView()
         let bottom = NSView()
@@ -32,7 +32,7 @@ final class Edit: NSView {
         scroll.documentView = text
         self.text = text
         
-        let send = Control.Icon(icon: "arrow.up.square.fill", color: .controlAccentColor)
+        let send = Control.Icon(icon: "arrow.up.square.fill", color: App.dark ? .controlAccentColor : .labelColor)
         send.image.symbolConfiguration = .init(textStyle: .largeTitle)
         send.click.sink {
             text.send()

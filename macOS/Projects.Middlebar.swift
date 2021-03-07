@@ -11,7 +11,7 @@ extension Projects {
             super.init(frame: .zero)
             translatesAutoresizingMaskIntoConstraints = false
             wantsLayer = true
-            layer!.backgroundColor = .init(gray: 0, alpha: App.dark ? 0.1 : 0.05)
+            layer!.backgroundColor = .init(gray: 0, alpha: App.dark ? 0.1 : 0.025)
 
             let left = NSView()
             let right = NSView()
