@@ -46,7 +46,7 @@ final class Edit: NSView {
         [top, bottom].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.wantsLayer = true
-            $0.layer!.backgroundColor = .init(gray: 0, alpha: 0.4)
+            $0.layer!.backgroundColor = .init(gray: 0, alpha: App.dark ? 0.4 : 0.05)
             addSubview($0)
             
             $0.leftAnchor.constraint(equalTo: leftAnchor).isActive = true

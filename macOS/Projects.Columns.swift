@@ -32,7 +32,7 @@ extension Projects {
             var top = title.bottomAnchor
             (0 ..< Session.archive.count(Session.path.board)).forEach { column in
                 let item = Control.Rectangle(title: Session.archive[title: .column(Session.path.board, column)])
-                item.layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
+                item.layer!.backgroundColor = NSColor.controlAccentColor.withAlphaComponent(.init(Metrics.accent.low)).cgColor
                 item.click.sink {
                     Settings(path: .column(Session.path.board, column)).show(relativeTo: item.bounds, of: item, preferredEdge: .minY)
                 }.store(in: &subs)

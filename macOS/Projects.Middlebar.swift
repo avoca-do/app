@@ -25,7 +25,7 @@ extension Projects {
             [left, right].forEach {
                 $0.translatesAutoresizingMaskIntoConstraints = false
                 $0.wantsLayer = true
-                $0.layer!.backgroundColor = .init(gray: 0, alpha: 0.4)
+                $0.layer!.backgroundColor = .init(gray: 0, alpha: App.dark ? 0.4 : 0.05)
                 addSubview($0)
                 
                 $0.widthAnchor.constraint(equalToConstant: 2).isActive = true
