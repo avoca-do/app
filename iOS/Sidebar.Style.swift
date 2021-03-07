@@ -12,7 +12,7 @@ extension Sidebar {
                     .frame(width: 44, height: 44)
                 Image(systemName: image)
                     .font(.title3)
-                    .foregroundColor(selected ? .black : .secondary)
+                    .foregroundColor(selected ? .init(.systemBackground) : .secondary)
             }
         }
     }

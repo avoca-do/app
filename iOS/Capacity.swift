@@ -24,7 +24,7 @@ struct Capacity: View {
             GeometryReader { proxy in
                 ZStack {
                     Capsule()
-                        .fill(Color.primary.opacity(0.3))
+                        .fill(Color.primary.opacity(UIApplication.dark ? 0.3 : 0.1))
                     if session.archive.available {
                         HStack {
                             Capsule()

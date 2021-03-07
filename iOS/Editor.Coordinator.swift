@@ -42,11 +42,13 @@ extension Editor {
                                 .withConfiguration(UIImage.SymbolConfiguration(textStyle: .callout)), for: .normal)
             cancel.imageEdgeInsets.left = -10
             cancel.addTarget(self, action: #selector(resignFirstResponder), for: .touchUpInside)
+            cancel.imageView!.tintColor = .secondaryLabel
             
             let send = UIButton()
             send.setImage(UIImage(systemName: "arrow.up.square.fill")?
                             .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title1)), for: .normal)
             send.imageEdgeInsets.right = -10
+            send.imageView!.tintColor = UIApplication.dark ? UIColor(named: "AccentColor") : .black
             send.addTarget(self, action: #selector(self.send), for: .touchUpInside)
             
             let number = UIButton()
@@ -74,8 +76,8 @@ extension Editor {
                 $0.widthAnchor.constraint(equalToConstant: 60).isActive = true
             }
             
-            [cancel, number, minus, asterisk].forEach {
-                $0.imageView!.tintColor = .secondaryLabel
+            [number, minus, asterisk].forEach {
+                $0.imageView!.tintColor = UIApplication.dark ? .secondaryLabel : .tertiaryLabel
             }
             
             cancel.leftAnchor.constraint(equalTo: input.safeAreaLayoutGuide.leftAnchor).isActive = true
