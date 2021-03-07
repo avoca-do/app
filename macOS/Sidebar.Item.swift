@@ -15,8 +15,9 @@ extension Sidebar {
             addSubview(text)
             
             let image = NSImageView(image: NSImage(systemSymbolName: icon, accessibilityDescription: nil)!)
+            image.symbolConfiguration = .init(textStyle: .callout)
             image.translatesAutoresizingMaskIntoConstraints = false
-            image.contentTintColor = .controlAccentColor
+            image.contentTintColor = .tertiaryLabelColor
             addSubview(image)
             
             widthAnchor.constraint(equalToConstant: Metrics.sidebar.width - Metrics.sidebar.padding).isActive = true

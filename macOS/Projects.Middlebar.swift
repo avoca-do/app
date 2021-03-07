@@ -11,7 +11,7 @@ extension Projects {
             super.init(frame: .zero)
             translatesAutoresizingMaskIntoConstraints = false
             wantsLayer = true
-            layer!.backgroundColor = .init(gray: 0, alpha: 0.1)
+            layer!.backgroundColor = .init(gray: 0, alpha: App.dark ? 0.1 : 0.05)
 
             let left = NSView()
             let right = NSView()
@@ -62,7 +62,7 @@ extension Projects {
                         let separator = NSView()
                         separator.translatesAutoresizingMaskIntoConstraints = false
                         separator.wantsLayer = true
-                        separator.layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.1).cgColor
+                        separator.layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(App.dark ? 0.1 : 0.05).cgColor
                         scroll.add(separator)
                         
                         separator.topAnchor.constraint(equalTo: item.bottomAnchor, constant: 1).isActive = true

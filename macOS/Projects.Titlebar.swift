@@ -63,9 +63,9 @@ extension Projects {
             self.left!.isActive = true
             
             project.leftAnchor.constraint(equalTo: left.leftAnchor, constant: 10).isActive = true
-            progress.rightAnchor.constraint(equalTo: settings.leftAnchor, constant: -5).isActive = true
-            settings.rightAnchor.constraint(equalTo: columns.leftAnchor, constant: -5).isActive = true
-            columns.rightAnchor.constraint(equalTo: card.leftAnchor, constant: -5).isActive = true
+            progress.rightAnchor.constraint(equalTo: columns.leftAnchor, constant: -5).isActive = true
+            settings.rightAnchor.constraint(equalTo: card.leftAnchor, constant: -5).isActive = true
+            columns.rightAnchor.constraint(equalTo: settings.leftAnchor, constant: -5).isActive = true
             card.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -5).isActive = true
         }
         
