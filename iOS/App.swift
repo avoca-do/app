@@ -16,10 +16,6 @@ import Kanban
                     session.dismiss.send()
                     session.open = false
                     session.archive = $0
-                    
-                    if Defaults.capacity > $0.capacity {
-                        session.archive.capacity = Defaults.capacity
-                    }
                 }
                 .onReceive(session.purchases.open) {
                     UIApplication.shared.resign()

@@ -25,13 +25,6 @@ import Kanban
             Session.mutate {
                 $0 = archive
             }
-            
-            if Defaults.capacity > archive.capacity {
-                Session.mutate {
-                    $0.capacity = Defaults.capacity
-                }
-            }
-            
             Session.path = archive.isEmpty(.archive) ? .archive : .board(0)
             Session.scroll.send()
         }.store(in: &subs)
