@@ -39,6 +39,7 @@ extension Edit {
             isAutomaticTextCompletionEnabled = Defaults.correction
             insertionPointColor = .controlAccentColor
             typingAttributes[.font] = NSFont.monospacedSystemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize + 3, weight: .medium)
+            typingAttributes[.kern] = 1
             font = .monospacedSystemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize + 3, weight: .medium)
             selectedTextAttributes = [.backgroundColor: NSColor.controlAccentColor, .foregroundColor: NSColor.black]
             isVerticallyResizable = true
