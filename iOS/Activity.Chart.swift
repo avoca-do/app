@@ -6,35 +6,33 @@ extension Activity {
         let since: String
         
         var body: some View {
-            VStack {
-                ZStack {
-                    Pattern()
-                        .stroke(Color.primary.opacity(0.15), style: .init(lineWidth: 1, lineCap: .round, dash: [1, 4]))
-                    ForEach(0 ..< values.count, id: \.self) { index in
-                        Shade(values: values[index])
-                            .fill(Color.accentColor.opacity(0.3))
-                        Road(values: values[index])
-                            .stroke(Color.accentColor, style: .init(lineWidth: 2, lineCap: .round))
-                        ForEach(0 ..< values[index].count, id: \.self) {
-                            Dot(y: values[index][$0], index: $0, count: values[index].count)
-                                .fill(Color.black)
-                            Dot(y: values[index][$0], index: $0, count: values[index].count)
-                                .stroke(Color.primary, style: .init(lineWidth: 2, lineCap: .round))
-                        }
+            ZStack {
+                Pattern()
+                    .stroke(Color.primary.opacity(0.15), style: .init(lineWidth: 1, lineCap: .round, dash: [1, 4]))
+                ForEach(0 ..< values.count, id: \.self) { index in
+                    Shade(values: values[index])
+                        .fill(Color.accentColor.opacity(0.3))
+                    Road(values: values[index])
+                        .stroke(Color.accentColor, style: .init(lineWidth: 2, lineCap: .round))
+                    ForEach(0 ..< values[index].count, id: \.self) {
+                        Dot(y: values[index][$0], index: $0, count: values[index].count)
+                            .fill(Color.black)
+                        Dot(y: values[index][$0], index: $0, count: values[index].count)
+                            .stroke(Color.primary, style: .init(lineWidth: 2, lineCap: .round))
                     }
                 }
-                .padding()
-                HStack {
-                    Text(verbatim: since)
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
-                    Spacer()
-                    Text("Now")
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
-                }
-                .padding(.horizontal)
             }
+            .padding()
+            HStack {
+                Text(verbatim: since)
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+                Spacer()
+                Text("Now")
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+            }
+            .padding(.horizontal)
         }
     }
 }
