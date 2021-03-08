@@ -20,11 +20,11 @@ extension Capacity {
             Button(action: action) {
                 ZStack {
                     RoundedRectangle(cornerRadius: Metrics.corners)
-                        .fill(Color.blue)
+                        .fill(Color.accentColor)
                     Text("Purchase")
                         .font(.callout)
                         .fontWeight(.medium)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                         .padding(.vertical, 10)
                 }
                 .frame(maxWidth: .greatestFiniteMagnitude)

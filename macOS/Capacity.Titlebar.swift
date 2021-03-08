@@ -39,7 +39,7 @@ extension Capacity {
             
             let total = CAShapeLayer()
             total.frame = .init(x: 20, y: 0, width: 200, height: 10)
-            total.strokeColor = NSColor.labelColor.withAlphaComponent(0.1).cgColor
+            total.strokeColor = NSColor.labelColor.withAlphaComponent(App.dark ? 0.2 : 0.1).cgColor
             total.fillColor = .clear
             total.lineWidth = Metrics.capacity.height
             total.lineCap = .round

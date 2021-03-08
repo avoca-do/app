@@ -9,12 +9,6 @@ final class Capacity: NSView {
     init() {
         super.init(frame: .zero)
         
-        let border = NSView()
-        border.translatesAutoresizingMaskIntoConstraints = false
-        border.wantsLayer = true
-        border.layer!.backgroundColor = .init(gray: 0, alpha: App.dark ? 0.4 : 0.05)
-        addSubview(border)
-        
         let title = Text()
         title.stringValue = NSLocalizedString("You can purchase more capacity.\nYou could also delete any existing project to free up capacity.", comment: "")
         title.font = .preferredFont(forTextStyle: .body)
@@ -22,18 +16,13 @@ final class Capacity: NSView {
         title.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         addSubview(title)
         
-        border.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        border.widthAnchor.constraint(equalToConstant: 2).isActive = true
-        border.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        border.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        
         title.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         title.leftAnchor.constraint(equalTo: leftAnchor, constant: 30).isActive = true
         title.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -30).isActive = true
         
         Session.purchases.loading.combineLatest(Session.purchases.products, Session.purchases.error).sink { [weak self] in
             guard let self = self else { return }
-            self.subviews.filter { $0 != title && $0 != border }.forEach { $0.removeFromSuperview() }
+            self.subviews.filter { $0 != title }.forEach { $0.removeFromSuperview() }
             if let error = $0.2 {
                 let text = Text()
                 text.stringValue = error
@@ -84,14 +73,14 @@ final class Capacity: NSView {
                 base.addSubview(price)
                 
                 let purchase = Control.Rectangle(title: NSLocalizedString("Purchase", comment: ""))
-                purchase.layer!.backgroundColor = NSColor.systemBlue.cgColor
-                purchase.text.textColor = .white
+                purchase.layer!.backgroundColor = NSColor.controlAccentColor.cgColor
+                purchase.text.textColor = .black
                 purchase.click.sink {
                     Session.purchases.purchase(product.0)
                 }.store(in: &self.subs)
                 base.addSubview(purchase)
                 
-                base.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 20).isActive = true
+                base.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 10).isActive = true
                 base.leftAnchor.constraint(equalTo: title.leftAnchor).isActive = true
                 base.widthAnchor.constraint(equalToConstant: 460).isActive = true
                 base.heightAnchor.constraint(equalToConstant: 300).isActive = true
