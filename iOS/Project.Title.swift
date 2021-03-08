@@ -16,7 +16,7 @@ extension Project {
                         .font(.title2)
                         .foregroundColor(.secondary)
                 }
-                .frame(width: 64, height: 64)
+                .frame(width: 64, height: 70)
                 .contentShape(Rectangle())
                 Text(verbatim: session.archive[name: session.path])
                     .bold()

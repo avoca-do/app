@@ -12,7 +12,11 @@ extension Sidebar {
                     .frame(width: 44, height: 44)
                 Image(systemName: image)
                     .font(.title3)
-                    .foregroundColor(selected ? .init(.systemBackground) : .secondary)
+                    .foregroundColor(selected
+                                        ? .init(.systemBackground)
+                                        : UIApplication.dark
+                                            ? .secondary
+                                            : .init(.tertiaryLabel))
             }
         }
     }

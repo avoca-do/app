@@ -62,6 +62,8 @@
 		CE5F391925DD96490095F4FB /* Projects.Middlebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5F391825DD96490095F4FB /* Projects.Middlebar.Item.swift */; };
 		CE5F391D25DD9BE30095F4FB /* Projects.Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5F391C25DD9BE30095F4FB /* Projects.Empty.swift */; };
 		CE5F392125DD9CD60095F4FB /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5F392025DD9CD60095F4FB /* Board.swift */; };
+		CE6229DA25F65435008ED49E /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6229D925F65435008ED49E /* Activity.swift */; };
+		CE6229DE25F6549E008ED49E /* Activity.Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6229DD25F6549E008ED49E /* Activity.Chart.swift */; };
 		CE69A58125D15EB600EC9DB0 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A58025D15EB600EC9DB0 /* Progress.swift */; };
 		CE69A58725D1611400EC9DB0 /* Progress.Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */; };
 		CE69A59325D1816300EC9DB0 /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A59225D1816300EC9DB0 /* Switch.swift */; };
@@ -168,6 +170,8 @@
 		CE5F391825DD96490095F4FB /* Projects.Middlebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Middlebar.Item.swift; sourceTree = "<group>"; };
 		CE5F391C25DD9BE30095F4FB /* Projects.Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Empty.swift; sourceTree = "<group>"; };
 		CE5F392025DD9CD60095F4FB /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		CE6229D925F65435008ED49E /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		CE6229DD25F6549E008ED49E /* Activity.Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Chart.swift; sourceTree = "<group>"; };
 		CE69A58025D15EB600EC9DB0 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.Ring.swift; sourceTree = "<group>"; };
 		CE69A59225D1816300EC9DB0 /* Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
@@ -267,6 +271,8 @@
 				CE6D659C25D1A1060017FE07 /* Settings.bundle */,
 				CEA1819825C04DD200552DEF /* Avocado.entitlements */,
 				CE2507A225B8660A00F9C526 /* Info.plist */,
+				CE6229DD25F6549E008ED49E /* Activity.Chart.swift */,
+				CE6229D925F65435008ED49E /* Activity.swift */,
 				CE575AF425C1730500A6B28D /* App.Delegate.swift */,
 				CE25079925B8660900F9C526 /* App.swift */,
 				CE71D20725B98FF000D0F4E3 /* Board.swift */,
@@ -529,6 +535,7 @@
 				CEA0D18E25EC45110011FFC0 /* Middlebar.Item.swift in Sources */,
 				CEDB78FE25ED0E08001A02A4 /* Card.swift in Sources */,
 				CEDB78F025ECFC8B001A02A4 /* Project.Title.swift in Sources */,
+				CE6229DE25F6549E008ED49E /* Activity.Chart.swift in Sources */,
 				CE69A58725D1611400EC9DB0 /* Progress.Ring.swift in Sources */,
 				CE4206A225D1853B00E43D49 /* Capacity.swift in Sources */,
 				CE25079A25B8660900F9C526 /* App.swift in Sources */,
@@ -540,6 +547,7 @@
 				CE1E602125CD9B5C00456852 /* Project.Edit.swift in Sources */,
 				CE9A9ECD25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift in Sources */,
 				CE4206AA25D18C5F00E43D49 /* Purchases.Item.swift in Sources */,
+				CE6229DA25F65435008ED49E /* Activity.swift in Sources */,
 				CE95052925EA770500EB178E /* _Metrics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,17 +22,16 @@ struct Column: View {
             Rectangle()
                 .fill(Color(.tertiaryLabel))
                 .frame(height: 1)
-                .padding(.horizontal)
-                .padding(.top, 7)
+                .padding([.horizontal, .top])
             ScrollView(session.path.column == path ? .vertical : []) {
                 VStack(spacing: 0) {
                     Spacer()
-                        .frame(height: 10)
+                        .frame(height: 20)
                     ForEach(0 ..< session.archive.count(path), id: \.self) {
                         Card(session: $session, path: .card(path, $0))
                     }
                     Spacer()
-                        .frame(height: 20)
+                        .frame(height: 30)
                 }
             }
             .disabled(session.path.column != path)

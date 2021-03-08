@@ -21,4 +21,9 @@ struct Metrics {
     struct capacity {
         static let height = CGFloat(6)
     }
+    
+    struct chart {
+        static let horizontal = 15
+        static let vertical = 6
+    }
 }

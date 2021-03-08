@@ -20,7 +20,9 @@ struct Middlebar: View {
                 } label: {
                     Image(systemName: "plus.circle.fill")
                         .font(.title2)
-                        .frame(width: 55, height: 50)
+                        .frame(width: 45, height: 50)
+                        .padding(.leading)
+                        
                 }
                 .actionSheet(isPresented: $alert) {
                     .init(title: .init("You have reached your capacity for projects"),

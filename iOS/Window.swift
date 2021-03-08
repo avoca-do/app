@@ -13,6 +13,8 @@ struct Window: View {
                 switch session.section {
                 case .projects:
                     Middlebar(session: $session)
+                case .activity:
+                    Activity(session: $session)
                 case .capacity:
                     Capacity(session: $session)
                 case .settings:
