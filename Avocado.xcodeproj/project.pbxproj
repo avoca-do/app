@@ -71,6 +71,8 @@
 		CE6D659D25D1A1060017FE07 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE6D659C25D1A1060017FE07 /* Settings.bundle */; };
 		CE7183B925CC3CAC00AD02F8 /* Dismisser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7183B825CC3CAC00AD02F8 /* Dismisser.swift */; };
 		CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D20725B98FF000D0F4E3 /* Board.swift */; };
+		CE71F83725F7810B00D4379A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F83625F7810B00D4379A /* Color.swift */; };
+		CE71F83D25F7817100D4379A /* Activity.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F83C25F7817100D4379A /* Activity.Item.swift */; };
 		CE7D6FBC25F256E30028BB2A /* Middelbar.Item.Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D6FBB25F256E30028BB2A /* Middelbar.Item.Style.swift */; };
 		CE8C6ED325C31A4E007D25FC /* Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6ED225C31A4E007D25FC /* Editor.swift */; };
 		CE8C6EDD25C31D51007D25FC /* Editor.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */; };
@@ -179,6 +181,8 @@
 		CE6D659C25D1A1060017FE07 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CE7183B825CC3CAC00AD02F8 /* Dismisser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dismisser.swift; sourceTree = "<group>"; };
 		CE71D20725B98FF000D0F4E3 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		CE71F83625F7810B00D4379A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		CE71F83C25F7817100D4379A /* Activity.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Item.swift; sourceTree = "<group>"; };
 		CE7D6FBB25F256E30028BB2A /* Middelbar.Item.Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middelbar.Item.Style.swift; sourceTree = "<group>"; };
 		CE8C6ED225C31A4E007D25FC /* Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.swift; sourceTree = "<group>"; };
 		CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.Coordinator.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 				CEA1819825C04DD200552DEF /* Avocado.entitlements */,
 				CE2507A225B8660A00F9C526 /* Info.plist */,
 				CE6229DD25F6549E008ED49E /* Activity.Chart.swift */,
+				CE71F83C25F7817100D4379A /* Activity.Item.swift */,
 				CE6229D925F65435008ED49E /* Activity.swift */,
 				CE575AF425C1730500A6B28D /* App.Delegate.swift */,
 				CE25079925B8660900F9C526 /* App.swift */,
@@ -279,6 +284,7 @@
 				CE4206AD25D1937E00E43D49 /* Capacity.Item.swift */,
 				CE4206A125D1853B00E43D49 /* Capacity.swift */,
 				CEDB78FD25ED0E08001A02A4 /* Card.swift */,
+				CE71F83625F7810B00D4379A /* Color.swift */,
 				CEDB78E825ECFA7D001A02A4 /* Column.swift */,
 				CE7183B825CC3CAC00AD02F8 /* Dismisser.swift */,
 				CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */,
@@ -529,10 +535,12 @@
 				CE4206AE25D1937E00E43D49 /* Capacity.Item.swift in Sources */,
 				CEA0D19625EC4C650011FFC0 /* Project.swift in Sources */,
 				CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */,
+				CE71F83725F7810B00D4379A /* Color.swift in Sources */,
 				CEAFE89225EFE80F00B45B8C /* Modal.Card.Footer.swift in Sources */,
 				CE8C6EDD25C31D51007D25FC /* Editor.Coordinator.swift in Sources */,
 				CE95053625EA795A00EB178E /* Sidebar.Style.swift in Sources */,
 				CEA0D18E25EC45110011FFC0 /* Middlebar.Item.swift in Sources */,
+				CE71F83D25F7817100D4379A /* Activity.Item.swift in Sources */,
 				CEDB78FE25ED0E08001A02A4 /* Card.swift in Sources */,
 				CEDB78F025ECFC8B001A02A4 /* Project.Title.swift in Sources */,
 				CE6229DE25F6549E008ED49E /* Activity.Chart.swift in Sources */,

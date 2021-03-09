@@ -2,38 +2,29 @@ import SwiftUI
 
 extension Activity {
     struct Chart: View {
+        @Binding var hidden: Set<Int>
         let values: [[Double]]
         
         var body: some View {
             ZStack {
                 Pattern()
-                    .stroke(Color.primary.opacity(0.2), style: .init(lineWidth: 1, lineCap: .round, dash: [1, 4]))
+                    .stroke(Color.primary.opacity(UIApplication.dark ? 0.4 : 0.2), style: .init(lineWidth: 1, lineCap: .round, dash: [1, 4]))
                 ForEach(0 ..< values.count, id: \.self) { index in
-                    Shade(values: values[index])
-                        .fill(self[index].opacity(0.3))
-                    Road(values: values[index])
-                        .stroke(self[index], style: .init(lineWidth: 2, lineCap: .round))
-                    ForEach(0 ..< values[index].count, id: \.self) {
-                        Dot(y: values[index][$0], index: $0, count: values[index].count)
-                            .fill(Color.black)
-                            .zIndex(1)
-                        Dot(y: values[index][$0], index: $0, count: values[index].count)
-                            .stroke(self[index], style: .init(lineWidth: 2, lineCap: .round))
-                            .zIndex(2)
+                    if !hidden.contains(index) {
+                        Shade(values: values[index])
+                            .fill(Color.index(index).opacity(0.3))
+                        Road(values: values[index])
+                            .stroke(Color.index(index), style: .init(lineWidth: 2, lineCap: .round))
+                        ForEach(0 ..< values[index].count, id: \.self) {
+                            Dot(y: values[index][$0], index: $0, count: values[index].count)
+                                .fill(Color.black)
+                                .zIndex(1)
+                            Dot(y: values[index][$0], index: $0, count: values[index].count)
+                                .stroke(Color.index(index), style: .init(lineWidth: 2, lineCap: .round))
+                                .zIndex(2)
+                        }
                     }
                 }
-            }
-        }
-        
-        private subscript(_ index: Int) -> Color {
-            switch index {
-            case 0: return .blue
-            case 1: return .pink
-            case 2: return .purple
-            case 3: return .init(.systemIndigo)
-            case 4: return .orange
-            case 5: return .green
-            default: return .init(.tertiaryLabel)
             }
         }
     }
@@ -97,7 +88,7 @@ private struct Dot: Shape {
 
     func path(in rect: CGRect) -> Path {
         .init {
-            $0.addArc(center: .init(x: Double(rect.maxX) / .init(count - 1) * .init(index), y: .init(rect.maxY) - (.init(rect.maxY) * y)), radius: 3, startAngle: .zero, endAngle: .init(radians: .pi * 2), clockwise: true)
+            $0.addArc(center: .init(x: Double(rect.maxX) / .init(count - 1) * .init(index), y: .init(rect.maxY) - (.init(rect.maxY) * y)), radius: 4, startAngle: .zero, endAngle: .init(radians: .pi * 2), clockwise: true)
         }
     }
 }

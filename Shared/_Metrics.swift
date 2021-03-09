@@ -23,7 +23,7 @@ struct Metrics {
     }
     
     struct chart {
-        static let horizontal = 15
-        static let vertical = 6
+        static let horizontal = 12
+        static let vertical = 5
     }
 }
