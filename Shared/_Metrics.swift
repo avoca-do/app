@@ -25,5 +25,6 @@ struct Metrics {
     struct chart {
         static let horizontal = 12
         static let vertical = 5
+        static let circle = CGFloat(16)
     }
 }

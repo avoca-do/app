@@ -22,7 +22,7 @@ extension Activity {
                     Circle()
                         .fill(hidden.contains(index) ? .init(.tertiaryLabel) : Color.index(index))
                         .opacity(hidden.contains(index) ? (UIApplication.dark ? 0.5 : 0.2) : 1)
-                        .frame(width: 16, height: 16)
+                        .frame(width: Metrics.chart.circle, height: Metrics.chart.circle)
                     Text(verbatim: session.archive[name: .board(index)])
                         .foregroundColor(hidden.contains(index) ?  .init(.tertiaryLabel) : .primary)
                         .font(.footnote)

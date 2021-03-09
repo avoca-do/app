@@ -73,6 +73,12 @@
 		CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D20725B98FF000D0F4E3 /* Board.swift */; };
 		CE71F83725F7810B00D4379A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F83625F7810B00D4379A /* Color.swift */; };
 		CE71F83D25F7817100D4379A /* Activity.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F83C25F7817100D4379A /* Activity.Item.swift */; };
+		CE71F84325F7890000D4379A /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F84225F7890000D4379A /* Activity.swift */; };
+		CE71F84725F78A9900D4379A /* Activity.Titlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F84625F78A9900D4379A /* Activity.Titlebar.swift */; };
+		CE71F84D25F78ACE00D4379A /* Segmented.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F84C25F78ACE00D4379A /* Segmented.swift */; };
+		CE71F85D25F7908000D4379A /* Activity.Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F85C25F7908000D4379A /* Activity.Chart.swift */; };
+		CE71F86325F797FB00D4379A /* Activity.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F86225F797FB00D4379A /* Activity.Item.swift */; };
+		CE71F86925F798E400D4379A /* NSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F86825F798E400D4379A /* NSColor.swift */; };
 		CE7D6FBC25F256E30028BB2A /* Middelbar.Item.Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D6FBB25F256E30028BB2A /* Middelbar.Item.Style.swift */; };
 		CE8C6ED325C31A4E007D25FC /* Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6ED225C31A4E007D25FC /* Editor.swift */; };
 		CE8C6EDD25C31D51007D25FC /* Editor.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */; };
@@ -183,6 +189,12 @@
 		CE71D20725B98FF000D0F4E3 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		CE71F83625F7810B00D4379A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CE71F83C25F7817100D4379A /* Activity.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Item.swift; sourceTree = "<group>"; };
+		CE71F84225F7890000D4379A /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		CE71F84625F78A9900D4379A /* Activity.Titlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Titlebar.swift; sourceTree = "<group>"; };
+		CE71F84C25F78ACE00D4379A /* Segmented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segmented.swift; sourceTree = "<group>"; };
+		CE71F85C25F7908000D4379A /* Activity.Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Chart.swift; sourceTree = "<group>"; };
+		CE71F86225F797FB00D4379A /* Activity.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Item.swift; sourceTree = "<group>"; };
+		CE71F86825F798E400D4379A /* NSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColor.swift; sourceTree = "<group>"; };
 		CE7D6FBB25F256E30028BB2A /* Middelbar.Item.Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middelbar.Item.Style.swift; sourceTree = "<group>"; };
 		CE8C6ED225C31A4E007D25FC /* Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.swift; sourceTree = "<group>"; };
 		CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.Coordinator.swift; sourceTree = "<group>"; };
@@ -341,6 +353,10 @@
 			children = (
 				CE99E68125DBFEA000E0EA36 /* macOS.entitlements */,
 				CE99E68025DBFEA000E0EA36 /* Info.plist */,
+				CE71F85C25F7908000D4379A /* Activity.Chart.swift */,
+				CE71F86225F797FB00D4379A /* Activity.Item.swift */,
+				CE71F84225F7890000D4379A /* Activity.swift */,
+				CE71F84625F78A9900D4379A /* Activity.Titlebar.swift */,
 				CE99E67725DBFE9F00E0EA36 /* App.swift */,
 				CECFD8C125E3EA0000BD3532 /* Array.swift */,
 				CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */,
@@ -363,6 +379,7 @@
 				CE221BC925DD563400EFA20B /* Metrics.swift */,
 				CEC22CB125E695B90035E674 /* NSAlert.swift */,
 				CE3832F625DE949700539F4E /* NSAttributedString.swift */,
+				CE71F86825F798E400D4379A /* NSColor.swift */,
 				CE4C49F025E533F500BCF746 /* NSMenuItem.swift */,
 				CE38331625DEA75400539F4E /* Plus.Field.swift */,
 				CE3832FE25DE994700539F4E /* Plus.swift */,
@@ -378,6 +395,7 @@
 				CE221BBD25DD552E00EFA20B /* Projects.swift */,
 				CE221BCF25DD5A5E00EFA20B /* Projects.Titlebar.swift */,
 				CE5F391225DD91070095F4FB /* Scroll.swift */,
+				CE71F84C25F78ACE00D4379A /* Segmented.swift */,
 				CE221BF825DD6DC200EFA20B /* Session.swift */,
 				CECFD8BB25E3E3A500BD3532 /* Set.Board.Cell.swift */,
 				CE4C49DD25E523CA00BCF746 /* Set.Board.Item.swift */,
@@ -568,6 +586,7 @@
 				CE9A9ECE25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift in Sources */,
 				CE221BF925DD6DC200EFA20B /* Session.swift in Sources */,
 				CEC22CB225E695B90035E674 /* NSAlert.swift in Sources */,
+				CE71F85D25F7908000D4379A /* Activity.Chart.swift in Sources */,
 				CE418AE825E801AA000F2546 /* Preferences.Toggle.swift in Sources */,
 				CECFD8C225E3EA0000BD3532 /* Array.swift in Sources */,
 				CE221BBE25DD552E00EFA20B /* Projects.swift in Sources */,
@@ -575,12 +594,14 @@
 				CE221BA225DD3D3E00EFA20B /* Sidebar.Item.swift in Sources */,
 				CE221BCA25DD563400EFA20B /* Metrics.swift in Sources */,
 				CE9DD44825E576730087CC8C /* Projects.Columns.swift in Sources */,
+				CE71F86325F797FB00D4379A /* Activity.Item.swift in Sources */,
 				CE4E4A8425E15DCA007A46BB /* Control.Icon.swift in Sources */,
 				CE221BD425DD5B2A00EFA20B /* Control.Squircle.swift in Sources */,
 				CE5F391D25DD9BE30095F4FB /* Projects.Empty.swift in Sources */,
 				CE95052E25EA771900EB178E /* _Metrics.swift in Sources */,
 				CE4E4A6E25E14BF0007A46BB /* Projects.Item.swift in Sources */,
 				CE221BF325DD6C1900EFA20B /* Capacity.swift in Sources */,
+				CE71F84725F78A9900D4379A /* Activity.Titlebar.swift in Sources */,
 				CE418AEE25E805A9000F2546 /* Projects.Progress.swift in Sources */,
 				CE4E4A7225E14CFA007A46BB /* Edit.swift in Sources */,
 				CE3832F725DE949700539F4E /* NSAttributedString.swift in Sources */,
@@ -592,10 +613,13 @@
 				CE4E4A8A25E16323007A46BB /* Edit.Text.swift in Sources */,
 				CE221BB425DD3E8900EFA20B /* Text.swift in Sources */,
 				CE4C49F125E533F500BCF746 /* NSMenuItem.swift in Sources */,
+				CE71F86925F798E400D4379A /* NSColor.swift in Sources */,
 				CEC22CC125E6AC0C0035E674 /* Purchases.swift in Sources */,
 				CE3832FF25DE994700539F4E /* Plus.swift in Sources */,
+				CE71F84325F7890000D4379A /* Activity.swift in Sources */,
 				CEC22CC425E6AC0F0035E674 /* Purchases.Item.swift in Sources */,
 				CE12944925DEC027000533B1 /* Board.Cell.swift in Sources */,
+				CE71F84D25F78ACE00D4379A /* Segmented.swift in Sources */,
 				CE12945725DECAC4000533B1 /* Board.Item.swift in Sources */,
 				CE1B806525E2B5A30075ACE4 /* Board.Cell.State.swift in Sources */,
 				CEF1B84125E41F6A004B72AF /* Projects.Settings.swift in Sources */,

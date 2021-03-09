@@ -27,6 +27,10 @@ final class Window: NSWindow {
             self?.projects()
         }.store(in: &subs)
         
+        sidebar.activity.click.sink { [weak self] in
+            self?.activity()
+        }.store(in: &subs)
+        
         sidebar.capacity.click.sink { [weak self] in
             self?.capacity()
         }.store(in: &subs)
@@ -66,6 +70,12 @@ final class Window: NSWindow {
         titlebarAccessoryViewControllers.first!.view = Projects.Titlebar()
     }
     
+    private func activity() {
+        select(sidebar.activity)
+        show(Activity())
+        titlebarAccessoryViewControllers.first!.view = Activity.Titlebar()
+    }
+    
     private func capacity() {
         select(sidebar.capacity)
         show(Capacity())
@@ -89,7 +99,7 @@ final class Window: NSWindow {
     
     private func select(_ item: Sidebar.Item) {
         Session.edit.send(nil)
-        [sidebar.projects, sidebar.capacity].forEach {
+        [sidebar.projects, sidebar.activity, sidebar.capacity].forEach {
             $0.state = $0 == item ? .selected : .on
         }
     }

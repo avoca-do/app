@@ -40,3 +40,8 @@ extension Metrics {
         static let right = CGFloat(60)
     }
 }
+
+extension Metrics.chart {
+    static let size = CGSize(width: 600, height: 250)
+    static let padding = CGFloat(20)
+}
