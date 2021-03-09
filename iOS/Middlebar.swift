@@ -9,7 +9,7 @@ struct Middlebar: View {
             HStack {
                 Text("Projects")
                     .bold()
-                    .padding(.leading)
+                    .padding(.leading, 20)
                 Spacer()
                 Button {
                     if session.archive.available {
@@ -45,7 +45,7 @@ struct Middlebar: View {
                 } else {
                     ScrollView {
                         Spacer()
-                            .frame(height: 10)
+                            .frame(height: 5)
                         ForEach(0 ..< session.archive.count(.archive), id: \.self) {
                             Item(session: $session, path: .board($0))
                         }

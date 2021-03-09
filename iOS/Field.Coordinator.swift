@@ -30,7 +30,7 @@ extension Field {
             field.autocorrectionType = Defaults.correction ? .yes : .no
             field.autocapitalizationType = .words
             field.spellCheckingType = Defaults.spell ? .yes : .no
-            field.backgroundColor = UIApplication.dark ? UIColor.label.withAlphaComponent(0.1) : .init(white: 1, alpha: 0.6)
+            field.backgroundColor = UIApplication.dark ? .init(white: 1, alpha: 0.2) : .init(white: 1, alpha: 0.6)
             field.tintColor = .label
             field.allowsEditingTextAttributes = false
             field.delegate = self

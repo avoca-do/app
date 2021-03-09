@@ -15,7 +15,7 @@ extension Middlebar {
                 }
             } label: { }.buttonStyle(Style(name: session.archive[name: path],
                                            date: RelativeDateTimeFormatter().string(from: session.archive.date(path), to: .init())))
-            .padding(.horizontal)
+            .padding(.horizontal, 4)
         }
     }
 }

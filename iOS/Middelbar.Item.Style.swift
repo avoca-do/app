@@ -11,8 +11,7 @@ extension Middlebar.Item {
                     .fill(configuration.isPressed ? Color.accentColor.opacity(Metrics.accent.high) : .clear)
                 VStack(alignment: .leading) {
                     Text(verbatim: name)
-                        .font(.callout)
-                        .fontWeight(.medium)
+                        .font(Font.callout.bold())
                         .foregroundColor(.primary)
                         .fixedSize(horizontal: false, vertical: true)
                     Text(verbatim: date)
