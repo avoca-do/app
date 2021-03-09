@@ -7,12 +7,12 @@ extension Activity {
             super.init(layer: layer)
         }
         
-        init(values: [[Double]], frame: CGRect) {
+        init(values: [[Double]], hidden: Set<Int>, frame: CGRect) {
             super.init()
             self.frame = frame
             
             let pattern = CAShapeLayer()
-            pattern.strokeColor = NSColor.labelColor.withAlphaComponent(0.15).cgColor
+            pattern.strokeColor = NSColor.labelColor.withAlphaComponent(App.dark ? 0.3 : 0.2).cgColor
             pattern.fillColor = .clear
             pattern.lineWidth = 1
             pattern.lineCap = .round
@@ -31,53 +31,50 @@ extension Activity {
             } (CGMutablePath())
             addSublayer(pattern)
             
-            values.forEach { values in
+            values.enumerated().forEach { values in
+                guard !hidden.contains(values.0) && !values.1.isEmpty else { return }
                 let shade = CAShapeLayer()
-                shade.fillColor = NSColor.controlAccentColor.withAlphaComponent(0.3).cgColor
+                shade.fillColor = NSColor.index(values.0).withAlphaComponent(0.3).cgColor
                 shade.path = {
-                    if !values.isEmpty {
-                        $0.move(to: .init(x: 0, y: 0))
-                        $0.addLines(between: values.enumerated().map {
-                            .init(x: Double(bounds.maxX) / .init(values.count - 1) * .init($0.0), y: .init(bounds.maxY) * $0.1)
-                        })
-                        $0.addLine(to: .init(x: bounds.maxX, y: 0))
-                        $0.addLine(to: .init(x: 0, y: 0))
-                        $0.closeSubpath()
-                    }
+                    $0.move(to: .init(x: 0, y: 0))
+                    $0.addLines(between: values.1.enumerated().map {
+                        .init(x: Double(bounds.maxX) / .init(values.1.count - 1) * .init($0.0), y: .init(bounds.maxY) * $0.1)
+                    })
+                    $0.addLine(to: .init(x: bounds.maxX, y: 0))
+                    $0.addLine(to: .init(x: 0, y: 0))
+                    $0.closeSubpath()
                     return $0
                 } (CGMutablePath())
                 addSublayer(shade)
             }
             
-            values.forEach { values in
+            values.enumerated().forEach { values in
+                guard !hidden.contains(values.0) && !values.1.isEmpty else { return }
                 let road = CAShapeLayer()
-                road.strokeColor = NSColor.controlAccentColor.cgColor
+                road.strokeColor = NSColor.index(values.0).cgColor
                 road.fillColor = .clear
                 road.lineWidth = 2
                 road.lineCap = .round
                 road.path = {
                     $0.move(to: .init(x: 0, y: 0))
-                    if !values.isEmpty {
-                        $0.addLines(between: values.enumerated().map {
-                            .init(x: Double(bounds.maxX) / .init(values.count - 1) * .init($0.0), y: .init(bounds.maxY) * $0.1)
-                        })
-                    } else {
-                        $0.addLine(to: .init(x: bounds.maxX, y: 0))
-                    }
+                    $0.addLines(between: values.1.enumerated().map {
+                        .init(x: Double(bounds.maxX) / .init(values.1.count - 1) * .init($0.0), y: .init(bounds.maxY) * $0.1)
+                    })
                     return $0
                 } (CGMutablePath())
                 addSublayer(road)
             }
             
-            values.forEach { values in
-                (0 ..< values.count).forEach { index in
+            values.enumerated().forEach { values in
+                guard !hidden.contains(values.0) && !values.1.isEmpty else { return }
+                (0 ..< values.1.count).forEach { index in
                     let dot = CAShapeLayer()
                     dot.fillColor = .black
-                    dot.strokeColor = NSColor.labelColor.cgColor
+                    dot.strokeColor = NSColor.index(values.0).cgColor
                     dot.lineWidth = 2
                     dot.lineCap = .round
                     dot.path = {
-                        $0.addArc(center: .init(x: Double(bounds.maxX) / .init(values.count - 1) * .init(index), y: .init(bounds.maxY) * .init(values[index])), radius: 6, startAngle: .zero, endAngle: .pi * 2, clockwise: true)
+                        $0.addArc(center: .init(x: Double(bounds.maxX) / .init(values.1.count - 1) * .init(index), y: .init(bounds.maxY) * .init(values.1[index])), radius: 7, startAngle: .zero, endAngle: .pi * 2, clockwise: true)
                         return $0
                     } (CGMutablePath())
                     addSublayer(dot)

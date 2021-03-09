@@ -4,7 +4,6 @@ import Kanban
 
 extension Activity {
     final class Titlebar: NSView {
-        let period = PassthroughSubject<Period, Never>()
         private var subs = Set<AnyCancellable>()
         
         required init?(coder: NSCoder) { nil }
@@ -12,9 +11,9 @@ extension Activity {
             super.init(frame: .zero)
             
             let segmented = Segmented(items: ["Day", "Week", "Month", "Year"])
-            segmented.selected.value = Period.allCases.firstIndex(of: .week)!
-            segmented.selected.dropFirst().sink { [weak self] in
-                self?.period.send(Period.allCases[$0])
+            segmented.selected.value = Period.allCases.firstIndex(of: Session.period.value)!
+            segmented.selected.dropFirst().sink {
+                Session.period.value = Period.allCases[$0]
             }.store(in: &subs)
             addSubview(segmented)
             

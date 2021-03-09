@@ -15,7 +15,6 @@ extension Activity {
             let circle = NSView()
             circle.translatesAutoresizingMaskIntoConstraints = false
             circle.wantsLayer = true
-            circle.layer!.backgroundColor = NSColor.index(index).cgColor
             circle.layer!.cornerRadius = Metrics.chart.circle / 2
             addSubview(circle)
             self.circle = circle
@@ -32,11 +31,25 @@ extension Activity {
             circle.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             circle.widthAnchor.constraint(equalToConstant: Metrics.chart.circle).isActive = true
             circle.heightAnchor.constraint(equalTo: circle.widthAnchor).isActive = true
-            circle.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+            circle.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
             
             label.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
             label.leftAnchor.constraint(equalTo: circle.rightAnchor, constant: 4).isActive = true
-            label.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -16).isActive = true
+            label.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -12).isActive = true
+            
+            on()
+        }
+        
+        func on() {
+            circle.layer!.backgroundColor = NSColor.index(index).cgColor
+            circle.alphaValue = 1
+            label.textColor = .labelColor
+        }
+        
+        func off() {
+            circle.layer!.backgroundColor = NSColor.tertiaryLabelColor.cgColor
+            circle.alphaValue = App.dark ? 0.5 : 0.2
+            label.textColor = .secondaryLabelColor
         }
     }
 }

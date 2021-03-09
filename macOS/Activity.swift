@@ -1,9 +1,12 @@
 import AppKit
 import Combine
+import Kanban
 
 final class Activity: NSView {
     private weak var chart: Chart?
     private weak var base: NSView!
+    private var hide = Set<Int>()
+    private var subs = Set<AnyCancellable>()
     
     required init?(coder: NSCoder) { nil }
     init() {
@@ -21,13 +24,24 @@ final class Activity: NSView {
         self.base = base
         
         var top = base.bottomAnchor
-        (0 ..< Session.archive.count(.archive)).forEach {
-            let item = Item(index: $0)
+        (0 ..< Session.archive.count(.archive)).forEach { index in
+            let item = Item(index: index)
+            item.click.sink { [weak self] in
+                guard let self = self else { return }
+                if self.hide.contains(index) {
+                    self.hide.remove(index)
+                    item.on()
+                } else {
+                    self.hide.insert(index)
+                    item.off()
+                }
+                self.refresh()
+            }.store(in: &subs)
             scroll.add(item)
             
             item.topAnchor.constraint(equalTo: top, constant: top == base.bottomAnchor ? 50 : 0).isActive = true
             item.widthAnchor.constraint(equalToConstant: 350).isActive = true
-            item.leftAnchor.constraint(equalTo: base.leftAnchor, constant: 20).isActive = true
+            item.leftAnchor.constraint(equalTo: base.leftAnchor).isActive = true
             top = item.bottomAnchor
         }
         
@@ -47,12 +61,17 @@ final class Activity: NSView {
         base.widthAnchor.constraint(equalToConstant: Metrics.chart.size.width + (Metrics.chart.padding * 2)).isActive = true
         base.heightAnchor.constraint(equalToConstant: Metrics.chart.size.height + (Metrics.chart.padding * 2)).isActive = true
 
-        refresh()
+        Session.period.sink { [weak self] _ in
+            self?.refresh()
+        }.store(in: &subs)
     }
     
     private func refresh() {
         self.chart?.removeFromSuperlayer()
-        let chart = Chart(values: Session.archive[activity: .month], frame: .init(origin: .init(x: Metrics.chart.padding, y: Metrics.chart.padding), size: Metrics.chart.size))
+        let chart = Chart(
+            values: Session.archive[activity: Session.period.value],
+            hidden: hide,
+            frame: .init(origin: .init(x: Metrics.chart.padding, y: Metrics.chart.padding), size: Metrics.chart.size))
         self.chart = chart
         base.layer!.addSublayer(chart)
     }
