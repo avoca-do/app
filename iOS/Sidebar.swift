@@ -16,7 +16,7 @@ struct Sidebar: View {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     session.section = .activity
                 }
-            } label: { }.buttonStyle(Style(image: "chart.bar.fill", selected: session.section == .settings))
+            } label: { }.buttonStyle(Style(image: "chart.bar.fill", selected: session.section == .activity))
             Button {
                 UIApplication.shared.resign()
                 withAnimation(.easeInOut(duration: 0.3)) {
