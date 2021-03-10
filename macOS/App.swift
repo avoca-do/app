@@ -13,6 +13,10 @@ import Kanban
         super.init()
         delegate = self
     }
+
+    func application(_: NSApplication, didReceiveRemoteNotification: [String : Any]) {
+        Memory.shared.pull.send()
+    }
     
     func applicationWillFinishLaunching(_: Notification) {
         Session.decimal.numberStyle = .decimal
@@ -25,7 +29,9 @@ import Kanban
             Session.mutate {
                 $0 = archive
             }
-            Session.path = archive.isEmpty(.archive) ? .archive : .board(0)
+            Session.path = archive.count(.archive) > Session.path._board
+                ? .board(Session.path._board)
+                : archive.isEmpty(.archive) ? .archive : .board(0)
             Session.scroll.send()
         }.store(in: &subs)
     }
@@ -47,10 +53,11 @@ import Kanban
                 Defaults.created = .init()
             }
         }
-    }
-    
-    func applicationDidBecomeActive(_: Notification) {
-        Memory.shared.refresh()
+        
+        registerForRemoteNotifications()
+        
+        Memory.shared.load()
+        Memory.shared.pull.send()
     }
     
     @objc func preferences() {

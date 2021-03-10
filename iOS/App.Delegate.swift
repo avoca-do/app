@@ -16,5 +16,17 @@ extension App {
                 }
             }
         }
+        
+        func application(_: UIApplication, willFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+            UIApplication.shared.registerForRemoteNotifications()
+            Memory.shared.load()
+            Memory.shared.pull.send()
+            return true
+        }
+        
+        func application(_: UIApplication, didReceiveRemoteNotification: [AnyHashable : Any], fetchCompletionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+            Memory.shared.pull.send()
+            fetchCompletionHandler(.newData)
+        }
     }
 }

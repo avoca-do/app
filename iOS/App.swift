@@ -14,7 +14,11 @@ import Kanban
                     guard $0.date(.archive) > session.archive.date(.archive) else { return }
                     UIApplication.shared.resign()
                     session.dismiss.send()
-                    session.open = false
+                    if $0.count(.archive) > session.path._board {
+                        session.path = .column(.board(session.path._board), 0)
+                    } else {
+                        session.open = false
+                    }
                     session.archive = $0
                 }
                 .onReceive(session.purchases.open) {
@@ -30,7 +34,6 @@ import Kanban
         .onChange(of: phase) {
             if $0 == .active {
                 delegate.rate()
-                Memory.shared.refresh()
             }
         }
     }

@@ -28,20 +28,20 @@ extension Projects {
             
             Session.edit.removeDuplicates().sink { [weak self] write in
                 edit.text.write = write
+                if write == nil {
+                    self?.window?.makeFirstResponder(nil)
+                } else {
+                    self?.window?.makeFirstResponder(edit.text)
+                }
                 top.constant = write == nil ? -Metrics.edit.closed : 0
                 height.constant = write == nil ? Metrics.edit.closed : Metrics.edit.height
+                
                 NSAnimationContext.runAnimationGroup {
                     $0.duration = write == nil ? 0.3 : 0.4
                     $0.timingFunction = .init(name: .easeInEaseOut)
                     $0.allowsImplicitAnimation = true
                     edit.alphaValue = write == nil ? 0 : 1
                     self?.layoutSubtreeIfNeeded()
-                } completionHandler: {
-                    if write == nil {
-                        self?.window?.makeFirstResponder(nil)
-                    } else {
-                        self?.window?.makeFirstResponder(edit.text)
-                    }
                 }
             }.store(in: &subs)
         }
