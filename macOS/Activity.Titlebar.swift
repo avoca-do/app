@@ -10,7 +10,7 @@ extension Activity {
         init() {
             super.init(frame: .zero)
             
-            let segmented = Segmented(items: ["Day", "Week", "Month", "Year"])
+            let segmented = Segmented(items: ["Year", "Month", "Week", "Day"])
             segmented.selected.value = Period.allCases.firstIndex(of: Session.period.value)!
             segmented.selected.dropFirst().sink {
                 Session.period.value = Period.allCases[$0]
