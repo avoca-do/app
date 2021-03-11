@@ -41,6 +41,9 @@
 		CE29280C25FA3A1500EF04F5 /* widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CE29280825FA3A1400EF04F5 /* widget.intentdefinition */; };
 		CE29280D25FA3A1500EF04F5 /* widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CE29280825FA3A1400EF04F5 /* widget.intentdefinition */; };
 		CE29281025FA3A1500EF04F5 /* widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE29280025FA3A1400EF04F5 /* widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CE29282725FA3ACC00EF04F5 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE29282625FA3ACC00EF04F5 /* Intents.framework */; };
+		CE29282A25FA3ACC00EF04F5 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29282925FA3ACC00EF04F5 /* IntentHandler.swift */; };
+		CE29282E25FA3ACC00EF04F5 /* intent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE29282525FA3ACC00EF04F5 /* intent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CE36F6B025EE5F1400774635 /* Project.Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36F6AF25EE5F1400774635 /* Project.Paging.swift */; };
 		CE3832F725DE949700539F4E /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3832F625DE949700539F4E /* NSAttributedString.swift */; };
 		CE3832FF25DE994700539F4E /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3832FE25DE994700539F4E /* Plus.swift */; };
@@ -135,6 +138,13 @@
 			remoteGlobalIDString = CE2927FF25FA3A1400EF04F5;
 			remoteInfo = widgetExtension;
 		};
+		CE29282C25FA3ACC00EF04F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE25078C25B8521C00F9C526 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE29282425FA3ACC00EF04F5;
+			remoteInfo = intent;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -144,6 +154,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				CE29282E25FA3ACC00EF04F5 /* intent.appex in Embed App Extensions */,
 				CE29281025FA3A1500EF04F5 /* widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -187,6 +198,10 @@
 		CE29280825FA3A1400EF04F5 /* widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = widget.intentdefinition; sourceTree = "<group>"; };
 		CE29280925FA3A1500EF04F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE29280B25FA3A1500EF04F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE29282525FA3ACC00EF04F5 /* intent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = intent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE29282625FA3ACC00EF04F5 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		CE29282925FA3ACC00EF04F5 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		CE29282B25FA3ACC00EF04F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE36F6AF25EE5F1400774635 /* Project.Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Paging.swift; sourceTree = "<group>"; };
 		CE3832F625DE949700539F4E /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		CE3832FE25DE994700539F4E /* Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
@@ -290,6 +305,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE29282225FA3ACC00EF04F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE29282725FA3ACC00EF04F5 /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE99E67225DBFE9F00E0EA36 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -306,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				CEA1819A25C04DE000552DEF /* Frameworks */,
+				CE29282825FA3ACC00EF04F5 /* intent */,
 				CE25079825B8660900F9C526 /* iOS */,
 				CE99E67625DBFE9F00E0EA36 /* macOS */,
 				CE25079725B8660900F9C526 /* Products */,
@@ -320,6 +344,7 @@
 				CE25079625B8660900F9C526 /* Avocado.app */,
 				CE99E67525DBFE9F00E0EA36 /* Avocado.app */,
 				CE29280025FA3A1400EF04F5 /* widget.appex */,
+				CE29282525FA3ACC00EF04F5 /* intent.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -402,6 +427,15 @@
 			path = widget;
 			sourceTree = "<group>";
 		};
+		CE29282825FA3ACC00EF04F5 /* intent */ = {
+			isa = PBXGroup;
+			children = (
+				CE29282B25FA3ACC00EF04F5 /* Info.plist */,
+				CE29282925FA3ACC00EF04F5 /* IntentHandler.swift */,
+			);
+			path = intent;
+			sourceTree = "<group>";
+		};
 		CE99E67625DBFE9F00E0EA36 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				CE99E68B25DC00A200E0EA36 /* CloudKit.framework */,
+				CE29282625FA3ACC00EF04F5 /* Intents.framework */,
 				CE99E68925DC009300E0EA36 /* StoreKit.framework */,
 				CE29280325FA3A1400EF04F5 /* SwiftUI.framework */,
 				CE29280125FA3A1400EF04F5 /* WidgetKit.framework */,
@@ -489,6 +524,7 @@
 			);
 			dependencies = (
 				CE29280F25FA3A1500EF04F5 /* PBXTargetDependency */,
+				CE29282D25FA3ACC00EF04F5 /* PBXTargetDependency */,
 			);
 			name = iOS;
 			packageProductDependencies = (
@@ -513,6 +549,23 @@
 			name = widget;
 			productName = widgetExtension;
 			productReference = CE29280025FA3A1400EF04F5 /* widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		CE29282425FA3ACC00EF04F5 /* intent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE29282F25FA3ACC00EF04F5 /* Build configuration list for PBXNativeTarget "intent" */;
+			buildPhases = (
+				CE29282125FA3ACC00EF04F5 /* Sources */,
+				CE29282225FA3ACC00EF04F5 /* Frameworks */,
+				CE29282325FA3ACC00EF04F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = intent;
+			productName = intent;
+			productReference = CE29282525FA3ACC00EF04F5 /* intent.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		CE99E67425DBFE9F00E0EA36 /* macOS */ = {
@@ -550,6 +603,9 @@
 					CE2927FF25FA3A1400EF04F5 = {
 						CreatedOnToolsVersion = 12.4;
 					};
+					CE29282425FA3ACC00EF04F5 = {
+						CreatedOnToolsVersion = 12.4;
+					};
 					CE99E67425DBFE9F00E0EA36 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -574,6 +630,7 @@
 				CE25079525B8660900F9C526 /* iOS */,
 				CE99E67425DBFE9F00E0EA36 /* macOS */,
 				CE2927FF25FA3A1400EF04F5 /* widget */,
+				CE29282425FA3ACC00EF04F5 /* intent */,
 			);
 		};
 /* End PBXProject section */
@@ -594,6 +651,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE29280A25FA3A1500EF04F5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE29282325FA3ACC00EF04F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +737,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE29282125FA3ACC00EF04F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE29282A25FA3ACC00EF04F5 /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE99E67125DBFE9F00E0EA36 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -742,6 +814,11 @@
 			isa = PBXTargetDependency;
 			target = CE2927FF25FA3A1400EF04F5 /* widget */;
 			targetProxy = CE29280E25FA3A1500EF04F5 /* PBXContainerItemProxy */;
+		};
+		CE29282D25FA3ACC00EF04F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE29282425FA3ACC00EF04F5 /* intent */;
+			targetProxy = CE29282C25FA3ACC00EF04F5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1052,6 +1129,86 @@
 			};
 			name = Release;
 		};
+		CE29283025FA3ACC00EF04F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = intent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = avoca.do.intent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE29283125FA3ACC00EF04F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = intent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = avoca.do.intent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		CE99E68225DBFEA000E0EA36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1159,6 +1316,15 @@
 			buildConfigurations = (
 				CE29281225FA3A1500EF04F5 /* Debug */,
 				CE29281325FA3A1500EF04F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE29282F25FA3ACC00EF04F5 /* Build configuration list for PBXNativeTarget "intent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE29283025FA3ACC00EF04F5 /* Debug */,
+				CE29283125FA3ACC00EF04F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
