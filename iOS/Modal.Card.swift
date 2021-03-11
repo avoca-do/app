@@ -11,7 +11,7 @@ extension Modal {
                 RoundedRectangle(cornerRadius: Metrics.corners)
                     .fill(Color(.systemBackground))
                 RoundedRectangle(cornerRadius: Metrics.corners)
-                    .fill(Color.accentColor.opacity(Metrics.accent.low))
+                    .fill(Color.accentColor.opacity(Metrics.accent.high))
                 VStack {
                     ZStack {
                         Horizontal(session: $session)

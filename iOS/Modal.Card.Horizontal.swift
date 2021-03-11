@@ -18,9 +18,10 @@ extension Modal.Card {
                             Image(systemName: "arrow.left")
                                 .font(.title3)
                                 .padding(.trailing)
+                                .frame(maxHeight: .greatestFiniteMagnitude)
                         }
                         .foregroundColor(.primary)
-                        .frame(maxWidth: proxy.size.width * 0.43, maxHeight: .greatestFiniteMagnitude, alignment: .leading)
+                        .frame(maxWidth: proxy.size.width * 0.43, alignment: .leading)
                         .contentShape(Rectangle())
                     }
                     Spacer()
@@ -31,13 +32,14 @@ extension Modal.Card {
                             Image(systemName: "arrow.right")
                                 .font(.title3)
                                 .padding(.leading)
+                                .frame(maxHeight: .greatestFiniteMagnitude)
                             Text(verbatim: session.archive[title: .column(session.path.board, session.path._column + 1)])
                                 .lineLimit(1)
                                 .font(Font.callout.bold())
                                 .padding(.trailing)
                         }
                         .foregroundColor(.primary)
-                        .frame(maxWidth: proxy.size.width * 0.43, maxHeight: .greatestFiniteMagnitude, alignment: .trailing)
+                        .frame(maxWidth: proxy.size.width * 0.43, alignment: .trailing)
                         .contentShape(Rectangle())
                     }
                 }
