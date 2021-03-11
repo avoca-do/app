@@ -8,6 +8,5 @@ struct Cards: Widget {
         }
         .configurationDisplayName("Cards")
         .description("Quick overview of your cards")
-        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }

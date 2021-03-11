@@ -1,7 +1,7 @@
 import WidgetKit
 
 extension Cards {
-    struct Entry: TimelineEntry {
+    struct Entry: TimelineEntry, Equatable {
         static let placeholder = Entry(board: "Kanban", column: "Doing", cards: ["A", "B", "C"], date: .distantPast)
         static let empty = Entry(board: "", column: "", cards: [], date: .distantPast)
         
