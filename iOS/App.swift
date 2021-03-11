@@ -1,5 +1,6 @@
 import SwiftUI
 import WidgetKit
+import Combine
 import Kanban
 
 @main struct App: SwiftUI.App {
@@ -31,7 +32,7 @@ import Kanban
                 .onReceive(session.purchases.plusOne) {
                     session.archive.capacity += 1
                 }
-                .onReceive(Memory.shared.saved.debounce(for: .seconds(1), scheduler: DispatchQueue.main)) {
+                .onReceive(Memory.shared.save.debounce(for: .seconds(1), scheduler: DispatchQueue.main)) {
                     Defaults.archive = $0
                     WidgetCenter.shared.reloadAllTimelines()
                 }
