@@ -38,12 +38,13 @@
 		CE29280425FA3A1400EF04F5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE29280325FA3A1400EF04F5 /* SwiftUI.framework */; };
 		CE29280725FA3A1400EF04F5 /* widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29280625FA3A1400EF04F5 /* widget.swift */; };
 		CE29280A25FA3A1500EF04F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE29280925FA3A1500EF04F5 /* Assets.xcassets */; };
-		CE29280C25FA3A1500EF04F5 /* widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CE29280825FA3A1400EF04F5 /* widget.intentdefinition */; };
-		CE29280D25FA3A1500EF04F5 /* widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CE29280825FA3A1400EF04F5 /* widget.intentdefinition */; };
+		CE29280C25FA3A1500EF04F5 /* widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CE29280825FA3A1400EF04F5 /* widget.intentdefinition */; settings = {ATTRIBUTES = (codegen, ); }; };
+		CE29280D25FA3A1500EF04F5 /* widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CE29280825FA3A1400EF04F5 /* widget.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		CE29281025FA3A1500EF04F5 /* widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE29280025FA3A1400EF04F5 /* widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CE29282725FA3ACC00EF04F5 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE29282625FA3ACC00EF04F5 /* Intents.framework */; };
-		CE29282A25FA3ACC00EF04F5 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29282925FA3ACC00EF04F5 /* IntentHandler.swift */; };
+		CE29282A25FA3ACC00EF04F5 /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29282925FA3ACC00EF04F5 /* Handler.swift */; };
 		CE29282E25FA3ACC00EF04F5 /* intent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE29282525FA3ACC00EF04F5 /* intent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CE29283A25FA3B6500EF04F5 /* widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CE29280825FA3A1400EF04F5 /* widget.intentdefinition */; };
 		CE36F6B025EE5F1400774635 /* Project.Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36F6AF25EE5F1400774635 /* Project.Paging.swift */; };
 		CE3832F725DE949700539F4E /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3832F625DE949700539F4E /* NSAttributedString.swift */; };
 		CE3832FF25DE994700539F4E /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3832FE25DE994700539F4E /* Plus.swift */; };
@@ -200,7 +201,7 @@
 		CE29280B25FA3A1500EF04F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE29282525FA3ACC00EF04F5 /* intent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = intent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE29282625FA3ACC00EF04F5 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
-		CE29282925FA3ACC00EF04F5 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		CE29282925FA3ACC00EF04F5 /* Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
 		CE29282B25FA3ACC00EF04F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE36F6AF25EE5F1400774635 /* Project.Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Paging.swift; sourceTree = "<group>"; };
 		CE3832F625DE949700539F4E /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
@@ -431,7 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				CE29282B25FA3ACC00EF04F5 /* Info.plist */,
-				CE29282925FA3ACC00EF04F5 /* IntentHandler.swift */,
+				CE29282925FA3ACC00EF04F5 /* Handler.swift */,
 			);
 			path = intent;
 			sourceTree = "<group>";
@@ -741,7 +742,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE29282A25FA3ACC00EF04F5 /* IntentHandler.swift in Sources */,
+				CE29283A25FA3B6500EF04F5 /* widget.intentdefinition in Sources */,
+				CE29282A25FA3ACC00EF04F5 /* Handler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
