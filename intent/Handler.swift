@@ -2,7 +2,7 @@ import Intents
 import Kanban
 
 final class Handler: INExtension, ProjectIntentHandling {
-    private let archive = Defaults.archive
+    private lazy var archive = Defaults.archive
     
     func resolveProject(for intent: ProjectIntent, with: @escaping (ProjectResolutionResult) -> Void) {
         guard
@@ -20,7 +20,7 @@ final class Handler: INExtension, ProjectIntentHandling {
             return with(.confirmationRequired(with: .init(identifier: "0", display: archive[name: .board(0)])))
         }
         
-        return with(.success(with: project))
+        with(.success(with: project))
     }
     
     func provideProjectOptionsCollection(for: ProjectIntent, with: @escaping (INObjectCollection<Project>?, Error?) -> Void) {
