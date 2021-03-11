@@ -45,6 +45,10 @@
 		CE29282A25FA3ACC00EF04F5 /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29282925FA3ACC00EF04F5 /* Handler.swift */; };
 		CE29282E25FA3ACC00EF04F5 /* intent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE29282525FA3ACC00EF04F5 /* intent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CE29283A25FA3B6500EF04F5 /* widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CE29280825FA3A1400EF04F5 /* widget.intentdefinition */; };
+		CE30900325FA56A100F3BC46 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30900225FA56A100F3BC46 /* Bundle.swift */; };
+		CE30900925FA56DE00F3BC46 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30900825FA56DE00F3BC46 /* Actions.swift */; };
+		CE30901325FA571600F3BC46 /* Actions.Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30901225FA571600F3BC46 /* Actions.Provider.swift */; };
+		CE30901925FA572400F3BC46 /* Actions.Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30901825FA572400F3BC46 /* Actions.Entry.swift */; };
 		CE36F6B025EE5F1400774635 /* Project.Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36F6AF25EE5F1400774635 /* Project.Paging.swift */; };
 		CE3832F725DE949700539F4E /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3832F625DE949700539F4E /* NSAttributedString.swift */; };
 		CE3832FF25DE994700539F4E /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3832FE25DE994700539F4E /* Plus.swift */; };
@@ -205,6 +209,10 @@
 		CE29282625FA3ACC00EF04F5 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		CE29282925FA3ACC00EF04F5 /* Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
 		CE29282B25FA3ACC00EF04F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE30900225FA56A100F3BC46 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		CE30900825FA56DE00F3BC46 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		CE30901225FA571600F3BC46 /* Actions.Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.Provider.swift; sourceTree = "<group>"; };
+		CE30901825FA572400F3BC46 /* Actions.Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.Entry.swift; sourceTree = "<group>"; };
 		CE36F6AF25EE5F1400774635 /* Project.Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Paging.swift; sourceTree = "<group>"; };
 		CE3832F625DE949700539F4E /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		CE3832FE25DE994700539F4E /* Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
@@ -429,6 +437,10 @@
 				CEB508A025FA497A00E18E86 /* widget.entitlements */,
 				CE29280825FA3A1400EF04F5 /* widget.intentdefinition */,
 				CE29280B25FA3A1500EF04F5 /* Info.plist */,
+				CE30901825FA572400F3BC46 /* Actions.Entry.swift */,
+				CE30901225FA571600F3BC46 /* Actions.Provider.swift */,
+				CE30900825FA56DE00F3BC46 /* Actions.swift */,
+				CE30900225FA56A100F3BC46 /* Bundle.swift */,
 				CE29280625FA3A1400EF04F5 /* widget.swift */,
 				CE29280925FA3A1500EF04F5 /* Assets.xcassets */,
 			);
@@ -747,8 +759,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE30901325FA571600F3BC46 /* Actions.Provider.swift in Sources */,
 				CE29280C25FA3A1500EF04F5 /* widget.intentdefinition in Sources */,
+				CE30900925FA56DE00F3BC46 /* Actions.swift in Sources */,
+				CE30900325FA56A100F3BC46 /* Bundle.swift in Sources */,
 				CE29280725FA3A1400EF04F5 /* widget.swift in Sources */,
+				CE30901925FA572400F3BC46 /* Actions.Entry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
