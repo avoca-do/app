@@ -30,4 +30,45 @@ final class Handler: INExtension, ProjectIntentHandling {
             }
         } ?? []), nil)
     }
+    
+    func resolveColumn(for intent: ProjectIntent, with: @escaping (ColumnResolutionResult) -> Void) {
+        guard
+            let archive = self.archive,
+            !archive.isEmpty(.archive)
+        else {
+            return with(.notRequired())
+        }
+        
+        guard
+            let project = intent.project,
+            let column = intent.column,
+            let projectId = project.identifier.flatMap(Int.init),
+            projectId < archive.count(.archive),
+            let columnId = column.identifier.flatMap(Int.init),
+            columnId < archive.count(.board(projectId))
+        else {
+            return with(.confirmationRequired(with: .init(identifier: "0", display: archive[title: .column(.board(0), 0)])))
+        }
+        
+        with(.success(with: column))
+    }
+    
+    func provideColumnOptionsCollection(for intent: ProjectIntent, with: @escaping (INObjectCollection<Column>?, Error?) -> Void) {
+        guard
+            let archive = archive,
+            let project = intent.project,
+            let id = project.identifier.flatMap(Int.init),
+            id < archive.count(.archive)
+        else {
+            return with(.init(items: []), nil)
+        }
+        
+        with(.init(items: (0 ..< archive.count(.board(id))).map {
+            .init(identifier: "\($0)", display: archive[title: .column(.board(id), $0)])
+        }), nil)
+    }
+    
+    func resolveBottom(for intent: ProjectIntent, with: @escaping (INBooleanResolutionResult) -> Void) {
+        with(.success(with: intent.bottom?.boolValue ?? false))
+    }
 }
