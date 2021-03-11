@@ -33,7 +33,7 @@ import Kanban
         }
         .onChange(of: phase) {
             if $0 == .active {
-                delegate.rate()
+                Memory.shared.fetch()
             }
         }
     }
