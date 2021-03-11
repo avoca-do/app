@@ -60,10 +60,3 @@ struct widget: Widget {
         .description("This is an example widget.")
     }
 }
-
-struct widget_Previews: PreviewProvider {
-    static var previews: some View {
-        widgetEntryView(entry: SimpleEntry(date: Date(), configuration: ProjectIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-    }
-}

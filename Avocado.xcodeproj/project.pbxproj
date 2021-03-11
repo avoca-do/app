@@ -113,6 +113,8 @@
 		CEAFE88C25EFE78D00B45B8C /* Modal.Card.Vertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFE88B25EFE78D00B45B8C /* Modal.Card.Vertical.swift */; };
 		CEAFE89225EFE80F00B45B8C /* Modal.Card.Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFE89125EFE80F00B45B8C /* Modal.Card.Footer.swift */; };
 		CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB09ADE25B994AF00BF7AD6 /* Kanban */; };
+		CEB508A225FA49AE00E18E86 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB508A125FA49AE00E18E86 /* Kanban */; };
+		CEB508A425FA49BE00E18E86 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB508A325FA49BE00E18E86 /* Kanban */; };
 		CEC22CAC25E6818F0035E674 /* Board.Cell.Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */; };
 		CEC22CB225E695B90035E674 /* NSAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CB125E695B90035E674 /* NSAlert.swift */; };
 		CEC22CBA25E69D630035E674 /* Capacity.Titlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */; };
@@ -270,6 +272,8 @@
 		CEA652A125C1CBA60099C82E /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		CEAFE88B25EFE78D00B45B8C /* Modal.Card.Vertical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.Card.Vertical.swift; sourceTree = "<group>"; };
 		CEAFE89125EFE80F00B45B8C /* Modal.Card.Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.Card.Footer.swift; sourceTree = "<group>"; };
+		CEB5089F25FA48F000E18E86 /* intent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = intent.entitlements; sourceTree = "<group>"; };
+		CEB508A025FA497A00E18E86 /* widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widget.entitlements; sourceTree = "<group>"; };
 		CEB8E56925DAA0C6009737AB /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.Edit.swift; sourceTree = "<group>"; };
 		CEC22CB125E695B90035E674 /* NSAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAlert.swift; sourceTree = "<group>"; };
@@ -302,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE29280425FA3A1400EF04F5 /* SwiftUI.framework in Frameworks */,
+				CEB508A225FA49AE00E18E86 /* Kanban in Frameworks */,
 				CE29280225FA3A1400EF04F5 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE29282725FA3ACC00EF04F5 /* Intents.framework in Frameworks */,
+				CEB508A425FA49BE00E18E86 /* Kanban in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +426,7 @@
 		CE29280525FA3A1400EF04F5 /* widget */ = {
 			isa = PBXGroup;
 			children = (
+				CEB508A025FA497A00E18E86 /* widget.entitlements */,
 				CE29280825FA3A1400EF04F5 /* widget.intentdefinition */,
 				CE29280B25FA3A1500EF04F5 /* Info.plist */,
 				CE29280625FA3A1400EF04F5 /* widget.swift */,
@@ -431,6 +438,7 @@
 		CE29282825FA3ACC00EF04F5 /* intent */ = {
 			isa = PBXGroup;
 			children = (
+				CEB5089F25FA48F000E18E86 /* intent.entitlements */,
 				CE29282B25FA3ACC00EF04F5 /* Info.plist */,
 				CE29282925FA3ACC00EF04F5 /* Handler.swift */,
 			);
@@ -548,6 +556,9 @@
 			dependencies = (
 			);
 			name = widget;
+			packageProductDependencies = (
+				CEB508A125FA49AE00E18E86 /* Kanban */,
+			);
 			productName = widgetExtension;
 			productReference = CE29280025FA3A1400EF04F5 /* widget.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -565,6 +576,9 @@
 			dependencies = (
 			);
 			name = intent;
+			packageProductDependencies = (
+				CEB508A325FA49BE00E18E86 /* Kanban */,
+			);
 			productName = intent;
 			productReference = CE29282525FA3ACC00EF04F5 /* intent.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1063,6 +1077,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = widget/widget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
@@ -1107,6 +1122,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = widget/widget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
@@ -1145,6 +1161,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = intent/intent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
@@ -1187,6 +1204,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = intent/intent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
@@ -1360,6 +1378,16 @@
 			productName = Kanban;
 		};
 		CEB09ADE25B994AF00BF7AD6 /* Kanban */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEB09ADD25B994AF00BF7AD6 /* XCRemoteSwiftPackageReference "kanban" */;
+			productName = Kanban;
+		};
+		CEB508A125FA49AE00E18E86 /* Kanban */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEB09ADD25B994AF00BF7AD6 /* XCRemoteSwiftPackageReference "kanban" */;
+			productName = Kanban;
+		};
+		CEB508A325FA49BE00E18E86 /* Kanban */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CEB09ADD25B994AF00BF7AD6 /* XCRemoteSwiftPackageReference "kanban" */;
 			productName = Kanban;
