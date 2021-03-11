@@ -15,7 +15,7 @@ import Kanban
     }
 
     func application(_: NSApplication, didReceiveRemoteNotification: [String : Any]) {
-        Memory.shared.pull.send()
+        Memory.shared.fetch()
     }
     
     func applicationWillFinishLaunching(_: Notification) {
@@ -57,7 +57,10 @@ import Kanban
         registerForRemoteNotifications()
         
         Memory.shared.load()
-        Memory.shared.pull.send()
+    }
+    
+    func applicationDidBecomeActive(_: Notification) {
+        Memory.shared.fetch()
     }
     
     @objc func preferences() {
