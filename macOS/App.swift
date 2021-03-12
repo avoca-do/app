@@ -13,10 +13,6 @@ import Kanban
         super.init()
         delegate = self
     }
-
-    func application(_: NSApplication, didReceiveRemoteNotification: [String : Any]) {
-        Memory.shared.fetch()
-    }
     
     func applicationWillFinishLaunching(_: Notification) {
         Session.decimal.numberStyle = .decimal
@@ -61,6 +57,20 @@ import Kanban
     
     func applicationDidBecomeActive(_: Notification) {
         Memory.shared.fetch()
+    }
+    
+    func application(_: NSApplication, didReceiveRemoteNotification: [String : Any]) {
+        print("receive")
+        Memory.shared.fetch()
+    }
+    
+    func application(_: NSApplication, didRegisterForRemoteNotificationsWithDeviceToken: Data) {
+        print("token")
+    }
+    
+    func application(_: NSApplication, didFailToRegisterForRemoteNotificationsWithError: Error) {
+        print("register")
+        print(didFailToRegisterForRemoteNotificationsWithError)
     }
     
     @objc func preferences() {

@@ -22,9 +22,19 @@ extension App {
             return true
         }
         
+        func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken: Data) {
+            print("token")
+        }
+        
+        func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError: Error) {
+            print("register")
+            print(didFailToRegisterForRemoteNotificationsWithError)
+        }
+        
         func application(_: UIApplication, didReceiveRemoteNotification: [AnyHashable : Any], fetchCompletionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+            print("received")
             Memory.shared.fetch()
-            fetchCompletionHandler(.newData)
+            fetchCompletionHandler(.noData)
         }
     }
 }
