@@ -44,6 +44,7 @@ extension Cards {
                                     .frame(width: 8, height: 8)
                                     .padding(.top, 4)
                                 Text(verbatim: card)
+                                    .kerning(1)
                                     .font(family != .systemSmall ? .caption : .caption2)
                                     .redacted(reason: entry == .placeholder ? .placeholder : .init())
                                 Spacer()
