@@ -4,5 +4,6 @@ import SwiftUI
     @WidgetBundleBuilder var body: some Widget {
         Cards()
         Progress()
+        Activity()
     }
 }

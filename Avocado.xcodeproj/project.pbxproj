@@ -131,6 +131,10 @@
 		CEC22CC425E6AC0F0035E674 /* Purchases.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */; };
 		CECFD8BC25E3E3A500BD3532 /* Set.Board.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFD8BB25E3E3A500BD3532 /* Set.Board.Cell.swift */; };
 		CECFD8C225E3EA0000BD3532 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFD8C125E3EA0000BD3532 /* Array.swift */; };
+		CED28AB025FBA323009F00FB /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED28AAF25FBA323009F00FB /* Activity.swift */; };
+		CED28AB625FBA364009F00FB /* Activity.Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED28AB525FBA364009F00FB /* Activity.Provider.swift */; };
+		CED28ABC25FBA376009F00FB /* Activity.Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED28ABB25FBA376009F00FB /* Activity.Entry.swift */; };
+		CED28AC225FBA38B009F00FB /* Activity.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED28AC125FBA38B009F00FB /* Activity.Content.swift */; };
 		CEDB78E925ECFA7D001A02A4 /* Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78E825ECFA7D001A02A4 /* Column.swift */; };
 		CEDB78F025ECFC8B001A02A4 /* Project.Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78EF25ECFC8B001A02A4 /* Project.Title.swift */; };
 		CEDB78F425ECFCCF001A02A4 /* Project.Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */; };
@@ -298,6 +302,10 @@
 		CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.Titlebar.swift; sourceTree = "<group>"; };
 		CECFD8BB25E3E3A500BD3532 /* Set.Board.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.Board.Cell.swift; sourceTree = "<group>"; };
 		CECFD8C125E3EA0000BD3532 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		CED28AAF25FBA323009F00FB /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		CED28AB525FBA364009F00FB /* Activity.Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Provider.swift; sourceTree = "<group>"; };
+		CED28ABB25FBA376009F00FB /* Activity.Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Entry.swift; sourceTree = "<group>"; };
+		CED28AC125FBA38B009F00FB /* Activity.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Content.swift; sourceTree = "<group>"; };
 		CEDB78E825ECFA7D001A02A4 /* Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Column.swift; sourceTree = "<group>"; };
 		CEDB78EF25ECFC8B001A02A4 /* Project.Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Title.swift; sourceTree = "<group>"; };
 		CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Options.swift; sourceTree = "<group>"; };
@@ -447,6 +455,10 @@
 				CEB508A025FA497A00E18E86 /* widget.entitlements */,
 				CE29280825FA3A1400EF04F5 /* widget.intentdefinition */,
 				CE29280B25FA3A1500EF04F5 /* Info.plist */,
+				CED28AC125FBA38B009F00FB /* Activity.Content.swift */,
+				CED28ABB25FBA376009F00FB /* Activity.Entry.swift */,
+				CED28AB525FBA364009F00FB /* Activity.Provider.swift */,
+				CED28AAF25FBA323009F00FB /* Activity.swift */,
 				CE30900225FA56A100F3BC46 /* Bundle.swift */,
 				CE7AFF6A25FA5F90008D6278 /* Cards.Content.swift */,
 				CE30901825FA572400F3BC46 /* Cards.Entry.swift */,
@@ -774,12 +786,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED28ABC25FBA376009F00FB /* Activity.Entry.swift in Sources */,
 				CE7AFF6B25FA5F90008D6278 /* Cards.Content.swift in Sources */,
 				CE30901325FA571600F3BC46 /* Cards.Provider.swift in Sources */,
 				CE29280C25FA3A1500EF04F5 /* widget.intentdefinition in Sources */,
+				CED28AB625FBA364009F00FB /* Activity.Provider.swift in Sources */,
 				CE85C5CC25FB846100287C27 /* Progress.Content.Ring.swift in Sources */,
 				CE85C59C25FB7F2600287C27 /* Progress.swift in Sources */,
 				CE85C5A825FB7FC200287C27 /* Progress.Entry.swift in Sources */,
+				CED28AC225FBA38B009F00FB /* Activity.Content.swift in Sources */,
+				CED28AB025FBA323009F00FB /* Activity.swift in Sources */,
 				CE30900925FA56DE00F3BC46 /* Cards.swift in Sources */,
 				CE30900325FA56A100F3BC46 /* Bundle.swift in Sources */,
 				CE30901925FA572400F3BC46 /* Cards.Entry.swift in Sources */,

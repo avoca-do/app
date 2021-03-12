@@ -1,8 +1,20 @@
 import Intents
 import Kanban
 
-final class Handler: INExtension, ProjectIntentHandling, ProgressIntentHandling {
+final class Handler: INExtension, ProjectIntentHandling, ProgressIntentHandling, ActivityIntentHandling {
     private lazy var archive = Defaults.archive
+    
+    func resolvePeriod(for intent: ActivityIntent, with: @escaping (PeriodResolutionResult) -> Void) {
+        with(.success(with: intent.period))
+    }
+    
+    func resolveProject(for intent: ActivityIntent, with: @escaping (ProjectResolutionResult) -> Void) {
+        resolve(intent.project, with: with)
+    }
+    
+    func provideProjectOptionsCollection(for: ActivityIntent, with: @escaping (INObjectCollection<Project>?, Error?) -> Void) {
+        provide(with)
+    }
     
     func resolveProject(for intent: ProgressIntent, with: @escaping (ProjectResolutionResult) -> Void) {
         resolve(intent.project, with: with)

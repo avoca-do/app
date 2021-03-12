@@ -9,7 +9,7 @@ extension Cards {
         
         var body: some View {
             if entry == .empty {
-                Text("Need to edit widget")
+                Text("Edit widget to continue")
                     .font(.footnote)
                     .foregroundColor(.secondary)
                     .padding()
