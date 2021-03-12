@@ -7,6 +7,6 @@ struct Cards: Widget {
             Content(entry: entry)
         }
         .configurationDisplayName("Project")
-        .description("Keep track of 1 project")
+        .description("Project overview")
     }
 }
