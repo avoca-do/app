@@ -24,6 +24,7 @@
 	<true/>
 	<key>NSUserActivityTypes</key>
 	<array>
+		<string>ProgressIntent</string>
 		<string>ProjectIntent</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
