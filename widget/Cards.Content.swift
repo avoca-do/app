@@ -29,7 +29,7 @@ extension Cards {
                             if family != .systemSmall {
                                 ZStack {
                                     Circle()
-                                        .fill(Color.accentColor)
+                                        .fill(Color("avocado"))
                                         .frame(width: 30, height: 30)
                                     Text(NSNumber(value: entry.cards.count), formatter: decimal)
                                         .font(.caption2)
@@ -40,7 +40,7 @@ extension Cards {
                         ForEach(entry.cards, id: \.self) { card in
                             HStack(alignment: .top) {
                                 Circle()
-                                    .fill(Color.accentColor)
+                                    .fill(Color("avocado"))
                                     .frame(width: 8, height: 8)
                                     .padding(.top, 4)
                                 Text(verbatim: card)

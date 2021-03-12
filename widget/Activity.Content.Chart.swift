@@ -9,14 +9,14 @@ extension Activity.Content {
                 Pattern()
                     .stroke(Color.primary.opacity(0.2), style: .init(lineWidth: 1, lineCap: .round, dash: [1, 4]))
                 Shade(values: values)
-                    .fill(Color.accentColor.opacity(0.4))
+                    .fill(Color("avocado").opacity(0.4))
                 Road(values: values)
-                    .stroke(Color.accentColor, style: .init(lineWidth: 3, lineCap: .round))
+                    .stroke(Color("avocado"), style: .init(lineWidth: 3, lineCap: .round))
                 ForEach(0 ..< values.count, id: \.self) {
                     Dot(y: values[$0], index: $0, count: values.count)
                         .fill(Color.black)
                     Dot(y: values[$0], index: $0, count: values.count)
-                        .stroke(Color.accentColor, style: .init(lineWidth: 3, lineCap: .round))
+                        .stroke(Color("avocado"), style: .init(lineWidth: 3, lineCap: .round))
                 }
             }
         }

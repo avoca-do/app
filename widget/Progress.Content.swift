@@ -16,10 +16,10 @@ extension Progress {
             } else {
                 ZStack {
                     Ring(amount: 1, width: Metrics.progress.stroke / (family == .systemLarge ? 1 : 2))
-                        .stroke(Color.accentColor.opacity(0.2), lineWidth: Metrics.progress.stroke / (family == .systemLarge ? 1 : 2))
+                        .stroke(Color("avocado").opacity(0.2), lineWidth: Metrics.progress.stroke / (family == .systemLarge ? 1 : 2))
                     Ring(amount: entry.percentage, width: Metrics.progress.stroke / (family == .systemLarge ? 1 : 2))
                         .stroke(LinearGradient(
-                                    gradient: .init(colors: [.accentColor, .purple]),
+                                    gradient: .init(colors: [.init("avocado"), .purple]),
                                     startPoint: .top,
                                     endPoint: .bottom),
                                 style: .init(lineWidth: Metrics.progress.stroke / (family == .systemLarge ? 1 : 2),
