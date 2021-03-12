@@ -6,7 +6,7 @@ struct Cards: Widget {
         IntentConfiguration(kind: "Cards", intent: ProjectIntent.self, provider: Provider()) { entry in
             Content(entry: entry)
         }
-        .configurationDisplayName("Cards")
+        .configurationDisplayName("Project")
         .description("Keep track of 1 project")
     }
 }

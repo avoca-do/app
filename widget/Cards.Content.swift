@@ -18,12 +18,12 @@ extension Cards {
                     VStack(alignment: .leading) {
                         HStack {
                             Text(verbatim: entry.board)
-                                .font(family != .systemSmall ? .callout : .caption)
+                                .font(family == .systemSmall ? .caption2 : .footnote)
                                 .fontWeight(.heavy) +
                             Text(verbatim: ": ")
-                                .font(family != .systemSmall ? .callout : .caption) +
+                                .font(family == .systemSmall ? .caption2 : .footnote) +
                             Text(verbatim: entry.column)
-                                .font(family != .systemSmall ? .callout : .caption)
+                                .font(family == .systemSmall ? .caption2 : .footnote)
                                 .foregroundColor(.secondary)
                             Spacer()
                             if family != .systemSmall {
