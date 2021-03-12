@@ -9,7 +9,7 @@ extension Progress {
 
         func getSnapshot(for intent: ProgressIntent, in context: Context, completion: @escaping (Entry) -> ()) {
             completion(context.isPreview ? .placeholder : intent.project.map {
-                Entry(board: $0.displayString, percentage: 0, date: .init())
+                Entry(id: $0.identifier.flatMap(Int.init) ?? 0, board: $0.displayString, percentage: 0, date: .init())
             } ?? .empty)
         }
 
@@ -22,6 +22,7 @@ extension Progress {
                 return completion(.init(entries: [.empty], policy: .never))
             }
             completion(.init(entries: [.init(
+                                        id: id,
                                         board: archive[name: .board(id)],
                                         percentage: archive.progress(.board(id)).percentage,
                                         date: .init())],

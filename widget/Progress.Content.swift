@@ -34,6 +34,7 @@ extension Progress {
                             .padding(.horizontal)
                     }
                 }
+                .widgetURL(URL(string: "avocado://\(entry.id)")!)
                 .padding(family == .systemLarge ? 12 : 6)
                 .onAppear {
                     percent.numberStyle = .percent

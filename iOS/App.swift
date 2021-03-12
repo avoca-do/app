@@ -12,6 +12,20 @@ import Kanban
         WindowGroup {
             Window(session: $session)
                 .ignoresSafeArea(.keyboard)
+                .onOpenURL { url in
+                    switch url.scheme {
+                    case "avocado":
+                        UIApplication.shared.resign()
+                        session.dismiss.send()
+                        if let board = Int(url.absoluteString.dropFirst(10)),
+                           session.archive.count(.archive) > board {
+                            session.path = .column(.board(board), 0)
+                            session.section = .projects
+                            session.open = true
+                        }
+                    default: break
+                    }
+                }
                 .onReceive(Memory.shared.archive) {
                     guard $0.date(.archive) > session.archive.date(.archive) else { return }
                     UIApplication.shared.resign()

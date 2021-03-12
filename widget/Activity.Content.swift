@@ -20,6 +20,7 @@ extension Activity {
                         .font(.footnote)
                         .foregroundColor(.secondary)
                 }
+                .widgetURL(URL(string: "avocado://\(entry.id)")!)
                 .padding(24)
             }
         }

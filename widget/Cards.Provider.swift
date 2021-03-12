@@ -9,7 +9,7 @@ extension Cards {
 
         func getSnapshot(for intent: ProjectIntent, in context: Context, completion: @escaping (Entry) -> ()) {
             completion(context.isPreview ? .placeholder : intent.project.map {
-                Entry(board: $0.displayString, column: intent.column?.displayString ?? "", cards: [], date: .init())
+                Entry(id: $0.identifier.flatMap(Int.init) ?? 0, board: $0.displayString, column: intent.column?.displayString ?? "", cards: [], date: .init())
             } ?? .empty)
         }
 
@@ -31,6 +31,7 @@ extension Cards {
                 cards.reverse()
             }
             completion(.init(entries: [.init(
+                                        id: projectId,
                                         board: archive[name: .board(projectId)],
                                         column: archive[title: .column(.board(projectId), columnId)],
                                         cards: cards,

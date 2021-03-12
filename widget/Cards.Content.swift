@@ -55,6 +55,7 @@ extension Cards {
                     .padding(family == .systemSmall ? 16 : 24)
                     .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                 }
+                .widgetURL(URL(string: "avocado://\(entry.id)")!)
                 .onAppear {
                     decimal.numberStyle = .decimal
                 }
