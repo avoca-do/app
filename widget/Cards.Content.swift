@@ -45,6 +45,7 @@ extension Cards {
                                     .padding(.top, 4)
                                 Text(verbatim: card)
                                     .font(family != .systemSmall ? .caption : .caption2)
+                                    .redacted(reason: entry == .placeholder ? .placeholder : .init())
                                 Spacer()
                             }
                             .padding(.top, 5)
