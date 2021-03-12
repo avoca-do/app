@@ -18,13 +18,11 @@ extension Cards {
                     VStack(alignment: .leading) {
                         HStack {
                             Text(verbatim: entry.board)
-                                .kerning(1)
                                 .font(family != .systemSmall ? .callout : .caption)
                                 .fontWeight(.heavy) +
                             Text(verbatim: ": ")
                                 .font(family != .systemSmall ? .callout : .caption) +
                             Text(verbatim: entry.column)
-                                .kerning(1)
                                 .font(family != .systemSmall ? .callout : .caption)
                                 .foregroundColor(.secondary)
                             Spacer()
@@ -47,7 +45,6 @@ extension Cards {
                                     .padding(.top, 4)
                                 Text(verbatim: card)
                                     .font(family != .systemSmall ? .caption : .caption2)
-                                    .kerning(1)
                                 Spacer()
                             }
                             .padding(.top, 5)
