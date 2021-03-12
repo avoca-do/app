@@ -99,6 +99,7 @@
 		CE85C5A225FB7FA600287C27 /* Progress.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85C5A125FB7FA600287C27 /* Progress.Content.swift */; };
 		CE85C5A825FB7FC200287C27 /* Progress.Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85C5A725FB7FC200287C27 /* Progress.Entry.swift */; };
 		CE85C5AE25FB7FD800287C27 /* Progress.Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85C5AD25FB7FD800287C27 /* Progress.Provider.swift */; };
+		CE85C5CC25FB846100287C27 /* Progress.Content.Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85C5CB25FB846100287C27 /* Progress.Content.Ring.swift */; };
 		CE8C6ED325C31A4E007D25FC /* Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6ED225C31A4E007D25FC /* Editor.swift */; };
 		CE8C6EDD25C31D51007D25FC /* Editor.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */; };
 		CE8C6EE125C31E87007D25FC /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EE025C31E87007D25FC /* Container.swift */; };
@@ -266,6 +267,7 @@
 		CE85C5A125FB7FA600287C27 /* Progress.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.Content.swift; sourceTree = "<group>"; };
 		CE85C5A725FB7FC200287C27 /* Progress.Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.Entry.swift; sourceTree = "<group>"; };
 		CE85C5AD25FB7FD800287C27 /* Progress.Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.Provider.swift; sourceTree = "<group>"; };
+		CE85C5CB25FB846100287C27 /* Progress.Content.Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.Content.Ring.swift; sourceTree = "<group>"; };
 		CE8C6ED225C31A4E007D25FC /* Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.swift; sourceTree = "<group>"; };
 		CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.Coordinator.swift; sourceTree = "<group>"; };
 		CE8C6EE025C31E87007D25FC /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 				CE30901825FA572400F3BC46 /* Cards.Entry.swift */,
 				CE30901225FA571600F3BC46 /* Cards.Provider.swift */,
 				CE30900825FA56DE00F3BC46 /* Cards.swift */,
+				CE85C5CB25FB846100287C27 /* Progress.Content.Ring.swift */,
 				CE85C5A125FB7FA600287C27 /* Progress.Content.swift */,
 				CE85C5A725FB7FC200287C27 /* Progress.Entry.swift */,
 				CE85C5AD25FB7FD800287C27 /* Progress.Provider.swift */,
@@ -774,6 +777,7 @@
 				CE7AFF6B25FA5F90008D6278 /* Cards.Content.swift in Sources */,
 				CE30901325FA571600F3BC46 /* Cards.Provider.swift in Sources */,
 				CE29280C25FA3A1500EF04F5 /* widget.intentdefinition in Sources */,
+				CE85C5CC25FB846100287C27 /* Progress.Content.Ring.swift in Sources */,
 				CE85C59C25FB7F2600287C27 /* Progress.swift in Sources */,
 				CE85C5A825FB7FC200287C27 /* Progress.Entry.swift in Sources */,
 				CE30900925FA56DE00F3BC46 /* Cards.swift in Sources */,

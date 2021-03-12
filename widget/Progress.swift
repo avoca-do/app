@@ -8,5 +8,6 @@ struct Progress: Widget {
         }
         .configurationDisplayName("Progress")
         .description("Progress overview")
+        .supportedFamilies([.systemSmall, .systemLarge])
     }
 }

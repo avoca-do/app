@@ -240,7 +240,7 @@
 			<key>INIntentCategory</key>
 			<string>information</string>
 			<key>INIntentDescription</key>
-			<string>Select project</string>
+			<string>Select Project</string>
 			<key>INIntentDescriptionID</key>
 			<string>Gx0Xkx</string>
 			<key>INIntentEligibleForWidgets</key>
