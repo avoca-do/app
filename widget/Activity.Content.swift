@@ -1,12 +1,8 @@
 import SwiftUI
-import WidgetKit
 
 extension Activity {
     struct Content: View {
         let entry: Entry
-        private let width = CGFloat(30)
-        @State private var percent = NumberFormatter()
-        @Environment(\.widgetFamily) private var family: WidgetFamily
         
         var body: some View {
             if entry == .empty {
@@ -15,7 +11,25 @@ extension Activity {
                     .foregroundColor(.secondary)
                     .padding()
             } else {
-                
+                VStack(alignment: .leading) {
+                    Text(verbatim: entry.board)
+                        .font(.callout)
+                    Chart(values: entry.values)
+                        .padding(.vertical)
+                    Text(title)
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                }
+                .padding(24)
+            }
+        }
+        
+        private var title: String {
+            switch entry.period {
+            case .month: return "This month"
+            case .week: return "This week"
+            case .day: return "Today"
+            default: return "This year"
             }
         }
     }

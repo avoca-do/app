@@ -9,7 +9,7 @@ extension Activity {
 
         func getSnapshot(for intent: ActivityIntent, in context: Context, completion: @escaping (Entry) -> ()) {
             completion(context.isPreview ? .placeholder : intent.project.map {
-                Entry(board: $0.displayString, values: [], date: .init())
+                Entry(board: $0.displayString, period: .month, values: [], date: .init())
             } ?? .empty)
         }
 
@@ -23,7 +23,8 @@ extension Activity {
             }
             completion(.init(entries: [.init(
                                         board: archive[name: .board(id)],
-                                        values: archive[activity: Kanban.Period.allCases[intent.period.rawValue]][id],
+                                        period: intent.period,
+                                        values: archive[activity: Kanban.Period.allCases[max(intent.period.rawValue - 1, 0)]][id],
                                         date: .init())],
                              policy: .never))
         }

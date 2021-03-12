@@ -19,7 +19,7 @@
 			<array>
 				<dict>
 					<key>INEnumValueDisplayName</key>
-					<string>Year</string>
+					<string>Unknown</string>
 					<key>INEnumValueDisplayNameID</key>
 					<string>LoVALb</string>
 					<key>INEnumValueName</key>
@@ -27,11 +27,21 @@
 				</dict>
 				<dict>
 					<key>INEnumValueDisplayName</key>
-					<string>Month</string>
+					<string>Year</string>
 					<key>INEnumValueDisplayNameID</key>
 					<string>MaMwLv</string>
 					<key>INEnumValueIndex</key>
 					<integer>1</integer>
+					<key>INEnumValueName</key>
+					<string>year</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>Month</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>OozJaV</string>
+					<key>INEnumValueIndex</key>
+					<integer>2</integer>
 					<key>INEnumValueName</key>
 					<string>month</string>
 				</dict>
@@ -39,9 +49,9 @@
 					<key>INEnumValueDisplayName</key>
 					<string>Week</string>
 					<key>INEnumValueDisplayNameID</key>
-					<string>OozJaV</string>
+					<string>Ityu1o</string>
 					<key>INEnumValueIndex</key>
-					<integer>2</integer>
+					<integer>3</integer>
 					<key>INEnumValueName</key>
 					<string>week</string>
 				</dict>
@@ -49,9 +59,9 @@
 					<key>INEnumValueDisplayName</key>
 					<string>Day</string>
 					<key>INEnumValueDisplayNameID</key>
-					<string>Ityu1o</string>
+					<string>yu8ucy</string>
 					<key>INEnumValueIndex</key>
-					<integer>3</integer>
+					<integer>4</integer>
 					<key>INEnumValueName</key>
 					<string>day</string>
 				</dict>
