@@ -60,17 +60,7 @@ import Kanban
     }
     
     func application(_: NSApplication, didReceiveRemoteNotification: [String : Any]) {
-        print("receive")
         Memory.shared.fetch()
-    }
-    
-    func application(_: NSApplication, didRegisterForRemoteNotificationsWithDeviceToken: Data) {
-        print("token")
-    }
-    
-    func application(_: NSApplication, didFailToRegisterForRemoteNotificationsWithError: Error) {
-        print("register")
-        print(didFailToRegisterForRemoteNotificationsWithError)
     }
     
     @objc func preferences() {
