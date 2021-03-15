@@ -1,6 +1,5 @@
 import SwiftUI
 import WidgetKit
-import Combine
 import Kanban
 
 @main struct App: SwiftUI.App {
