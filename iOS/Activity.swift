@@ -3,7 +3,7 @@ import Kanban
 
 struct Activity: View {
     @Binding var session: Session
-    @State private var period = Period.week
+    @State private var period = Period.month
     @State private var values = [[Double]]()
     @State private var hidden = Set<Int>()
     @State private var since = ""

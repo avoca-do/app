@@ -29,7 +29,7 @@ final class Session {
     static let scroll = PassthroughSubject<Void, Never>()
     static let capacity = PassthroughSubject<Void, Never>()
     static let edit = PassthroughSubject<Write?, Never>()
-    static let period = CurrentValueSubject<Period, Never>(.week)
+    static let period = CurrentValueSubject<Period, Never>(.month)
     static let purchases = Purchases()
     
     static func mutate(transform: (inout Archive) -> Void) {

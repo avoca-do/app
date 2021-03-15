@@ -48,7 +48,6 @@ import Kanban
                 }
                 .onReceive(session.widget) {
                     Defaults.archive = $0
-                    print("synch widget")
                     WidgetCenter.shared.reloadAllTimelines()
                 }
         }
