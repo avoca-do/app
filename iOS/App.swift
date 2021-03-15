@@ -46,12 +46,11 @@ import Kanban
                 .onReceive(session.purchases.plusOne) {
                     session.archive.capacity += 1
                 }
-                .onReceive(Memory.shared.save
-                            .merge(with: Memory.shared.archive)
-                            .debounce(for: .seconds(1), scheduler: DispatchQueue.main)) {
-                                Defaults.archive = $0
-                                WidgetCenter.shared.reloadAllTimelines()
-                            }
+                .onReceive(session.widget) {
+                    Defaults.archive = $0
+                    print("synch widget")
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
         }
         .onChange(of: phase) {
             if $0 == .active {
