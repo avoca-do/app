@@ -26,7 +26,7 @@ import Kanban
                     }
                 }
                 .onReceive(Memory.shared.archive) {
-                    guard $0.date(.archive) > session.archive.date(.archive) else { return }
+                    guard $0 > session.archive else { return }
                     UIApplication.shared.resign()
                     session.dismiss.send()
                     if $0.count(.archive) > session.path._board {

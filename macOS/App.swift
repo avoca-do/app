@@ -21,7 +21,7 @@ import Kanban
         Window().makeKeyAndOrderFront(nil)
         
         Memory.shared.archive.sink { archive in
-            guard archive.date(.archive) > Session.archive.date(.archive) else { return }
+            guard archive > Session.archive else { return }
             Session.mutate {
                 $0 = archive
             }
