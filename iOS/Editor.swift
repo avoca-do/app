@@ -14,5 +14,5 @@ struct Editor: UIViewRepresentable {
         context.coordinator
     }
     
-    func updateUIView(_ uiView: Coordinator, context: Context) { }
+    func updateUIView(_: Coordinator, context: Context) { }
 }
