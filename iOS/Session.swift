@@ -15,6 +15,7 @@ struct Session {
     let dismiss = PassthroughSubject<Void, Never>()
     let widget = Memory.shared.archive
         .merge(with: Memory.shared.save)
+        .removeDuplicates()
         .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
         .eraseToAnyPublisher()
     
