@@ -7,7 +7,6 @@ struct Capacity: View {
     @State private var products = [(SKProduct, String)]()
     @State private var error: String?
     @State private var loading = true
-    @Environment(\.presentationMode) private var visible
     
     var body: some View {
         VStack {
