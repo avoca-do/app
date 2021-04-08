@@ -38,6 +38,6 @@ final class Session {
         _archive.value = archive
     }
     
-    private static let _archive = CurrentValueSubject<Archive, Never>(.init())
+    private static let _archive = CurrentValueSubject<Archive, Never>(.new)
     private static let _path = CurrentValueSubject<Path, Never>(.archive)
 }

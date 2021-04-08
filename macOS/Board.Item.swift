@@ -28,7 +28,7 @@ extension Board {
                                         .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize, weight: .regular),
                                         .foregroundColor: NSColor.labelColor,
                                         .kern: 1])])
-                size.width -= Metrics.board.card.left
+                size.width -= Metrics.board.card.left + 3
             default:
                 text = .init()
             }
@@ -36,7 +36,7 @@ extension Board {
             rect = {
                 .init(x: x, y: y,
                       width: Metrics.board.item.padding2 + Metrics.board.item.size.width,
-                      height: $0.height + Metrics.board.item.padding2)
+                      height: ceil($0.height) + Metrics.board.item.padding2)
             } (CTFramesetterSuggestFrameSizeWithConstraints(CTFramesetterCreateWithAttributedString(text), CFRange(), nil, size, nil))
         }
         

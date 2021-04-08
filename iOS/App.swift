@@ -51,7 +51,11 @@ import Kanban
         }
         .onChange(of: phase) {
             if $0 == .active {
-                Memory.shared.fetch()
+                if session.archive == .new {
+                    Memory.shared.load()
+                }
+                
+                Memory.shared.pull.send()
             }
         }
     }
