@@ -1,5 +1,4 @@
 import SwiftUI
-import WidgetKit
 import Kanban
 
 @main struct App: SwiftUI.App {
@@ -25,7 +24,7 @@ import Kanban
                     default: break
                     }
                 }
-                .onReceive(Memory.shared.archive) {
+                .onReceive(delegate.memory.archive) {
                     UIApplication.shared.resign()
                     session.dismiss.send()
                     if $0.count(.archive) > session.path._board {
@@ -34,6 +33,7 @@ import Kanban
                         session.open = false
                     }
                     session.archive = $0
+                    session.archive.save = delegate.memory.save
                 }
                 .onReceive(session.purchases.open) {
                     UIApplication.shared.resign()
@@ -44,18 +44,16 @@ import Kanban
                 .onReceive(session.purchases.plusOne) {
                     session.archive.capacity += 1
                 }
-                .onReceive(session.widget) {
-                    Defaults.archive = $0
-                    WidgetCenter.shared.reloadAllTimelines()
-                }
         }
         .onChange(of: phase) {
             if $0 == .active {
                 if session.archive == .new {
-                    Memory.shared.load()
+                    delegate.memory.load()
                 }
-                
-                Memory.shared.pull.send()
+                DispatchQueue.main.async {
+                    session.archive.save = delegate.memory.save
+                }
+                delegate.memory.pull.send()
             }
         }
     }

@@ -2,11 +2,12 @@ import AppKit
 import StoreKit
 import Combine
 import Kanban
+import Archivable
 
 @NSApplicationMain final class App: NSApplication, NSApplicationDelegate {
     static let dark = NSApp.windows.first?.effectiveAppearance == NSAppearance(named: .darkAqua)
-    
     private var subs = Set<AnyCancellable>()
+    private let memory = Memory<Descriptor>()
     
     required init?(coder: NSCoder) { nil }
     override init() {
@@ -17,12 +18,17 @@ import Kanban
     func applicationWillFinishLaunching(_: Notification) {
         Session.decimal.numberStyle = .decimal
         Session.percentage.numberStyle = .percent
+        Session.mutate {
+            $0.save = memory.save
+        }
+        
         mainMenu = Menu()
         Window().makeKeyAndOrderFront(nil)
         
-        Memory.shared.archive.sink { archive in
+        memory.archive.sink { archive in
             Session.mutate {
                 $0 = archive
+                $0.save = self.memory.save
             }
             Session.path = archive.count(.archive) > Session.path._board
                 ? .board(Session.path._board)
@@ -51,15 +57,15 @@ import Kanban
         
         registerForRemoteNotifications()
         
-        Memory.shared.load()
+        memory.load()
     }
     
     func applicationDidBecomeActive(_: Notification) {
-        Memory.shared.pull.send()
+        memory.pull.send()
     }
     
     func application(_: NSApplication, didReceiveRemoteNotification: [String : Any]) {
-        Memory.shared.pull.send()
+        memory.pull.send()
     }
     
     @objc func preferences() {
