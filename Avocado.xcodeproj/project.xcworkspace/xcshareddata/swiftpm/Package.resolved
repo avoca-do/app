@@ -6,7 +6,7 @@
         "repositoryURL": "https://github.com/avoca-do/kanban.git",
         "state": {
           "branch": "main",
-          "revision": "bad5f6a245dee1e8e58a38d6d569d91a4f49e48d",
+          "revision": "99d8f56d68c5c9bb40a5f023a3f7e20b8039c024",
           "version": null
         }
       },
@@ -15,7 +15,7 @@
         "repositoryURL": "https://github.com/archivable/package.git",
         "state": {
           "branch": "main",
-          "revision": "b8235e1efcad0148a5d2db80cf6c2f37f921ef07",
+          "revision": "fb62fe90aa4fb63f3d9d7dd818e06d21a0a1e6c6",
           "version": null
         }
       }

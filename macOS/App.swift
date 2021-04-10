@@ -7,7 +7,6 @@ import Archivable
 @NSApplicationMain final class App: NSApplication, NSApplicationDelegate {
     static let dark = NSApp.windows.first?.effectiveAppearance == NSAppearance(named: .darkAqua)
     private var subs = Set<AnyCancellable>()
-    private let memory = Memory<Descriptor>()
     
     required init?(coder: NSCoder) { nil }
     override init() {
@@ -18,17 +17,13 @@ import Archivable
     func applicationWillFinishLaunching(_: Notification) {
         Session.decimal.numberStyle = .decimal
         Session.percentage.numberStyle = .percent
-        Session.mutate {
-            $0.save = memory.save
-        }
         
         mainMenu = Menu()
         Window().makeKeyAndOrderFront(nil)
         
-        memory.archive.sink { archive in
+        Repository.memory.archive.sink { archive in
             Session.mutate {
                 $0 = archive
-                $0.save = self.memory.save
             }
             Session.path = archive.count(.archive) > Session.path._board
                 ? .board(Session.path._board)
@@ -57,15 +52,15 @@ import Archivable
         
         registerForRemoteNotifications()
         
-        memory.load()
+        Repository.memory.load()
     }
     
     func applicationDidBecomeActive(_: Notification) {
-        memory.pull.send()
+        Repository.memory.pull.send()
     }
     
     func application(_: NSApplication, didReceiveRemoteNotification: [String : Any]) {
-        memory.pull.send()
+        Repository.memory.pull.send()
     }
     
     @objc func preferences() {

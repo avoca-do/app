@@ -7,22 +7,21 @@ import Archivable
 
 extension App {
     final class Delegate: NSObject, UIApplicationDelegate {
-        let memory = Memory<Descriptor>()
-        private var subs = Set<AnyCancellable>()
+        private var widget: AnyCancellable?
+        private var fetch: AnyCancellable?
         
         func application(_ application: UIApplication, willFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
             application.registerForRemoteNotifications()
             
-            memory
+            widget = Repository.memory
                 .archive
-                .merge(with: memory.save)
+                .merge(with: Repository.memory.save)
                 .removeDuplicates()
                 .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
                 .sink {
                     Defaults.archive = $0
                     WidgetCenter.shared.reloadAllTimelines()
                 }
-                .store(in: &subs)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 if let created = Defaults.created {
@@ -38,13 +37,12 @@ extension App {
             return true
         }
         
-        func application(_ a: UIApplication, didReceiveRemoteNotification: [AnyHashable : Any], fetchCompletionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-            memory
+        func application(_: UIApplication, didReceiveRemoteNotification: [AnyHashable : Any], fetchCompletionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+            fetch = Repository.memory
                 .receipt
                 .sink {
                     fetchCompletionHandler($0 ? .newData : .noData)
                 }
-                .store(in: &subs)
         }
     }
 }

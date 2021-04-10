@@ -24,7 +24,7 @@ import Kanban
                     default: break
                     }
                 }
-                .onReceive(delegate.memory.archive) {
+                .onReceive(Repository.memory.archive) {
                     UIApplication.shared.resign()
                     session.dismiss.send()
                     if $0.count(.archive) > session.path._board {
@@ -33,7 +33,6 @@ import Kanban
                         session.open = false
                     }
                     session.archive = $0
-                    session.archive.save = delegate.memory.save
                 }
                 .onReceive(session.purchases.open) {
                     UIApplication.shared.resign()
@@ -48,12 +47,9 @@ import Kanban
         .onChange(of: phase) {
             if $0 == .active {
                 if session.archive == .new {
-                    delegate.memory.load()
+                    Repository.memory.load()
                 }
-                DispatchQueue.main.async {
-                    session.archive.save = delegate.memory.save
-                }
-                delegate.memory.pull.send()
+                Repository.memory.pull.send()
             }
         }
     }
