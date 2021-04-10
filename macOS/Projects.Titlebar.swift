@@ -62,6 +62,18 @@ extension Projects {
             self.left = left.leftAnchor.constraint(equalTo: leftAnchor)
             self.left!.isActive = true
             
+            Session.archiving.sink {
+                if $0.isEmpty(.archive) {
+                    [settings, columns, progress, card].forEach {
+                        $0.isHidden = true
+                    }
+                } else {
+                    [settings, columns, progress, card].forEach {
+                        $0.isHidden = false
+                    }
+                }
+            }.store(in: &subs)
+            
             project.leftAnchor.constraint(equalTo: left.leftAnchor, constant: 10).isActive = true
             progress.rightAnchor.constraint(equalTo: settings.leftAnchor, constant: -5).isActive = true
             settings.rightAnchor.constraint(equalTo: columns.leftAnchor, constant: -5).isActive = true
