@@ -3,7 +3,6 @@ import StoreKit
 import Combine
 import WidgetKit
 import Kanban
-import Archivable
 
 extension App {
     final class Delegate: NSObject, UIApplicationDelegate {
