@@ -51,8 +51,6 @@ import Archivable
         }
         
         registerForRemoteNotifications()
-        
-        Repository.memory.load()
     }
     
     func applicationDidBecomeActive(_: Notification) {

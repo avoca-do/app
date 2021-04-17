@@ -46,9 +46,6 @@ import Kanban
         }
         .onChange(of: phase) {
             if $0 == .active {
-                if session.archive == .new {
-                    Repository.memory.load()
-                }
                 Repository.memory.pull.send()
             }
         }
