@@ -32,6 +32,7 @@ extension Progress {
                             .font(family == .systemLarge ? .body : .caption2)
                             .foregroundColor(.secondary)
                             .padding(.horizontal)
+                            .padding(.horizontal)
                     }
                 }
                 .widgetURL(URL(string: "avocado://\(entry.id)")!)

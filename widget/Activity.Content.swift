@@ -13,9 +13,9 @@ extension Activity {
             } else {
                 VStack(alignment: .leading) {
                     Text(verbatim: entry.board)
-                        .font(.callout)
+                        .font(Font.footnote.bold())
                     Chart(values: entry.values)
-                        .padding(.vertical)
+                        .padding(.vertical, 5)
                     Text(title)
                         .font(.footnote)
                         .foregroundColor(.secondary)
