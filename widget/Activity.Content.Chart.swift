@@ -7,14 +7,14 @@ extension Activity.Content {
         var body: some View {
             ZStack {
                 Pattern()
-                    .stroke(Color.primary.opacity(0.2), style: .init(lineWidth: 1, lineCap: .round, dash: [1, 4]))
+                    .stroke(Color.primary.opacity(0.1), style: .init(lineWidth: 1, lineCap: .round, dash: [1, 4]))
                 Shade(values: values)
                     .fill(Color("avocado").opacity(0.4))
                 Road(values: values)
                     .stroke(Color("avocado"), style: .init(lineWidth: 3, lineCap: .round))
                 ForEach(0 ..< values.count, id: \.self) {
                     Dot(y: values[$0], index: $0, count: values.count)
-                        .fill(Color.black)
+                        .fill(Color(.systemBackground))
                     Dot(y: values[$0], index: $0, count: values.count)
                         .stroke(Color("avocado"), style: .init(lineWidth: 3, lineCap: .round))
                 }
