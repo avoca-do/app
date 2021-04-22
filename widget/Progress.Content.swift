@@ -4,7 +4,6 @@ import WidgetKit
 extension Progress {
     struct Content: View {
         let entry: Entry
-        @State private var percent = NumberFormatter()
         @Environment(\.widgetFamily) private var family: WidgetFamily
         
         var body: some View {
@@ -25,7 +24,7 @@ extension Progress {
                                 style: .init(lineWidth: Metrics.progress.stroke / (family == .systemLarge ? 1 : 2),
                                              lineCap: .round))
                     VStack {
-                        Text(NSNumber(value: entry.percentage), formatter: percent)
+                        Text(NSNumber(value: entry.percentage), formatter: NumberFormatter.percent)
                             .font(family == .systemLarge ? Font.largeTitle.bold() : Font.callout.bold())
                         Text(verbatim: entry.board)
                             .multilineTextAlignment(.center)
@@ -37,10 +36,15 @@ extension Progress {
                 }
                 .widgetURL(URL(string: "avocado://\(entry.id)")!)
                 .padding(family == .systemLarge ? 12 : 6)
-                .onAppear {
-                    percent.numberStyle = .percent
-                }
             }
         }
+    }
+}
+
+private extension NumberFormatter {
+    static var percent: Self {
+        let formatter = Self()
+        formatter.numberStyle = .percent
+        return formatter
     }
 }

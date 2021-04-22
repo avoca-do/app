@@ -4,7 +4,6 @@ import WidgetKit
 extension Cards {
     struct Content: View {
         let entry: Entry
-        @State private var decimal = NumberFormatter()
         @Environment(\.widgetFamily) private var family: WidgetFamily
         
         var body: some View {
@@ -31,7 +30,7 @@ extension Cards {
                                     Circle()
                                         .fill(Color("avocado"))
                                         .frame(width: 30, height: 30)
-                                    Text(NSNumber(value: entry.cards.count), formatter: decimal)
+                                    Text(NSNumber(value: entry.cards.count), formatter: NumberFormatter.decimal)
                                         .font(.caption2)
                                         .foregroundColor(.black)
                                 }
@@ -57,10 +56,15 @@ extension Cards {
                     .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                 }
                 .widgetURL(URL(string: "avocado://\(entry.id)")!)
-                .onAppear {
-                    decimal.numberStyle = .decimal
-                }
             }
         }
+    }
+}
+
+private extension NumberFormatter {
+    static var decimal: Self {
+        let formatter = Self()
+        formatter.numberStyle = .decimal
+        return formatter
     }
 }
