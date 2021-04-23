@@ -26,7 +26,8 @@ extension Home {
                                     .foregroundColor(.secondary)
                                     .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                             }
-                            .padding()
+                            .padding(.horizontal, 4)
+                            .padding(.vertical, 1)
                         }
                     }
                 }
