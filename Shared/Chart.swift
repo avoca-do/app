@@ -1,28 +1,26 @@
 import SwiftUI
 
-extension Activity {
-    struct Chart: View {
-        @Binding var hidden: Set<Int>
-        let values: [[Double]]
-        
-        var body: some View {
-            ZStack {
-                Pattern()
-                    .stroke(Color.primary.opacity(UIApplication.dark ? 0.4 : 0.2), style: .init(lineWidth: 1, lineCap: .round, dash: [1, 4]))
-                ForEach(0 ..< values.count, id: \.self) { index in
-                    if !hidden.contains(index) {
-                        Shade(values: values[index])
-                            .fill(Color.index(index).opacity(0.3))
-                        Road(values: values[index])
+struct Chart: View {
+    @Binding var hidden: Set<Int>
+    let values: [[Double]]
+    
+    var body: some View {
+        ZStack {
+            Pattern()
+                .stroke(Color.primary.opacity(0.3), style: .init(lineWidth: 1, lineCap: .round, dash: [1, 4]))
+            ForEach(0 ..< values.count, id: \.self) { index in
+                if !hidden.contains(index) {
+                    Shade(values: values[index])
+                        .fill(Color.index(index).opacity(0.3))
+                    Road(values: values[index])
+                        .stroke(Color.index(index), style: .init(lineWidth: 2, lineCap: .round))
+                    ForEach(0 ..< values[index].count, id: \.self) {
+                        Dot(y: values[index][$0], index: $0, count: values[index].count)
+                            .fill(Color.black)
+                            .zIndex(1)
+                        Dot(y: values[index][$0], index: $0, count: values[index].count)
                             .stroke(Color.index(index), style: .init(lineWidth: 2, lineCap: .round))
-                        ForEach(0 ..< values[index].count, id: \.self) {
-                            Dot(y: values[index][$0], index: $0, count: values[index].count)
-                                .fill(Color.black)
-                                .zIndex(1)
-                            Dot(y: values[index][$0], index: $0, count: values[index].count)
-                                .stroke(Color.index(index), style: .init(lineWidth: 2, lineCap: .round))
-                                .zIndex(2)
-                        }
+                            .zIndex(2)
                     }
                 }
             }

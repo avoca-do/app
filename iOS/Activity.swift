@@ -45,7 +45,7 @@ struct Activity: View {
             .padding(.top, 3)
             .padding(.bottom, 30)
             ForEach(0 ..< session.archive.count(.archive), id: \.self) {
-                Item(session: $session, hidden: $hidden, index: $0)
+                Chart.Item(session: $session, hidden: $hidden, index: $0)
             }
             Spacer()
                 .frame(height: 20)

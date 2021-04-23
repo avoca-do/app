@@ -1,6 +1,6 @@
 import SwiftUI
 
-extension Activity {
+extension Chart {
     struct Item: View {
         @Binding var session: Session
         @Binding var hidden: Set<Int>
@@ -20,11 +20,11 @@ extension Activity {
             } label: {
                 HStack {
                     Circle()
-                        .fill(hidden.contains(index) ? .init(.tertiaryLabel) : Color.index(index))
-                        .opacity(hidden.contains(index) ? (UIApplication.dark ? 0.5 : 0.2) : 1)
+                        .fill(hidden.contains(index) ? Color.secondary.opacity(0.5) : Color.index(index))
+                        .opacity(hidden.contains(index) ? 0.3 : 1)
                         .frame(width: Metrics.chart.circle, height: Metrics.chart.circle)
                     Text(verbatim: session.archive[name: .board(index)])
-                        .foregroundColor(hidden.contains(index) ?  .init(.tertiaryLabel) : .primary)
+                        .foregroundColor(hidden.contains(index) ?  Color.secondary.opacity(0.5) : .primary)
                         .font(.footnote)
                     Spacer()
                 }

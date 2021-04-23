@@ -44,6 +44,17 @@
 		CE29282A25FA3ACC00EF04F5 /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29282925FA3ACC00EF04F5 /* Handler.swift */; };
 		CE29282E25FA3ACC00EF04F5 /* intent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE29282525FA3ACC00EF04F5 /* intent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CE29283A25FA3B6500EF04F5 /* widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CE29280825FA3A1400EF04F5 /* widget.intentdefinition */; };
+		CE2AE00D2632D3FC00526EB9 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AE00C2632D3FC00526EB9 /* Session.swift */; };
+		CE2AE0152632D43E00526EB9 /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AE0142632D43E00526EB9 /* App.Delegate.swift */; };
+		CE2AE0232632D56100526EB9 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AE0222632D56100526EB9 /* Window.swift */; };
+		CE2AE0372632D5F100526EB9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AE0362632D5F100526EB9 /* Home.swift */; };
+		CE2AE03F2632D5F900526EB9 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AE03E2632D5F900526EB9 /* Project.swift */; };
+		CE2AE04D2632D78900526EB9 /* Home.Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AE04C2632D78900526EB9 /* Home.Projects.swift */; };
+		CE2AE05B2632D8BF00526EB9 /* Home.Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AE05A2632D8BF00526EB9 /* Home.Activity.swift */; };
+		CE2AE0622632DA1800526EB9 /* Chart.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F83C25F7817100D4379A /* Chart.Item.swift */; };
+		CE2AE0692632DA1B00526EB9 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6229DD25F6549E008ED49E /* Chart.swift */; };
+		CE2AE0882632DB4400526EB9 /* _Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95052825EA770500EB178E /* _Metrics.swift */; };
+		CE2AE0952632DB8700526EB9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F83625F7810B00D4379A /* Color.swift */; };
 		CE30900325FA56A100F3BC46 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30900225FA56A100F3BC46 /* Bundle.swift */; };
 		CE30900925FA56DE00F3BC46 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30900825FA56DE00F3BC46 /* Cards.swift */; };
 		CE30901325FA571600F3BC46 /* Cards.Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30901225FA571600F3BC46 /* Cards.Provider.swift */; };
@@ -77,7 +88,7 @@
 		CE5F391D25DD9BE30095F4FB /* Projects.Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5F391C25DD9BE30095F4FB /* Projects.Empty.swift */; };
 		CE5F392125DD9CD60095F4FB /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5F392025DD9CD60095F4FB /* Board.swift */; };
 		CE6229DA25F65435008ED49E /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6229D925F65435008ED49E /* Activity.swift */; };
-		CE6229DE25F6549E008ED49E /* Activity.Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6229DD25F6549E008ED49E /* Activity.Chart.swift */; };
+		CE6229DE25F6549E008ED49E /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6229DD25F6549E008ED49E /* Chart.swift */; };
 		CE69A58125D15EB600EC9DB0 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A58025D15EB600EC9DB0 /* Progress.swift */; };
 		CE69A58725D1611400EC9DB0 /* Progress.Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */; };
 		CE69A59325D1816300EC9DB0 /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A59225D1816300EC9DB0 /* Switch.swift */; };
@@ -86,7 +97,7 @@
 		CE7183B925CC3CAC00AD02F8 /* Dismisser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7183B825CC3CAC00AD02F8 /* Dismisser.swift */; };
 		CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D20725B98FF000D0F4E3 /* Board.swift */; };
 		CE71F83725F7810B00D4379A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F83625F7810B00D4379A /* Color.swift */; };
-		CE71F83D25F7817100D4379A /* Activity.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F83C25F7817100D4379A /* Activity.Item.swift */; };
+		CE71F83D25F7817100D4379A /* Chart.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F83C25F7817100D4379A /* Chart.Item.swift */; };
 		CE71F84325F7890000D4379A /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F84225F7890000D4379A /* Activity.swift */; };
 		CE71F84725F78A9900D4379A /* Activity.Titlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F84625F78A9900D4379A /* Activity.Titlebar.swift */; };
 		CE71F84D25F78ACE00D4379A /* Segmented.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F84C25F78ACE00D4379A /* Segmented.swift */; };
@@ -131,9 +142,7 @@
 		CEC22CC425E6AC0F0035E674 /* Purchases.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */; };
 		CECCC74E2632C92200D971E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECCC74D2632C92200D971E4 /* Assets.xcassets */; };
 		CECCC7552632C92200D971E4 /* Avocado.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CECCC7542632C92200D971E4 /* Avocado.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		CECCC75A2632C92200D971E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCC7592632C92200D971E4 /* ContentView.swift */; };
-		CECCC75C2632C92200D971E4 /* AvocadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCC75B2632C92200D971E4 /* AvocadoApp.swift */; };
-		CECCC75E2632C92200D971E4 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCC75D2632C92200D971E4 /* ComplicationController.swift */; };
+		CECCC75C2632C92200D971E4 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCC75B2632C92200D971E4 /* App.swift */; };
 		CECCC7602632C92300D971E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECCC75F2632C92300D971E4 /* Assets.xcassets */; };
 		CECCC7672632C92300D971E4 /* Avocado.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CECCC74B2632C92100D971E4 /* Avocado.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CECCC78F2632CB3200D971E4 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CECCC78E2632CB3200D971E4 /* Kanban */; };
@@ -264,6 +273,13 @@
 		CE29282625FA3ACC00EF04F5 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		CE29282925FA3ACC00EF04F5 /* Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
 		CE29282B25FA3ACC00EF04F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE2AE00C2632D3FC00526EB9 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		CE2AE0142632D43E00526EB9 /* App.Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
+		CE2AE0222632D56100526EB9 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		CE2AE0362632D5F100526EB9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		CE2AE03E2632D5F900526EB9 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		CE2AE04C2632D78900526EB9 /* Home.Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Projects.swift; sourceTree = "<group>"; };
+		CE2AE05A2632D8BF00526EB9 /* Home.Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Activity.swift; sourceTree = "<group>"; };
 		CE30900225FA56A100F3BC46 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		CE30900825FA56DE00F3BC46 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		CE30901225FA571600F3BC46 /* Cards.Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.Provider.swift; sourceTree = "<group>"; };
@@ -296,7 +312,7 @@
 		CE5F391C25DD9BE30095F4FB /* Projects.Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Empty.swift; sourceTree = "<group>"; };
 		CE5F392025DD9CD60095F4FB /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		CE6229D925F65435008ED49E /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
-		CE6229DD25F6549E008ED49E /* Activity.Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Chart.swift; sourceTree = "<group>"; };
+		CE6229DD25F6549E008ED49E /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		CE69A58025D15EB600EC9DB0 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		CE69A58625D1611400EC9DB0 /* Progress.Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.Ring.swift; sourceTree = "<group>"; };
 		CE69A59225D1816300EC9DB0 /* Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
@@ -305,7 +321,7 @@
 		CE7183B825CC3CAC00AD02F8 /* Dismisser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dismisser.swift; sourceTree = "<group>"; };
 		CE71D20725B98FF000D0F4E3 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		CE71F83625F7810B00D4379A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		CE71F83C25F7817100D4379A /* Activity.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Item.swift; sourceTree = "<group>"; };
+		CE71F83C25F7817100D4379A /* Chart.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.Item.swift; sourceTree = "<group>"; };
 		CE71F84225F7890000D4379A /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		CE71F84625F78A9900D4379A /* Activity.Titlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Titlebar.swift; sourceTree = "<group>"; };
 		CE71F84C25F78ACE00D4379A /* Segmented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segmented.swift; sourceTree = "<group>"; };
@@ -351,9 +367,7 @@
 		CECCC74D2632C92200D971E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CECCC74F2632C92200D971E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CECCC7542632C92200D971E4 /* Avocado.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Avocado.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		CECCC7592632C92200D971E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		CECCC75B2632C92200D971E4 /* AvocadoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocadoApp.swift; sourceTree = "<group>"; };
-		CECCC75D2632C92200D971E4 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		CECCC75B2632C92200D971E4 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CECCC75F2632C92300D971E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CECCC7642632C92300D971E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CECCC7902632CCB200D971E4 /* Avocado.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Avocado.entitlements; sourceTree = "<group>"; };
@@ -460,8 +474,6 @@
 				CE6D659C25D1A1060017FE07 /* Settings.bundle */,
 				CEA1819825C04DD200552DEF /* iOS.entitlements */,
 				CE2507A225B8660A00F9C526 /* Info.plist */,
-				CE6229DD25F6549E008ED49E /* Activity.Chart.swift */,
-				CE71F83C25F7817100D4379A /* Activity.Item.swift */,
 				CE6229D925F65435008ED49E /* Activity.swift */,
 				CE575AF425C1730500A6B28D /* App.Delegate.swift */,
 				CE25079925B8660900F9C526 /* App.swift */,
@@ -469,7 +481,6 @@
 				CE4206AD25D1937E00E43D49 /* Capacity.Item.swift */,
 				CE4206A125D1853B00E43D49 /* Capacity.swift */,
 				CEDB78FD25ED0E08001A02A4 /* Card.swift */,
-				CE71F83625F7810B00D4379A /* Color.swift */,
 				CEDB78E825ECFA7D001A02A4 /* Column.swift */,
 				CE7183B825CC3CAC00AD02F8 /* Dismisser.swift */,
 				CE8C6EDC25C31D51007D25FC /* Editor.Coordinator.swift */,
@@ -512,6 +523,9 @@
 			children = (
 				CEB8E56925DAA0C6009737AB /* Configuration.storekit */,
 				CE95052825EA770500EB178E /* _Metrics.swift */,
+				CE71F83C25F7817100D4379A /* Chart.Item.swift */,
+				CE6229DD25F6549E008ED49E /* Chart.swift */,
+				CE71F83625F7810B00D4379A /* Color.swift */,
 				CE8C6EE025C31E87007D25FC /* Container.swift */,
 				CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */,
 				CE4206A525D18C0600E43D49 /* Purchases.swift */,
@@ -643,11 +657,16 @@
 			isa = PBXGroup;
 			children = (
 				CECCC7902632CCB200D971E4 /* Avocado.entitlements */,
-				CECCC7592632C92200D971E4 /* ContentView.swift */,
-				CECCC75B2632C92200D971E4 /* AvocadoApp.swift */,
-				CECCC75D2632C92200D971E4 /* ComplicationController.swift */,
-				CECCC75F2632C92300D971E4 /* Assets.xcassets */,
 				CECCC7642632C92300D971E4 /* Info.plist */,
+				CE2AE0142632D43E00526EB9 /* App.Delegate.swift */,
+				CECCC75B2632C92200D971E4 /* App.swift */,
+				CE2AE05A2632D8BF00526EB9 /* Home.Activity.swift */,
+				CE2AE04C2632D78900526EB9 /* Home.Projects.swift */,
+				CE2AE0362632D5F100526EB9 /* Home.swift */,
+				CE2AE03E2632D5F900526EB9 /* Project.swift */,
+				CE2AE00C2632D3FC00526EB9 /* Session.swift */,
+				CE2AE0222632D56100526EB9 /* Window.swift */,
+				CECCC75F2632C92300D971E4 /* Assets.xcassets */,
 			);
 			path = watchOS;
 			sourceTree = "<group>";
@@ -920,10 +939,10 @@
 				CE8C6EDD25C31D51007D25FC /* Editor.Coordinator.swift in Sources */,
 				CE95053625EA795A00EB178E /* Sidebar.Style.swift in Sources */,
 				CEA0D18E25EC45110011FFC0 /* Middlebar.Item.swift in Sources */,
-				CE71F83D25F7817100D4379A /* Activity.Item.swift in Sources */,
+				CE71F83D25F7817100D4379A /* Chart.Item.swift in Sources */,
 				CEDB78FE25ED0E08001A02A4 /* Card.swift in Sources */,
 				CEDB78F025ECFC8B001A02A4 /* Project.Title.swift in Sources */,
-				CE6229DE25F6549E008ED49E /* Activity.Chart.swift in Sources */,
+				CE6229DE25F6549E008ED49E /* Chart.swift in Sources */,
 				CE69A58725D1611400EC9DB0 /* Progress.Ring.swift in Sources */,
 				CE4206A225D1853B00E43D49 /* Capacity.swift in Sources */,
 				CE29280D25FA3A1500EF04F5 /* widget.intentdefinition in Sources */,
@@ -1040,9 +1059,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CECCC75A2632C92200D971E4 /* ContentView.swift in Sources */,
-				CECCC75C2632C92200D971E4 /* AvocadoApp.swift in Sources */,
-				CECCC75E2632C92200D971E4 /* ComplicationController.swift in Sources */,
+				CE2AE04D2632D78900526EB9 /* Home.Projects.swift in Sources */,
+				CE2AE00D2632D3FC00526EB9 /* Session.swift in Sources */,
+				CE2AE05B2632D8BF00526EB9 /* Home.Activity.swift in Sources */,
+				CE2AE0622632DA1800526EB9 /* Chart.Item.swift in Sources */,
+				CE2AE0882632DB4400526EB9 /* _Metrics.swift in Sources */,
+				CE2AE0952632DB8700526EB9 /* Color.swift in Sources */,
+				CECCC75C2632C92200D971E4 /* App.swift in Sources */,
+				CE2AE0372632D5F100526EB9 /* Home.swift in Sources */,
+				CE2AE0692632DA1B00526EB9 /* Chart.swift in Sources */,
+				CE2AE0152632D43E00526EB9 /* App.Delegate.swift in Sources */,
+				CE2AE0232632D56100526EB9 /* Window.swift in Sources */,
+				CE2AE03F2632D5F900526EB9 /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
