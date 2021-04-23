@@ -129,6 +129,15 @@
 		CEC22CBA25E69D630035E674 /* Capacity.Titlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */; };
 		CEC22CC125E6AC0C0035E674 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A525D18C0600E43D49 /* Purchases.swift */; };
 		CEC22CC425E6AC0F0035E674 /* Purchases.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */; };
+		CECCC74E2632C92200D971E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECCC74D2632C92200D971E4 /* Assets.xcassets */; };
+		CECCC7552632C92200D971E4 /* Avocado.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CECCC7542632C92200D971E4 /* Avocado.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CECCC75A2632C92200D971E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCC7592632C92200D971E4 /* ContentView.swift */; };
+		CECCC75C2632C92200D971E4 /* AvocadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCC75B2632C92200D971E4 /* AvocadoApp.swift */; };
+		CECCC75E2632C92200D971E4 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCC75D2632C92200D971E4 /* ComplicationController.swift */; };
+		CECCC7602632C92300D971E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECCC75F2632C92300D971E4 /* Assets.xcassets */; };
+		CECCC7672632C92300D971E4 /* Avocado.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CECCC74B2632C92100D971E4 /* Avocado.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CECCC78F2632CB3200D971E4 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CECCC78E2632CB3200D971E4 /* Kanban */; };
+		CECCC7922632CCB700D971E4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECCC7912632CCB700D971E4 /* CloudKit.framework */; };
 		CECFD8BC25E3E3A500BD3532 /* Set.Board.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFD8BB25E3E3A500BD3532 /* Set.Board.Cell.swift */; };
 		CECFD8C225E3EA0000BD3532 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFD8C125E3EA0000BD3532 /* Array.swift */; };
 		CED28AB025FBA323009F00FB /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED28AAF25FBA323009F00FB /* Activity.swift */; };
@@ -163,6 +172,20 @@
 			remoteGlobalIDString = CE29282425FA3ACC00EF04F5;
 			remoteInfo = intent;
 		};
+		CECCC7562632C92200D971E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE25078C25B8521C00F9C526 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CECCC7532632C92200D971E4;
+			remoteInfo = "watchOS Extension";
+		};
+		CECCC7652632C92300D971E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE25078C25B8521C00F9C526 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CECCC74A2632C92100D971E4;
+			remoteInfo = watchOS;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -174,6 +197,28 @@
 			files = (
 				CE29282E25FA3ACC00EF04F5 /* intent.appex in Embed App Extensions */,
 				CE29281025FA3A1500EF04F5 /* widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CECCC7682632C92300D971E4 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CECCC7672632C92300D971E4 /* Avocado.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CECCC76B2632C92300D971E4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CECCC7552632C92200D971E4 /* Avocado.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +347,17 @@
 		CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.Edit.swift; sourceTree = "<group>"; };
 		CEC22CB125E695B90035E674 /* NSAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAlert.swift; sourceTree = "<group>"; };
 		CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.Titlebar.swift; sourceTree = "<group>"; };
+		CECCC74B2632C92100D971E4 /* Avocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CECCC74D2632C92200D971E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CECCC74F2632C92200D971E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CECCC7542632C92200D971E4 /* Avocado.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Avocado.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CECCC7592632C92200D971E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CECCC75B2632C92200D971E4 /* AvocadoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocadoApp.swift; sourceTree = "<group>"; };
+		CECCC75D2632C92200D971E4 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		CECCC75F2632C92300D971E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CECCC7642632C92300D971E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CECCC7902632CCB200D971E4 /* Avocado.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Avocado.entitlements; sourceTree = "<group>"; };
+		CECCC7912632CCB700D971E4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.2.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CECFD8BB25E3E3A500BD3532 /* Set.Board.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.Board.Cell.swift; sourceTree = "<group>"; };
 		CECFD8C125E3EA0000BD3532 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		CED28AAF25FBA323009F00FB /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -358,6 +414,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CECCC7512632C92200D971E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CECCC78F2632CB3200D971E4 /* Kanban in Frameworks */,
+				CECCC7922632CCB700D971E4 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -370,7 +435,9 @@
 				CE99E67625DBFE9F00E0EA36 /* macOS */,
 				CE25079725B8660900F9C526 /* Products */,
 				CE2507F125B88CCD00F9C526 /* Shared */,
+				CECCC7582632C92200D971E4 /* watchOS */,
 				CE29280525FA3A1400EF04F5 /* widget */,
+				CECCC74C2632C92100D971E4 /* wrapper */,
 			);
 			sourceTree = "<group>";
 		};
@@ -381,6 +448,8 @@
 				CE99E67525DBFE9F00E0EA36 /* Avocado.app */,
 				CE29280025FA3A1400EF04F5 /* widget.appex */,
 				CE29282525FA3ACC00EF04F5 /* intent.appex */,
+				CECCC74B2632C92100D971E4 /* Avocado.app */,
+				CECCC7542632C92200D971E4 /* Avocado.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -551,6 +620,7 @@
 		CEA1819A25C04DE000552DEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CECCC7912632CCB700D971E4 /* CloudKit.framework */,
 				CE99E68B25DC00A200E0EA36 /* CloudKit.framework */,
 				CE29282625FA3ACC00EF04F5 /* Intents.framework */,
 				CE99E68925DC009300E0EA36 /* StoreKit.framework */,
@@ -558,6 +628,28 @@
 				CE29280125FA3A1400EF04F5 /* WidgetKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CECCC74C2632C92100D971E4 /* wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				CECCC74F2632C92200D971E4 /* Info.plist */,
+				CECCC74D2632C92200D971E4 /* Assets.xcassets */,
+			);
+			path = wrapper;
+			sourceTree = "<group>";
+		};
+		CECCC7582632C92200D971E4 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				CECCC7902632CCB200D971E4 /* Avocado.entitlements */,
+				CECCC7592632C92200D971E4 /* ContentView.swift */,
+				CECCC75B2632C92200D971E4 /* AvocadoApp.swift */,
+				CECCC75D2632C92200D971E4 /* ComplicationController.swift */,
+				CECCC75F2632C92300D971E4 /* Assets.xcassets */,
+				CECCC7642632C92300D971E4 /* Info.plist */,
+			);
+			path = watchOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -571,12 +663,14 @@
 				CE25079325B8660900F9C526 /* Frameworks */,
 				CE25079425B8660900F9C526 /* Resources */,
 				CE29281425FA3A1500EF04F5 /* Embed App Extensions */,
+				CECCC7682632C92300D971E4 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				CE29280F25FA3A1500EF04F5 /* PBXTargetDependency */,
 				CE29282D25FA3ACC00EF04F5 /* PBXTargetDependency */,
+				CECCC7662632C92300D971E4 /* PBXTargetDependency */,
 			);
 			name = iOS;
 			packageProductDependencies = (
@@ -646,6 +740,43 @@
 			productReference = CE99E67525DBFE9F00E0EA36 /* Avocado.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CECCC74A2632C92100D971E4 /* wrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CECCC76F2632C92300D971E4 /* Build configuration list for PBXNativeTarget "wrapper" */;
+			buildPhases = (
+				CECCC7492632C92100D971E4 /* Resources */,
+				CECCC76B2632C92300D971E4 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CECCC7572632C92200D971E4 /* PBXTargetDependency */,
+			);
+			name = wrapper;
+			productName = watchOS;
+			productReference = CECCC74B2632C92100D971E4 /* Avocado.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		CECCC7532632C92200D971E4 /* watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CECCC76E2632C92300D971E4 /* Build configuration list for PBXNativeTarget "watchOS" */;
+			buildPhases = (
+				CECCC7502632C92200D971E4 /* Sources */,
+				CECCC7512632C92200D971E4 /* Frameworks */,
+				CECCC7522632C92200D971E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = watchOS;
+			packageProductDependencies = (
+				CECCC78E2632CB3200D971E4 /* Kanban */,
+			);
+			productName = "watchOS Extension";
+			productReference = CECCC7542632C92200D971E4 /* Avocado.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -665,6 +796,12 @@
 						CreatedOnToolsVersion = 12.4;
 					};
 					CE99E67425DBFE9F00E0EA36 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					CECCC74A2632C92100D971E4 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					CECCC7532632C92200D971E4 = {
 						CreatedOnToolsVersion = 12.4;
 					};
 				};
@@ -689,6 +826,8 @@
 				CE99E67425DBFE9F00E0EA36 /* macOS */,
 				CE2927FF25FA3A1400EF04F5 /* widget */,
 				CE29282425FA3ACC00EF04F5 /* intent */,
+				CECCC7532632C92200D971E4 /* watchOS */,
+				CECCC74A2632C92100D971E4 /* wrapper */,
 			);
 		};
 /* End PBXProject section */
@@ -725,6 +864,22 @@
 			files = (
 				CE0B3C3D25DC3A2A00317754 /* Media.xcassets in Resources */,
 				CE99E67C25DBFEA000E0EA36 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CECCC7492632C92100D971E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CECCC74E2632C92200D971E4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CECCC7522632C92200D971E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CECCC7602632C92300D971E4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,6 +1036,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CECCC7502632C92200D971E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CECCC75A2632C92200D971E4 /* ContentView.swift in Sources */,
+				CECCC75C2632C92200D971E4 /* AvocadoApp.swift in Sources */,
+				CECCC75E2632C92200D971E4 /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -893,6 +1058,16 @@
 			isa = PBXTargetDependency;
 			target = CE29282425FA3ACC00EF04F5 /* intent */;
 			targetProxy = CE29282C25FA3ACC00EF04F5 /* PBXContainerItemProxy */;
+		};
+		CECCC7572632C92200D971E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CECCC7532632C92200D971E4 /* watchOS */;
+			targetProxy = CECCC7562632C92200D971E4 /* PBXContainerItemProxy */;
+		};
+		CECCC7662632C92300D971E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CECCC74A2632C92100D971E4 /* wrapper */;
+			targetProxy = CECCC7652632C92300D971E4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -940,6 +1115,7 @@
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
 		};
@@ -984,6 +1160,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
 		};
@@ -1368,6 +1545,164 @@
 			};
 			name = Release;
 		};
+		CECCC7692632C92300D971E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IBSC_MODULE = watchOS_Extension;
+				INFOPLIST_FILE = wrapper/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = avoca.do.wrapper;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)wrapper";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		CECCC76A2632C92300D971E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IBSC_MODULE = watchOS_Extension;
+				INFOPLIST_FILE = wrapper/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = avoca.do.wrapper;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)wrapper";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CECCC76C2632C92300D971E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = watchOS/Avocado.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = watchOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = avoca.do.wrapper.watchOS;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)watchOS";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		CECCC76D2632C92300D971E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = watchOS/Avocado.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = watchOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = avoca.do.wrapper.watchOS;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)watchOS";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1416,6 +1751,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		CECCC76E2632C92300D971E4 /* Build configuration list for PBXNativeTarget "watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CECCC76C2632C92300D971E4 /* Debug */,
+				CECCC76D2632C92300D971E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CECCC76F2632C92300D971E4 /* Build configuration list for PBXNativeTarget "wrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CECCC7692632C92300D971E4 /* Debug */,
+				CECCC76A2632C92300D971E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -1446,6 +1799,11 @@
 			productName = Kanban;
 		};
 		CEB508A325FA49BE00E18E86 /* Kanban */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEB09ADD25B994AF00BF7AD6 /* XCRemoteSwiftPackageReference "kanban" */;
+			productName = Kanban;
+		};
+		CECCC78E2632CB3200D971E4 /* Kanban */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CEB09ADD25B994AF00BF7AD6 /* XCRemoteSwiftPackageReference "kanban" */;
 			productName = Kanban;
