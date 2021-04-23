@@ -10,10 +10,8 @@ import Kanban
         WindowGroup {
             Window(session: $session)
                 .onReceive(Repository.memory.archive) {
-                    if $0.count(.archive) > session.path._board {
-                        session.path = .column(.board(session.path._board), 0)
-                    } else {
-                        session.open = false
+                    if $0.count(.archive) <= session.path._board {
+                        session.path = .archive
                     }
                     session.archive = $0
                 }

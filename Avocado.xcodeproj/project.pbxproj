@@ -55,6 +55,9 @@
 		CE2AE0692632DA1B00526EB9 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6229DD25F6549E008ED49E /* Chart.swift */; };
 		CE2AE0882632DB4400526EB9 /* _Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95052825EA770500EB178E /* _Metrics.swift */; };
 		CE2AE0952632DB8700526EB9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71F83625F7810B00D4379A /* Color.swift */; };
+		CE2AE0A22632E17600526EB9 /* RelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */; };
+		CE2AE0AA2632E49300526EB9 /* Project.Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AE0A92632E49300526EB9 /* Project.Column.swift */; };
+		CE2AE0B82632E56B00526EB9 /* Project.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AE0B72632E56B00526EB9 /* Project.Card.swift */; };
 		CE30900325FA56A100F3BC46 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30900225FA56A100F3BC46 /* Bundle.swift */; };
 		CE30900925FA56DE00F3BC46 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30900825FA56DE00F3BC46 /* Cards.swift */; };
 		CE30901325FA571600F3BC46 /* Cards.Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30901225FA571600F3BC46 /* Cards.Provider.swift */; };
@@ -143,7 +146,6 @@
 		CECCC74E2632C92200D971E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECCC74D2632C92200D971E4 /* Assets.xcassets */; };
 		CECCC7552632C92200D971E4 /* Avocado.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CECCC7542632C92200D971E4 /* Avocado.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CECCC75C2632C92200D971E4 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCC75B2632C92200D971E4 /* App.swift */; };
-		CECCC7602632C92300D971E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECCC75F2632C92300D971E4 /* Assets.xcassets */; };
 		CECCC7672632C92300D971E4 /* Avocado.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CECCC74B2632C92100D971E4 /* Avocado.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CECCC78F2632CB3200D971E4 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CECCC78E2632CB3200D971E4 /* Kanban */; };
 		CECCC7922632CCB700D971E4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECCC7912632CCB700D971E4 /* CloudKit.framework */; };
@@ -280,6 +282,8 @@
 		CE2AE03E2632D5F900526EB9 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		CE2AE04C2632D78900526EB9 /* Home.Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Projects.swift; sourceTree = "<group>"; };
 		CE2AE05A2632D8BF00526EB9 /* Home.Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Activity.swift; sourceTree = "<group>"; };
+		CE2AE0A92632E49300526EB9 /* Project.Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Column.swift; sourceTree = "<group>"; };
+		CE2AE0B72632E56B00526EB9 /* Project.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Card.swift; sourceTree = "<group>"; };
 		CE30900225FA56A100F3BC46 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		CE30900825FA56DE00F3BC46 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		CE30901225FA571600F3BC46 /* Cards.Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.Provider.swift; sourceTree = "<group>"; };
@@ -368,7 +372,6 @@
 		CECCC74F2632C92200D971E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CECCC7542632C92200D971E4 /* Avocado.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Avocado.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECCC75B2632C92200D971E4 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		CECCC75F2632C92300D971E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CECCC7642632C92300D971E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CECCC7902632CCB200D971E4 /* Avocado.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Avocado.entitlements; sourceTree = "<group>"; };
 		CECCC7912632CCB700D971E4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.2.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -663,10 +666,11 @@
 				CE2AE05A2632D8BF00526EB9 /* Home.Activity.swift */,
 				CE2AE04C2632D78900526EB9 /* Home.Projects.swift */,
 				CE2AE0362632D5F100526EB9 /* Home.swift */,
+				CE2AE0B72632E56B00526EB9 /* Project.Card.swift */,
+				CE2AE0A92632E49300526EB9 /* Project.Column.swift */,
 				CE2AE03E2632D5F900526EB9 /* Project.swift */,
 				CE2AE00C2632D3FC00526EB9 /* Session.swift */,
 				CE2AE0222632D56100526EB9 /* Window.swift */,
-				CECCC75F2632C92300D971E4 /* Assets.xcassets */,
 			);
 			path = watchOS;
 			sourceTree = "<group>";
@@ -898,7 +902,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CECCC7602632C92300D971E4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1062,12 +1065,15 @@
 				CE2AE04D2632D78900526EB9 /* Home.Projects.swift in Sources */,
 				CE2AE00D2632D3FC00526EB9 /* Session.swift in Sources */,
 				CE2AE05B2632D8BF00526EB9 /* Home.Activity.swift in Sources */,
+				CE2AE0B82632E56B00526EB9 /* Project.Card.swift in Sources */,
 				CE2AE0622632DA1800526EB9 /* Chart.Item.swift in Sources */,
 				CE2AE0882632DB4400526EB9 /* _Metrics.swift in Sources */,
 				CE2AE0952632DB8700526EB9 /* Color.swift in Sources */,
+				CE2AE0A22632E17600526EB9 /* RelativeDateTimeFormatter.swift in Sources */,
 				CECCC75C2632C92200D971E4 /* App.swift in Sources */,
 				CE2AE0372632D5F100526EB9 /* Home.swift in Sources */,
 				CE2AE0692632DA1B00526EB9 /* Chart.swift in Sources */,
+				CE2AE0AA2632E49300526EB9 /* Project.Column.swift in Sources */,
 				CE2AE0152632D43E00526EB9 /* App.Delegate.swift in Sources */,
 				CE2AE0232632D56100526EB9 /* Window.swift in Sources */,
 				CE2AE03F2632D5F900526EB9 /* Project.swift in Sources */,
