@@ -22,10 +22,10 @@ extension Home {
                         .tag(Period.day)
                 }
                 .frame(height: 40)
-                .padding(.bottom)
                 Chart(hidden: $hidden, values: values)
-                    .frame(height: 120)
-                    .padding([.horizontal, .top])
+                    .frame(height: 140)
+                    .padding()
+                    .padding()
                     .onAppear(perform: refresh)
                     .onChange(of: period) { _ in
                         refresh()
@@ -33,8 +33,6 @@ extension Home {
                 ForEach(0 ..< session.archive.count(.archive), id: \.self) {
                     Chart.Item(session: $session, hidden: $hidden, index: $0)
                 }
-                Spacer()
-                    .frame(height: 20)
             }
         }
         
@@ -43,5 +41,4 @@ extension Home {
             since = RelativeDateTimeFormatter().localizedString(for: period.date, relativeTo: .init())
         }
     }
-
 }
