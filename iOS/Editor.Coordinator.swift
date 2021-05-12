@@ -93,12 +93,7 @@ extension Editor {
             }
         }
         
-        func textViewDidBeginEditing(_: UITextView) {
-            wrapper.session.typing = true
-        }
-        
         func textViewDidEndEditing(_: UITextView) {
-            wrapper.session.typing = false
             wrapper.visible.wrappedValue.dismiss()
         }
         

@@ -3,7 +3,6 @@ import Combine
 import Kanban
 
 struct Session {
-    var typing = false
     var open = false
     var section = Section.projects
     var path = Path.archive

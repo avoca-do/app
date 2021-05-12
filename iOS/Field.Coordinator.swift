@@ -90,17 +90,12 @@ extension Field {
             return super.becomeFirstResponder()
         }
         
-        func textFieldDidBeginEditing(_: UITextField) {
-            wrapper.session.typing = true
-        }
-        
         func textFieldShouldEndEditing(_: UITextField) -> Bool {
             editable = false
             return true
         }
         
         func textFieldDidEndEditing(_: UITextField) {
-            wrapper.session.typing = false
             editable = true
         }
         
