@@ -1,8 +1,9 @@
 import AppKit
-import StoreKit
-import Combine
-import Kanban
 import Archivable
+import Kanban
+
+let cloud = Cloud.new
+let session = Session()
 
 @NSApplicationMain final class App: NSApplication, NSApplicationDelegate {
     /*static let dark = NSApp.windows.first?.effectiveAppearance == NSAppearance(named: .darkAqua)

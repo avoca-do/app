@@ -15,7 +15,9 @@ class CollectionCell<Info>: CALayer where Info : CollectionItemInfo {
             switch state {
             case .none:
                 backgroundColor = .clear
-            case .highlighted, .pressed:
+            case .highlighted:
+                backgroundColor = NSColor.labelColor.withAlphaComponent(0.03).cgColor
+            case .pressed:
                 backgroundColor = NSColor.quaternaryLabelColor.cgColor
             }
         }

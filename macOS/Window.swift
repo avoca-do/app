@@ -17,29 +17,30 @@ final class Window: NSWindow {
         tabbingMode = .disallowed
         titlebarAppearsTransparent = true
         
-        let content = NSVisualEffectView()
-        content.state = .active
-        content.material = .popover
-        contentView = content
-        
-        let separator = Separator(mode: .horizontal)
-        content.addSubview(separator)
+        let base = NSVisualEffectView()
+        base.state = .active
+        base.material = .popover
+        contentView = base
         
         let sidebar = Sidebar()
-        content.addSubview(sidebar)
+        base.addSubview(sidebar)
         
-        separator.topAnchor.constraint(equalTo: content.safeAreaLayoutGuide.topAnchor).isActive = true
-        separator.leftAnchor.constraint(equalTo: sidebar.rightAnchor).isActive = true
-        separator.rightAnchor.constraint(equalTo: content.rightAnchor).isActive = true
+        let content = Content()
+        base.addSubview(content)
         
-        sidebar.topAnchor.constraint(equalTo: content.topAnchor).isActive = true
-        sidebar.leftAnchor.constraint(equalTo: content.leftAnchor).isActive = true
-        sidebar.bottomAnchor.constraint(equalTo: content.bottomAnchor).isActive = true
+        sidebar.topAnchor.constraint(equalTo: base.topAnchor).isActive = true
+        sidebar.leftAnchor.constraint(equalTo: base.leftAnchor).isActive = true
+        sidebar.bottomAnchor.constraint(equalTo: base.bottomAnchor).isActive = true
         
-//        let accessory = NSTitlebarAccessoryViewController()
-//        accessory.view = Bar(session: session)
-//        accessory.layoutAttribute = .top
-//        addTitlebarAccessoryViewController(accessory)
+        content.topAnchor.constraint(equalTo: base.topAnchor).isActive = true
+        content.bottomAnchor.constraint(equalTo: base.bottomAnchor).isActive = true
+        content.leftAnchor.constraint(equalTo: sidebar.rightAnchor).isActive = true
+        content.rightAnchor.constraint(equalTo: base.rightAnchor).isActive = true
+        
+        let accessory = NSTitlebarAccessoryViewController()
+        accessory.view = Bar()
+        accessory.layoutAttribute = .top
+        addTitlebarAccessoryViewController(accessory)
     }
     /*
     override func close() {
