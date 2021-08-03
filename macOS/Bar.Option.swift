@@ -3,9 +3,9 @@ import AppKit
 extension Bar {
     final class Option: Control {
         required init?(coder: NSCoder) { nil }
-        init(icon: String) {
+        init(icon: String, size: CGFloat = 14) {
             let image = Image(icon: icon)
-            image.symbolConfiguration = .init(pointSize: 14, weight: .regular)
+            image.symbolConfiguration = .init(pointSize: size, weight: .regular)
             image.contentTintColor = .secondaryLabelColor
             
             super.init(layer: true)
@@ -23,9 +23,9 @@ extension Bar {
             
             switch state {
             case .pressed:
-                layer!.backgroundColor = NSColor.tertiaryLabelColor.cgColor
-            case .highlighted:
                 layer!.backgroundColor = NSColor.quaternaryLabelColor.cgColor
+            case .highlighted:
+                layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
             default:
                 layer!.backgroundColor = .clear
             }

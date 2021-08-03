@@ -10,8 +10,7 @@ extension Sidebar {
         required init?(coder: NSCoder) { nil }
         override init() {
             super.init()
-            let top = CGFloat(10)
-            let bottom = CGFloat(20)
+            let vertical = CGFloat(20)
             let info = CurrentValueSubject<[Info], Never>([])
             
             cloud
@@ -77,7 +76,7 @@ extension Sidebar {
                 .removeDuplicates()
                 .sink { [weak self] in
                     let result = $0
-                        .reduce(into: (items: Set<CollectionItem<Info>>(), y: top)) {
+                        .reduce(into: (items: Set<CollectionItem<Info>>(), y: vertical)) {
                             let height = ceil($1.string.height(for: Self.width - Cell.insetsHorizontal2) + Cell.insetsVertical2)
                             $0.items.insert(.init(
                                                 info: $1,
@@ -90,7 +89,7 @@ extension Sidebar {
                         }
                     self?.first.send($0.first?.id)
                     self?.items.send(result.items)
-                    self?.height.send(result.y + bottom)
+                    self?.height.send(result.y + vertical)
                 }
                 .store(in: &subs)
         }

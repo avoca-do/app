@@ -1,7 +1,7 @@
 import AppKit
 
 final class Sidebar: NSView {
-    static let width = CGFloat(240)
+    static let width = CGFloat(260)
     
     required init?(coder: NSCoder) { nil }
     init() {

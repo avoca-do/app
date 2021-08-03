@@ -9,24 +9,7 @@ final class Bar: NSView {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         
-        let cart = Option(icon: "cart.fill")
-        cart
-            .click
-            .sink {
-//                NSApp.activity()
-            }
-            .store(in: &subs)
-        
-        let preferences = Option(icon: "gearshape.fill")
-        preferences.toolTip = "Preferences"
-        preferences
-            .click
-            .sink {
-//                NSApp.showPreferencesWindow(nil)
-            }
-            .store(in: &subs)
-        
-        let activity = Option(icon: "chart.bar.xaxis")
+        let activity = Option(icon: "chart.bar")
         activity
             .click
             .sink {
@@ -34,7 +17,15 @@ final class Bar: NSView {
             }
             .store(in: &subs)
         
-        let plus = Option(icon: "plus.circle.fill")
+        let search = Option(icon: "magnifyingglass")
+        search
+            .click
+            .sink {
+//                NSApp.activity()
+            }
+            .store(in: &subs)
+        
+        let plus = Option(icon: "plus", size: 16)
         plus
             .click
             .sink {
@@ -42,13 +33,15 @@ final class Bar: NSView {
             }
             .store(in: &subs)
         
+        
+        
         var left = safeAreaLayoutGuide.leftAnchor
-        [cart, preferences, activity, plus]
+        [activity, search, plus]
             .forEach {
                 addSubview($0)
                 
                 $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-                $0.leftAnchor.constraint(equalTo: left, constant: 8).isActive = true
+                $0.leftAnchor.constraint(equalTo: left, constant: left == safeAreaLayoutGuide.leftAnchor ? 60 : 10).isActive = true
                 left = $0.rightAnchor
             }
     }
