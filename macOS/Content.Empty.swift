@@ -37,7 +37,7 @@ extension Content {
                 .store(in: &subs)
             
             image.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-            image.bottomAnchor.constraint(equalTo: centerYAnchor, constant: 20).isActive = true
+            image.bottomAnchor.constraint(equalTo: centerYAnchor, constant: 50).isActive = true
             
             text.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 20).isActive = true
             text.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

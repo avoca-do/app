@@ -29,12 +29,9 @@ final class Content: NSVisualEffectView {
                     .forEach {
                         $0.removeFromSuperview()
                     }
-                let view: NSView
-                if let board = $0 {
-                    view = NSView()
-                } else {
-                    view = Empty()
-                }
+                let view: NSView = $0
+                    .map(Project.init(board:))
+                    ?? Empty()
                 self.addSubview(view)
                 
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive = true
