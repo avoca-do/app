@@ -22,7 +22,7 @@ extension Sidebar {
                             (name: $0.name, modified: RelativeDateTimeFormatter().string(from: $0.date))
                         }
                 }
-                .map{
+                .map {
                     $0
                         .enumerated()
                         .map { item in
@@ -44,7 +44,8 @@ extension Sidebar {
                                     $0.append(.make(item.1.modified,
                                                     font: .preferredFont(forTextStyle: .footnote),
                                                     color: .secondaryLabelColor))
-                                  })
+                                  },
+                                  first: item.0 == 0)
                         }
                 }
                 .subscribe(info)
@@ -96,7 +97,6 @@ extension Sidebar {
                                                     height: height)))
                             $0.y += height + 2
                         }
-                    self?.first.send($0.first?.id)
                     self?.items.send(result.items)
                     self?.height.send(result.y + vertical)
                 }

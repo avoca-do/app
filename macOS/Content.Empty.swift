@@ -15,7 +15,7 @@ extension Content {
             addSubview(image)
             
             let text = Text()
-            text.font = .preferredFont(forTextStyle: .title3, options: [:])
+            text.font = .preferredFont(forTextStyle: .title3)
             text.textColor = .tertiaryLabelColor
             text.alignment = .center
             addSubview(text)

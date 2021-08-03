@@ -9,12 +9,6 @@ extension Sidebar {
         private weak var text: CollectionCellText!
         private weak var separator: Shape!
         
-        override var first: Bool {
-            didSet {
-                separator.isHidden = first
-            }
-        }
-        
         override var item: CollectionItem<Info>? {
             didSet {
                 guard
@@ -24,6 +18,7 @@ extension Sidebar {
                 frame = item.rect
                 text.frame.size = .init(width: item.rect.width - Self.insetsHorizontal2, height: item.rect.height - Self.insetsVertical2)
                 text.string = item.info.string
+                separator.isHidden = item.info.first
             }
         }
         

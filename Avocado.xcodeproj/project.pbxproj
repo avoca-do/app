@@ -85,6 +85,9 @@
 		CE99E68A25DC009300E0EA36 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE99E68925DC009300E0EA36 /* StoreKit.framework */; };
 		CE99E68C25DC00A200E0EA36 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE99E68B25DC00A200E0EA36 /* CloudKit.framework */; };
 		CE99E68E25DC01AB00E0EA36 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CE99E68D25DC01AB00E0EA36 /* Kanban */; };
+		CE9B191E26B98C8600D8ED25 /* Project.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B191D26B98C8600D8ED25 /* Project.Card.swift */; };
+		CE9B192026B98D9000D8ED25 /* Project.Card.Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B191F26B98D9000D8ED25 /* Project.Card.Editor.swift */; };
+		CE9B192126B98E8D00D8ED25 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EE025C31E87007D25FC /* Container.swift */; };
 		CEA0D18E25EC45110011FFC0 /* Middlebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0D18D25EC45110011FFC0 /* Middlebar.Item.swift */; };
 		CEA0D19625EC4C650011FFC0 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0D19525EC4C650011FFC0 /* Project.swift */; };
 		CEA652A225C1CBA60099C82E /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA652A125C1CBA60099C82E /* Metrics.swift */; };
@@ -339,6 +342,8 @@
 		CE99E68925DC009300E0EA36 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.4.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE99E68B25DC00A200E0EA36 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeDateTimeFormatter.swift; sourceTree = "<group>"; };
+		CE9B191D26B98C8600D8ED25 /* Project.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Card.swift; sourceTree = "<group>"; };
+		CE9B191F26B98D9000D8ED25 /* Project.Card.Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Card.Editor.swift; sourceTree = "<group>"; };
 		CE9DD44725E576730087CC8C /* Projects.Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Columns.swift; sourceTree = "<group>"; };
 		CEA0D18D25EC45110011FFC0 /* Middlebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlebar.Item.swift; sourceTree = "<group>"; };
 		CEA0D19525EC4C650011FFC0 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -535,6 +540,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB8E56925DAA0C6009737AB /* Configuration.storekit */,
+				CE8C6EE025C31E87007D25FC /* Container.swift */,
 				CEC3204926B8009200364E88 /* NumberFormatter.swift */,
 				CEC3204826B8009200364E88 /* RelativeDateTimeFormatter.swift */,
 				CEC3204A26B8009200364E88 /* Toast.Message.swift */,
@@ -608,6 +614,8 @@
 				CEC3205626B800AA00364E88 /* NSMenuItem.swift */,
 				CEC3205826B800AA00364E88 /* NSMutableAttributedString.swift */,
 				CE7339EE26B9717400D195D6 /* Project.Board.swift */,
+				CE9B191F26B98D9000D8ED25 /* Project.Card.Editor.swift */,
+				CE9B191D26B98C8600D8ED25 /* Project.Card.swift */,
 				CE7339F026B9722A00D195D6 /* Project.Cell.swift */,
 				CE7339F226B9723700D195D6 /* Project.Info.swift */,
 				CE7339EC26B96EDF00D195D6 /* Project.swift */,
@@ -687,7 +695,6 @@
 				CE71F83C25F7817100D4379A /* Chart.Item.swift */,
 				CE6229DD25F6549E008ED49E /* Chart.swift */,
 				CE71F83625F7810B00D4379A /* Color.swift */,
-				CE8C6EE025C31E87007D25FC /* Container.swift */,
 				CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */,
 				CE4206A525D18C0600E43D49 /* Purchases.swift */,
 				CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */,
@@ -1048,6 +1055,7 @@
 			files = (
 				CEC3206426B800AA00364E88 /* Image.swift in Sources */,
 				CE578C9526B8065500FCE39A /* Sidebar.Info.swift in Sources */,
+				CE9B192126B98E8D00D8ED25 /* Container.swift in Sources */,
 				CEC3206726B800AA00364E88 /* Control.swift in Sources */,
 				CEC3206826B800AA00364E88 /* NSAttributedString.swift in Sources */,
 				CEC3206326B800AA00364E88 /* CGRect.swift in Sources */,
@@ -1064,6 +1072,7 @@
 				CE7339E726B9551100D195D6 /* Flip.swift in Sources */,
 				CE578D3526B8286D00FCE39A /* Bar.swift in Sources */,
 				CE7339EB26B96C4800D195D6 /* Content.Empty.Option.swift in Sources */,
+				CE9B192026B98D9000D8ED25 /* Project.Card.Editor.swift in Sources */,
 				CE578D3326B820F000FCE39A /* Content.swift in Sources */,
 				CEC3204526B7F04E00364E88 /* Sidebar.swift in Sources */,
 				CEC3207326B800AA00364E88 /* CollectionCellText.swift in Sources */,
@@ -1075,6 +1084,7 @@
 				CEA87A6E26B6E07C00706E04 /* App.swift in Sources */,
 				CEC3204C26B8009200364E88 /* NumberFormatter.swift in Sources */,
 				CEC3207226B800AA00364E88 /* Collection.swift in Sources */,
+				CE9B191E26B98C8600D8ED25 /* Project.Card.swift in Sources */,
 				CEC3203E26B7EE5600364E88 /* Layer.swift in Sources */,
 				CEC3206926B800AA00364E88 /* CollectionItemInfo.swift in Sources */,
 				CEC3206626B800AA00364E88 /* CollectionCell.swift in Sources */,

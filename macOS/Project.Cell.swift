@@ -7,13 +7,6 @@ extension Project {
         private static let insetsHorizontal = CGFloat(20)
         private static let insetsVertical = CGFloat(12)
         private weak var text: CollectionCellText!
-        private weak var separator: Shape!
-        
-        override var first: Bool {
-            didSet {
-                separator.isHidden = first
-            }
-        }
         
         override var item: CollectionItem<Info>? {
             didSet {

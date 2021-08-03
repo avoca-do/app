@@ -9,7 +9,8 @@ final class Bar: NSView {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         
-        let activity = Option(icon: "chart.bar")
+        let activity = Option(icon: "chart.pie")
+        activity.toolTip = "Activity"
         activity
             .click
             .sink {
@@ -18,6 +19,7 @@ final class Bar: NSView {
             .store(in: &subs)
         
         let search = Option(icon: "magnifyingglass")
+        search.toolTip = "Search"
         search
             .click
             .sink {
@@ -26,6 +28,7 @@ final class Bar: NSView {
             .store(in: &subs)
         
         let plus = Option(icon: "plus", size: 16)
+        plus.toolTip = "New project"
         plus
             .click
             .sink {

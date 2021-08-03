@@ -5,5 +5,6 @@ extension Sidebar {
         let id: Int
         let string: NSAttributedString
         let stringHighlighted: NSAttributedString
+        let first: Bool
     }
 }
