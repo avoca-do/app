@@ -98,7 +98,7 @@ extension Sidebar {
                             $0.y += height + 2
                         }
                     self?.items.send(result.items)
-                    self?.height.send(result.y + vertical)
+                    self?.size.send(.init(width: 0, height: result.y + vertical))
                 }
                 .store(in: &subs)
         }

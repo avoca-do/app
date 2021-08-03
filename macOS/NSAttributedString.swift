@@ -9,13 +9,20 @@ extension NSAttributedString {
     
     class func make(_ string: String, font: NSFont) -> Self {
         .init(string: string, attributes: [
-                        .font: font])
+                .font: font])
     }
     
     class func make(_ string: String, font: NSFont, color: NSColor) -> Self {
         .init(string: string, attributes: [
-                        .font: font,
-                        .foregroundColor: color])
+                .font: font,
+                .foregroundColor: color])
+    }
+    
+    class func make(_ string: String, font: NSFont, color: NSColor, kern: CGFloat) -> Self {
+        .init(string: string, attributes: [
+                .font: font,
+                .foregroundColor: color,
+                .kern: kern])
     }
     
     class func make(_ string: String, font: NSFont, alignment: NSTextAlignment) -> Self {

@@ -6,11 +6,14 @@ extension Project {
         required init?(coder: NSCoder) { nil }
         init(board: Int) {
             super.init()
+            hasHorizontalScroller = true
+            horizontalScroller!.controlSize = .mini
+            
             let vertical = CGFloat(20)
-            let horizontal = CGFloat(20)
-            let insetsHorizontal = CGFloat(20)
-            let insetsVertical = CGFloat(20)
-            let width = CGFloat(250)
+            let horizontal = CGFloat(50)
+            let insetsHorizontal = CGFloat(80)
+            let insetsVertical = CGFloat(5)
+            let width = CGFloat(300)
             let info = CurrentValueSubject<[[Info]], Never>([])
             
             cloud
@@ -26,7 +29,8 @@ extension Project {
                             [.init(id: .column(.board(board), $0.0),
                                   string: .make($0.1.name,
                                                 font: .preferredFont(forTextStyle: .title2),
-                                                color: .labelColor))]
+                                                color: .labelColor,
+                                                kern: 1))]
                         }
                 }
                 .subscribe(info)
@@ -67,27 +71,35 @@ extension Project {
             
             info
                 .removeDuplicates()
-                .sink { [weak self] in
-                    
-                    let result = $0
-                        .reduce(into: (items: Set<CollectionItem<Info>>(), size: CGSize(width: horizontal, height: vertical))) {
-                            $0.size.height = max($0.size.height, $1
-                                                    .reduce(into: vertical) {
-                                                        let height = ceil($1.string.height(for: Self.width - Cell.insetsHorizontal2) + Cell.insetsVertical2)
-                                                        $0.items.insert(.init(
-                                                                            info: $1,
-                                                                            rect: .init(
-                                                                                x: Self.insets,
-                                                                                y: $0.y,
-                                                                                width: Self.width,
-                                                                                height: height)))
-                                                        $0.y += height + 2
-                                                    })
-                            $0.size.width
+                .sink { [weak self] all in
+                    let result = all
+                        .reduce(into: (items: Set<CollectionItem<Info>>(), size: CGSize(width: horizontal, height: vertical))) { result, column in
+                            result.size.height = max(
+                                column
+                                    .reduce(into: vertical) {
+                                        let height = ceil($1.string.height(for: width - Cell.horizontal) + Cell.insetsVertical2)
+                                        result.items.insert(.init(
+                                                                info: $1,
+                                                                rect: .init(
+                                                                    x: result.size.width,
+                                                                    y: $0,
+                                                                    width: width,
+                                                                    height: height)))
+                                        $0 += height
+                                        if $1 != column.last {
+                                            $0 += insetsVertical
+                                        }
+                                    },
+                                result.size.height)
+                            result.size.width += width
+                            if column != all.last {
+                                result.size.width += insetsHorizontal
+                            }
                         }
-                    
+
                     self?.items.send(result.items)
-                    self?.height.send(result.y + vertical)
+                    self?.size.send(.init(width: result.size.width + horizontal,
+                                          height: result.size.height + vertical))
                 }
                 .store(in: &subs)
         }

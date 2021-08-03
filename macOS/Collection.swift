@@ -4,7 +4,7 @@ import Combine
 class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
     final var subs = Set<AnyCancellable>()
     final let items = PassthroughSubject<Set<CollectionItem<Info>>, Never>()
-    final let height = PassthroughSubject<CGFloat, Never>()
+    final let size = PassthroughSubject<CGSize, Never>()
     final let selected = CurrentValueSubject<Info.ID?, Never>(nil)
     final let highlighted = CurrentValueSubject<Info.ID?, Never>(nil)
     private let select = PassthroughSubject<CGPoint, Never>()
@@ -31,8 +31,8 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
         let clip = PassthroughSubject<CGRect, Never>()
             
         clip
-            .combineLatest(height) {
-                .init(width: $0.width, height: max($0.height, $1))
+            .combineLatest(size) {
+                .init(width: max($0.width, $1.width), height: max($0.height, $1.height))
             }
             .removeDuplicates()
             .sink {
