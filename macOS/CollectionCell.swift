@@ -10,7 +10,7 @@ class CollectionCell<Info>: CALayer where Info : CollectionItemInfo {
         super.init()
     }
     
-    final var state = CollectionCellState.none {
+    var state = CollectionCellState.none {
         didSet {
             switch state {
             case .none:

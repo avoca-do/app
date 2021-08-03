@@ -27,6 +27,17 @@ extension Sidebar {
             }
         }
         
+        override var state: CollectionCellState {
+            didSet {
+                switch state {
+                case .none, .highlighted:
+                    text.string = item?.info.string
+                case .pressed:
+                    text.string = item?.info.stringHighlighted
+                }
+            }
+        }
+        
         required init?(coder: NSCoder) { nil }
         required init() {
             super.init()

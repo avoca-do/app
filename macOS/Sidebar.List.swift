@@ -19,7 +19,7 @@ extension Sidebar {
                     $0
                         .items
                         .map {
-                            (name: $0.name, modified: $0.date)
+                            (name: $0.name, modified: RelativeDateTimeFormatter().string(from: $0.date))
                         }
                 }
                 .map{
@@ -30,10 +30,19 @@ extension Sidebar {
                                   string: .make {
                                     $0.append(.make(item.1.name,
                                                     font: .preferredFont(forTextStyle: .title3),
+                                                    color: .secondaryLabelColor))
+                                    $0.linebreak()
+                                    $0.append(.make(item.1.modified,
+                                                    font: .preferredFont(forTextStyle: .footnote),
+                                                    color: .secondaryLabelColor))
+                                  },
+                                  stringHighlighted: .make {
+                                    $0.append(.make(item.1.name,
+                                                    font: .preferredFont(forTextStyle: .title3),
                                                     color: .labelColor))
                                     $0.linebreak()
-                                    $0.append(.make(RelativeDateTimeFormatter().string(from: item.1.modified),
-                                                    font: .preferredFont(forTextStyle: .callout),
+                                    $0.append(.make(item.1.modified,
+                                                    font: .preferredFont(forTextStyle: .footnote),
                                                     color: .secondaryLabelColor))
                                   })
                         }
