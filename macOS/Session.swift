@@ -3,5 +3,5 @@ import Combine
 import Kanban
 
 struct Session {
-    let path = PassthroughSubject<Path, Never>()
+    let path = CurrentValueSubject<Path, Never>(.archive)
 }

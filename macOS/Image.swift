@@ -2,15 +2,18 @@ import AppKit
 
 final class Image: NSImageView {
     required init?(coder: NSCoder) { nil }
-    init(icon: String) {
-        super.init(frame: .zero)
+    convenience init(icon: String) {
+        self.init()
         image = .init(systemSymbolName: icon, accessibilityDescription: nil)
-        translatesAutoresizingMaskIntoConstraints = false
     }
     
-    init(named: String) {
-        super.init(frame: .zero)
+    convenience init(named: String) {
+        self.init()
         image = .init(named: named)
+    }
+    
+    init() {
+        super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
     }
     

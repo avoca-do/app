@@ -62,6 +62,9 @@
 		CE6D659D25D1A1060017FE07 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE6D659C25D1A1060017FE07 /* Settings.bundle */; };
 		CE7183B925CC3CAC00AD02F8 /* Dismisser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7183B825CC3CAC00AD02F8 /* Dismisser.swift */; };
 		CE71D20825B98FF000D0F4E3 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D20725B98FF000D0F4E3 /* Board.swift */; };
+		CE7339E726B9551100D195D6 /* Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7339E626B9551100D195D6 /* Flip.swift */; };
+		CE7339E926B9563200D195D6 /* Content.Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7339E826B9563200D195D6 /* Content.Empty.swift */; };
+		CE7339EB26B96C4800D195D6 /* Content.Empty.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7339EA26B96C4800D195D6 /* Content.Empty.Option.swift */; };
 		CE7AFF6B25FA5F90008D6278 /* Cards.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7AFF6A25FA5F90008D6278 /* Cards.Content.swift */; };
 		CE7D6FBC25F256E30028BB2A /* Middelbar.Item.Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D6FBB25F256E30028BB2A /* Middelbar.Item.Style.swift */; };
 		CE85C59C25FB7F2600287C27 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85C59B25FB7F2600287C27 /* Progress.swift */; };
@@ -106,9 +109,7 @@
 		CEC3206C26B800AA00364E88 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3205826B800AA00364E88 /* NSMutableAttributedString.swift */; };
 		CEC3206D26B800AA00364E88 /* CollectionCellState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3205926B800AA00364E88 /* CollectionCellState.swift */; };
 		CEC3206E26B800AA00364E88 /* CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3205A26B800AA00364E88 /* CollectionItem.swift */; };
-		CEC3206F26B800AA00364E88 /* Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3205B26B800AA00364E88 /* Scroll.swift */; };
 		CEC3207026B800AA00364E88 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3205C26B800AA00364E88 /* Shape.swift */; };
-		CEC3207126B800AA00364E88 /* Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3205D26B800AA00364E88 /* Flip.swift */; };
 		CEC3207226B800AA00364E88 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3205E26B800AA00364E88 /* Collection.swift */; };
 		CEC3207326B800AA00364E88 /* CollectionCellText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3205F26B800AA00364E88 /* CollectionCellText.swift */; };
 		CEC3207426B800AA00364E88 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3206026B800AA00364E88 /* Toast.swift */; };
@@ -305,6 +306,9 @@
 		CE71F85C25F7908000D4379A /* Activity.Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Chart.swift; sourceTree = "<group>"; };
 		CE71F86225F797FB00D4379A /* Activity.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Item.swift; sourceTree = "<group>"; };
 		CE71F86825F798E400D4379A /* NSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColor.swift; sourceTree = "<group>"; };
+		CE7339E626B9551100D195D6 /* Flip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flip.swift; sourceTree = "<group>"; };
+		CE7339E826B9563200D195D6 /* Content.Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.Empty.swift; sourceTree = "<group>"; };
+		CE7339EA26B96C4800D195D6 /* Content.Empty.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.Empty.Option.swift; sourceTree = "<group>"; };
 		CE7AFF6A25FA5F90008D6278 /* Cards.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.Content.swift; sourceTree = "<group>"; };
 		CE7D6FBB25F256E30028BB2A /* Middelbar.Item.Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middelbar.Item.Style.swift; sourceTree = "<group>"; };
 		CE85C59B25FB7F2600287C27 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
@@ -359,9 +363,7 @@
 		CEC3205826B800AA00364E88 /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		CEC3205926B800AA00364E88 /* CollectionCellState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCellState.swift; sourceTree = "<group>"; };
 		CEC3205A26B800AA00364E88 /* CollectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
-		CEC3205B26B800AA00364E88 /* Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scroll.swift; sourceTree = "<group>"; };
 		CEC3205C26B800AA00364E88 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
-		CEC3205D26B800AA00364E88 /* Flip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flip.swift; sourceTree = "<group>"; };
 		CEC3205E26B800AA00364E88 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		CEC3205F26B800AA00364E88 /* CollectionCellText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCellText.swift; sourceTree = "<group>"; };
 		CEC3206026B800AA00364E88 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -584,10 +586,12 @@
 				CEC3205F26B800AA00364E88 /* CollectionCellText.swift */,
 				CEC3205A26B800AA00364E88 /* CollectionItem.swift */,
 				CEC3205526B800AA00364E88 /* CollectionItemInfo.swift */,
+				CE7339E826B9563200D195D6 /* Content.Empty.swift */,
+				CE7339EA26B96C4800D195D6 /* Content.Empty.Option.swift */,
 				CE578D3226B820F000FCE39A /* Content.swift */,
 				CEC3205126B800A900364E88 /* Control.State.swift */,
 				CEC3205326B800AA00364E88 /* Control.swift */,
-				CEC3205D26B800AA00364E88 /* Flip.swift */,
+				CE7339E626B9551100D195D6 /* Flip.swift */,
 				CEC3205026B800A900364E88 /* Image.swift */,
 				CEC3203D26B7EE5600364E88 /* Layer.swift */,
 				CEC3205426B800AA00364E88 /* NSAttributedString.swift */,
@@ -595,7 +599,6 @@
 				CEC3206126B800AA00364E88 /* NSMenu.swift */,
 				CEC3205626B800AA00364E88 /* NSMenuItem.swift */,
 				CEC3205826B800AA00364E88 /* NSMutableAttributedString.swift */,
-				CEC3205B26B800AA00364E88 /* Scroll.swift */,
 				CEC3203B26B7EE3E00364E88 /* Separator.swift */,
 				CE578D3026B80E1200FCE39A /* Session.swift */,
 				CEC3205C26B800AA00364E88 /* Shape.swift */,
@@ -1039,14 +1042,15 @@
 				CEC3207526B800AA00364E88 /* NSMenu.swift in Sources */,
 				CEC3206226B800AA00364E88 /* NSFont.swift in Sources */,
 				CEC3206B26B800AA00364E88 /* Text.swift in Sources */,
-				CEC3207126B800AA00364E88 /* Flip.swift in Sources */,
 				CEC3207026B800AA00364E88 /* Shape.swift in Sources */,
 				CEC3206526B800AA00364E88 /* Control.State.swift in Sources */,
 				CE578C8F26B8013C00FCE39A /* Bar.Option.swift in Sources */,
 				CE578C9326B8063700FCE39A /* Sidebar.Cell.swift in Sources */,
 				CE578C9126B8062000FCE39A /* Sidebar.List.swift in Sources */,
 				CEC3206C26B800AA00364E88 /* NSMutableAttributedString.swift in Sources */,
+				CE7339E726B9551100D195D6 /* Flip.swift in Sources */,
 				CE578D3526B8286D00FCE39A /* Bar.swift in Sources */,
+				CE7339EB26B96C4800D195D6 /* Content.Empty.Option.swift in Sources */,
 				CE578D3326B820F000FCE39A /* Content.swift in Sources */,
 				CEC3204526B7F04E00364E88 /* Sidebar.swift in Sources */,
 				CEC3207326B800AA00364E88 /* CollectionCellText.swift in Sources */,
@@ -1054,7 +1058,6 @@
 				CEC3206D26B800AA00364E88 /* CollectionCellState.swift in Sources */,
 				CE4856CC26B6F9FA00413B01 /* Window.swift in Sources */,
 				CEC3206E26B800AA00364E88 /* CollectionItem.swift in Sources */,
-				CEC3206F26B800AA00364E88 /* Scroll.swift in Sources */,
 				CEC3203C26B7EE3E00364E88 /* Separator.swift in Sources */,
 				CEA87A6E26B6E07C00706E04 /* App.swift in Sources */,
 				CEC3204C26B8009200364E88 /* NumberFormatter.swift in Sources */,
@@ -1064,6 +1067,7 @@
 				CEC3206626B800AA00364E88 /* CollectionCell.swift in Sources */,
 				CE578D3126B80E1200FCE39A /* Session.swift in Sources */,
 				CEC3204B26B8009200364E88 /* RelativeDateTimeFormatter.swift in Sources */,
+				CE7339E926B9563200D195D6 /* Content.Empty.swift in Sources */,
 				CEC3206A26B800AA00364E88 /* NSMenuItem.swift in Sources */,
 				CEC3204D26B8009200364E88 /* Toast.Message.swift in Sources */,
 			);
