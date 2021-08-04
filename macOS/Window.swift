@@ -42,6 +42,21 @@ final class Window: NSWindow {
         accessory.layoutAttribute = .top
         addTitlebarAccessoryViewController(accessory)
     }
+    
+    override func cancelOperation(_ sender: Any?) {
+        switch session.state.value {
+        case .create:
+            session
+                .state
+                .send(.none)
+        case let .new(path), let .edit(path):
+            session
+                .state
+                .send(.view(path.board))
+        default:
+            super.cancelOperation(sender)
+        }
+    }
     /*
     override func close() {
         session

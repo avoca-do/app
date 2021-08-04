@@ -31,9 +31,10 @@ final class Bar: NSView {
         plus.toolTip = "New project"
         plus
             .click
-            .sink {
-//                NSApp.activity()
+            .map {
+                .create
             }
+            .subscribe(session.state)
             .store(in: &subs)
         
         

@@ -24,8 +24,12 @@ extension Edit {
 //        
         override var canBecomeKeyView: Bool { true }
         
-        override func cancelOperation(_: Any?) {
-            window?.makeFirstResponder(nil)
+        override func cancelOperation(_ sender: Any?) {
+            guard string.isEmpty else {
+                window?.makeFirstResponder(nil)
+                return
+            }
+            window?.cancelOperation(sender)
         }
 
         required init?(coder: NSCoder) { nil }

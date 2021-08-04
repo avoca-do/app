@@ -3,7 +3,7 @@ import AppKit
 extension Project {
     final class Cell: CollectionCell<Info> {
         static let horizontal = (insetsHorizontal * 2) + shape
-        static let insetsVertical2 = insetsVertical * 2
+        static let vertical = insetsVertical2 + (air * 2)
         private static let shape = CGFloat(30)
         private static let insetsHorizontal = CGFloat(20)
         private static let insetsVertical = CGFloat(15)
@@ -11,7 +11,12 @@ extension Project {
         private static let insetShape = insetsHorizontal + 6
         private static let insetHorizontalCircle = insetShape + radius
         private static let insetVerticalCircle = insetsVertical + radius
+        private static let insetsVertical2 = insetsVertical * 2
+        private static let insetVerticalText = insetsVertical2 + air
         private static let pi2 = CGFloat.pi * 2
+        private static let air = CGFloat(3)
+        private static let textX = insetsHorizontal + shape
+        private static let textY = insetsVertical + air
         private weak var text: CollectionCellText!
         private weak var shape: Shape!
         
@@ -23,7 +28,7 @@ extension Project {
                 else { return }
                 frame = item.rect
                 text.frame.size = .init(width: item.rect.width - Self.horizontal,
-                                        height: item.rect.height - Self.insetsVertical2)
+                                        height: item.rect.height - Self.insetVerticalText)
                 text.string = item.info.string
                 
                 switch item.info.id {
@@ -59,8 +64,8 @@ extension Project {
             
             let text = CollectionCellText()
             text.frame = .init(
-                x: Self.insetsHorizontal + Self.shape,
-                y: Self.insetsVertical,
+                x: Self.textX,
+                y: Self.textY,
                 width: 0,
                 height: 0)
             addSublayer(text)

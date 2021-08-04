@@ -4,17 +4,37 @@ import Kanban
 final class Edit: NSScrollView {
     override var frame: NSRect {
         didSet {
-            (documentView as! Textview).textContainer!.size.width = bounds.width - ((documentView as! Textview).textContainerInset.width * 2)
+            textview.textContainer!.size.width = bounds.width - (textview.textContainerInset.width * 2)
         }
     }
     
+    override func viewDidMoveToWindow() {
+        window?.makeFirstResponder(textview)
+    }
+    
+    private weak var textview: Textview!
+    
     required init?(coder: NSCoder) { nil }
-    init(path: Path) {
+    init(state: State) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         hasVerticalScroller = true
         verticalScroller!.controlSize = .mini
         drawsBackground = false
-        documentView = Textview()
+        
+        let textview = Textview()
+        documentView = textview
+        self.textview = textview
+        
+        if case let .edit(path) = state {
+            switch path {
+            case .column:
+                textview.string = cloud.archive.value[path.board][path.column].name
+            case .card:
+                textview.string = cloud.archive.value[path.board][path.column][path.card].content
+            default:
+                break
+            }
+        }
     }
 }

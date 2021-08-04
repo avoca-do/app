@@ -5,9 +5,11 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
     final var subs = Set<AnyCancellable>()
     final let items = PassthroughSubject<Set<CollectionItem<Info>>, Never>()
     final let size = PassthroughSubject<CGSize, Never>()
+    final let doubled = PassthroughSubject<Info.ID, Never>()
     final let selected = CurrentValueSubject<Info.ID?, Never>(nil)
     final let highlighted = CurrentValueSubject<Info.ID?, Never>(nil)
     private let select = PassthroughSubject<CGPoint, Never>()
+    private let double = PassthroughSubject<CGPoint, Never>()
     private let clear = PassthroughSubject<Void, Never>()
     private let highlight = PassthroughSubject<CGPoint, Never>()
     
@@ -174,6 +176,22 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
             }
             .store(in: &subs)
         
+        double
+            .map { point in
+                cells
+                    .compactMap(\.item)
+                    .first {
+                        $0.rect.contains(point)
+                    }
+            }
+            .compactMap {
+                $0?.info.id
+            }
+            .sink { [weak self] in
+                self?.doubled.send($0)
+            }
+            .store(in: &subs)
+        
         clear
             .sink {
                 cells
@@ -201,8 +219,14 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
     }
     
     final override func mouseUp(with: NSEvent) {
-        guard with.clickCount == 1 else { return }
-        select.send(point(with: with))
+        switch with.clickCount {
+        case 1:
+            select.send(point(with: with))
+        case 2:
+            double.send(point(with: with))
+        default:
+            break
+        }
     }
     
     final override func rightMouseDown(with: NSEvent) {

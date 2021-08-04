@@ -12,6 +12,7 @@ extension Sidebar {
         override init() {
             super.init()
             let vertical = CGFloat(20)
+            let textWidth = Self.width - Cell.insetsHorizontal2
             let info = CurrentValueSubject<[Info], Never>([])
             
             cloud
@@ -88,7 +89,7 @@ extension Sidebar {
                 .sink { [weak self] in
                     let result = $0
                         .reduce(into: (items: Set<CollectionItem<Info>>(), y: vertical)) {
-                            let height = ceil($1.string.height(for: Self.width - Cell.insetsHorizontal2) + Cell.insetsVertical2)
+                            let height = ceil($1.string.height(for: textWidth) + Cell.insetsVertical2)
                             $0.items.insert(.init(
                                                 info: $1,
                                                 rect: .init(

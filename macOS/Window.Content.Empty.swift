@@ -1,7 +1,7 @@
 import AppKit
 import Combine
 
-extension Content {
+extension Window.Content {
     final class Empty: NSView {
         private var subs = Set<AnyCancellable>()
         

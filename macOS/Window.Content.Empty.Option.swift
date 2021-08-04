@@ -1,6 +1,6 @@
 import AppKit
 
-extension Content.Empty {
+extension Window.Content.Empty {
     final class Option: Control {
         private weak var text: Text!
         

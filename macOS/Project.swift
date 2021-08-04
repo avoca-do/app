@@ -13,6 +13,7 @@ final class Project: Collection<Project.Cell, Project.Info> {
         let insetsHorizontal = CGFloat(80)
         let insetsVertical = CGFloat(5)
         let width = CGFloat(300)
+        let textWidth = width - Cell.horizontal
         let info = CurrentValueSubject<[[Info]], Never>([])
         
         cloud
@@ -67,16 +68,12 @@ final class Project: Collection<Project.Cell, Project.Info> {
             }
             .store(in: &subs)
         
-        info
-            .removeDuplicates()
-            .combineLatest(selected
-                            .compactMap {
-                                $0
-                            }
-                            .removeDuplicates())
-            .sink { _ in
-                
+        doubled
+            .map {
+                .edit($0)
             }
+            .subscribe(session
+                        .state)
             .store(in: &subs)
         
         info
@@ -87,7 +84,7 @@ final class Project: Collection<Project.Cell, Project.Info> {
                         result.size.height = max(
                             column
                                 .reduce(into: vertical) {
-                                    let height = ceil($1.string.height(for: width - Cell.horizontal) + Cell.insetsVertical2)
+                                    let height = ceil($1.string.height(for: textWidth) + Cell.vertical)
                                     result.items.insert(.init(
                                                             info: $1,
                                                             rect: .init(
