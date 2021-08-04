@@ -1,27 +1,27 @@
 import AppKit
 import Kanban
 
-extension Project.Card {
-    final class Editor: NSTextView {
-        var write: Write? {
-            didSet {
-//                if let write = write {
-//                    switch write {
-//                    case .new:
-//                        string = ""
-//                    case let .edit(path):
-//                        switch path {
-//                        case .card:
-//                            string = Session.archive[content: path]
-//                        default: break
-//                        }
-//                    }
-//                } else {
-//                    string = ""
-//                }
-            }
-        }
-        
+extension Edit {
+    final class Textview: NSTextView {
+//        var write: Write? {
+//            didSet {
+////                if let write = write {
+////                    switch write {
+////                    case .new:
+////                        string = ""
+////                    case let .edit(path):
+////                        switch path {
+////                        case .card:
+////                            string = Session.archive[content: path]
+////                        default: break
+////                        }
+////                    }
+////                } else {
+////                    string = ""
+////                }
+//            }
+//        }
+//        
         override var canBecomeKeyView: Bool { true }
         
         override func cancelOperation(_: Any?) {

@@ -11,33 +11,50 @@ final class Content: NSVisualEffectView {
         state = .active
         material = .menu
         
+        var previous: NSView?
+        var previousTop: NSLayoutConstraint?
+        
         session
-            .path
-            .map { path -> Int? in
-                switch path {
-                case .archive:
-                    return nil
-                default:
-                    return path._board
-                }
-            }
+            .state
             .removeDuplicates()
-            .sink { [weak self] in
-                guard let self = self else { return }
-                self
-                    .subviews
-                    .forEach {
-                        $0.removeFromSuperview()
-                    }
-                let view: NSView = $0
-                    .map(Project.init(board:))
-                    ?? Empty()
-                self.addSubview(view)
+            .sink {
+                let next: NSView
                 
-                view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive = true
-                view.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-                view.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-                view.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+                switch $0 {
+                case .none:
+                    next = Empty()
+                case let .view(board):
+                    next = Project(board: board)
+                case let .new(path), let .edit(path):
+                    next = Edit(path: path)
+                }
+                
+                self.addSubview(next)
+                
+                next.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+                next.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor).isActive = true
+                next.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+                let newTop = next.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: -(previous?.frame.height ?? 0))
+                newTop.isActive = true
+                
+                if let removing = previous, let previousTop = previousTop {
+                    self.superview!.layoutSubtreeIfNeeded()
+                    DispatchQueue.main.async {
+                        previousTop.constant = -newTop.constant
+                        newTop.constant = 0
+                        NSAnimationContext
+                            .runAnimationGroup {
+                                $0.duration = 0.4
+                                $0.allowsImplicitAnimation = true
+                                self.layoutSubtreeIfNeeded()
+                            } completionHandler: {
+                                removing.removeFromSuperview()
+                            }
+                    }
+                }
+                
+                previousTop = newTop
+                previous = next
             }
             .store(in: &subs)
     }

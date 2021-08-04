@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import Kanban
 
 extension Sidebar {
     final class List: Collection<Cell, Info> {
@@ -76,10 +77,10 @@ extension Sidebar {
                                     $0
                                 }
                                 .removeDuplicates())
-                .map { info, selected in
-                    .board(selected)
+                .map { _, selected in
+                    .view(selected)
                 }
-                .subscribe(session.path)
+                .subscribe(session.state)
                 .store(in: &subs)
             
             info

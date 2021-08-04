@@ -11,6 +11,7 @@ extension Project {
         private static let insetShape = insetsHorizontal + 6
         private static let insetHorizontalCircle = insetShape + radius
         private static let insetVerticalCircle = insetsVertical + radius
+        private static let pi2 = CGFloat.pi * 2
         private weak var text: CollectionCellText!
         private weak var shape: Shape!
         
@@ -32,7 +33,7 @@ extension Project {
                             center: .init(x: Self.insetHorizontalCircle, y: Self.insetVerticalCircle),
                             radius: Self.radius,
                             startAngle: 0,
-                            endAngle: CGFloat.pi * 2,
+                            endAngle: Self.pi2,
                             clockwise: false)
                         $0.move(to: .init(x: Self.insetShape, y: Self.insetVerticalCircle))
                         $0.addLine(to: .init(x: Self.insetsHorizontal, y: Self.insetVerticalCircle))
@@ -68,9 +69,18 @@ extension Project {
             let shape = Shape()
             shape.fillColor = .clear
             shape.lineWidth = 1
-            shape.strokeColor = NSColor.tertiaryLabelColor.cgColor
+            shape.strokeColor = NSColor.quaternaryLabelColor.cgColor
             addSublayer(shape)
             self.shape = shape
+        }
+        
+        override func update() {
+            switch state {
+            case .none:
+                shape.strokeColor = NSColor.quaternaryLabelColor.cgColor
+            case .highlighted, .pressed:
+                shape.strokeColor = NSColor.labelColor.cgColor
+            }
         }
     }
 }
