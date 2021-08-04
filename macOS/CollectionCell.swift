@@ -9,16 +9,13 @@ class CollectionCell<Info>: CALayer where Info : CollectionItemInfo {
         super.init()
     }
     
-    var state = CollectionCellState.none {
+    func update() {
+        
+    }
+    
+    final var state = CollectionCellState.none {
         didSet {
-            switch state {
-            case .none:
-                backgroundColor = .clear
-            case .highlighted:
-                backgroundColor = NSColor.labelColor.withAlphaComponent(0.03).cgColor
-            case .pressed:
-                backgroundColor = NSColor.quaternaryLabelColor.cgColor
-            }
+            update()
         }
     }
     

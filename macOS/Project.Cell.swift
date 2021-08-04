@@ -4,11 +4,13 @@ extension Project {
     final class Cell: CollectionCell<Info> {
         static let horizontal = (insetsHorizontal * 2) + shape
         static let insetsVertical2 = insetsVertical * 2
-        private static let shape = CGFloat(25)
+        private static let shape = CGFloat(30)
         private static let insetsHorizontal = CGFloat(20)
         private static let insetsVertical = CGFloat(15)
         private static let radius = CGFloat(3)
-        private static let radius2 = radius * 2
+        private static let insetShape = insetsHorizontal + 6
+        private static let insetHorizontalCircle = insetShape + radius
+        private static let insetVerticalCircle = insetsVertical + radius
         private weak var text: CollectionCellText!
         private weak var shape: Shape!
         
@@ -27,18 +29,23 @@ extension Project {
                 case .column:
                     shape.path = {
                         $0.addArc(
-                            center: .init(x: Self.insetsHorizontal + Self.radius, y: Self.insetsVertical + Self.radius),
+                            center: .init(x: Self.insetHorizontalCircle, y: Self.insetVerticalCircle),
                             radius: Self.radius,
                             startAngle: 0,
                             endAngle: CGFloat.pi * 2,
                             clockwise: false)
-                        $0.move(to: .init(x: Self.insetsHorizontal + Self.radius, y: Self.insetsVertical + Self.radius2))
-                        $0.addLine(to: .init(x: Self.insetsHorizontal + Self.radius, y: Self.insetsVertical + text.frame.size.height))
+                        $0.move(to: .init(x: Self.insetShape, y: Self.insetVerticalCircle))
+                        $0.addLine(to: .init(x: Self.insetsHorizontal, y: Self.insetVerticalCircle))
+                        $0.addLine(to: .init(x: Self.insetsHorizontal, y: Self.insetsVertical + text.frame.size.height))
                         return $0
                     } (CGMutablePath())
                 default:
                     shape.path = {
-                        $0
+                        $0.move(to: .init(x: Self.insetsHorizontal, y: Self.insetsVertical + (text.frame.size.height / 2)))
+                        $0.addLine(to: .init(x: Self.insetHorizontalCircle, y: Self.insetsVertical + (text.frame.size.height / 2)))
+                        $0.move(to: .init(x: Self.insetHorizontalCircle, y: Self.insetsVertical))
+                        $0.addLine(to: .init(x: Self.insetHorizontalCircle, y: Self.insetsVertical + text.frame.size.height))
+                        return $0
                     } (CGMutablePath())
                 }
             }
@@ -59,7 +66,7 @@ extension Project {
             self.text = text
             
             let shape = Shape()
-            shape.fillColor = NSColor.tertiaryLabelColor.cgColor
+            shape.fillColor = .clear
             shape.lineWidth = 1
             shape.strokeColor = NSColor.tertiaryLabelColor.cgColor
             addSublayer(shape)

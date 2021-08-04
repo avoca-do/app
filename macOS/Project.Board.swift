@@ -19,18 +19,29 @@ extension Project {
             cloud
                 .archive
                 .map {
-                    $0[0]
+                    $0[board]
                 }
                 .map {
                     $0
                         .items
                         .enumerated()
-                        .map {
-                            [.init(id: .column(.board(board), $0.0),
-                                  string: .make($0.1.name,
+                        .map { column in
+                            [.init(id: .column(.board(board), column.0),
+                                  string: .make(column.1.name,
                                                 font: .preferredFont(forTextStyle: .title2),
                                                 color: .labelColor,
                                                 kern: 1))]
+                                + column
+                                .1
+                                .items
+                                .enumerated()
+                                .map {
+                                    .init(id: .card(.column(.board(board), column.0), $0.0),
+                                          string: .make($0.1.content,
+                                                        font: .preferredFont(forTextStyle: .body),
+                                                        color: .labelColor,
+                                                        kern: 1))
+                                }
                         }
                 }
                 .subscribe(info)

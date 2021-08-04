@@ -22,17 +22,6 @@ extension Sidebar {
             }
         }
         
-        override var state: CollectionCellState {
-            didSet {
-                switch state {
-                case .none, .highlighted:
-                    text.string = item?.info.string
-                case .pressed:
-                    text.string = item?.info.stringHighlighted
-                }
-            }
-        }
-        
         required init?(coder: NSCoder) { nil }
         required init() {
             super.init()
@@ -54,6 +43,20 @@ extension Sidebar {
             separator.path = .init(rect: .init(x: Self.insetsHorizontal, y: -1, width: List.width - Self.insetsHorizontal2, height: 0), transform: nil)
             addSublayer(separator)
             self.separator = separator
+        }
+        
+        override func update() {
+            switch state {
+            case .none:
+                text.string = item?.info.string
+                backgroundColor = .clear
+            case .highlighted:
+                text.string = item?.info.string
+                backgroundColor = NSColor.labelColor.withAlphaComponent(0.03).cgColor
+            case .pressed:
+                text.string = item?.info.stringHighlighted
+                backgroundColor = NSColor.quaternaryLabelColor.cgColor
+            }
         }
     }
 }
