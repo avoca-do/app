@@ -35,5 +35,9 @@ extension Window.Content.Empty {
                 layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
             }
         }
+        
+        override var allowsVibrancy: Bool {
+            true
+        }
     }
 }

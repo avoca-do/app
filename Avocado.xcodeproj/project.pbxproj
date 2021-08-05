@@ -136,6 +136,7 @@
 		CEDB78F425ECFCCF001A02A4 /* Project.Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */; };
 		CEDB78FE25ED0E08001A02A4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB78FD25ED0E08001A02A4 /* Card.swift */; };
 		CEDBD48825EA80FA00C689CF /* Middlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBD48725EA80FA00C689CF /* Middlebar.swift */; };
+		CEDD564B26BBEBCF00AA54A4 /* Bar.Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD564A26BBEBCF00AA54A4 /* Bar.Action.swift */; };
 		CEE61FA125CAFCFB007CF830 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA025CAFCFB007CF830 /* Modal.swift */; };
 		CEE61FA525CB0A08007CF830 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE61FA425CB0A08007CF830 /* Tool.swift */; };
 		CEF2D7D825C0554700223C79 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
@@ -399,6 +400,7 @@
 		CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Options.swift; sourceTree = "<group>"; };
 		CEDB78FD25ED0E08001A02A4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		CEDBD48725EA80FA00C689CF /* Middlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlebar.swift; sourceTree = "<group>"; };
+		CEDD564A26BBEBCF00AA54A4 /* Bar.Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.Action.swift; sourceTree = "<group>"; };
 		CEE61FA025CAFCFB007CF830 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		CEE61FA425CB0A08007CF830 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		CEF1B84025E41F6A004B72AF /* Projects.Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.Settings.swift; sourceTree = "<group>"; };
@@ -589,6 +591,7 @@
 				CE99E68125DBFEA000E0EA36 /* macOS.entitlements */,
 				CE99E68025DBFEA000E0EA36 /* Info.plist */,
 				CE99E67725DBFE9F00E0EA36 /* App.swift */,
+				CEDD564A26BBEBCF00AA54A4 /* Bar.Action.swift */,
 				CE578C8E26B8013C00FCE39A /* Bar.Option.swift */,
 				CE578D3426B8286D00FCE39A /* Bar.swift */,
 				CEC3204F26B800A900364E88 /* CGRect.swift */,
@@ -1071,6 +1074,7 @@
 				CE9B192026B98D9000D8ED25 /* Edit.Textview.swift in Sources */,
 				CE578D3326B820F000FCE39A /* Window.Content.swift in Sources */,
 				CEC3204526B7F04E00364E88 /* Sidebar.swift in Sources */,
+				CEDD564B26BBEBCF00AA54A4 /* Bar.Action.swift in Sources */,
 				CEC3207326B800AA00364E88 /* CollectionCellText.swift in Sources */,
 				CEC3207426B800AA00364E88 /* Toast.swift in Sources */,
 				CEC3206D26B800AA00364E88 /* CollectionCellState.swift in Sources */,

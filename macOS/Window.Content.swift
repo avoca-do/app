@@ -13,7 +13,6 @@ extension Window {
             material = .menu
             
             var previous: NSView?
-            var previousTop: NSLayoutConstraint?
             
             session
                 .state
@@ -38,15 +37,15 @@ extension Window {
                     let newTop = next.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: previous?.frame.height ?? 0)
                     newTop.isActive = true
 
-                    if let removing = previous, let previousTop = previousTop {
+                    if let removing = previous {
                         self.layoutSubtreeIfNeeded()
-                        DispatchQueue.main.async {
-                            previousTop.constant = -newTop.constant
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                             newTop.constant = 0
                             NSAnimationContext
                                 .runAnimationGroup {
                                     $0.duration = 0.4
                                     $0.allowsImplicitAnimation = true
+                                    removing.alphaValue = 0
                                     self.layoutSubtreeIfNeeded()
                                 } completionHandler: {
                                     removing.removeFromSuperview()
@@ -54,7 +53,6 @@ extension Window {
                         }
                     }
                     
-                    previousTop = newTop
                     previous = next
                 }
                 .store(in: &subs)
