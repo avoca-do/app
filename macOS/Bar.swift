@@ -37,6 +37,17 @@ final class Bar: NSView {
             .subscribe(session.state)
             .store(in: &subs)
         
+        let card = Option(icon: "plus", size: 16)
+        card.toolTip = "New card"
+        card
+            .click
+            .compactMap {
+                guard case let .view(board) = session.state.value else { return nil }
+                return .card(board)
+            }
+            .subscribe(session.state)
+            .store(in: &subs)
+        
         let title = Text()
         title.maximumNumberOfLines = 1
         title.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
@@ -49,10 +60,10 @@ final class Bar: NSView {
             }
             .store(in: &subs)
         
-        let create = Action(title: "CREATE", color: .systemBlue)
+        let add = Action(title: "ADD", color: .systemBlue)
         let save = Action(title: "SAVE", color: .systemBlue)
         
-        [activity, search, plus, title, cancel, create, save]
+        [activity, search, plus, card, title, cancel, add, save]
             .forEach {
                 addSubview($0)
                 $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -65,12 +76,19 @@ final class Bar: NSView {
                 left = $0.rightAnchor
             }
         
-        title.leftAnchor.constraint(equalTo: leftAnchor, constant: 200).isActive = true
+        var right = rightAnchor
+        [card]
+            .forEach {
+                $0.rightAnchor.constraint(equalTo: right, constant: right == rightAnchor ? -8 : -10).isActive = true
+                right = $0.leftAnchor
+            }
+        
+        title.leftAnchor.constraint(equalTo: leftAnchor, constant: 225).isActive = true
         title.rightAnchor.constraint(lessThanOrEqualTo: cancel.leftAnchor, constant: -10).isActive = true
         
-        create.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
+        add.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
         save.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
-        cancel.rightAnchor.constraint(equalTo: create.leftAnchor, constant: -10).isActive = true
+        cancel.rightAnchor.constraint(equalTo: add.leftAnchor, constant: -10).isActive = true
         
         session
             .state
@@ -80,27 +98,51 @@ final class Bar: NSView {
                 case .none:
                     title.attributedStringValue = .init()
                     cancel.state = .hidden
-                    create.state = .hidden
+                    add.state = .hidden
                     save.state = .hidden
+                    card.state = .hidden
                 case .create:
-                    title.attributedStringValue = .init()
-                    cancel.state = .hidden
-                    create.state = .hidden
+                    cancel.state = .on
+                    add.state = .on
                     save.state = .hidden
+                    card.state = .hidden
+                    
+                    title.attributedStringValue = .make("New project",
+                                                        font: .font(style: .callout, weight: .regular),
+                                                        color: .labelColor)
                 case let .view(board):
                     title.attributedStringValue = .init()
                     cancel.state = .hidden
-                    create.state = .hidden
+                    add.state = .hidden
                     save.state = .hidden
-                case let .new(path):
+                    card.state = .on
+                case let .column(board):
                     title.attributedStringValue = .init()
                     cancel.state = .hidden
-                    create.state = .hidden
+                    add.state = .hidden
                     save.state = .hidden
+                    card.state = .hidden
+                case let .card(board):
+                    cancel.state = .on
+                    add.state = .on
+                    save.state = .hidden
+                    card.state = .hidden
+                    
+                    title.attributedStringValue = .make {
+                        $0.append(.make(cloud.archive.value[board].name + " : ",
+                                        font: .font(style: .callout, weight: .light),
+                                        color: .secondaryLabelColor,
+                                        lineBreak: .byTruncatingMiddle))
+                        $0.append(.make("New card",
+                                        font: .font(style: .callout, weight: .regular),
+                                        color: .labelColor))
+                    }
                 case let .edit(path):
                     cancel.state = .on
-                    create.state = .hidden
+                    add.state = .hidden
                     save.state = .on
+                    card.state = .hidden
+                    
                     switch path {
                     case .card:
                         title.attributedStringValue = .make {
@@ -109,6 +151,16 @@ final class Bar: NSView {
                                             color: .secondaryLabelColor,
                                             lineBreak: .byTruncatingMiddle))
                             $0.append(.make("Edit card",
+                                            font: .font(style: .callout, weight: .regular),
+                                            color: .labelColor))
+                        }
+                    case .column:
+                        title.attributedStringValue = .make {
+                            $0.append(.make(cloud.archive.value[path.board].name + " : ",
+                                            font: .font(style: .callout, weight: .light),
+                                            color: .secondaryLabelColor,
+                                            lineBreak: .byTruncatingMiddle))
+                            $0.append(.make("Edit column",
                                             font: .font(style: .callout, weight: .regular),
                                             color: .labelColor))
                         }

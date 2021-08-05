@@ -49,7 +49,11 @@ final class Window: NSWindow {
             session
                 .state
                 .send(.none)
-        case let .new(path), let .edit(path):
+        case let .column(board), let .card(board):
+            session
+                .state
+                .send(.view(board))
+        case let .edit(path):
             session
                 .state
                 .send(.view(path.board))
