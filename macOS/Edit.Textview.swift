@@ -22,14 +22,8 @@ extension Edit {
 //            }
 //        }
 //        
-        override var canBecomeKeyView: Bool { true }
-        
-        override func cancelOperation(_ sender: Any?) {
-            guard string.isEmpty else {
-                window?.makeFirstResponder(nil)
-                return
-            }
-            window?.cancelOperation(sender)
+        override var canBecomeKeyView: Bool {
+            true
         }
 
         required init?(coder: NSCoder) { nil }
@@ -51,7 +45,15 @@ extension Edit {
             textContainerInset.height = 20
         }
         
-        override final func drawInsertionPoint(in rect: NSRect, color: NSColor, turnedOn: Bool) {
+        override func cancelOperation(_ sender: Any?) {
+            guard string.isEmpty else {
+                window?.makeFirstResponder(nil)
+                return
+            }
+            session.cancel()
+        }
+        
+        override func drawInsertionPoint(in rect: NSRect, color: NSColor, turnedOn: Bool) {
             var rect = rect
             rect.size.width = 2
             super.drawInsertionPoint(in: rect, color: color, turnedOn: turnedOn)

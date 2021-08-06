@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE0B3C3D25DC3A2A00317754 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
 		CE0E839025CEB912001283C6 /* Project.Columns.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E838F25CEB912001283C6 /* Project.Columns.swift */; };
+		CE15AE6226BD40D00007DE31 /* NSAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CB125E695B90035E674 /* NSAlert.swift */; };
 		CE1E602125CD9B5C00456852 /* Project.Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E602025CD9B5C00456852 /* Project.Edit.swift */; };
 		CE25079A25B8660900F9C526 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25079925B8660900F9C526 /* App.swift */; };
 		CE25079C25B8660900F9C526 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25079B25B8660900F9C526 /* Window.swift */; };
@@ -608,6 +609,7 @@
 				CE7339E626B9551100D195D6 /* Flip.swift */,
 				CEC3205026B800A900364E88 /* Image.swift */,
 				CEC3203D26B7EE5600364E88 /* Layer.swift */,
+				CEC22CB125E695B90035E674 /* NSAlert.swift */,
 				CEC3205426B800AA00364E88 /* NSAttributedString.swift */,
 				CEC3204E26B800A900364E88 /* NSFont.swift */,
 				CEC3206126B800AA00364E88 /* NSMenu.swift */,
@@ -673,7 +675,6 @@
 				CE5F390E25DD90F50095F4FB /* Flip.swift */,
 				CE4C49EC25E5325800BCF746 /* Menu.swift */,
 				CE221BC925DD563400EFA20B /* Metrics.swift */,
-				CEC22CB125E695B90035E674 /* NSAlert.swift */,
 				CE3832F625DE949700539F4E /* NSAttributedString.swift */,
 				CE71F86825F798E400D4379A /* NSColor.swift */,
 				CE4C49F025E533F500BCF746 /* NSMenuItem.swift */,
@@ -1062,6 +1063,7 @@
 				CEC3207526B800AA00364E88 /* NSMenu.swift in Sources */,
 				CEC3206226B800AA00364E88 /* NSFont.swift in Sources */,
 				CEC3206B26B800AA00364E88 /* Text.swift in Sources */,
+				CE15AE6226BD40D00007DE31 /* NSAlert.swift in Sources */,
 				CEC3207026B800AA00364E88 /* Shape.swift in Sources */,
 				CEC3206526B800AA00364E88 /* Control.State.swift in Sources */,
 				CE578C8F26B8013C00FCE39A /* Bar.Option.swift in Sources */,

@@ -1,9 +1,9 @@
-import Foundation
+import AppKit
 import Combine
 import Kanban
 
 extension Sidebar {
-    final class List: Collection<Cell, Info> {
+    final class List: Collection<Cell, Info>, NSMenuDelegate {
         static let width = Sidebar.width - insets2
         private static let insets = CGFloat(20)
         private static let insets2 = insets + insets
@@ -11,6 +11,9 @@ extension Sidebar {
         required init?(coder: NSCoder) { nil }
         override init() {
             super.init()
+            menu = NSMenu()
+            menu!.delegate = self
+            
             let vertical = CGFloat(20)
             let textWidth = Self.width - Cell.insetsHorizontal2
             let info = CurrentValueSubject<[Info], Never>([])
@@ -103,6 +106,41 @@ extension Sidebar {
                     self?.size.send(.init(width: 0, height: result.y + vertical))
                 }
                 .store(in: &subs)
+        }
+        
+        func menuNeedsUpdate(_ menu: NSMenu) {
+            menu.items = highlighted.value == nil
+                ? []
+                : [
+                    .child("Edit", #selector(edit)) {
+                        $0.target = self
+                        $0.image = .init(systemSymbolName: "slider.horizontal.3", accessibilityDescription: nil)
+                    },
+                    .separator(),
+                    .child("Delete", #selector(delete)) {
+                        $0.target = self
+                        $0.image = .init(systemSymbolName: "trash", accessibilityDescription: nil)
+                    }]
+        }
+        
+        @objc private func edit() {
+            highlighted
+                .value
+                .map {
+                    .edit(.board($0))
+                }
+                .map(session
+                        .state
+                        .send)
+        }
+        
+        @objc private func delete() {
+            highlighted
+                .value
+                .map {
+                    .board($0)
+                }
+                .map(NSAlert.delete(path:))
         }
     }
 }

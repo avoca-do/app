@@ -29,12 +29,12 @@ final class Edit: NSScrollView {
         
         if case let .edit(path) = state {
             switch path {
+            case .board:
+                textview.string = cloud.archive.value[path.board].name
             case .column:
                 textview.string = cloud.archive.value[path.board][path.column].name
             case .card:
                 textview.string = cloud.archive.value[path.board][path.column][path.card].content
-            default:
-                break
             }
         }
     }

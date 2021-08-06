@@ -48,6 +48,26 @@ final class Bar: NSView {
             .subscribe(session.state)
             .store(in: &subs)
         
+        let stats = Option(icon: "gauge")
+        stats.toolTip = "Stats"
+        stats
+            .click
+            .sink {
+                
+            }
+            .store(in: &subs)
+        
+        let edit = Option(icon: "slider.horizontal.3")
+        edit.toolTip = "Edit"
+        edit
+            .click
+            .compactMap {
+                guard case let .view(board) = session.state.value else { return nil }
+                return .edit(.board(board))
+            }
+            .subscribe(session.state)
+            .store(in: &subs)
+        
         let title = Text()
         title.maximumNumberOfLines = 1
         title.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
@@ -56,14 +76,24 @@ final class Bar: NSView {
         cancel
             .click
             .sink {
-                self.window?.cancelOperation(nil)
+                session.cancel()
             }
             .store(in: &subs)
         
         let add = Action(title: "ADD", color: .systemBlue)
         let save = Action(title: "SAVE", color: .systemBlue)
         
-        [activity, search, plus, card, title, cancel, add, save]
+        let delete = Action(title: "DELETE", color: .black)
+        delete
+            .click
+            .sink {
+                if case let .edit(path) = session.state.value {
+                    NSAlert.delete(path: path)
+                }
+            }
+            .store(in: &subs)
+        
+        [activity, search, plus, card, title, cancel, add, save, delete, stats, edit]
             .forEach {
                 addSubview($0)
                 $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -77,18 +107,19 @@ final class Bar: NSView {
             }
         
         var right = rightAnchor
-        [card]
+        [card, stats, edit]
             .forEach {
                 $0.rightAnchor.constraint(equalTo: right, constant: right == rightAnchor ? -8 : -10).isActive = true
                 right = $0.leftAnchor
             }
         
         title.leftAnchor.constraint(equalTo: leftAnchor, constant: 225).isActive = true
-        title.rightAnchor.constraint(lessThanOrEqualTo: cancel.leftAnchor, constant: -10).isActive = true
+        title.rightAnchor.constraint(lessThanOrEqualTo: delete.leftAnchor, constant: -10).isActive = true
         
         add.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
         save.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
         cancel.rightAnchor.constraint(equalTo: add.leftAnchor, constant: -10).isActive = true
+        delete.rightAnchor.constraint(equalTo: cancel.leftAnchor, constant: -10).isActive = true
         
         session
             .state
@@ -97,36 +128,51 @@ final class Bar: NSView {
                 switch $0 {
                 case .none:
                     title.attributedStringValue = .init()
+                    delete.state = .hidden
                     cancel.state = .hidden
                     add.state = .hidden
                     save.state = .hidden
                     card.state = .hidden
+                    stats.state = .hidden
+                    edit.state = .hidden
                 case .create:
+                    delete.state = .hidden
                     cancel.state = .on
                     add.state = .on
                     save.state = .hidden
                     card.state = .hidden
+                    stats.state = .hidden
+                    edit.state = .hidden
                     
                     title.attributedStringValue = .make("New project",
                                                         font: .font(style: .callout, weight: .regular),
                                                         color: .labelColor)
                 case let .view(board):
                     title.attributedStringValue = .init()
+                    delete.state = .hidden
                     cancel.state = .hidden
                     add.state = .hidden
                     save.state = .hidden
                     card.state = .on
+                    stats.state = .on
+                    edit.state = .on
                 case let .column(board):
                     title.attributedStringValue = .init()
+                    delete.state = .hidden
                     cancel.state = .hidden
                     add.state = .hidden
                     save.state = .hidden
                     card.state = .hidden
+                    stats.state = .hidden
+                    edit.state = .hidden
                 case let .card(board):
+                    delete.state = .hidden
                     cancel.state = .on
                     add.state = .on
                     save.state = .hidden
                     card.state = .hidden
+                    stats.state = .hidden
+                    edit.state = .hidden
                     
                     title.attributedStringValue = .make {
                         $0.append(.make(cloud.archive.value[board].name + " : ",
@@ -138,10 +184,13 @@ final class Bar: NSView {
                                         color: .labelColor))
                     }
                 case let .edit(path):
+                    delete.state = .on
                     cancel.state = .on
                     add.state = .hidden
                     save.state = .on
                     card.state = .hidden
+                    stats.state = .hidden
+                    edit.state = .hidden
                     
                     switch path {
                     case .card:
@@ -164,8 +213,10 @@ final class Bar: NSView {
                                             font: .font(style: .callout, weight: .regular),
                                             color: .labelColor))
                         }
-                    default:
-                        break
+                    case .board:
+                        title.attributedStringValue = .make("Edit board",
+                                                            font: .font(style: .callout, weight: .regular),
+                                                            color: .labelColor)
                     }
                 }
             }

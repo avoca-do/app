@@ -44,22 +44,8 @@ final class Window: NSWindow {
     }
     
     override func cancelOperation(_ sender: Any?) {
-        switch session.state.value {
-        case .create:
-            session
-                .state
-                .send(.none)
-        case let .column(board), let .card(board):
-            session
-                .state
-                .send(.view(board))
-        case let .edit(path):
-            session
-                .state
-                .send(.view(path.board))
-        default:
-            super.cancelOperation(sender)
-        }
+        super.cancelOperation(sender)
+        session.cancel()
     }
     /*
     override func close() {
