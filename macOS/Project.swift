@@ -7,6 +7,7 @@ final class Project: Collection<Project.Cell, Project.Info> {
         super.init()
         hasHorizontalScroller = true
         horizontalScroller!.controlSize = .mini
+        wantsLayer = true
         
         let vertical = CGFloat(20)
         let horizontal = CGFloat(50)

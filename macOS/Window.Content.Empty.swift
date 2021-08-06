@@ -9,6 +9,7 @@ extension Window.Content {
         init() {
             super.init(frame: .zero)
             translatesAutoresizingMaskIntoConstraints = false
+            wantsLayer = true
             
             let image = Image()
             image.contentTintColor = .secondaryLabelColor

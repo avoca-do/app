@@ -21,6 +21,7 @@ final class Edit: NSScrollView {
         hasVerticalScroller = true
         verticalScroller!.controlSize = .mini
         drawsBackground = false
+        wantsLayer = true
         
         let textview = Textview()
         documentView = textview
