@@ -4,11 +4,14 @@ import Kanban
 
 let cloud = Cloud.new
 let session = Session()
+let purchases = Purchases()
 
 @NSApplicationMain final class App: NSApplication, NSApplicationDelegate {
     /*static let dark = NSApp.windows.first?.effectiveAppearance == NSAppearance(named: .darkAqua)
     private var subs = Set<AnyCancellable>()
     */
+    
+    
     
     
     required init?(coder: NSCoder) { nil }
@@ -33,6 +36,10 @@ let session = Session()
 //                : archive.isEmpty(.archive) ? .archive : .board(0)
 //            Session.scroll.send()
 //        }.store(in: &subs)
+    }
+    
+    func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool {
+        true
     }
     /*
     func applicationDidFinishLaunching(_: Notification) {

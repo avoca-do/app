@@ -4,8 +4,9 @@ import Kanban
 
 struct Session {
     let state = CurrentValueSubject<State, Never>(.none)
+    let deselect = PassthroughSubject<Void, Never>()
     
-    func cancel() {
+    func cancel(hard: Bool) {
         switch state.value {
         case .create:
             state
@@ -16,8 +17,15 @@ struct Session {
         case let .edit(path):
             switch path {
             case .board:
-                state
-                    .send(.none)
+                if hard {
+                    state
+                        .send(.none)
+                    deselect
+                        .send()
+                } else {
+                    state
+                        .send(.view(path.board))
+                }
             default:
                 state
                     .send(.view(path.board))

@@ -5,7 +5,7 @@ extension NSAlert {
     class func delete(path: Path) {
         let alert = NSAlert()
         alert.alertStyle = .warning
-        alert.icon = NSImage(systemSymbolName: "trash.circle.fill", accessibilityDescription: nil)
+        alert.icon = .init(systemSymbolName: "trash.circle.fill", accessibilityDescription: nil)
         alert.messageText = ""
         
         switch path {
@@ -22,7 +22,7 @@ extension NSAlert {
         delete.keyEquivalent = "\r"
         cancel.keyEquivalent = "\u{1b}"
         if alert.runModal().rawValue == delete.tag {
-            session.cancel()
+            session.cancel(hard: true)
 //            Session.edit.send(nil)
 //            Session.mutate {
 //                switch path {

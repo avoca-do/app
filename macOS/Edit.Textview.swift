@@ -50,7 +50,7 @@ extension Edit {
                 window?.makeFirstResponder(nil)
                 return
             }
-            session.cancel()
+            session.cancel(hard: false)
         }
         
         override func drawInsertionPoint(in rect: NSRect, color: NSColor, turnedOn: Bool) {

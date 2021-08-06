@@ -106,6 +106,14 @@ extension Sidebar {
                     self?.size.send(.init(width: 0, height: result.y + vertical))
                 }
                 .store(in: &subs)
+            
+            session
+                .deselect
+                .map {
+                    nil
+                }
+                .subscribe(selected)
+                .store(in: &subs)
         }
         
         func menuNeedsUpdate(_ menu: NSMenu) {

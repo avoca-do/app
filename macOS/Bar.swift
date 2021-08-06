@@ -31,10 +31,28 @@ final class Bar: NSView {
         plus.toolTip = "New project"
         plus
             .click
-            .map {
-                .create
+            .sink {
+                if !cloud.archive.value.available {
+                    session.state.send(.create)
+                } else {
+                    let alert = NSAlert()
+                    alert.alertStyle = .informational
+                    alert.icon = .init(named: "full")
+                    alert.messageText = "Unable to create a new project"
+                    alert.informativeText = """
+You have reached your maximum capacity for projects.
+
+Check the purchases section for more details.
+"""
+                    let capacity = alert.addButton(withTitle: NSLocalizedString("PURCHASES", comment: ""))
+                    let cancel = alert.addButton(withTitle: NSLocalizedString("CANCEL", comment: ""))
+                    capacity.keyEquivalent = "\r"
+                    cancel.keyEquivalent = "\u{1b}"
+                    if alert.runModal().rawValue == capacity.tag {
+                        NSApp.store()
+                    }
+                }
             }
-            .subscribe(session.state)
             .store(in: &subs)
         
         let card = Option(icon: "plus", size: 16)
@@ -76,7 +94,7 @@ final class Bar: NSView {
         cancel
             .click
             .sink {
-                session.cancel()
+                session.cancel(hard: false)
             }
             .store(in: &subs)
         
