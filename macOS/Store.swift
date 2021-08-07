@@ -15,7 +15,7 @@ final class Store: NSWindow {
         setFrameAutosaveName("Store")
         
         let bar = NSTitlebarAccessoryViewController()
-        bar.view = Title()
+        bar.view = Bar()
         bar.layoutAttribute = .top
         addTitlebarAccessoryViewController(bar)
         

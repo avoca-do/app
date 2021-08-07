@@ -5,6 +5,7 @@ extension Store {
         required init?(coder: NSCoder) { nil }
         init() {
             super.init(frame: .zero)
+            state = .active
             
             let icon = Image(icon: "hourglass.bottomhalf.fill")
             icon.symbolConfiguration = .init(textStyle: .largeTitle)

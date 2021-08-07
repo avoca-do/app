@@ -61,7 +61,7 @@
 		CE69A59325D1816300EC9DB0 /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A59225D1816300EC9DB0 /* Switch.swift */; };
 		CE69A59625D1817700EC9DB0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69A59525D1817700EC9DB0 /* Settings.swift */; };
 		CE6B575226BD5C8400DDF923 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B575126BD5C8400DDF923 /* Store.swift */; };
-		CE6B575426BD5D0900DDF923 /* Store.Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B575326BD5D0900DDF923 /* Store.Title.swift */; };
+		CE6B575426BD5D0900DDF923 /* Store.Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B575326BD5D0900DDF923 /* Store.Bar.swift */; };
 		CE6B575626BD600700DDF923 /* Store.Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B575526BD600700DDF923 /* Store.Loading.swift */; };
 		CE6B575826BD601600DDF923 /* Store.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B575726BD601600DDF923 /* Store.Item.swift */; };
 		CE6B575C26BD686B00DDF923 /* NSApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B575B26BD686B00DDF923 /* NSApplication.swift */; };
@@ -313,7 +313,7 @@
 		CE69A59225D1816300EC9DB0 /* Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
 		CE69A59525D1817700EC9DB0 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CE6B575126BD5C8400DDF923 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		CE6B575326BD5D0900DDF923 /* Store.Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.Title.swift; sourceTree = "<group>"; };
+		CE6B575326BD5D0900DDF923 /* Store.Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.Bar.swift; sourceTree = "<group>"; };
 		CE6B575526BD600700DDF923 /* Store.Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.Loading.swift; sourceTree = "<group>"; };
 		CE6B575726BD601600DDF923 /* Store.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.Item.swift; sourceTree = "<group>"; };
 		CE6B575B26BD686B00DDF923 /* NSApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSApplication.swift; sourceTree = "<group>"; };
@@ -646,12 +646,12 @@
 				CE578C9426B8065500FCE39A /* Sidebar.Info.swift */,
 				CE578C9026B8062000FCE39A /* Sidebar.List.swift */,
 				CEC3204426B7F04E00364E88 /* Sidebar.swift */,
+				CE6B575326BD5D0900DDF923 /* Store.Bar.swift */,
 				CE6B576326BD705300DDF923 /* Store.Error.swift */,
 				CE6B576126BD6F0700DDF923 /* Store.Item.Purchase.swift */,
 				CE6B575726BD601600DDF923 /* Store.Item.swift */,
 				CE6B575526BD600700DDF923 /* Store.Loading.swift */,
 				CE6B575126BD5C8400DDF923 /* Store.swift */,
-				CE6B575326BD5D0900DDF923 /* Store.Title.swift */,
 				CEC3205726B800AA00364E88 /* Text.swift */,
 				CEC3206026B800AA00364E88 /* Toast.swift */,
 				CE7339EA26B96C4800D195D6 /* Window.Content.Empty.Option.swift */,
@@ -1091,7 +1091,7 @@
 				CEC3207526B800AA00364E88 /* NSMenu.swift in Sources */,
 				CEC3206226B800AA00364E88 /* NSFont.swift in Sources */,
 				CEC3206B26B800AA00364E88 /* Text.swift in Sources */,
-				CE6B575426BD5D0900DDF923 /* Store.Title.swift in Sources */,
+				CE6B575426BD5D0900DDF923 /* Store.Bar.swift in Sources */,
 				CE15AE6226BD40D00007DE31 /* NSAlert.swift in Sources */,
 				CEC3207026B800AA00364E88 /* Shape.swift in Sources */,
 				CEC3206526B800AA00364E88 /* Control.State.swift in Sources */,
