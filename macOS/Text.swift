@@ -1,8 +1,12 @@
 import AppKit
 
 final class Text: NSTextField {
+    private let vibrancy: Bool
+    
     required init?(coder: NSCoder) { nil }
-    init() {
+    init(vibrancy: Bool) {
+        self.vibrancy = vibrancy
+        
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
@@ -20,7 +24,7 @@ final class Text: NSTextField {
     }
     
     override var allowsVibrancy: Bool {
-        true
+        vibrancy
     }
     
     override func hitTest(_ point: NSPoint) -> NSView? {

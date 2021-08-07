@@ -3,11 +3,34 @@ import Combine
 
 final class Bar: NSView {
     private var subs = Set<AnyCancellable>()
+    private var leftWidth: NSLayoutConstraint?
+    
+    override func viewDidMoveToWindow() {
+        window
+            .map {
+                $0.contentView
+                    .map {
+                        leftWidth!.constant = convert(.init(x: Sidebar.width, y: 0), from: $0).x - 1
+                    }
+            }
+    }
     
     required init?(coder: NSCoder) { nil }
     init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
+        
+        let backgroundLeft = NSVisualEffectView()
+        backgroundLeft.translatesAutoresizingMaskIntoConstraints = false
+        backgroundLeft.state = .active
+        backgroundLeft.material = .popover
+        addSubview(backgroundLeft)
+        
+        let backgroundRight = NSVisualEffectView()
+        backgroundRight.translatesAutoresizingMaskIntoConstraints = false
+        backgroundRight.state = .active
+        backgroundRight.material = .menu
+        addSubview(backgroundRight)
         
         let activity = Option(icon: "chart.pie")
         activity.toolTip = "Activity"
@@ -27,7 +50,7 @@ final class Bar: NSView {
             }
             .store(in: &subs)
         
-        let plus = Option(icon: "plus", size: 16)
+        let plus = Option(icon: "plus", size: 15)
         plus.toolTip = "New project"
         plus
             .click
@@ -55,7 +78,7 @@ Check the purchases section for more details.
             }
             .store(in: &subs)
         
-        let card = Option(icon: "plus", size: 16)
+        let card = Option(icon: "plus", size: 15)
         card.toolTip = "New card"
         card
             .click
@@ -66,7 +89,7 @@ Check the purchases section for more details.
             .subscribe(session.state)
             .store(in: &subs)
         
-        let stats = Option(icon: "gauge")
+        let stats = Option(icon: "barometer")
         stats.toolTip = "Stats"
         stats
             .click
@@ -86,11 +109,11 @@ Check the purchases section for more details.
             .subscribe(session.state)
             .store(in: &subs)
         
-        let title = Text()
+        let title = Text(vibrancy: true)
         title.maximumNumberOfLines = 1
         title.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
-        let cancel = Action(title: "CANCEL", color: .systemPink)
+        let cancel = Action(title: "CANCEL", color: .systemPink, foreground: .white)
         cancel
             .click
             .sink {
@@ -98,10 +121,10 @@ Check the purchases section for more details.
             }
             .store(in: &subs)
         
-        let add = Action(title: "ADD", color: .systemBlue)
-        let save = Action(title: "SAVE", color: .systemBlue)
+        let add = Action(title: "ADD", color: .systemBlue, foreground: .white)
+        let save = Action(title: "SAVE", color: .systemBlue, foreground: .white)
         
-        let delete = Action(title: "DELETE", color: .black)
+        let delete = Action(title: "DELETE", color: .labelColor, foreground: .windowBackgroundColor)
         delete
             .click
             .sink {
@@ -111,9 +134,26 @@ Check the purchases section for more details.
             }
             .store(in: &subs)
         
-        [activity, search, plus, card, title, cancel, add, save, delete, stats, edit]
+        backgroundLeft.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        backgroundLeft.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        backgroundLeft.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        leftWidth = backgroundLeft.widthAnchor.constraint(equalToConstant: 0)
+        leftWidth!.isActive = true
+        
+        backgroundRight.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        backgroundRight.leftAnchor.constraint(equalTo: backgroundLeft.rightAnchor, constant: 1).isActive = true
+        backgroundRight.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        backgroundRight.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
+        [activity, search, plus]
             .forEach {
-                addSubview($0)
+                backgroundLeft.addSubview($0)
+                $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+            }
+        
+        [card, title, cancel, add, save, delete, stats, edit]
+            .forEach {
+                backgroundRight.addSubview($0)
                 $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             }
         

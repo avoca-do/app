@@ -6,7 +6,7 @@ extension Store {
         init(message: String) {
             super.init(frame: .zero)
             
-            let text = Text()
+            let text = Text(vibrancy: true)
             text.stringValue = message
             text.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
             text.textColor = .secondaryLabelColor

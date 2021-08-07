@@ -4,13 +4,14 @@ extension Store.Item {
     final class Purchase: Control {
         required init?(coder: NSCoder) { nil }
         init() {
-            let text = Text()
+            let text = Text(vibrancy: false)
             text.stringValue = "Purchase"
             text.font = .systemFont(ofSize: 14, weight: .regular)
-            text.textColor = .labelColor
+            text.textColor = .white
             
             super.init(layer: true)
             layer!.cornerRadius = 5
+            layer!.backgroundColor = NSColor.systemBlue.cgColor
             addSubview(text)
             
             heightAnchor.constraint(equalToConstant: 30).isActive = true
@@ -24,10 +25,10 @@ extension Store.Item {
             super.update()
             
             switch state {
-            case .pressed, .highlighted:
-                layer!.backgroundColor = NSColor.quaternaryLabelColor.cgColor
+            case .pressed:
+                alphaValue = 0.7
             default:
-                layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
+                alphaValue = 1
             }
         }
     }

@@ -19,9 +19,16 @@ extension Purchases {
         
         var subtitle: String {
             switch self {
+            case .plus_one: return "Increase your capacity by one"
+            }
+        }
+        
+        var info: String {
+            switch self {
             case .plus_one: return """
-Permanently increase your projects capacity by one.
-Your capacity won't expire, you can create and delete projects as many times as you want.
+Your projects capacity is permanent and won't expire, you can create and delete projects as many times as you want.
+
+Projects and capacity are shared among all your devices, they can be small or very large and they need only 1 place in your capacity quota.
 
 This purchase is consumable and you can purchase it many times.
 """

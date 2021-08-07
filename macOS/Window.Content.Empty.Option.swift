@@ -6,7 +6,7 @@ extension Window.Content.Empty {
         
         required init?(coder: NSCoder) { nil }
         init(title: String) {
-            let text = Text()
+            let text = Text(vibrancy: false)
             text.stringValue = title
             text.font = .preferredFont(forTextStyle: .body)
             text.textColor = .secondaryLabelColor
@@ -34,10 +34,6 @@ extension Window.Content.Empty {
             default:
                 layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
             }
-        }
-        
-        override var allowsVibrancy: Bool {
-            true
         }
     }
 }

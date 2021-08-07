@@ -34,7 +34,7 @@ final class Toast: NSPanel {
         icon.contentTintColor = .labelColor
         content.addSubview(icon)
         
-        let title = Text()
+        let title = Text(vibrancy: true)
         title.stringValue = message.title
         title.textColor = .labelColor
         title.font = .preferredFont(forTextStyle: .body)

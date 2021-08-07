@@ -13,24 +13,30 @@ extension Store {
             
             let item = Purchases.Item(rawValue: product.productIdentifier)!
 
-            let image = Image(named: item.image)
+            let image = Image(named: item.image, vibrancy: true)
             image.contentTintColor = .secondaryLabelColor
             addSubview(image)
             
-            let name = Text()
+            let name = Text(vibrancy: true)
             name.font = .preferredFont(forTextStyle: .largeTitle)
             name.stringValue = item.title
             name.textColor = .labelColor
             addSubview(name)
             
-            let subtitle = Text()
+            let subtitle = Text(vibrancy: true)
             subtitle.font = .preferredFont(forTextStyle: .title3)
             subtitle.stringValue = item.subtitle
             subtitle.textColor = .secondaryLabelColor
-            subtitle.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
             addSubview(subtitle)
             
-            let value = Text()
+            let info = Text(vibrancy: true)
+            info.font = .preferredFont(forTextStyle: .callout)
+            info.stringValue = item.info
+            info.textColor = .secondaryLabelColor
+            info.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+            addSubview(info)
+            
+            let value = Text(vibrancy: true)
             value.stringValue = price
             value.font = .preferredFont(forTextStyle: .title3)
             value.textColor = .labelColor
@@ -51,15 +57,18 @@ extension Store {
             name.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 20).isActive = true
             name.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
             
-            subtitle.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 5).isActive = true
+            subtitle.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 15).isActive = true
             subtitle.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-            subtitle.leftAnchor.constraint(greaterThanOrEqualTo: leftAnchor, constant: 30).isActive = true
-            subtitle.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -30).isActive = true
             
-            value.topAnchor.constraint(equalTo: subtitle.bottomAnchor, constant: 55).isActive = true
+            info.topAnchor.constraint(equalTo: subtitle.bottomAnchor, constant: 10).isActive = true
+            info.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+            info.leftAnchor.constraint(greaterThanOrEqualTo: leftAnchor, constant: 50).isActive = true
+            info.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -50).isActive = true
+            
+            value.bottomAnchor.constraint(equalTo: purchase.topAnchor, constant: -10).isActive = true
             value.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
             
-            purchase.topAnchor.constraint(equalTo: value.bottomAnchor, constant: 10).isActive = true
+            purchase.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50).isActive = true
             purchase.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         }
     }

@@ -3,11 +3,11 @@ import AppKit
 extension Bar {
     final class Action: Control {
         required init?(coder: NSCoder) { nil }
-        init(title: String, color: NSColor) {
-            let text = Text()
+        init(title: String, color: NSColor, foreground: NSColor) {
+            let text = Text(vibrancy: false)
             text.stringValue = title
             text.font = .systemFont(ofSize: 11, weight: .regular)
-            text.textColor = .white
+            text.textColor = foreground
             
             super.init(layer: true)
             layer!.cornerRadius = 5

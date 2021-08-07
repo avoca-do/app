@@ -11,11 +11,11 @@ extension Window.Content {
             translatesAutoresizingMaskIntoConstraints = false
             wantsLayer = true
             
-            let image = Image()
+            let image = Image(vibrancy: false)
             image.contentTintColor = .secondaryLabelColor
             addSubview(image)
             
-            let text = Text()
+            let text = Text(vibrancy: false)
             text.font = .preferredFont(forTextStyle: .title3)
             text.textColor = .tertiaryLabelColor
             text.alignment = .center
@@ -45,6 +45,10 @@ extension Window.Content {
             
             button.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
             button.topAnchor.constraint(equalTo: text.bottomAnchor, constant: 20).isActive = true
+        }
+        
+        override var allowsVibrancy: Bool {
+            true
         }
     }
 }

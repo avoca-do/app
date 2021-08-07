@@ -56,5 +56,4 @@ extension Window {
                 .store(in: &subs)
         }
     }
-
 }
