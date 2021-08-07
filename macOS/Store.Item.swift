@@ -30,9 +30,9 @@ extension Store {
             addSubview(subtitle)
             
             let info = Text(vibrancy: true)
-            info.font = .preferredFont(forTextStyle: .callout)
+            info.font = .preferredFont(forTextStyle: .body)
             info.stringValue = item.info
-            info.textColor = .secondaryLabelColor
+            info.textColor = .tertiaryLabelColor
             info.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
             addSubview(info)
             

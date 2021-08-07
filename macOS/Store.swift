@@ -6,7 +6,7 @@ final class Store: NSWindow {
     private var subs = Set<AnyCancellable>()
     
     init() {
-        super.init(contentRect: .init(x: 0, y: 0, width: 440, height: 660),
+        super.init(contentRect: .init(x: 0, y: 0, width: 480, height: 680),
                    styleMask: [.closable, .miniaturizable, .titled, .fullSizeContentView], backing: .buffered, defer: true)
         toolbar = .init()
         isReleasedWhenClosed = false

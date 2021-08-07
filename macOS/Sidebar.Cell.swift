@@ -25,7 +25,7 @@ extension Sidebar {
         required init?(coder: NSCoder) { nil }
         required init() {
             super.init()
-            cornerRadius = 8
+            cornerRadius = 6
             
             let text = CollectionCellText()
             text.frame = .init(
@@ -47,15 +47,12 @@ extension Sidebar {
         
         override func update() {
             switch state {
-            case .none:
-                text.string = item?.info.string
-                backgroundColor = .clear
-            case .highlighted:
-                text.string = item?.info.string
-                backgroundColor = NSColor.labelColor.withAlphaComponent(0.03).cgColor
             case .pressed:
                 text.string = item?.info.stringHighlighted
-                backgroundColor = NSColor.quaternaryLabelColor.cgColor
+                backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
+            default:
+                text.string = item?.info.string
+                backgroundColor = .clear
             }
         }
     }

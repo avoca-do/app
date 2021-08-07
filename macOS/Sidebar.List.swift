@@ -39,7 +39,7 @@ extension Sidebar {
                                     $0.linebreak()
                                     $0.append(.make(item.1.modified,
                                                     font: .preferredFont(forTextStyle: .footnote),
-                                                    color: .secondaryLabelColor))
+                                                    color: .tertiaryLabelColor))
                                   },
                                   stringHighlighted: .make {
                                     $0.append(.make(item.1.name,

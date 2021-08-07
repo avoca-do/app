@@ -5,7 +5,7 @@ extension NSAlert {
     class func delete(path: Path) {
         let alert = NSAlert()
         alert.alertStyle = .warning
-        alert.icon = .init(systemSymbolName: "trash.circle.fill", accessibilityDescription: nil)
+        alert.icon = .init(systemSymbolName: "trash", accessibilityDescription: nil)
         alert.messageText = ""
         
         switch path {

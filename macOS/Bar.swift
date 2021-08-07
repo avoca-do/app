@@ -203,8 +203,8 @@ Check the purchases section for more details.
                     edit.state = .hidden
                     
                     title.attributedStringValue = .make("New project",
-                                                        font: .font(style: .callout, weight: .regular),
-                                                        color: .labelColor)
+                                                        font: .font(style: .callout, weight: .light),
+                                                        color: .secondaryLabelColor)
                 case let .view(board):
                     title.attributedStringValue = .init()
                     delete.state = .hidden
@@ -235,11 +235,11 @@ Check the purchases section for more details.
                     title.attributedStringValue = .make {
                         $0.append(.make(cloud.archive.value[board].name + " : ",
                                         font: .font(style: .callout, weight: .light),
-                                        color: .secondaryLabelColor,
+                                        color: .tertiaryLabelColor,
                                         lineBreak: .byTruncatingMiddle))
                         $0.append(.make("New card",
-                                        font: .font(style: .callout, weight: .regular),
-                                        color: .labelColor))
+                                        font: .font(style: .callout, weight: .light),
+                                        color: .secondaryLabelColor))
                     }
                 case let .edit(path):
                     delete.state = .on
@@ -255,26 +255,26 @@ Check the purchases section for more details.
                         title.attributedStringValue = .make {
                             $0.append(.make(cloud.archive.value[path.board].name + " : " + cloud.archive.value[path.board][path.column].name + " : ",
                                             font: .font(style: .callout, weight: .light),
-                                            color: .secondaryLabelColor,
+                                            color: .tertiaryLabelColor,
                                             lineBreak: .byTruncatingMiddle))
                             $0.append(.make("Edit card",
-                                            font: .font(style: .callout, weight: .regular),
-                                            color: .labelColor))
+                                            font: .font(style: .callout, weight: .light),
+                                            color: .secondaryLabelColor))
                         }
                     case .column:
                         title.attributedStringValue = .make {
                             $0.append(.make(cloud.archive.value[path.board].name + " : ",
                                             font: .font(style: .callout, weight: .light),
-                                            color: .secondaryLabelColor,
+                                            color: .tertiaryLabelColor,
                                             lineBreak: .byTruncatingMiddle))
                             $0.append(.make("Edit column",
-                                            font: .font(style: .callout, weight: .regular),
-                                            color: .labelColor))
+                                            font: .font(style: .callout, weight: .light),
+                                            color: .secondaryLabelColor))
                         }
                     case .board:
                         title.attributedStringValue = .make("Edit board",
-                                                            font: .font(style: .callout, weight: .regular),
-                                                            color: .labelColor)
+                                                            font: .font(style: .callout, weight: .light),
+                                                            color: .secondaryLabelColor)
                     }
                 }
             }
