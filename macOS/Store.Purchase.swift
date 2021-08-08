@@ -1,6 +1,6 @@
 import AppKit
 
-extension Store.Item {
+extension Store {
     final class Purchase: Control {
         required init?(coder: NSCoder) { nil }
         init() {

@@ -33,11 +33,11 @@ final class Store: NSWindow {
             )
             .sink { [weak self] (loading: Bool, purchases: [(product: SKProduct, price: String)], error: String?) in
                 if let error = error {
-                    self?.contentView = Error(message: error)
+                    self?.contentView = View.error(message: error)
                 } else if loading {
-                    self?.contentView = Loading()
+                    self?.contentView = View.loading()
                 } else if let item = purchases.first {
-                    self?.contentView = Item(product: item.product, price: item.price)
+                    self?.contentView = View.item(product: item.product, price: item.price)
                 }
             }
             .store(in: &subs)
