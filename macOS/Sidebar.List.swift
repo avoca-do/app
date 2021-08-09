@@ -108,11 +108,16 @@ extension Sidebar {
                 .store(in: &subs)
             
             session
-                .deselect
-                .map {
-                    nil
-                }
+                .select
                 .subscribe(pressed)
+                .store(in: &subs)
+            
+            session
+                .select
+                .compactMap {
+                    $0
+                }
+                .subscribe(selected)
                 .store(in: &subs)
         }
         

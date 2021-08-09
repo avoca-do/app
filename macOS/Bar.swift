@@ -56,7 +56,7 @@ final class Bar: NSView {
             .click
             .sink {
                 if cloud.archive.value.available {
-                    session.deselect.send()
+                    session.select.send(nil)
                     session.state.send(.create)
                 } else {
                     let alert = NSAlert()
@@ -126,14 +126,23 @@ Check the purchases section for more details.
         add
             .click
             .sink {
+                let text = session
+                    .text
+                    .value
+                    .trimmingCharacters(in: .whitespacesAndNewlines)
                 switch session.state.value {
                 case .create:
-                    cloud.newBoard()
+                    cloud.new(board: text.isEmpty ? "Project" : text) {
+                        session.select.send(0)
+                    }
                 case let .column(board):
-                    cloud.add(board: board, column: session.text.value.isEmpty ? "Column" : session.text.value)
-                    session.cancel(hard: false)
+                    cloud.add(board: board, column: text.isEmpty ? "Column" : text)
+                    session.state.send(.view(board))
                 case let .card(board):
-                    break
+                    if !text.isEmpty {
+                        cloud.add(board: board, card: text)
+                    }
+                    session.state.send(.view(board))
                 default:
                     break
                 }

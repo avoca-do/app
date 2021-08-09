@@ -4,8 +4,8 @@ import Kanban
 
 struct Session {
     let state = CurrentValueSubject<State, Never>(.none)
-    let deselect = PassthroughSubject<Void, Never>()
     let text = CurrentValueSubject<String, Never>("")
+    let select = PassthroughSubject<Int?, Never>()
     
     func cancel(hard: Bool) {
         switch state.value {
@@ -21,8 +21,8 @@ struct Session {
                 if hard {
                     state
                         .send(.none)
-                    deselect
-                        .send()
+                    select
+                        .send(nil)
                 } else {
                     state
                         .send(.view(path.board))
