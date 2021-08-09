@@ -55,7 +55,8 @@ final class Bar: NSView {
         plus
             .click
             .sink {
-                if !cloud.archive.value.available {
+                if cloud.archive.value.available {
+                    session.deselect.send()
                     session.state.send(.create)
                 } else {
                     let alert = NSAlert()
@@ -215,14 +216,23 @@ Check the purchases section for more details.
                     stats.state = .on
                     edit.state = .on
                 case let .column(board):
-                    title.attributedStringValue = .init()
                     delete.state = .hidden
-                    cancel.state = .hidden
-                    add.state = .hidden
+                    cancel.state = .on
+                    add.state = .on
                     save.state = .hidden
                     card.state = .hidden
                     stats.state = .hidden
                     edit.state = .hidden
+                    
+                    title.attributedStringValue = .make {
+                        $0.append(.make(cloud.archive.value[board].name + " : ",
+                                        font: .font(style: .callout, weight: .light),
+                                        color: .tertiaryLabelColor,
+                                        lineBreak: .byTruncatingMiddle))
+                        $0.append(.make("New column",
+                                        font: .font(style: .callout, weight: .light),
+                                        color: .secondaryLabelColor))
+                    }
                 case let .card(board):
                     delete.state = .hidden
                     cancel.state = .on

@@ -112,7 +112,7 @@ extension Sidebar {
                 .map {
                     nil
                 }
-                .subscribe(selected)
+                .subscribe(pressed)
                 .store(in: &subs)
         }
         
@@ -125,6 +125,11 @@ extension Sidebar {
                         $0.image = .init(systemSymbolName: "slider.horizontal.3", accessibilityDescription: nil)
                     },
                     .separator(),
+                    .child("New Column", #selector(column)) {
+                        $0.target = self
+                        $0.image = .init(systemSymbolName: "plus", accessibilityDescription: nil)
+                    },
+                    .separator(),
                     .child("Delete", #selector(delete)) {
                         $0.target = self
                         $0.image = .init(systemSymbolName: "trash", accessibilityDescription: nil)
@@ -132,6 +137,11 @@ extension Sidebar {
         }
         
         @objc private func edit() {
+            highlighted
+                .value
+                .map(pressed
+                        .send)
+            
             highlighted
                 .value
                 .map {
@@ -142,7 +152,28 @@ extension Sidebar {
                         .send)
         }
         
+        @objc private func column() {
+            highlighted
+                .value
+                .map(pressed
+                        .send)
+            
+            highlighted
+                .value
+                .map {
+                    .column($0)
+                }
+                .map(session
+                        .state
+                        .send)
+        }
+        
         @objc private func delete() {
+            highlighted
+                .value
+                .map(pressed
+                        .send)
+            
             highlighted
                 .value
                 .map {

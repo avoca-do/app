@@ -7,6 +7,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
     final let size = PassthroughSubject<CGSize, Never>()
     final let doubled = PassthroughSubject<Info.ID, Never>()
     final let selected = CurrentValueSubject<Info.ID?, Never>(nil)
+    final let pressed = CurrentValueSubject<Info.ID?, Never>(nil)
     final let highlighted = CurrentValueSubject<Info.ID?, Never>(nil)
     private let select = PassthroughSubject<CGPoint, Never>()
     private let double = PassthroughSubject<CGPoint, Never>()
@@ -50,9 +51,9 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                     }
             }
             .removeDuplicates()
-            .combineLatest(selected
+            .combineLatest(pressed
                                 .removeDuplicates())
-            .sink { (items: Set<CollectionItem>, selected: Info.ID?) in
+            .sink { (items: Set<CollectionItem>, pressed: Info.ID?) in
                 cells
                     .filter {
                         $0.item != nil
@@ -81,7 +82,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                                 cells.insert($0)
                                 return $0
                             } (Cell())
-                        cell.state = item.info.id == selected ? .pressed : .none
+                        cell.state = item.info.id == pressed ? .pressed : .none
                         cell.item = item
                         content.layer!.addSublayer(cell)
                     }
@@ -106,7 +107,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                 nil
             }
             .sink { [weak self] in
-                self?.selected.send($0)
+                self?.pressed.send($0)
             }
             .store(in: &subs)
         
@@ -148,7 +149,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
             }
             .store(in: &subs)
         
-        selected
+        pressed
             .removeDuplicates()
             .sink { id in
                 cells
@@ -172,7 +173,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                 $0?.info.id
             }
             .sink { [weak self] in
-                self?.selected.send($0)
+                self?.pressed.send($0)
             }
             .store(in: &subs)
         
@@ -222,6 +223,9 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
         switch with.clickCount {
         case 1:
             select.send(point(with: with))
+            pressed
+                .value
+                .map(selected.send)
         case 2:
             double.send(point(with: with))
         default:
