@@ -64,8 +64,17 @@ final class Menu: NSMenu, NSMenuDelegate {
         switch menu.title {
         case "File":
             var board = false
-            if case .view = session.state.value {
+            var add = false
+            var save = false
+            switch session.state.value {
+            case .view:
                 board = true
+            case .create, .column, .card:
+                add = true
+            case .edit:
+                save = true
+            default:
+                break
             }
             
             menu.items = [
@@ -79,6 +88,20 @@ final class Menu: NSMenu, NSMenuDelegate {
                 .child("New Card", #selector(triggerNewCard), "n") {
                     $0.target = self
                     $0.isEnabled = board
+                },
+                .separator(),
+                add
+                    ? .child("Add", #selector(triggerAdd), "s") {
+                        $0.target = self
+                        $0.isEnabled = add
+                    } : .child("Save", #selector(triggerSave), "s") {
+                        $0.target = self
+                        $0.isEnabled = save
+                    },
+                .child("Cancel", #selector(triggerCancel), "x") {
+                    $0.target = self
+                    $0.isEnabled = add || save
+                    $0.keyEquivalentModifierMask = [.command, .option]
                 },
                 .separator(),
                 .child("Close Window", #selector(NSWindow.close), "w")]
@@ -135,6 +158,18 @@ final class Menu: NSMenu, NSMenuDelegate {
         if case let .view(board) = session.state.value {
             session.state.send(.card(board))
         }
+    }
+    
+    @objc private func triggerAdd() {
+        session.add()
+    }
+    
+    @objc private func triggerSave() {
+        session.save()
+    }
+    
+    @objc private func triggerCancel() {
+        session.cancel(hard: false)
     }
     
     @objc private func triggerFocus(_ item: NSMenuItem) {

@@ -31,6 +31,32 @@ Check the purchases section for more details.
         }
     }
     
+    func add() {
+        let text = text
+            .value
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        switch state.value {
+        case .create:
+            cloud.new(board: text.isEmpty ? "Project" : text) {
+                select.send(0)
+            }
+        case let .column(board):
+            cloud.add(board: board, column: text.isEmpty ? "Column" : text)
+            state.send(.view(board))
+        case let .card(board):
+            if !text.isEmpty {
+                cloud.add(board: board, card: text)
+            }
+            state.send(.view(board))
+        default:
+            break
+        }
+    }
+    
+    func save() {
+        
+    }
+    
     func cancel(hard: Bool) {
         switch state.value {
         case .create:

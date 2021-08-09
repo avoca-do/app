@@ -106,30 +106,17 @@ final class Bar: NSView {
         add
             .click
             .sink {
-                let text = session
-                    .text
-                    .value
-                    .trimmingCharacters(in: .whitespacesAndNewlines)
-                switch session.state.value {
-                case .create:
-                    cloud.new(board: text.isEmpty ? "Project" : text) {
-                        session.select.send(0)
-                    }
-                case let .column(board):
-                    cloud.add(board: board, column: text.isEmpty ? "Column" : text)
-                    session.state.send(.view(board))
-                case let .card(board):
-                    if !text.isEmpty {
-                        cloud.add(board: board, card: text)
-                    }
-                    session.state.send(.view(board))
-                default:
-                    break
-                }
+                session.add()
             }
             .store(in: &subs)
         
         let save = Action(title: "SAVE", color: .systemBlue, foreground: .white)
+        save
+            .click
+            .sink {
+                session.save()
+            }
+            .store(in: &subs)
         
         let delete = Action(title: "DELETE", color: .labelColor, foreground: .windowBackgroundColor)
         delete

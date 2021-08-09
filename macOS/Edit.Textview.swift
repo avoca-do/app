@@ -52,6 +52,25 @@ extension Edit {
             session.text.send(string)
         }
         
+        override func keyDown(with: NSEvent) {
+            switch with.keyCode {
+            case 36:
+                if with.modifierFlags.intersection(.deviceIndependentFlagsMask) == .command {
+                    switch session.state.value {
+                    case .create, .column, .card:
+                        session.add()
+                    case .edit:
+                        session.save()
+                    default:
+                        break
+                    }
+                } else {
+                    super.keyDown(with: with)
+                }
+            default: super.keyDown(with: with)
+            }
+        }
+        
         override var allowsVibrancy: Bool {
             true
         }
