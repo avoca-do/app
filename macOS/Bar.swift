@@ -123,6 +123,23 @@ Check the purchases section for more details.
             .store(in: &subs)
         
         let add = Action(title: "ADD", color: .systemBlue, foreground: .white)
+        add
+            .click
+            .sink {
+                switch session.state.value {
+                case .create:
+                    cloud.newBoard()
+                case let .column(board):
+                    cloud.add(board: board, column: session.text.value.isEmpty ? "Column" : session.text.value)
+                    session.cancel(hard: false)
+                case let .card(board):
+                    break
+                default:
+                    break
+                }
+            }
+            .store(in: &subs)
+        
         let save = Action(title: "SAVE", color: .systemBlue, foreground: .white)
         
         let delete = Action(title: "DELETE", color: .labelColor, foreground: .windowBackgroundColor)

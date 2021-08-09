@@ -5,6 +5,7 @@ import Kanban
 struct Session {
     let state = CurrentValueSubject<State, Never>(.none)
     let deselect = PassthroughSubject<Void, Never>()
+    let text = CurrentValueSubject<String, Never>("")
     
     func cancel(hard: Bool) {
         switch state.value {

@@ -3,25 +3,6 @@ import Kanban
 
 extension Edit {
     final class Textview: NSTextView {
-//        var write: Write? {
-//            didSet {
-////                if let write = write {
-////                    switch write {
-////                    case .new:
-////                        string = ""
-////                    case let .edit(path):
-////                        switch path {
-////                        case .card:
-////                            string = Session.archive[content: path]
-////                        default: break
-////                        }
-////                    }
-////                } else {
-////                    string = ""
-////                }
-//            }
-//        }
-//        
         override var canBecomeKeyView: Bool {
             true
         }
@@ -68,6 +49,7 @@ extension Edit {
         override func didChangeText() {
             super.didChangeText()
             layoutManager!.ensureLayout(for: textContainer!)
+            session.text.send(string)
         }
         
         override var allowsVibrancy: Bool {

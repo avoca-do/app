@@ -22,6 +22,7 @@ final class Edit: NSScrollView {
         verticalScroller!.controlSize = .mini
         drawsBackground = false
         wantsLayer = true
+        session.text.send("")
         
         let textview = Textview()
         documentView = textview
