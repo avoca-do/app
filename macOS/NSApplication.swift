@@ -1,7 +1,7 @@
 import AppKit
 
 extension NSApplication {
-    func store() {
+    @objc func store() {
         (anyWindow() ?? Store())
             .makeKeyAndOrderFront(nil)
     }

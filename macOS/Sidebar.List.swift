@@ -58,7 +58,7 @@ extension Sidebar {
             
             info
                 .removeDuplicates()
-                .combineLatest(selected
+                .combineLatest(pressed
                                 .compactMap {
                                     $0
                                 }
@@ -70,7 +70,7 @@ extension Sidebar {
                         } ? selected : nil
                 }
                 .sink { [weak self] in
-                    self?.selected.send($0)
+                    self?.pressed.send($0)
                 }
                 .store(in: &subs)
             
@@ -79,8 +79,7 @@ extension Sidebar {
                 .combineLatest(selected
                                 .compactMap {
                                     $0
-                                }
-                                .removeDuplicates())
+                                })
                 .map { _, selected in
                     .view(selected)
                 }

@@ -24,7 +24,7 @@ let purchases = Purchases()
 //        Session.decimal.numberStyle = .decimal
 //        Session.percentage.numberStyle = .percent
 //
-//        mainMenu = Menu()
+        mainMenu = Menu()
         Window().makeKeyAndOrderFront(nil)
         
 //        Repository.memory.archive.sink { archive in
