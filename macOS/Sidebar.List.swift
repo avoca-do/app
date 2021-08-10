@@ -59,15 +59,12 @@ extension Sidebar {
             info
                 .removeDuplicates()
                 .combineLatest(pressed
-                                .compactMap {
-                                    $0
-                                }
                                 .removeDuplicates())
-                .map { info, selected in
+                .map { info, pressed in
                     info
                         .contains {
-                            $0.id == selected
-                        } ? selected : nil
+                            $0.id == pressed
+                        } ? pressed : nil
                 }
                 .sink { [weak self] in
                     self?.pressed.send($0)

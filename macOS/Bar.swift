@@ -98,7 +98,7 @@ final class Bar: NSView {
         cancel
             .click
             .sink {
-                session.cancel(hard: false)
+                session.cancel()
             }
             .store(in: &subs)
         

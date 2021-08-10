@@ -101,16 +101,6 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
             .subscribe(clip)
             .store(in: &subs)
         
-        items
-            .removeDuplicates()
-            .map { _ in
-                nil
-            }
-            .sink { [weak self] in
-                self?.pressed.send($0)
-            }
-            .store(in: &subs)
-        
         highlight
             .sink { point in
                 cells

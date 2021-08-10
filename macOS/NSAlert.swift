@@ -22,26 +22,21 @@ extension NSAlert {
         delete.keyEquivalent = "\r"
         cancel.keyEquivalent = "\u{1b}"
         if alert.runModal().rawValue == delete.tag {
-            session.cancel(hard: true)
-//            Session.edit.send(nil)
-//            Session.mutate {
-//                switch path {
-//                case .column:
-//                    $0.drop(path)
-//                case .card:
-//                    $0.remove(path)
-//                default:
-//                    $0.delete(path)
-//                }
-//            }
-//
-//            switch path {
-//            case .board:
-//                Session.path = Session.archive.isEmpty(.archive) ? .archive : .board(0)
-//            default: break
-//            }
-//
-//            Session.scroll.send()
+            switch path {
+            case .board:
+                Toast.show(message: .init(title: "Deleted board", icon: "trash"))
+                session.select.send(nil)
+                session.state.send(.none)
+                cloud.delete(board: path.board)
+            case .column:
+                Toast.show(message: .init(title: "Deleted column", icon: "trash"))
+                session.cancel()
+                cloud.delete(board: path.board, column: path.column)
+            case .card:
+                Toast.show(message: .init(title: "Deleted card", icon: "trash"))
+                session.cancel()
+                cloud.delete(board: path.board, column: path.column, card: path.card)
+            }
         }
     }
 }

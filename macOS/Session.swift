@@ -19,7 +19,7 @@ struct Session {
             alert.informativeText = """
 You have reached your maximum capacity for projects.
 
-Check the purchases section for more details.
+Check purchases for more details.
 """
             let capacity = alert.addButton(withTitle: NSLocalizedString("PURCHASES", comment: ""))
             let cancel = alert.addButton(withTitle: NSLocalizedString("CANCEL", comment: ""))
@@ -40,12 +40,15 @@ Check the purchases section for more details.
             cloud.new(board: text.isEmpty ? "Project" : text) {
                 select.send(0)
             }
+            Toast.show(message: .init(title: "Created project", icon: "plus"))
         case let .column(board):
             cloud.add(board: board, column: text.isEmpty ? "Column" : text)
             state.send(.view(board))
+            Toast.show(message: .init(title: "Created column", icon: "plus"))
         case let .card(board):
             if !text.isEmpty {
                 cloud.add(board: board, card: text)
+                Toast.show(message: .init(title: "Created card", icon: "plus"))
             }
             state.send(.view(board))
         default:
@@ -57,7 +60,7 @@ Check the purchases section for more details.
         
     }
     
-    func cancel(hard: Bool) {
+    func cancel() {
         switch state.value {
         case .create:
             state
@@ -68,15 +71,8 @@ Check the purchases section for more details.
         case let .edit(path):
             switch path {
             case .board:
-                if hard {
-                    state
-                        .send(.none)
-                    select
-                        .send(nil)
-                } else {
-                    state
-                        .send(.view(path.board))
-                }
+                state
+                    .send(.view(path.board))
             default:
                 state
                     .send(.view(path.board))

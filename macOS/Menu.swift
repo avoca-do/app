@@ -169,7 +169,7 @@ final class Menu: NSMenu, NSMenuDelegate {
     }
     
     @objc private func triggerCancel() {
-        session.cancel(hard: false)
+        session.cancel()
     }
     
     @objc private func triggerFocus(_ item: NSMenuItem) {

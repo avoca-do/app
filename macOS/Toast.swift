@@ -13,7 +13,7 @@ final class Toast: NSPanel {
     }
     
     private init(message: Message) {
-        super.init(contentRect: .init(origin: .zero, size: .init(width: 300, height: 70)), styleMask: [.borderless], backing: .buffered, defer: true)
+        super.init(contentRect: .init(origin: .zero, size: .init(width: 220, height: 42)), styleMask: [.borderless], backing: .buffered, defer: true)
         isMovable = false
         backgroundColor = .clear
         isOpaque = false
@@ -26,11 +26,11 @@ final class Toast: NSPanel {
         content.material = .menu
         content.state = .active
         content.wantsLayer = true
-        content.layer!.cornerRadius = 10
+        content.layer!.cornerRadius = 8
         contentView!.addSubview(content)
         
         let icon = Image(icon: message.icon)
-        icon.symbolConfiguration = .init(textStyle: .title3)
+        icon.symbolConfiguration = .init(textStyle: .body)
         icon.contentTintColor = .labelColor
         content.addSubview(icon)
         
@@ -47,10 +47,10 @@ final class Toast: NSPanel {
         content.bottomAnchor.constraint(equalTo: contentView!.bottomAnchor).isActive = true
         
         icon.centerYAnchor.constraint(equalTo: content.centerYAnchor).isActive = true
-        icon.leftAnchor.constraint(equalTo: content.leftAnchor, constant: 30).isActive = true
+        icon.leftAnchor.constraint(equalTo: content.leftAnchor, constant: 20).isActive = true
         
         title.leftAnchor.constraint(equalTo: icon.rightAnchor, constant: 10).isActive = true
-        title.rightAnchor.constraint(lessThanOrEqualTo: content.rightAnchor, constant: -30).isActive = true
+        title.rightAnchor.constraint(lessThanOrEqualTo: content.rightAnchor, constant: -10).isActive = true
         title.centerYAnchor.constraint(equalTo: content.centerYAnchor).isActive = true
     }
     

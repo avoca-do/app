@@ -45,7 +45,7 @@ final class Window: NSWindow {
     
     override func cancelOperation(_ sender: Any?) {
         super.cancelOperation(sender)
-        session.cancel(hard: false)
+        session.cancel()
     }
     
     override func close() {
