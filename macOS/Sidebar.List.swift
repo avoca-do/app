@@ -58,16 +58,16 @@ extension Sidebar {
             
             info
                 .removeDuplicates()
-                .combineLatest(pressed
+                .combineLatest(selected
                                 .removeDuplicates())
-                .map { info, pressed in
+                .map { info, selected in
                     info
                         .contains {
-                            $0.id == pressed
-                        } ? pressed : nil
+                            $0.id == selected
+                        } ? selected : nil
                 }
                 .sink { [weak self] in
-                    self?.pressed.send($0)
+                    self?.selected.send($0)
                 }
                 .store(in: &subs)
             
@@ -105,14 +105,6 @@ extension Sidebar {
             
             session
                 .select
-                .subscribe(pressed)
-                .store(in: &subs)
-            
-            session
-                .select
-                .compactMap {
-                    $0
-                }
                 .subscribe(selected)
                 .store(in: &subs)
         }
@@ -140,7 +132,7 @@ extension Sidebar {
         @objc private func edit() {
             highlighted
                 .value
-                .map(pressed
+                .map(selected
                         .send)
             
             highlighted
@@ -156,7 +148,7 @@ extension Sidebar {
         @objc private func column() {
             highlighted
                 .value
-                .map(pressed
+                .map(selected
                         .send)
             
             highlighted
@@ -172,7 +164,7 @@ extension Sidebar {
         @objc private func delete() {
             highlighted
                 .value
-                .map(pressed
+                .map(selected
                         .send)
             
             highlighted

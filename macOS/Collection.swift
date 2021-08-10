@@ -7,7 +7,6 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
     final let size = PassthroughSubject<CGSize, Never>()
     final let doubled = PassthroughSubject<Info.ID, Never>()
     final let selected = CurrentValueSubject<Info.ID?, Never>(nil)
-    final let pressed = CurrentValueSubject<Info.ID?, Never>(nil)
     final let highlighted = CurrentValueSubject<Info.ID?, Never>(nil)
     private let select = PassthroughSubject<CGPoint, Never>()
     private let double = PassthroughSubject<CGPoint, Never>()
@@ -51,7 +50,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                     }
             }
             .removeDuplicates()
-            .combineLatest(pressed
+            .combineLatest(selected
                                 .removeDuplicates())
             .sink { (items: Set<CollectionItem>, pressed: Info.ID?) in
                 cells
@@ -139,7 +138,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
             }
             .store(in: &subs)
         
-        pressed
+        selected
             .removeDuplicates()
             .sink { id in
                 cells
@@ -163,7 +162,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                 $0?.info.id
             }
             .sink { [weak self] in
-                self?.pressed.send($0)
+                self?.selected.send($0)
             }
             .store(in: &subs)
         
@@ -213,9 +212,6 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
         switch with.clickCount {
         case 1:
             select.send(point(with: with))
-            pressed
-                .value
-                .map(selected.send)
         case 2:
             double.send(point(with: with))
         default:
