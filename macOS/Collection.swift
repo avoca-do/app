@@ -5,6 +5,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
     final var subs = Set<AnyCancellable>()
     final var cells = Set<Cell>()
     final let items = PassthroughSubject<Set<CollectionItem<Info>>, Never>()
+    final let visible = PassthroughSubject<Set<CollectionItem<Info>>, Never>()
     final let size = PassthroughSubject<CGSize, Never>()
     final let highlighted = CurrentValueSubject<Info.ID?, Never>(nil)
     private let clear = PassthroughSubject<Void, Never>()
@@ -44,15 +45,21 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                         clip.intersects($0.rect)
                     }
             }
+            .sink { [weak self] in
+                self?.visible.send($0)
+            }
+            .store(in: &subs)
+            
+        visible
             .removeDuplicates()
-            .sink { [weak self] items in
+            .sink { [weak self] visible in
                 self?
                     .cells
                     .filter {
                         $0.item != nil
                     }
                     .filter { cell in
-                        !items
+                        !visible
                             .contains {
                                 $0 == cell.item
                             }
@@ -62,7 +69,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                         $0.item = nil
                     }
                 
-                items
+                visible
                     .forEach { item in
                         let cell = self?
                             .cells

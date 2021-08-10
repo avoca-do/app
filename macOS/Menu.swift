@@ -149,15 +149,11 @@ final class Menu: NSMenu, NSMenuDelegate {
     }
     
     @objc private func triggerNewColumn() {
-        if case let .view(board) = session.state.value {
-            session.state.send(.column(board))
-        }
+        session.newColumn()
     }
     
     @objc private func triggerNewCard() {
-        if case let .view(board) = session.state.value {
-            session.state.send(.card(board))
-        }
+        session.newCard()
     }
     
     @objc private func triggerAdd() {

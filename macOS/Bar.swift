@@ -63,11 +63,9 @@ final class Bar: NSView {
         card.toolTip = "New card"
         card
             .click
-            .compactMap {
-                guard case let .view(board) = session.state.value else { return nil }
-                return .card(board)
+            .sink {
+                session.newCard()
             }
-            .subscribe(session.state)
             .store(in: &subs)
         
         let stats = Option(icon: "barometer")
@@ -199,7 +197,7 @@ final class Bar: NSView {
                     title.attributedStringValue = .make("New project",
                                                         font: .font(style: .callout, weight: .light),
                                                         color: .secondaryLabelColor)
-                case let .view(board):
+                case .view:
                     title.attributedStringValue = .init()
                     delete.state = .hidden
                     cancel.state = .hidden

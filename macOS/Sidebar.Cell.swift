@@ -40,7 +40,7 @@ extension Sidebar {
             separator.fillColor = .clear
             separator.lineWidth = 1
             separator.strokeColor = NSColor.separatorColor.cgColor
-            separator.path = .init(rect: .init(x: Self.insetsHorizontal, y: -1, width: List.width - Self.insetsHorizontal2, height: 0), transform: nil)
+            separator.path = .init(rect: .init(x: Self.insetsHorizontal, y: -1, width: List.cellWidth, height: 0), transform: nil)
             addSublayer(separator)
             self.separator = separator
         }

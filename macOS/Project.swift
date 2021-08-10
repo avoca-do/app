@@ -3,6 +3,7 @@ import Combine
 
 final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
     private let double = PassthroughSubject<CGPoint, Never>()
+    private let drag = PassthroughSubject<CGSize, Never>()
 
     required init?(coder: NSCoder) { nil }
     init(board: Int) {
@@ -50,27 +51,6 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
                     }
             }
             .subscribe(info)
-            .store(in: &subs)
-        
-        info
-            .removeDuplicates()
-            .combineLatest(selected
-                            .compactMap {
-                                $0
-                            }
-                            .removeDuplicates())
-            .map { info, selected in
-                info
-                    .flatMap {
-                        $0
-                    }
-                    .contains {
-                        $0.id == selected
-                    } ? selected : nil
-            }
-            .sink { [weak self] in
-                self?.selected.send($0)
-            }
             .store(in: &subs)
         
         info
@@ -132,8 +112,13 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
         case 2:
             double.send(point(with: with))
         default:
-            super.mouseUp(with: with)
+            break
         }
+    }
+    
+    override func mouseDragged(with: NSEvent) {
+//        guard
+//        drag.send(.init(width: with.deltaX, height: with.deltaY))
     }
     
     func menuNeedsUpdate(_ menu: NSMenu) {

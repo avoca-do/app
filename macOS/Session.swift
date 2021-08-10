@@ -31,6 +31,22 @@ Check purchases for more details.
         }
     }
     
+    func newColumn() {
+        if case let .view(board) = state.value {
+            state.send(.column(board))
+        }
+    }
+    
+    func newCard() {
+        if case let .view(board) = state.value {
+            if cloud.archive.value[board].isEmpty {
+                newColumn()
+            } else {
+                state.send(.card(board))
+            }
+        }
+    }
+    
     func add() {
         let text = text
             .value

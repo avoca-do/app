@@ -4,7 +4,8 @@ import Kanban
 
 extension Sidebar {
     final class List: Collection<Cell, Info>, NSMenuDelegate {
-        static let width = Sidebar.width - insets2
+        static let cellWidth = width - Cell.insetsHorizontal2
+        private static let width = Sidebar.width - insets2
         private static let insets = CGFloat(20)
         private static let insets2 = insets + insets
         private let select = PassthroughSubject<CGPoint, Never>()
@@ -16,7 +17,6 @@ extension Sidebar {
             menu!.delegate = self
             
             let vertical = CGFloat(20)
-            let textWidth = Self.width - Cell.insetsHorizontal2
             let info = CurrentValueSubject<[Info], Never>([])
             let selected = CurrentValueSubject<Info.ID?, Never>(nil)
             
@@ -60,10 +60,10 @@ extension Sidebar {
             
             info
                 .removeDuplicates()
-                .sink { [weak self] in
+                .sink {
                     let result = $0
                         .reduce(into: (items: Set<CollectionItem<Info>>(), y: vertical)) {
-                            let height = ceil($1.string.height(for: textWidth) + Cell.insetsVertical2)
+                            let height = ceil($1.string.height(for: Self.cellWidth) + Cell.insetsVertical2)
                             $0.items.insert(.init(
                                                 info: $1,
                                                 rect: .init(
@@ -73,14 +73,14 @@ extension Sidebar {
                                                     height: height)))
                             $0.y += height + 2
                         }
-                    self?.items.send(result.items)
-                    self?.size.send(.init(width: 0, height: result.y + vertical))
+                    self.items.send(result.items)
+                    self.size.send(.init(width: 0, height: result.y + vertical))
                 }
                 .store(in: &subs)
             
             select
-                .map { [weak self] point in
-                    self?
+                .map { point in
+                    self
                         .cells
                         .compactMap(\.item)
                         .first {
@@ -94,8 +94,8 @@ extension Sidebar {
                 .store(in: &subs)
             
             selected
-                .sink { [weak self] id in
-                    self?
+                .sink { id in
+                    self
                         .cells
                         .forEach {
                             $0.state = $0.item?.info.id == id
@@ -103,19 +103,6 @@ extension Sidebar {
                                 : .none
                         }
                 }
-                .store(in: &subs)
-            
-            info
-                .removeDuplicates()
-                .combineLatest(selected
-                                .removeDuplicates())
-                .map { info, selected in
-                    info
-                        .contains {
-                            $0.id == selected
-                        } ? selected : nil
-                }
-                .subscribe(selected)
                 .store(in: &subs)
             
             info
@@ -133,6 +120,30 @@ extension Sidebar {
             session
                 .select
                 .subscribe(selected)
+                .store(in: &subs)
+            
+            visible
+                .removeDuplicates()
+                .combineLatest(selected
+                                .removeDuplicates())
+                .compactMap { visible, selected in
+                    visible
+                        .contains {
+                            $0.info.id == selected
+                        }
+                        ? selected
+                        : nil
+                }
+                .compactMap { [weak self] selected in
+                    self?
+                        .cells
+                        .first {
+                            $0.item?.info.id == selected
+                        }
+                }
+                .sink {
+                    $0.state = .pressed
+                }
                 .store(in: &subs)
         }
         
@@ -191,15 +202,7 @@ extension Sidebar {
         
         @objc private func column() {
             open()
-            
-            highlighted
-                .value
-                .map {
-                    .column($0)
-                }
-                .map(session
-                        .state
-                        .send)
+            session.newColumn()
         }
         
         @objc private func delete() {
