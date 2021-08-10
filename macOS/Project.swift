@@ -1,13 +1,15 @@
-import Foundation
+import AppKit
 import Combine
 
-final class Project: Collection<Project.Cell, Project.Info> {
+final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
     required init?(coder: NSCoder) { nil }
     init(board: Int) {
         super.init()
         hasHorizontalScroller = true
         horizontalScroller!.controlSize = .mini
         wantsLayer = true
+        menu = NSMenu()
+        menu!.delegate = self
         
         let vertical = CGFloat(20)
         let horizontal = CGFloat(50)
@@ -110,5 +112,37 @@ final class Project: Collection<Project.Cell, Project.Info> {
                                       height: result.size.height + vertical))
             }
             .store(in: &subs)
+    }
+    
+    func menuNeedsUpdate(_ menu: NSMenu) {
+        menu.items = highlighted.value == nil
+            ? []
+            : [
+                .child("Edit", #selector(edit)) {
+                    $0.target = self
+                    $0.image = .init(systemSymbolName: "slider.horizontal.3", accessibilityDescription: nil)
+                },
+                .separator(),
+                .child("Delete", #selector(delete)) {
+                    $0.target = self
+                    $0.image = .init(systemSymbolName: "trash", accessibilityDescription: nil)
+                }]
+    }
+    
+    @objc private func edit() {
+        highlighted
+            .value
+            .map {
+                .edit($0)
+            }
+            .map(session
+                    .state
+                    .send)
+    }
+    
+    @objc private func delete() {
+        highlighted
+            .value
+            .map(NSAlert.delete(path:))
     }
 }
