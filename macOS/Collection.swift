@@ -39,7 +39,8 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
             .store(in: &subs)
 
         items
-            .combineLatest(clip) { items, clip in
+            .combineLatest(clip
+                            .removeDuplicates()) { items, clip in
                 items
                     .filter {
                         clip.intersects($0.rect)

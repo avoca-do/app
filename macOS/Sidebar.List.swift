@@ -93,18 +93,6 @@ extension Sidebar {
                 .subscribe(selected)
                 .store(in: &subs)
             
-            selected
-                .sink { id in
-                    self
-                        .cells
-                        .forEach {
-                            $0.state = $0.item?.info.id == id
-                                ? .pressed
-                                : .none
-                        }
-                }
-                .store(in: &subs)
-            
             info
                 .removeDuplicates()
                 .combineLatest(selected
@@ -126,23 +114,15 @@ extension Sidebar {
                 .removeDuplicates()
                 .combineLatest(selected
                                 .removeDuplicates())
-                .compactMap { visible, selected in
-                    visible
-                        .contains {
-                            $0.info.id == selected
-                        }
-                        ? selected
-                        : nil
-                }
-                .compactMap { [weak self] selected in
-                    self?
+                .debounce(for: .milliseconds(1), scheduler: DispatchQueue.main)
+                .sink { _, selected in
+                    self
                         .cells
-                        .first {
-                            $0.item?.info.id == selected
+                        .forEach {
+                            $0.state = $0.item?.info.id == selected
+                                ? .pressed
+                                : .none
                         }
-                }
-                .sink {
-                    $0.state = .pressed
                 }
                 .store(in: &subs)
         }
