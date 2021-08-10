@@ -113,12 +113,15 @@ extension Sidebar {
             menu.items = highlighted.value == nil
                 ? []
                 : [
+                    .child("Open", #selector(open)) {
+                        $0.target = self
+                        $0.image = .init(systemSymbolName: "viewfinder", accessibilityDescription: nil)
+                    },
                     .child("Edit", #selector(edit)) {
                         $0.target = self
                         $0.image = .init(systemSymbolName: "slider.horizontal.3", accessibilityDescription: nil)
                     },
-                    .separator(),
-                    .child("New Column", #selector(column)) {
+                    .child("Column", #selector(column)) {
                         $0.target = self
                         $0.image = .init(systemSymbolName: "plus", accessibilityDescription: nil)
                     },
@@ -129,11 +132,15 @@ extension Sidebar {
                     }]
         }
         
-        @objc private func edit() {
+        @objc private func open() {
             highlighted
                 .value
                 .map(selected
                         .send)
+        }
+        
+        @objc private func edit() {
+            open()
             
             highlighted
                 .value
@@ -146,10 +153,7 @@ extension Sidebar {
         }
         
         @objc private func column() {
-            highlighted
-                .value
-                .map(selected
-                        .send)
+            open()
             
             highlighted
                 .value
@@ -162,10 +166,7 @@ extension Sidebar {
         }
         
         @objc private func delete() {
-            highlighted
-                .value
-                .map(selected
-                        .send)
+            open()
             
             highlighted
                 .value
