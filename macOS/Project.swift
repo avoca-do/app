@@ -2,6 +2,8 @@ import AppKit
 import Combine
 
 final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
+    private let double = PassthroughSubject<CGPoint, Never>()
+
     required init?(coder: NSCoder) { nil }
     init(board: Int) {
         super.init()
@@ -71,14 +73,6 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
             }
             .store(in: &subs)
         
-        doubled
-            .map {
-                .edit($0)
-            }
-            .subscribe(session
-                        .state)
-            .store(in: &subs)
-        
         info
             .removeDuplicates()
             .sink { [weak self] all in
@@ -112,6 +106,34 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
                                       height: result.size.height + vertical))
             }
             .store(in: &subs)
+        
+        double
+            .map { [weak self] point in
+                self?
+                    .cells
+                    .compactMap(\.item)
+                    .first {
+                        $0.rect.contains(point)
+                    }
+            }
+            .compactMap {
+                $0?.info.id
+            }
+            .map {
+                .edit($0)
+            }
+            .subscribe(session
+                        .state)
+            .store(in: &subs)
+    }
+    
+    override func mouseUp(with: NSEvent) {
+        switch with.clickCount {
+        case 2:
+            double.send(point(with: with))
+        default:
+            super.mouseUp(with: with)
+        }
     }
     
     func menuNeedsUpdate(_ menu: NSMenu) {
