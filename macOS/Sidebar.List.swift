@@ -7,6 +7,7 @@ extension Sidebar {
         static let width = Sidebar.width - insets2
         private static let insets = CGFloat(20)
         private static let insets2 = insets + insets
+        private let select = PassthroughSubject<CGPoint, Never>()
         
         required init?(coder: NSCoder) { nil }
         override init() {
@@ -17,6 +18,7 @@ extension Sidebar {
             let vertical = CGFloat(20)
             let textWidth = Self.width - Cell.insetsHorizontal2
             let info = CurrentValueSubject<[Info], Never>([])
+            let selected = CurrentValueSubject<Info.ID?, Never>(nil)
             
             cloud
                 .archive
@@ -58,33 +60,6 @@ extension Sidebar {
             
             info
                 .removeDuplicates()
-                .combineLatest(selected
-                                .removeDuplicates())
-                .map { info, selected in
-                    info
-                        .contains {
-                            $0.id == selected
-                        } ? selected : nil
-                }
-                .sink { [weak self] in
-                    self?.selected.send($0)
-                }
-                .store(in: &subs)
-            
-            info
-                .removeDuplicates()
-                .combineLatest(selected
-                                .compactMap {
-                                    $0
-                                })
-                .map { _, selected in
-                    .view(selected)
-                }
-                .subscribe(session.state)
-                .store(in: &subs)
-            
-            info
-                .removeDuplicates()
                 .sink { [weak self] in
                     let result = $0
                         .reduce(into: (items: Set<CollectionItem<Info>>(), y: vertical)) {
@@ -103,10 +78,71 @@ extension Sidebar {
                 }
                 .store(in: &subs)
             
+            select
+                .map { [weak self] point in
+                    self?
+                        .cells
+                        .compactMap(\.item)
+                        .first {
+                            $0.rect.contains(point)
+                        }
+                }
+                .compactMap {
+                    $0?.info.id
+                }
+                .subscribe(selected)
+                .store(in: &subs)
+            
+            selected
+                .sink { [weak self] id in
+                    self?
+                        .cells
+                        .forEach {
+                            $0.state = $0.item?.info.id == id
+                                ? .pressed
+                                : .none
+                        }
+                }
+                .store(in: &subs)
+            
+            info
+                .removeDuplicates()
+                .combineLatest(selected
+                                .removeDuplicates())
+                .map { info, selected in
+                    info
+                        .contains {
+                            $0.id == selected
+                        } ? selected : nil
+                }
+                .subscribe(selected)
+                .store(in: &subs)
+            
+            info
+                .removeDuplicates()
+                .combineLatest(selected
+                                .compactMap {
+                                    $0
+                                })
+                .map { _, selected in
+                    .view(selected)
+                }
+                .subscribe(session.state)
+                .store(in: &subs)
+            
             session
                 .select
                 .subscribe(selected)
                 .store(in: &subs)
+        }
+        
+        override func mouseUp(with: NSEvent) {
+            switch with.clickCount {
+            case 1:
+                select.send(point(with: with))
+            default:
+                break
+            }
         }
         
         func menuNeedsUpdate(_ menu: NSMenu) {
@@ -135,7 +171,8 @@ extension Sidebar {
         @objc private func open() {
             highlighted
                 .value
-                .map(selected
+                .map(session
+                        .select
                         .send)
         }
         

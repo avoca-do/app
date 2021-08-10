@@ -6,9 +6,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
     final var cells = Set<Cell>()
     final let items = PassthroughSubject<Set<CollectionItem<Info>>, Never>()
     final let size = PassthroughSubject<CGSize, Never>()
-    final let selected = CurrentValueSubject<Info.ID?, Never>(nil)
     final let highlighted = CurrentValueSubject<Info.ID?, Never>(nil)
-    private let select = PassthroughSubject<CGPoint, Never>()
     private let clear = PassthroughSubject<Void, Never>()
     private let highlight = PassthroughSubject<CGPoint, Never>()
     
@@ -47,9 +45,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                     }
             }
             .removeDuplicates()
-            .combineLatest(selected
-                                .removeDuplicates())
-            .sink { [weak self] (items: Set<CollectionItem>, pressed: Info.ID?) in
+            .sink { [weak self] items in
                 self?
                     .cells
                     .filter {
@@ -80,7 +76,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                                 self?.cells.insert($0)
                                 return $0
                             } (Cell())
-                        cell.state = item.info.id == pressed ? .pressed : .none
+                        cell.state = .none
                         cell.item = item
                         content.layer!.addSublayer(cell)
                     }
@@ -139,41 +135,11 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
             }
             .store(in: &subs)
         
-        selected
-            .removeDuplicates()
-            .sink { [weak self] id in
-                self?
-                    .cells
-                    .forEach {
-                        $0.state = $0.item?.info.id == id
-                            ? .pressed
-                            : .none
-                    }
-            }
-            .store(in: &subs)
-        
-        select
-            .map { [weak self] point in
-                self?
-                    .cells
-                    .compactMap(\.item)
-                    .first {
-                        $0.rect.contains(point)
-                    }
-            }
-            .compactMap {
-                $0?.info.id
-            }
-            .sink { [weak self] in
-                self?.selected.send($0)
-            }
-            .store(in: &subs)
-        
         clear
             .sink { [weak self] in
                 self?
                     .cells
-                    .filter{
+                    .filter {
                         $0.state == .highlighted
                     }
                     .forEach {
@@ -181,15 +147,6 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                     }
             }
             .store(in: &subs)
-    }
-    
-    override func mouseUp(with: NSEvent) {
-        switch with.clickCount {
-        case 1:
-            select.send(point(with: with))
-        default:
-            break
-        }
     }
     
     final override func mouseExited(with: NSEvent) {
