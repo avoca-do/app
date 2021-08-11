@@ -5,7 +5,7 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
     private let double = PassthroughSubject<CGPoint, Never>()
     private let drag = PassthroughSubject<(date: Date, size: CGSize), Never>()
     private let drop = PassthroughSubject<Date, Never>()
-
+    
     required init?(coder: NSCoder) { nil }
     init(board: Int) {
         super.init()
@@ -21,7 +21,7 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
         let insetsVertical = CGFloat(5)
         let width = CGFloat(300)
         let textWidth = width - Cell.horizontal
-        let info = CurrentValueSubject<[[Info]], Never>([])
+        let info = PassthroughSubject<[[Info]], Never>()
         let dragging = PassthroughSubject<Cell?, Never>()
         
         dragging

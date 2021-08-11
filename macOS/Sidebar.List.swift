@@ -17,8 +17,8 @@ extension Sidebar {
             menu!.delegate = self
             
             let vertical = CGFloat(20)
-            let info = CurrentValueSubject<[Info], Never>([])
-            let selected = CurrentValueSubject<Info.ID?, Never>(nil)
+            let info = PassthroughSubject<[Info], Never>()
+            let selected = PassthroughSubject<Info.ID?, Never>()
             
             cloud
                 .archive
