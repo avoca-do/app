@@ -39,20 +39,23 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
                         .drop(cell: cell!.item!, position: .init(x: cell!.frame.midX, y: cell!.frame.midY)))
             }
             .sink { cell, column, card, point in
+                cell.frame.origin = point
+                shape?.add({
+                    $0.duration = 1
+                    $0.timingFunction = .init(name: .easeInEaseOut)
+                    return $0
+                } (CABasicAnimation(keyPath: "strokeStart")), forKey: "strokeStart")
+                
+//                cloud.move(board: board, column: cell.item!.info.id.column, card: cell.item!.info.id.card, horizontal: column, vertical: card)
+                
                 NSAnimationContext.runAnimationGroup({
                     $0.duration = 0.3
                     $0.timingFunction = .init(name: .easeInEaseOut)
                     cell.frame.origin = point
                 }) {
-//                    Session.mutate {
-//                        if path.column == column.path {
-//                            $0.move(path, vertical: card)
-//                        } else {
-//                            $0.move(path, horizontal: column.path._column)
-//                            $0.move(.card(column.path, 0), vertical: card)
-//                        }
-//                    }
+                    
                 }
+                cell.state = .none
                 dragging.send(nil)
             }
             .store(in: &subs)
