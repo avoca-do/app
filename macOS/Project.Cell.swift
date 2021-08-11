@@ -83,8 +83,13 @@ extension Project {
             switch state {
             case .none:
                 shape.strokeColor = NSColor.quaternaryLabelColor.cgColor
+                backgroundColor = .clear
             case .highlighted, .pressed:
                 shape.strokeColor = NSColor.labelColor.cgColor
+                backgroundColor = .clear
+            case .dragging:
+                shape.strokeColor = NSColor.labelColor.cgColor
+                backgroundColor = NSColor.quaternaryLabelColor.cgColor
             }
         }
     }

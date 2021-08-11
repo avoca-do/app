@@ -3,7 +3,8 @@ import Combine
 
 final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
     private let double = PassthroughSubject<CGPoint, Never>()
-    private let drag = PassthroughSubject<CGSize, Never>()
+    private let drag = PassthroughSubject<(date: Date, size: CGSize), Never>()
+    private let drop = PassthroughSubject<Date, Never>()
 
     required init?(coder: NSCoder) { nil }
     init(board: Int) {
@@ -21,6 +22,7 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
         let width = CGFloat(300)
         let textWidth = width - Cell.horizontal
         let info = CurrentValueSubject<[[Info]], Never>([])
+        let dragging = CurrentValueSubject<Cell?, Never>(nil)
         
         cloud
             .archive
@@ -105,6 +107,69 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
             .subscribe(session
                         .state)
             .store(in: &subs)
+        
+        drag
+            .combineLatest(highlighted
+                            .filter {
+                                if case .card = $0 {
+                                    return true
+                                }
+                                return false
+                            }, dragging)
+            .removeDuplicates {
+                $0.0.0 == $1.0.0
+            }
+            .filter {
+                $1 != nil && $2 == nil
+            }
+            .map {
+                $0.1
+            }
+            .compactMap { [weak self] highlighted in
+                self?
+                    .cells
+                    .first {
+                        $0.item?.info.id == highlighted
+                    }
+            }
+            .subscribe(dragging)
+            .store(in: &subs)
+        
+        dragging
+            .sink {
+                $0?.state = .dragging
+            }
+            .store(in: &subs)
+        
+        drag
+            .combineLatest(dragging)
+            .filter {
+                $1 != nil
+            }
+            .sink {
+                $1!.frame = $1!.frame.offsetBy(dx: $0.1.width, dy: $0.1.height)
+            }
+            .store(in: &subs)
+        
+        drop
+            .combineLatest(dragging)
+            .removeDuplicates {
+                $0.0 == $1.0
+            }
+            .compactMap {
+                $0.1
+            }
+            .sink {
+                $0.state = .none
+            }
+            .store(in: &subs)
+        
+        drop
+            .map { _ in
+                nil
+            }
+            .subscribe(dragging)
+            .store(in: &subs)
     }
     
     override func mouseUp(with: NSEvent) {
@@ -112,13 +177,12 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
         case 2:
             double.send(point(with: with))
         default:
-            break
+            drop.send(.init())
         }
     }
     
     override func mouseDragged(with: NSEvent) {
-//        guard
-//        drag.send(.init(width: with.deltaX, height: with.deltaY))
+        drag.send((date: .init(), size: .init(width: with.deltaX, height: with.deltaY)))
     }
     
     func menuNeedsUpdate(_ menu: NSMenu) {
