@@ -23,6 +23,7 @@ extension Sidebar {
         }
         
         required init?(coder: NSCoder) { nil }
+        override init(layer: Any) { super.init(layer: layer) }
         required init() {
             super.init()
             cornerRadius = 6
@@ -54,6 +55,10 @@ extension Sidebar {
                 text.string = item?.info.string
                 backgroundColor = .clear
             }
+        }
+        
+        override class func defaultAction(forKey: String) -> CAAction? {
+            NSNull()
         }
     }
 }

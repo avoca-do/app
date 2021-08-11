@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE06220726C3E105009D91D6 /* Set.CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06220626C3E105009D91D6 /* Set.CollectionItem.swift */; };
 		CE0B3C3D25DC3A2A00317754 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
 		CE0E839025CEB912001283C6 /* Project.Columns.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E838F25CEB912001283C6 /* Project.Columns.swift */; };
 		CE15AE6226BD40D00007DE31 /* NSAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CB125E695B90035E674 /* NSAlert.swift */; };
@@ -220,6 +221,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE06220626C3E105009D91D6 /* Set.CollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.CollectionItem.swift; sourceTree = "<group>"; };
 		CE0B3C3725DC2AAE00317754 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		CE0E838F25CEB912001283C6 /* Project.Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Columns.swift; sourceTree = "<group>"; };
 		CE12944825DEC027000533B1 /* Board.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.swift; sourceTree = "<group>"; };
@@ -640,6 +642,7 @@
 				CE7339EE26B9717400D195D6 /* Project.swift */,
 				CEC3203B26B7EE3E00364E88 /* Separator.swift */,
 				CE578D3026B80E1200FCE39A /* Session.swift */,
+				CE06220626C3E105009D91D6 /* Set.CollectionItem.swift */,
 				CEC3205C26B800AA00364E88 /* Shape.swift */,
 				CE578C9226B8063700FCE39A /* Sidebar.Cell.swift */,
 				CE578C9426B8065500FCE39A /* Sidebar.Info.swift */,
@@ -1081,6 +1084,7 @@
 				CEC3206426B800AA00364E88 /* Image.swift in Sources */,
 				CE578C9526B8065500FCE39A /* Sidebar.Info.swift in Sources */,
 				CE9B192126B98E8D00D8ED25 /* Container.swift in Sources */,
+				CE06220726C3E105009D91D6 /* Set.CollectionItem.swift in Sources */,
 				CEC3206726B800AA00364E88 /* Control.swift in Sources */,
 				CEC3206826B800AA00364E88 /* NSAttributedString.swift in Sources */,
 				CEC3206326B800AA00364E88 /* CGRect.swift in Sources */,

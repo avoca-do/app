@@ -22,7 +22,40 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
         let width = CGFloat(300)
         let textWidth = width - Cell.horizontal
         let info = CurrentValueSubject<[[Info]], Never>([])
-        let dragging = CurrentValueSubject<Cell?, Never>(nil)
+        let dragging = PassthroughSubject<Cell?, Never>()
+        
+        dragging
+            .removeDuplicates()
+            .combineLatest(drop, items)
+            .removeDuplicates {
+                $0.1 == $1.1
+            }
+            .compactMap { cell, _, items in
+                cell?.item == nil
+                    ? nil
+                    : {
+                        (cell: cell!, column: $0.0, card: $0.1, point: $0.2)
+                    } (items
+                        .drop(cell: cell!.item!, position: .init(x: cell!.frame.midX, y: cell!.frame.midY)))
+            }
+            .sink { cell, column, card, point in
+                NSAnimationContext.runAnimationGroup({
+                    $0.duration = 0.3
+                    $0.timingFunction = .init(name: .easeInEaseOut)
+                    cell.frame.origin = point
+                }) {
+//                    Session.mutate {
+//                        if path.column == column.path {
+//                            $0.move(path, vertical: card)
+//                        } else {
+//                            $0.move(path, horizontal: column.path._column)
+//                            $0.move(.card(column.path, 0), vertical: card)
+//                        }
+//                    }
+                }
+                dragging.send(nil)
+            }
+            .store(in: &subs)
         
         cloud
             .archive
@@ -115,12 +148,12 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
                                     return true
                                 }
                                 return false
-                            }, dragging)
+                            })
             .removeDuplicates {
                 $0.0.0 == $1.0.0
             }
             .filter {
-                $1 != nil && $2 == nil
+                $1 != nil
             }
             .map {
                 $0.1
@@ -136,13 +169,15 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
             .store(in: &subs)
         
         dragging
+            .removeDuplicates()
             .sink {
                 $0?.state = .dragging
             }
             .store(in: &subs)
         
         drag
-            .combineLatest(dragging)
+            .combineLatest(dragging
+                            .removeDuplicates())
             .filter {
                 $1 != nil
             }
@@ -152,7 +187,8 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
             .store(in: &subs)
         
         drop
-            .combineLatest(dragging)
+            .combineLatest(dragging
+                            .removeDuplicates())
             .removeDuplicates {
                 $0.0 == $1.0
             }
@@ -162,13 +198,6 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
             .sink {
                 $0.state = .none
             }
-            .store(in: &subs)
-        
-        drop
-            .map { _ in
-                nil
-            }
-            .subscribe(dragging)
             .store(in: &subs)
     }
     

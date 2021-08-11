@@ -44,6 +44,7 @@ extension Window {
                             .runAnimationGroup {
                                 $0.duration = 0.4
                                 $0.allowsImplicitAnimation = true
+                                $0.timingFunction = .init(name: .easeInEaseOut)
                                 removing.alphaValue = 0
                                 self.layoutSubtreeIfNeeded()
                             } completionHandler: {

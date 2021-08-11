@@ -22,8 +22,4 @@ class CollectionCell<Info>: CALayer where Info : CollectionItemInfo {
     final override func hitTest(_: CGPoint) -> CALayer? {
         nil
     }
-    
-    final override class func defaultAction(forKey: String) -> CAAction? {
-        NSNull()
-    }
 }
