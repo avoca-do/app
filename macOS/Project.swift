@@ -39,7 +39,6 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
                         .drop(cell: cell!.item!, position: .init(x: cell!.frame.midX, y: cell!.frame.midY)))
             }
             .sink { cell, column, card, point in
-                dragging.send(nil)
                 cell.position = point
                 cell.add({
                     $0.duration = 0.3
@@ -56,6 +55,7 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
                             card: cell.item!.info.id.card,
                             horizontal: column,
                             vertical: card)
+                        dragging.send(nil)
                         cell.state = .none
                         if cell.item!.info.id.column != column
                             || cell.item!.info.id.card != card {
@@ -150,21 +150,18 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
             .store(in: &subs)
         
         drag
-            .combineLatest(highlighted
-                            .filter {
-                                if case .card = $0 {
-                                    return true
-                                }
-                                return false
-                            })
+            .combineLatest(highlighted)
             .removeDuplicates {
                 $0.0.0 == $1.0.0
             }
-            .filter {
-                $1 != nil
+            .compactMap {
+                $1
             }
-            .map {
-                $0.1
+            .filter {
+                if case .card = $0 {
+                    return true
+                }
+                return false
             }
             .compactMap { [weak self] highlighted in
                 self?
@@ -173,22 +170,10 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
                         $0.item?.info.id == highlighted
                     }
             }
-            .subscribe(dragging)
-            .store(in: &subs)
-        
-        drag
-            .removeDuplicates {
-                $0.0 == $1.0
-            }
-            .sink { [weak self] _ in
+            .sink { [weak self] in
                 self?.highlighted.send(nil)
-            }
-            .store(in: &subs)
-        
-        dragging
-            .removeDuplicates()
-            .sink {
-                $0?.state = .dragging
+                $0.state = .dragging
+                dragging.send($0)
             }
             .store(in: &subs)
         
