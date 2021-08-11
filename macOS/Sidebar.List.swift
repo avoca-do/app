@@ -110,11 +110,9 @@ extension Sidebar {
                 .subscribe(selected)
                 .store(in: &subs)
             
-            visible
-                .removeDuplicates()
+            render
                 .combineLatest(selected
                                 .removeDuplicates())
-                .debounce(for: .milliseconds(1), scheduler: DispatchQueue.main)
                 .sink { _, selected in
                     self
                         .cells
