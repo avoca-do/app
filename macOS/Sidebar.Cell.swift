@@ -56,9 +56,5 @@ extension Sidebar {
                 backgroundColor = .clear
             }
         }
-        
-        override class func defaultAction(forKey: String) -> CAAction? {
-            NSNull()
-        }
     }
 }

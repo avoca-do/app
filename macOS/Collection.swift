@@ -103,7 +103,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                 self?
                     .cells
                     .filter {
-                        $0.state != .pressed
+                        $0.state != .pressed && $0.state != .dragging
                     }
                     .map {
                         (cell: $0, state: $0.frame.contains(point)

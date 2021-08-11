@@ -57,12 +57,7 @@ class Control: NSView {
             click.send()
         }
         if state == .highlighted || state == .pressed {
-            NSAnimationContext
-                .runAnimationGroup {
-                    $0.duration = 0.5
-                    $0.allowsImplicitAnimation = true
-                    state = .on
-                }
+            state = .on
         }
     }
     

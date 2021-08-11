@@ -39,24 +39,29 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
                         .drop(cell: cell!.item!, position: .init(x: cell!.frame.midX, y: cell!.frame.midY)))
             }
             .sink { cell, column, card, point in
-                cell.frame.origin = point
-                shape?.add({
-                    $0.duration = 1
-                    $0.timingFunction = .init(name: .easeInEaseOut)
-                    return $0
-                } (CABasicAnimation(keyPath: "strokeStart")), forKey: "strokeStart")
-                
-//                cloud.move(board: board, column: cell.item!.info.id.column, card: cell.item!.info.id.card, horizontal: column, vertical: card)
-                
-                NSAnimationContext.runAnimationGroup({
+                dragging.send(nil)
+                cell.position = point
+                cell.add({
                     $0.duration = 0.3
                     $0.timingFunction = .init(name: .easeInEaseOut)
-                    cell.frame.origin = point
-                }) {
-                    
-                }
-                cell.state = .none
-                dragging.send(nil)
+                    return $0
+                } (CABasicAnimation(keyPath: "position")), forKey: "position")
+
+                DispatchQueue
+                    .main
+                    .asyncAfter(deadline: .now() + 0.3) {
+                        cloud.move(
+                            board: board,
+                            column: cell.item!.info.id.column,
+                            card: cell.item!.info.id.card,
+                            horizontal: column,
+                            vertical: card)
+                        cell.state = .none
+                        if cell.item!.info.id.column != column
+                            || cell.item!.info.id.card != card {
+                            cell.item = nil
+                        }
+                    }
             }
             .store(in: &subs)
         
@@ -171,6 +176,15 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
             .subscribe(dragging)
             .store(in: &subs)
         
+        drag
+            .removeDuplicates {
+                $0.0 == $1.0
+            }
+            .sink { [weak self] _ in
+                self?.highlighted.send(nil)
+            }
+            .store(in: &subs)
+        
         dragging
             .removeDuplicates()
             .sink {
@@ -186,20 +200,6 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
             }
             .sink {
                 $1!.frame = $1!.frame.offsetBy(dx: $0.1.width, dy: $0.1.height)
-            }
-            .store(in: &subs)
-        
-        drop
-            .combineLatest(dragging
-                            .removeDuplicates())
-            .removeDuplicates {
-                $0.0 == $1.0
-            }
-            .compactMap {
-                $0.1
-            }
-            .sink {
-                $0.state = .none
             }
             .store(in: &subs)
     }

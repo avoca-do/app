@@ -8,9 +8,13 @@ extension Set where Element == CollectionItem<Project.Info> {
                     (column: column.info.id.column,
                      card: index,
                      point: column.info.id.column == cell.info.id.column && index == cell.info.id.card
-                        ? cell.rect.origin
-                        : .init(x: column.rect.minX,
-                                y: card?.rect.maxY ?? column.rect.maxY))
+                        ? .init(x: cell.rect.midX, y: cell.rect.midY)
+                        : {
+                            .init(x: $0.midX, y: $0.midY)
+                        } (CGRect(x: column.rect.minX,
+                                  y: card?.rect.maxY ?? column.rect.maxY,
+                                  width: cell.rect.width,
+                                  height: cell.rect.height)))
                 } (card
                     .map {
                         cell.info.id.column == column.info.id.column

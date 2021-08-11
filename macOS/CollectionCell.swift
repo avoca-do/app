@@ -23,7 +23,7 @@ class CollectionCell<Info>: CALayer where Info : CollectionItemInfo {
         nil
     }
     
-    override class func defaultAction(forKey: String) -> CAAction? {
+    final override class func defaultAction(forKey: String) -> CAAction? {
         NSNull()
     }
 }
