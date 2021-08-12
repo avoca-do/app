@@ -108,6 +108,7 @@
 		CEB508A425FA49BE00E18E86 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB508A325FA49BE00E18E86 /* Kanban */; };
 		CEBC7C3226C515B900E27436 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7C3126C515B900E27436 /* Stats.swift */; };
 		CEBC7C3426C51D0300E27436 /* NSPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7C3326C51D0300E27436 /* NSPopover.swift */; };
+		CEBC7C3626C530A700E27436 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7C3526C530A700E27436 /* Gradient.swift */; };
 		CEC3203C26B7EE3E00364E88 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3203B26B7EE3E00364E88 /* Separator.swift */; };
 		CEC3203E26B7EE5600364E88 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3203D26B7EE5600364E88 /* Layer.swift */; };
 		CEC3204526B7F04E00364E88 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3204426B7F04E00364E88 /* Sidebar.swift */; };
@@ -376,6 +377,7 @@
 		CEB8E56925DAA0C6009737AB /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		CEBC7C3126C515B900E27436 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		CEBC7C3326C51D0300E27436 /* NSPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPopover.swift; sourceTree = "<group>"; };
+		CEBC7C3526C530A700E27436 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.Edit.swift; sourceTree = "<group>"; };
 		CEC22CB125E695B90035E674 /* NSAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAlert.swift; sourceTree = "<group>"; };
 		CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.Titlebar.swift; sourceTree = "<group>"; };
@@ -631,6 +633,7 @@
 				CE9B191D26B98C8600D8ED25 /* Edit.swift */,
 				CE9B191F26B98D9000D8ED25 /* Edit.Textview.swift */,
 				CE7339E626B9551100D195D6 /* Flip.swift */,
+				CEBC7C3526C530A700E27436 /* Gradient.swift */,
 				CEC3205026B800A900364E88 /* Image.swift */,
 				CEC3203D26B7EE5600364E88 /* Layer.swift */,
 				CE78335826C16080006E7593 /* Menu.swift */,
@@ -1118,6 +1121,7 @@
 				CEDD564B26BBEBCF00AA54A4 /* Bar.Action.swift in Sources */,
 				CE6B576226BD6F0700DDF923 /* Store.Purchase.swift in Sources */,
 				CEC3207326B800AA00364E88 /* CollectionCellText.swift in Sources */,
+				CEBC7C3626C530A700E27436 /* Gradient.swift in Sources */,
 				CEC3207426B800AA00364E88 /* Toast.swift in Sources */,
 				CEC3206D26B800AA00364E88 /* CollectionCellState.swift in Sources */,
 				CE6B575626BD600700DDF923 /* Store.View.swift in Sources */,
