@@ -1,5 +1,6 @@
 import AppKit
 import Combine
+import Kanban
 
 final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
     private let double = PassthroughSubject<CGPoint, Never>()
@@ -220,9 +221,7 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
     @objc private func edit() {
         highlighted
             .value
-            .map {
-                .edit($0)
-            }
+            .map(State.edit)
             .map(session
                     .state
                     .send)

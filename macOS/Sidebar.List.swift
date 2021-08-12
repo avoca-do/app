@@ -170,9 +170,8 @@ extension Sidebar {
             
             highlighted
                 .value
-                .map {
-                    .edit(.board($0))
-                }
+                .map(Path.board)
+                .map(State.edit)
                 .map(session
                         .state
                         .send)
@@ -188,9 +187,7 @@ extension Sidebar {
             
             highlighted
                 .value
-                .map {
-                    .board($0)
-                }
+                .map(Path.board)
                 .map(NSAlert.delete(path:))
         }
     }
