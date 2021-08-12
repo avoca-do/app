@@ -1,23 +1,20 @@
 import AppKit
 import Kanban
 
-final class Wave: NSPopover {
+final class Activity: NSPopover {
     private weak var chart: Chart?
-    private let board: Int
     
     required init?(coder: NSCoder) { nil }
-    init(board: Int) {
-        self.board = board
-        
+    override init() {
         super.init()
         behavior = .semitransient
-        contentSize = .init(width: 520, height: 340)
+        contentSize = .init(width: 420, height: 300)
         contentViewController = .init()
         contentViewController!.view = .init(frame: .init(origin: .zero, size: contentSize))
         
-        let period = NSSegmentedControl(labels: ["Start", "Year", "Month", "Week", "Day"], trackingMode: .selectOne, target: self, action: #selector(self.period))
+        let period = NSSegmentedControl(labels: ["Year", "Month", "Week", "Day"], trackingMode: .selectOne, target: self, action: #selector(self.period))
         period.translatesAutoresizingMaskIntoConstraints = false
-        period.selectedSegment = 2
+        period.selectedSegment = 1
         view.addSubview(period)
         
         period.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
@@ -32,19 +29,17 @@ final class Wave: NSPopover {
         let period: Period
         switch segmented.selectedSegment {
         case 1:
-            period = .year
-        case 2:
             period = .month
-        case 3:
+        case 2:
             period = .week
-        case 4:
+        case 3:
             period = .day
         default:
-            period = .custom(cloud.archive.value[board].start)
+            period = .year
         }
         let chart = Chart(frame: .init(origin: .zero, size: .init(width: contentSize.width, height: contentSize.height - 20)),
                           first: period.date,
-                          values: cloud.archive.value[board].activity(period: period))
+                          values: cloud.archive.value.activity(period: period))
         view.addSubview(chart)
         self.chart = chart
     }

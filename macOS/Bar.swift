@@ -41,7 +41,8 @@ final class Bar: NSView, NSWindowDelegate {
         activity
             .click
             .sink {
-//                NSApp.activity()
+                Activity()
+                    .show(relativeTo: activity.bounds, of: activity, preferredEdge: .minY)
             }
             .store(in: &subs)
         

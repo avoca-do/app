@@ -1,43 +1,41 @@
 import AppKit
 
-extension Wave {
-    final class Chart: NSView {
-        required init?(coder: NSCoder) { nil }
-        init(frame: CGRect, first: Date, values: [Double]) {
-            super.init(frame: frame)
-            layer = Item(values: values)
-            wantsLayer = true
-            layer!.setNeedsDisplay()
-            
-            let since = Text(vibrancy: true)
-            since.font = .preferredFont(forTextStyle: .callout)
-            since.textColor = .tertiaryLabelColor
-            since.stringValue = RelativeDateTimeFormatter().string(from: first)
-            addSubview(since)
-            
-            let now = Text(vibrancy: true)
-            now.font = .preferredFont(forTextStyle: .callout)
-            now.textColor = .tertiaryLabelColor
-            now.stringValue = NSLocalizedString("Now", comment: "")
-            addSubview(now)
-            
-            let separator = Separator(mode: .horizontal)
-            addSubview(separator)
-            
-            since.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50).isActive = true
-            since.leftAnchor.constraint(equalTo: leftAnchor, constant: 70).isActive = true
-            
-            now.centerYAnchor.constraint(equalTo: since.centerYAnchor).isActive = true
-            now.rightAnchor.constraint(equalTo: rightAnchor, constant: -70).isActive = true
-            
-            separator.centerYAnchor.constraint(equalTo: since.centerYAnchor).isActive = true
-            separator.leftAnchor.constraint(equalTo: since.rightAnchor, constant: 5).isActive = true
-            separator.rightAnchor.constraint(equalTo: now.leftAnchor, constant: -5).isActive = true
-        }
+final class Chart: NSView {
+    required init?(coder: NSCoder) { nil }
+    init(frame: CGRect, first: Date, values: [Double]) {
+        super.init(frame: frame)
+        layer = Item(values: values)
+        wantsLayer = true
+        layer!.setNeedsDisplay()
         
-        override var allowsVibrancy: Bool {
-            true
-        }
+        let since = Text(vibrancy: true)
+        since.font = .preferredFont(forTextStyle: .callout)
+        since.textColor = .tertiaryLabelColor
+        since.stringValue = RelativeDateTimeFormatter().string(from: first)
+        addSubview(since)
+        
+        let now = Text(vibrancy: true)
+        now.font = .preferredFont(forTextStyle: .callout)
+        now.textColor = .tertiaryLabelColor
+        now.stringValue = NSLocalizedString("Now", comment: "")
+        addSubview(now)
+        
+        let separator = Separator(mode: .horizontal)
+        addSubview(separator)
+        
+        since.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50).isActive = true
+        since.leftAnchor.constraint(equalTo: leftAnchor, constant: 70).isActive = true
+        
+        now.centerYAnchor.constraint(equalTo: since.centerYAnchor).isActive = true
+        now.rightAnchor.constraint(equalTo: rightAnchor, constant: -70).isActive = true
+        
+        separator.centerYAnchor.constraint(equalTo: since.centerYAnchor).isActive = true
+        separator.leftAnchor.constraint(equalTo: since.rightAnchor, constant: 5).isActive = true
+        separator.rightAnchor.constraint(equalTo: now.leftAnchor, constant: -5).isActive = true
+    }
+    
+    override var allowsVibrancy: Bool {
+        true
     }
 }
 
