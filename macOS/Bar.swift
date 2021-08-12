@@ -37,7 +37,7 @@ final class Bar: NSView, NSWindowDelegate {
         self.backgroundRight = backgroundRight
         
         let activity = Option(icon: "chart.pie")
-        activity.toolTip = "Activity"
+        activity.toolTip = "General activity"
         activity
             .click
             .sink {
@@ -71,7 +71,7 @@ final class Bar: NSView, NSWindowDelegate {
                 session.newCard()
             }
             .store(in: &subs)
-        
+
         let stats = Option(icon: "barometer")
         stats.toolTip = "Stats"
         stats
@@ -80,6 +80,17 @@ final class Bar: NSView, NSWindowDelegate {
                 guard case let .view(board) = session.state.value else { return }
                 Stats(board: board)
                     .show(relativeTo: stats.bounds, of: stats, preferredEdge: .minY)
+            }
+            .store(in: &subs)
+        
+        let wave = Option(icon: "waveform.path.ecg")
+        wave.toolTip = "Project activity"
+        wave
+            .click
+            .sink {
+                guard case let .view(board) = session.state.value else { return }
+                Wave(board: board)
+                    .show(relativeTo: wave.bounds, of: wave, preferredEdge: .minY)
             }
             .store(in: &subs)
         
@@ -149,7 +160,7 @@ final class Bar: NSView, NSWindowDelegate {
                 $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             }
         
-        [card, title, cancel, add, save, delete, stats, edit]
+        [card, title, cancel, add, save, delete, stats, edit, wave]
             .forEach {
                 backgroundRight.addSubview($0)
                 $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -163,7 +174,7 @@ final class Bar: NSView, NSWindowDelegate {
             }
         
         var right = rightAnchor
-        [card, stats, edit]
+        [card, stats, wave, edit]
             .forEach {
                 $0.rightAnchor.constraint(equalTo: right, constant: right == rightAnchor ? -8 : -10).isActive = true
                 right = $0.leftAnchor
@@ -190,6 +201,7 @@ final class Bar: NSView, NSWindowDelegate {
                     save.state = .hidden
                     card.state = .hidden
                     stats.state = .hidden
+                    wave.state = .hidden
                     edit.state = .hidden
                 case .create:
                     delete.state = .hidden
@@ -198,6 +210,7 @@ final class Bar: NSView, NSWindowDelegate {
                     save.state = .hidden
                     card.state = .hidden
                     stats.state = .hidden
+                    wave.state = .hidden
                     edit.state = .hidden
                     
                     title.attributedStringValue = .make("New project",
@@ -211,6 +224,7 @@ final class Bar: NSView, NSWindowDelegate {
                     save.state = .hidden
                     card.state = .on
                     stats.state = .on
+                    wave.state = .on
                     edit.state = .on
                 case let .column(board):
                     delete.state = .hidden
@@ -219,6 +233,7 @@ final class Bar: NSView, NSWindowDelegate {
                     save.state = .hidden
                     card.state = .hidden
                     stats.state = .hidden
+                    wave.state = .hidden
                     edit.state = .hidden
                     
                     title.attributedStringValue = .make {
@@ -237,6 +252,7 @@ final class Bar: NSView, NSWindowDelegate {
                     save.state = .hidden
                     card.state = .hidden
                     stats.state = .hidden
+                    wave.state = .hidden
                     edit.state = .hidden
                     
                     title.attributedStringValue = .make {
@@ -255,6 +271,7 @@ final class Bar: NSView, NSWindowDelegate {
                     save.state = .on
                     card.state = .hidden
                     stats.state = .hidden
+                    wave.state = .hidden
                     edit.state = .hidden
                     
                     switch path {

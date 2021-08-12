@@ -109,6 +109,8 @@
 		CEBC7C3226C515B900E27436 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7C3126C515B900E27436 /* Stats.swift */; };
 		CEBC7C3426C51D0300E27436 /* NSPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7C3326C51D0300E27436 /* NSPopover.swift */; };
 		CEBC7C3626C530A700E27436 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7C3526C530A700E27436 /* Gradient.swift */; };
+		CEBC7C3826C542BD00E27436 /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7C3726C542BD00E27436 /* Wave.swift */; };
+		CEBC7C3A26C5441600E27436 /* Wave.Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7C3926C5441600E27436 /* Wave.Chart.swift */; };
 		CEC3203C26B7EE3E00364E88 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3203B26B7EE3E00364E88 /* Separator.swift */; };
 		CEC3203E26B7EE5600364E88 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3203D26B7EE5600364E88 /* Layer.swift */; };
 		CEC3204526B7F04E00364E88 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3204426B7F04E00364E88 /* Sidebar.swift */; };
@@ -378,6 +380,8 @@
 		CEBC7C3126C515B900E27436 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		CEBC7C3326C51D0300E27436 /* NSPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPopover.swift; sourceTree = "<group>"; };
 		CEBC7C3526C530A700E27436 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		CEBC7C3726C542BD00E27436 /* Wave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
+		CEBC7C3926C5441600E27436 /* Wave.Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wave.Chart.swift; sourceTree = "<group>"; };
 		CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.Edit.swift; sourceTree = "<group>"; };
 		CEC22CB125E695B90035E674 /* NSAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAlert.swift; sourceTree = "<group>"; };
 		CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.Titlebar.swift; sourceTree = "<group>"; };
@@ -663,6 +667,8 @@
 				CE6B575526BD600700DDF923 /* Store.View.swift */,
 				CEC3205726B800AA00364E88 /* Text.swift */,
 				CEC3206026B800AA00364E88 /* Toast.swift */,
+				CEBC7C3926C5441600E27436 /* Wave.Chart.swift */,
+				CEBC7C3726C542BD00E27436 /* Wave.swift */,
 				CE7339EA26B96C4800D195D6 /* Window.Content.Empty.Option.swift */,
 				CE7339E826B9563200D195D6 /* Window.Content.Empty.swift */,
 				CE578D3226B820F000FCE39A /* Window.Content.swift */,
@@ -1096,6 +1102,7 @@
 				CE9B192126B98E8D00D8ED25 /* Container.swift in Sources */,
 				CE06220726C3E105009D91D6 /* Set.CollectionItem.swift in Sources */,
 				CEC3206726B800AA00364E88 /* Control.swift in Sources */,
+				CEBC7C3A26C5441600E27436 /* Wave.Chart.swift in Sources */,
 				CEC3206826B800AA00364E88 /* NSAttributedString.swift in Sources */,
 				CEC3206326B800AA00364E88 /* CGRect.swift in Sources */,
 				CEC3207526B800AA00364E88 /* NSMenu.swift in Sources */,
@@ -1135,6 +1142,7 @@
 				CEC3207226B800AA00364E88 /* Collection.swift in Sources */,
 				CE9B191E26B98C8600D8ED25 /* Edit.swift in Sources */,
 				CEC3203E26B7EE5600364E88 /* Layer.swift in Sources */,
+				CEBC7C3826C542BD00E27436 /* Wave.swift in Sources */,
 				CEC3206926B800AA00364E88 /* CollectionItemInfo.swift in Sources */,
 				CEC3206626B800AA00364E88 /* CollectionCell.swift in Sources */,
 				CE6B575C26BD686B00DDF923 /* NSApplication.swift in Sources */,
