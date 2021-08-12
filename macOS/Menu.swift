@@ -138,10 +138,10 @@ final class Menu: NSMenu, NSMenuDelegate {
     }
     
     @objc private func triggerStatus(_ button: NSStatusBarButton) {
-//        let forget = Forget()
-//        forget.behavior = .transient
-//        forget.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
-//        forget.contentViewController!.view.window!.makeKey()
+        let activity = Activity()
+        activity.behavior = .transient
+        activity.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+        activity.contentViewController!.view.window!.makeKey()
     }
     
     @objc private func triggerNewProject() {
