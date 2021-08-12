@@ -73,7 +73,9 @@ final class Bar: NSView {
         stats
             .click
             .sink {
-                
+                guard case let .view(board) = session.state.value else { return }
+                Stats(board: board)
+                    .show(relativeTo: stats.bounds, of: stats, preferredEdge: .minY)
             }
             .store(in: &subs)
         

@@ -106,6 +106,8 @@
 		CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB09ADE25B994AF00BF7AD6 /* Kanban */; };
 		CEB508A225FA49AE00E18E86 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB508A125FA49AE00E18E86 /* Kanban */; };
 		CEB508A425FA49BE00E18E86 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB508A325FA49BE00E18E86 /* Kanban */; };
+		CEBC7C3226C515B900E27436 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7C3126C515B900E27436 /* Stats.swift */; };
+		CEBC7C3426C51D0300E27436 /* NSPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC7C3326C51D0300E27436 /* NSPopover.swift */; };
 		CEC3203C26B7EE3E00364E88 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3203B26B7EE3E00364E88 /* Separator.swift */; };
 		CEC3203E26B7EE5600364E88 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3203D26B7EE5600364E88 /* Layer.swift */; };
 		CEC3204526B7F04E00364E88 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3204426B7F04E00364E88 /* Sidebar.swift */; };
@@ -372,6 +374,8 @@
 		CEB5089F25FA48F000E18E86 /* intent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = intent.entitlements; sourceTree = "<group>"; };
 		CEB508A025FA497A00E18E86 /* widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widget.entitlements; sourceTree = "<group>"; };
 		CEB8E56925DAA0C6009737AB /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		CEBC7C3126C515B900E27436 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		CEBC7C3326C51D0300E27436 /* NSPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPopover.swift; sourceTree = "<group>"; };
 		CEC22CAB25E6818F0035E674 /* Board.Cell.Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.Cell.Edit.swift; sourceTree = "<group>"; };
 		CEC22CB125E695B90035E674 /* NSAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAlert.swift; sourceTree = "<group>"; };
 		CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.Titlebar.swift; sourceTree = "<group>"; };
@@ -637,6 +641,7 @@
 				CEC3206126B800AA00364E88 /* NSMenu.swift */,
 				CEC3205626B800AA00364E88 /* NSMenuItem.swift */,
 				CEC3205826B800AA00364E88 /* NSMutableAttributedString.swift */,
+				CEBC7C3326C51D0300E27436 /* NSPopover.swift */,
 				CE7339F026B9722A00D195D6 /* Project.Cell.swift */,
 				CE7339F226B9723700D195D6 /* Project.Info.swift */,
 				CE7339EE26B9717400D195D6 /* Project.swift */,
@@ -648,6 +653,7 @@
 				CE578C9426B8065500FCE39A /* Sidebar.Info.swift */,
 				CE578C9026B8062000FCE39A /* Sidebar.List.swift */,
 				CEC3204426B7F04E00364E88 /* Sidebar.swift */,
+				CEBC7C3126C515B900E27436 /* Stats.swift */,
 				CE6B575326BD5D0900DDF923 /* Store.Bar.swift */,
 				CE6B576126BD6F0700DDF923 /* Store.Purchase.swift */,
 				CE6B575126BD5C8400DDF923 /* Store.swift */,
@@ -679,6 +685,7 @@
 		CEC3203F26B7EE6C00364E88 /* legacy */ = {
 			isa = PBXGroup;
 			children = (
+				CE95052825EA770500EB178E /* _Metrics.swift */,
 				CE71F85C25F7908000D4379A /* Activity.Chart.swift */,
 				CE71F86225F797FB00D4379A /* Activity.Item.swift */,
 				CE71F84225F7890000D4379A /* Activity.swift */,
@@ -691,6 +698,9 @@
 				CE5F392025DD9CD60095F4FB /* Board.swift */,
 				CE221BF225DD6C1900EFA20B /* Capacity.swift */,
 				CEC22CB925E69D630035E674 /* Capacity.Titlebar.swift */,
+				CE71F83C25F7817100D4379A /* Chart.Item.swift */,
+				CE6229DD25F6549E008ED49E /* Chart.swift */,
+				CE71F83625F7810B00D4379A /* Color.swift */,
 				CE4E4A8325E15DCA007A46BB /* Control.Icon.swift */,
 				CE38330C25DE9B1E00539F4E /* Control.Rectangle.swift */,
 				CE221BD325DD5B2A00EFA20B /* Control.Squircle.swift */,
@@ -718,14 +728,10 @@
 				CEF1B84025E41F6A004B72AF /* Projects.Settings.swift */,
 				CE221BBD25DD552E00EFA20B /* Projects.swift */,
 				CE221BCF25DD5A5E00EFA20B /* Projects.Titlebar.swift */,
-				CE5F391225DD91070095F4FB /* Scroll.swift */,
-				CE95052825EA770500EB178E /* _Metrics.swift */,
-				CE71F83C25F7817100D4379A /* Chart.Item.swift */,
-				CE6229DD25F6549E008ED49E /* Chart.swift */,
-				CE71F83625F7810B00D4379A /* Color.swift */,
 				CE4206A925D18C5F00E43D49 /* Purchases.Item.swift */,
 				CE4206A525D18C0600E43D49 /* Purchases.swift */,
 				CE9A9ECC25E66BF000EDEBA3 /* RelativeDateTimeFormatter.swift */,
+				CE5F391225DD91070095F4FB /* Scroll.swift */,
 				CE71F84C25F78ACE00D4379A /* Segmented.swift */,
 				CE221BF825DD6DC200EFA20B /* Session.swift */,
 				CECFD8BB25E3E3A500BD3532 /* Set.Board.Cell.swift */,
@@ -1081,6 +1087,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBC7C3226C515B900E27436 /* Stats.swift in Sources */,
 				CEC3206426B800AA00364E88 /* Image.swift in Sources */,
 				CE578C9526B8065500FCE39A /* Sidebar.Info.swift in Sources */,
 				CE9B192126B98E8D00D8ED25 /* Container.swift in Sources */,
@@ -1119,6 +1126,7 @@
 				CEC3203C26B7EE3E00364E88 /* Separator.swift in Sources */,
 				CEA87A6E26B6E07C00706E04 /* App.swift in Sources */,
 				CE6B575226BD5C8400DDF923 /* Store.swift in Sources */,
+				CEBC7C3426C51D0300E27436 /* NSPopover.swift in Sources */,
 				CEC3204C26B8009200364E88 /* NumberFormatter.swift in Sources */,
 				CEC3207226B800AA00364E88 /* Collection.swift in Sources */,
 				CE9B191E26B98C8600D8ED25 /* Edit.swift in Sources */,
