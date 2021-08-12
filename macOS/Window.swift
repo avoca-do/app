@@ -37,8 +37,10 @@ final class Window: NSWindow {
         content.leftAnchor.constraint(equalTo: sidebar.rightAnchor).isActive = true
         content.rightAnchor.constraint(equalTo: base.rightAnchor).isActive = true
         
+        let bar = Bar()
+        delegate = bar
         let accessory = NSTitlebarAccessoryViewController()
-        accessory.view = Bar()
+        accessory.view = bar
         accessory.layoutAttribute = .top
         addTitlebarAccessoryViewController(accessory)
     }

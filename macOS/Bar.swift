@@ -1,7 +1,9 @@
 import AppKit
 import Combine
 
-final class Bar: NSView {
+final class Bar: NSView, NSWindowDelegate {
+    private weak var backgroundLeft: NSVisualEffectView?
+    private weak var backgroundRight: NSVisualEffectView?
     private var subs = Set<AnyCancellable>()
     private var leftWidth: NSLayoutConstraint?
     
@@ -25,12 +27,14 @@ final class Bar: NSView {
         backgroundLeft.state = .active
         backgroundLeft.material = .popover
         addSubview(backgroundLeft)
+        self.backgroundLeft = backgroundLeft
         
         let backgroundRight = NSVisualEffectView()
         backgroundRight.translatesAutoresizingMaskIntoConstraints = false
         backgroundRight.state = .active
         backgroundRight.material = .menu
         addSubview(backgroundRight)
+        self.backgroundRight = backgroundRight
         
         let activity = Option(icon: "chart.pie")
         activity.toolTip = "Activity"
@@ -282,5 +286,19 @@ final class Bar: NSView {
                 }
             }
             .store(in: &subs)
+    }
+    
+    func windowWillEnterFullScreen(_: Notification) {
+        backgroundLeft?.material = .sheet
+        backgroundRight?.material = .sheet
+        backgroundLeft?.state = .inactive
+        backgroundRight?.state = .inactive
+    }
+    
+    func windowWillExitFullScreen(_: Notification) {
+        backgroundLeft?.material = .popover
+        backgroundRight?.material = .menu
+        backgroundLeft?.state = .active
+        backgroundRight?.state = .active
     }
 }
