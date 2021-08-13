@@ -46,12 +46,12 @@ final class Bar: NSView, NSWindowDelegate {
             }
             .store(in: &subs)
         
-        let search = Option(icon: "magnifyingglass")
-        search.toolTip = "Search"
-        search
+        let find = Option(icon: "magnifyingglass")
+        find.toolTip = "Find"
+        find
             .click
             .sink {
-//                NSApp.activity()
+                NSApp.find(nil)
             }
             .store(in: &subs)
         
@@ -155,7 +155,7 @@ final class Bar: NSView, NSWindowDelegate {
         backgroundRight.topAnchor.constraint(equalTo: topAnchor).isActive = true
         backgroundRight.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
-        [activity, search, plus]
+        [activity, find, plus]
             .forEach {
                 backgroundLeft.addSubview($0)
                 $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -168,7 +168,7 @@ final class Bar: NSView, NSWindowDelegate {
             }
         
         var left = safeAreaLayoutGuide.leftAnchor
-        [activity, search, plus]
+        [activity, find, plus]
             .forEach {
                 $0.leftAnchor.constraint(equalTo: left, constant: left == safeAreaLayoutGuide.leftAnchor ? 60 : 10).isActive = true
                 left = $0.rightAnchor

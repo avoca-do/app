@@ -6,20 +6,30 @@ extension NSApplication {
             .makeKeyAndOrderFront(nil)
     }
     
-    func anyWindow<T>() -> T? {
-        windows
-            .compactMap {
-                $0 as? T
-            }
-            .first
-    }
-    
     @objc func showPreferencesWindow(_ sender: Any?) {
 //        (anyWindow() ?? Settings())
 //            .makeKeyAndOrderFront(nil)
     }
     
-    private var activeWindow: Window? {
-        keyWindow as? Window ?? anyWindow()
+    @objc func find(_ sender: Any?) {
+        if let find: Find = anyWindow() {
+            find.makeKeyAndOrderFront(nil)
+        } else if let window: Window = anyWindow() {
+            window.addChildWindow(Find(), ordered: .above)
+        }
+    }
+    
+    @objc func hideFind(_ sender: Any?) {
+        if let find: Find = anyWindow() {
+            find.close()
+        }
+    }
+    
+    private func anyWindow<T>() -> T? {
+        windows
+            .compactMap {
+                $0 as? T
+            }
+            .first
     }
 }

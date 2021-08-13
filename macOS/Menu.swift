@@ -6,7 +6,7 @@ final class Menu: NSMenu, NSMenuDelegate {
     required init(coder: NSCoder) { super.init(coder: coder) }
     init() {
         super.init(title: "")
-        items = [app, file, edit, window, help]
+        items = [app, file, edit, find, window, help]
         status.button!.image = NSImage(named: "status")
         status.button!.target = self
         status.button!.action = #selector(triggerStatus)
@@ -45,9 +45,14 @@ final class Menu: NSMenu, NSMenuDelegate {
                     .child("Copy", #selector(NSText.copy(_:)), "c"),
                     .child("Paste", #selector(NSText.paste), "v"),
                     .child("Delete", #selector(NSText.delete)),
-                    .child("Select All", #selector(NSText.selectAll), "a"),
+                    .child("Select All", #selector(NSText.selectAll), "a")])
+    }
+    
+    private var find: NSMenuItem {
+        .parent("Find", [
+                    .child("Find...", #selector(NSApplication.find), "f"),
                     .separator(),
-                    .child("Find", #selector(NSText.selectAll), "f")])
+                    .child("Hide Find Panel", #selector(NSApplication.hideFind), "")])
     }
     
     private var window: NSMenuItem {
@@ -121,6 +126,9 @@ final class Menu: NSMenu, NSMenuDelegate {
                         return (index: $0, title: "Purchases")
 //                    case is About:
 //                        return (index: $0, title: NSLocalizedString("About", comment: ""))
+                        #warning("add about")
+                        #warning("check that find doesn't appear here")
+                        #warning("add preferences")
                     default:
                         return nil
                     }
