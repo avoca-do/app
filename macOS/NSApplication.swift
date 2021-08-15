@@ -12,11 +12,8 @@ extension NSApplication {
     }
     
     @objc func find(_ sender: Any?) {
-        if let find: Find = anyWindow() {
-            find.makeKeyAndOrderFront(nil)
-        } else if let window: Window = anyWindow() {
-            window.addChildWindow(Find(), ordered: .above)
-        }
+        (anyWindow() ?? Find())
+            .makeKeyAndOrderFront(nil)
     }
     
     @objc func hideFind(_ sender: Any?) {

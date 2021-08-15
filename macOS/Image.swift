@@ -8,7 +8,7 @@ final class Image: NSImageView {
         self.init(vibrancy: true)
         image = .init(systemSymbolName: icon, accessibilityDescription: nil)
     }
-    
+
     convenience init(named: String, vibrancy: Bool) {
         self.init(vibrancy: vibrancy)
         image = .init(named: named)

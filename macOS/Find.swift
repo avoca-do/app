@@ -15,13 +15,16 @@ final class Find: NSPanel {
         backgroundColor = .clear
         hasShadow = true
         
-        let content = NSVisualEffectView(frame: frame)
-        content.material = .hudWindow
-        content.state = .active
-        content.wantsLayer = true
-        content.layer!.cornerRadius = 20
+        let blur = NSVisualEffectView(frame: frame)
+        blur.material = .hudWindow
+        blur.state = .active
+        blur.wantsLayer = true
+        blur.layer!.cornerRadius = 20
+        contentView!.addSubview(blur)
         
-        contentView!.addSubview(content)
+        let content = Content(frame: frame)
+        blur.addSubview(content)
+        
         center()
         
         var monitor: Any?
@@ -32,5 +35,16 @@ final class Find: NSPanel {
             self?.close()
             return nil
         }
+    }
+    
+    override func makeFirstResponder(_ responder: NSResponder?) -> Bool {
+        if responder is Field || responder is Field.Cell.Editor {
+            return super.makeFirstResponder(responder)
+        }
+        return true
+    }
+
+    override var canBecomeKey: Bool {
+        true
     }
 }
