@@ -22,6 +22,7 @@
 		CE2507EE25B87DB300F9C526 /* Field.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2507ED25B87DB300F9C526 /* Field.Coordinator.swift */; };
 		CE28758226C91AF7009B6400 /* Find.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28758126C91AF7009B6400 /* Find.Content.swift */; };
 		CE28758426C91E95009B6400 /* Find.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28758326C91E95009B6400 /* Find.Option.swift */; };
+		CE28758626C93011009B6400 /* Find.Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28758526C93011009B6400 /* Find.Move.swift */; };
 		CE29280225FA3A1400EF04F5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE29280125FA3A1400EF04F5 /* WidgetKit.framework */; };
 		CE29280425FA3A1400EF04F5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE29280325FA3A1400EF04F5 /* SwiftUI.framework */; };
 		CE29280A25FA3A1500EF04F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE29280925FA3A1500EF04F5 /* Assets.xcassets */; };
@@ -268,6 +269,7 @@
 		CE2507ED25B87DB300F9C526 /* Field.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.Coordinator.swift; sourceTree = "<group>"; };
 		CE28758126C91AF7009B6400 /* Find.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find.Content.swift; sourceTree = "<group>"; };
 		CE28758326C91E95009B6400 /* Find.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find.Option.swift; sourceTree = "<group>"; };
+		CE28758526C93011009B6400 /* Find.Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find.Move.swift; sourceTree = "<group>"; };
 		CE29280025FA3A1400EF04F5 /* widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE29280125FA3A1400EF04F5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		CE29280325FA3A1400EF04F5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -664,6 +666,7 @@
 				CE90C1A826C7FC3B00E82395 /* Find.Field.Cell.swift */,
 				CE90C1A626C7FC0F00E82395 /* Find.Field.swift */,
 				CE5B92AC26C697BF0088EAFE /* Find.Info.swift */,
+				CE28758526C93011009B6400 /* Find.Move.swift */,
 				CE28758326C91E95009B6400 /* Find.Option.swift */,
 				CE5B92A826C684AF0088EAFE /* Find.Results.swift */,
 				CE5B92A626C681080088EAFE /* Find.swift */,
@@ -1182,6 +1185,7 @@
 				CEC3206926B800AA00364E88 /* CollectionItemInfo.swift in Sources */,
 				CEC3206626B800AA00364E88 /* CollectionCell.swift in Sources */,
 				CE6B575C26BD686B00DDF923 /* NSApplication.swift in Sources */,
+				CE28758626C93011009B6400 /* Find.Move.swift in Sources */,
 				CE01BE8626C563D2001A0F56 /* Activity.swift in Sources */,
 				CE578D3126B80E1200FCE39A /* Session.swift in Sources */,
 				CEC3204B26B8009200364E88 /* RelativeDateTimeFormatter.swift in Sources */,

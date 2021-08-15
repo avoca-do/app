@@ -19,7 +19,7 @@ final class Find: NSPanel {
         blur.material = .hudWindow
         blur.state = .active
         blur.wantsLayer = true
-        blur.layer!.cornerRadius = 20
+        blur.layer!.cornerRadius = 14
         contentView!.addSubview(blur)
         
         let content = Content(frame: frame)

@@ -49,6 +49,8 @@ extension Find {
         override func update() {
             switch state {
             case .pressed:
+                backgroundColor = NSColor.quaternaryLabelColor.cgColor
+            case .highlighted:
                 backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
             default:
                 backgroundColor = .clear

@@ -2,6 +2,10 @@ import AppKit
 
 extension Find.Field.Cell {
     final class Editor: NSTextView {
+        override func resignFirstResponder() -> Bool {
+            false
+        }
+        
         override init(frame: NSRect, textContainer: NSTextContainer?) {
             super.init(frame: frame, textContainer: textContainer)
         }

@@ -1,11 +1,19 @@
 import AppKit
 import Combine
+import Kanban
 
 extension Find {
-    final class Content: NSView, NSTextFieldDelegate {
+    final class Content: NSView, NSTextFieldDelegate {        
         private weak var xmark: Option!
         private weak var field: Field!
+        private weak var icon: Image!
         private var subs = Set<AnyCancellable>()
+        private let found = PassthroughSubject<[Found], Never>()
+        private let move = PassthroughSubject<(date: Date, direction: Move), Never>()
+        
+        override var allowsVibrancy: Bool {
+            true
+        }
         
         required init?(coder: NSCoder) { nil }
         override init(frame: NSRect) {
@@ -28,53 +36,71 @@ extension Find {
             xmark.state = .off
             xmark
                 .click
-                .sink {
+                .sink { [weak self] in
                     field.stringValue = ""
-                    xmark.state = .off
+                    self?.update()
                 }
                 .store(in: &subs)
             addSubview(xmark)
             self.xmark = xmark
             
+            let icon = Image(icon: "magnifyingglass")
+            icon.symbolConfiguration = .init(pointSize: 35, weight: .regular)
+            icon.contentTintColor = .quaternaryLabelColor
+            addSubview(icon)
+            self.icon = icon
+            
+            let results = Results(found: found, move: move)
+            addSubview(results)
+            
             magnifier.centerYAnchor.constraint(equalTo: field.centerYAnchor).isActive = true
-            magnifier.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
+            magnifier.leftAnchor.constraint(equalTo: leftAnchor, constant: 18).isActive = true
             
             xmark.centerYAnchor.constraint(equalTo: field.centerYAnchor).isActive = true
-            xmark.rightAnchor.constraint(equalTo: rightAnchor, constant: -15).isActive = true
+            xmark.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
             
             field.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
             field.leftAnchor.constraint(equalTo: magnifier.rightAnchor).isActive = true
             field.rightAnchor.constraint(equalTo: xmark.leftAnchor).isActive = true
             
-            separator.topAnchor.constraint(equalTo: field.bottomAnchor, constant: 5).isActive = true
+            separator.topAnchor.constraint(equalTo: field.bottomAnchor, constant: 8).isActive = true
             separator.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
             separator.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+            
+            results.topAnchor.constraint(equalTo: separator.bottomAnchor).isActive = true
+            results.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+            results.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+            results.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+            
+            icon.centerYAnchor.constraint(equalTo: results.centerYAnchor).isActive = true
+            icon.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         }
         
         func controlTextDidChange(_: Notification) {
-            xmark.state = field.stringValue.isEmpty ? .off : .on
+            update()
         }
         
         func control(_: NSControl, textView: NSTextView, doCommandBy: Selector) -> Bool {
             switch doCommandBy {
-//            case #selector(cancelOperation), #selector(complete), #selector(NSSavePanel.cancel):
-//                if autocomplete.isVisible {
-//                    autocomplete.end()
-//                } else {
-//                    window!.makeFirstResponder(superview!)
-//                }
-//            case #selector(moveUp):
-//                autocomplete.up.send(.init())
-//            case #selector(moveDown):
-//                autocomplete.down.send(.init())
+            case #selector(cancelOperation), #selector(complete), #selector(NSSavePanel.cancel):
+                window?.close()
+            case #selector(moveUp):
+                move.send((date: .init(), direction: .up))
+            case #selector(moveDown):
+                move.send((date: .init(), direction: .down))
             default:
                 return false
             }
             return true
         }
         
-        override var allowsVibrancy: Bool {
-            true
+        private func update() {
+            xmark.state = field.stringValue.isEmpty ? .off : .on
+            cloud
+                .find(search: field.stringValue) { [weak self] in
+                    self?.icon.isHidden = !$0.isEmpty
+                    self?.found.send($0)
+                }
         }
     }
 }

@@ -98,23 +98,31 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
             .subscribe(clip)
             .store(in: &subs)
         
-        highlight
-            .sink { [weak self] point in
+        highlighted
+            .sink { [weak self] highlighted in
                 self?
                     .cells
                     .filter {
                         $0.state != .pressed && $0.state != .dragging
                     }
-                    .map {
-                        (cell: $0, state: $0.frame.contains(point)
-                            ? CollectionCellState.highlighted
-                            : .none)
+                    .first {
+                        $0.item?.info.id == highlighted
                     }
+                    .map {
+                        $0.state = .highlighted
+                    }
+            }
+            .store(in: &subs)
+        
+        highlighted
+            .sink { [weak self] highlighted in
+                self?
+                    .cells
                     .filter {
-                        $0.cell.state != $0.state
+                        $0.state != .pressed && $0.state != .dragging && $0.item?.info.id != highlighted
                     }
                     .forEach {
-                        $0.cell.state = $0.state
+                        $0.state = .none
                     }
             }
             .store(in: &subs)
