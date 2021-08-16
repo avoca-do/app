@@ -154,7 +154,6 @@ extension Find {
         }
         
         func center(y: CGFloat) {
-            print(y)
             NSAnimationContext
                 .runAnimationGroup {
                     $0.duration = 0.3
