@@ -134,8 +134,7 @@ extension Find {
                                     $0.item?.info.id == info[index].id
                                 }
                                 .map {
-                                    self?
-                                        .
+                                    self?.contentView.scroll(to: .init(x: 0, y: $0.frame.midY))
                                 }
                             self?.highlighted.send(info[index].id)
                         }

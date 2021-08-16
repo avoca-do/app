@@ -105,24 +105,8 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                     .filter {
                         $0.state != .pressed && $0.state != .dragging
                     }
-                    .first {
-                        $0.item?.info.id == highlighted
-                    }
-                    .map {
-                        $0.state = .highlighted
-                    }
-            }
-            .store(in: &subs)
-        
-        highlighted
-            .sink { [weak self] highlighted in
-                self?
-                    .cells
-                    .filter {
-                        $0.state != .pressed && $0.state != .dragging && $0.item?.info.id != highlighted
-                    }
                     .forEach {
-                        $0.state = .none
+                        $0.state = $0.item?.info.id == highlighted ? .highlighted : .none
                     }
             }
             .store(in: &subs)
