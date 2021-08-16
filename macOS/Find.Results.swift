@@ -131,11 +131,9 @@ extension Find {
             
             selected
                 .compactMap(\.?.board)
-                .map(State.view)
-                .sink { [weak self] (state: State) in
-                    print("select")
+                .sink { [weak self] in
                     self?.window?.close()
-                    session.state.send(state)
+                    session.select.send($0)
                 }
                 .store(in: &subs)
         }

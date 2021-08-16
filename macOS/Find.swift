@@ -28,11 +28,12 @@ final class Find: NSPanel {
         
         center()
         
-        monitor = NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [weak self] event in
-            guard event.window != self else { return event }
-            self?.close()
-            return nil
-        }
+        monitor = NSEvent
+            .addLocalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [weak self] event in
+                guard event.window != self else { return event }
+                self?.close()
+                return nil
+            }
     }
     
     override func close() {

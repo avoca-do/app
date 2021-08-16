@@ -93,15 +93,11 @@ extension Sidebar {
                 .subscribe(selected)
                 .store(in: &subs)
             
-            info
-                .removeDuplicates()
-                .combineLatest(selected
-                                .compactMap {
-                                    $0
-                                })
-                .map { _, selected in
-                    .view(selected)
+            selected
+                .compactMap {
+                    $0
                 }
+                .map(State.view)
                 .subscribe(session.state)
                 .store(in: &subs)
             
