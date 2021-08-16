@@ -133,13 +133,16 @@ extension Find {
                                 .first {
                                     $0.item?.info.id == info[index].id
                                 }
+                                .map(\.frame.midY)
                                 .map {
-                                    self?.contentView.scroll(to: .init(x: 0, y: $0.frame.midY))
+                                    self?.center(y: $0)
                                 }
                             self?.highlighted.send(info[index].id)
                         }
                 }
                 .store(in: &subs)
+            
+            
         }
         
         override func mouseUp(with: NSEvent) {
@@ -149,6 +152,16 @@ extension Find {
             default:
                 break
             }
+        }
+        
+        func center(y: CGFloat) {
+            print(y)
+            NSAnimationContext
+                .runAnimationGroup {
+                    $0.duration = 0.3
+                    $0.allowsImplicitAnimation = true
+                    contentView.bounds.origin.y = y - bounds.midY
+                }
         }
     }
 }
