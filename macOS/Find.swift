@@ -2,6 +2,7 @@ import AppKit
 
 final class Find: NSPanel {
     static let width = CGFloat(480)
+    private var monitor: Any?
     
     deinit {
         print("find gone")
@@ -27,14 +28,17 @@ final class Find: NSPanel {
         
         center()
         
-        var monitor: Any?
         monitor = NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [weak self] event in
             guard event.window != self else { return event }
-            monitor
-                .map(NSEvent.removeMonitor)
             self?.close()
             return nil
         }
+    }
+    
+    override func close() {
+        super.close()
+        monitor
+            .map(NSEvent.removeMonitor)
     }
     
     override func makeFirstResponder(_ responder: NSResponder?) -> Bool {

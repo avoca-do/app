@@ -86,20 +86,6 @@ extension Find {
                 .subscribe(selected)
                 .store(in: &subs)
             
-            render
-                .combineLatest(selected
-                                .removeDuplicates())
-                .sink { [weak self] _, selected in
-                    self?
-                        .cells
-                        .forEach {
-                            $0.state = $0.item?.info.id == selected
-                                ? .pressed
-                                : .none
-                        }
-                }
-                .store(in: &subs)
-            
             move
                 .combineLatest(info
                                 .removeDuplicates(),
@@ -140,6 +126,16 @@ extension Find {
                                 }
                             self?.highlighted.send(info[index].id)
                         }
+                }
+                .store(in: &subs)
+            
+            selected
+                .compactMap(\.?.board)
+                .map(State.view)
+                .sink { [weak self] (state: State) in
+                    print("select")
+                    self?.window?.close()
+                    session.state.send(state)
                 }
                 .store(in: &subs)
         }
