@@ -104,11 +104,13 @@ extension Find {
                 .combineLatest(info
                                 .removeDuplicates(),
                                highlighted
+                                .removeDuplicates(),
+                               items
                                 .removeDuplicates())
                 .removeDuplicates {
                     $0.0.0 == $1.0.0
                 }
-                .sink { [weak self] move, info, highlighted in
+                .sink { [weak self] move, info, highlighted, items in
                     (info
                         .firstIndex {
                             $0.id == highlighted
@@ -128,21 +130,18 @@ extension Find {
                                     : info.count - 1
                         }
                         .map { index in
-                            self?
-                                .cells
+                            items
                                 .first {
-                                    $0.item?.info.id == info[index].id
+                                    $0.info.id == info[index].id
                                 }
-                                .map(\.frame.midY)
                                 .map {
-                                    self?.center(y: $0)
+                                    self?
+                                        .center(y: $0.rect.minY)
                                 }
                             self?.highlighted.send(info[index].id)
                         }
                 }
                 .store(in: &subs)
-            
-            
         }
         
         override func mouseUp(with: NSEvent) {
