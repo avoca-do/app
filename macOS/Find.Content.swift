@@ -10,6 +10,7 @@ extension Find {
         private var subs = Set<AnyCancellable>()
         private let found = PassthroughSubject<[Found], Never>()
         private let move = PassthroughSubject<(date: Date, direction: Move), Never>()
+        private let enter = PassthroughSubject<Date, Never>()
         
         override var allowsVibrancy: Bool {
             true
@@ -50,7 +51,7 @@ extension Find {
             addSubview(icon)
             self.icon = icon
             
-            let results = Results(found: found, move: move)
+            let results = Results(found: found, move: move, enter: enter)
             addSubview(results)
             
             magnifier.centerYAnchor.constraint(equalTo: field.centerYAnchor).isActive = true
@@ -84,6 +85,8 @@ extension Find {
             switch doCommandBy {
             case #selector(cancelOperation), #selector(complete), #selector(NSSavePanel.cancel):
                 window?.close()
+            case #selector(insertNewline):
+                enter.send(.init())
             case #selector(moveUp):
                 move.send((date: .init(), direction: .up))
             case #selector(moveDown):

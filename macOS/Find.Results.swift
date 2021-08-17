@@ -15,7 +15,10 @@ extension Find {
         }
         
         required init?(coder: NSCoder) { nil }
-        init(found: PassthroughSubject<[Found], Never>, move: PassthroughSubject<(date: Date, direction: Move), Never>) {
+        init(found: PassthroughSubject<[Found], Never>,
+             move: PassthroughSubject<(date: Date, direction: Move), Never>,
+             enter: PassthroughSubject<Date, Never>) {
+            
             super.init()
             scrollerInsets.bottom = 8
             
@@ -87,12 +90,9 @@ extension Find {
                 .store(in: &subs)
             
             move
-                .combineLatest(info
-                                .removeDuplicates(),
-                               highlighted
-                                .removeDuplicates(),
-                               items
-                                .removeDuplicates())
+                .combineLatest(info,
+                               highlighted,
+                               items)
                 .removeDuplicates {
                     $0.0.0 == $1.0.0
                 }
@@ -127,6 +127,17 @@ extension Find {
                             self?.highlighted.send(info[index].id)
                         }
                 }
+                .store(in: &subs)
+            
+            enter
+                .combineLatest(highlighted)
+                .removeDuplicates {
+                    $0.0 == $1.0
+                }
+                .compactMap {
+                    $1
+                }
+                .subscribe(selected)
                 .store(in: &subs)
             
             selected
