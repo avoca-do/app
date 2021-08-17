@@ -22,6 +22,12 @@ extension Window.Content {
             addSubview(text)
             
             let button = Option(title: "Start")
+            button
+                .click
+                .sink {
+                    session.newProject()
+                }
+                .store(in: &subs)
             addSubview(button)
             
             cloud
