@@ -1,4 +1,5 @@
 import AppKit
+import StoreKit
 import Archivable
 import Kanban
 
@@ -7,13 +8,6 @@ let session = Session()
 let purchases = Purchases()
 
 @NSApplicationMain final class App: NSApplication, NSApplicationDelegate {
-    /*static let dark = NSApp.windows.first?.effectiveAppearance == NSAppearance(named: .darkAqua)
-    private var subs = Set<AnyCancellable>()
-    */
-    
-    
-    
-    
     required init?(coder: NSCoder) { nil }
     override init() {
         super.init()
@@ -21,21 +15,8 @@ let purchases = Purchases()
     }
     
     func applicationWillFinishLaunching(_: Notification) {
-//        Session.decimal.numberStyle = .decimal
-//        Session.percentage.numberStyle = .percent
-//
         mainMenu = Menu()
         Window().makeKeyAndOrderFront(nil)
-        
-//        Repository.memory.archive.sink { archive in
-//            Session.mutate {
-//                $0 = archive
-//            }
-//            Session.path = archive.count(.archive) > Session.path._board
-//                ? .board(Session.path._board)
-//                : archive.isEmpty(.archive) ? .archive : .board(0)
-//            Session.scroll.send()
-//        }.store(in: &subs)
     }
     
     func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool {
@@ -46,14 +27,8 @@ let purchases = Purchases()
         (anyWindow() ?? About())
             .makeKeyAndOrderFront(nil)
     }
-    /*
+    
     func applicationDidFinishLaunching(_: Notification) {
-        Session.purchases.plusOne.sink {
-            Session.mutate {
-                $0.capacity += 1
-            }
-        }.store(in: &subs)
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             if let created = Defaults.created {
                 if !Defaults.rated && Calendar.current.dateComponents([.day], from: created, to: .init()).day! > 4 {
@@ -69,14 +44,10 @@ let purchases = Purchases()
     }
     
     func applicationDidBecomeActive(_: Notification) {
-        Repository.memory.pull.send()
+        cloud.pull.send()
     }
     
     func application(_: NSApplication, didReceiveRemoteNotification: [String : Any]) {
-        Repository.memory.pull.send()
+        cloud.pull.send()
     }
-    
-    @objc func preferences() {
-        (windows.first { $0 is Preferences } ?? Preferences()).makeKeyAndOrderFront(nil)
-    }*/
 }
