@@ -4,12 +4,7 @@ final class Find: NSPanel {
     static let width = CGFloat(480)
     private var monitor: Any?
     
-    deinit {
-        print("find gone")
-    }
-    
     init() {
-        print("find init")
         super.init(contentRect: .init(x: 0, y: 0, width: Self.width, height: 320), styleMask: [.borderless], backing: .buffered, defer: true)
         isMovableByWindowBackground = true
         isOpaque = false

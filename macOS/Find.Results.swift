@@ -10,10 +10,6 @@ extension Find {
         private static let insets2 = insets + insets
         private let select = PassthroughSubject<CGPoint, Never>()
         
-        deinit {
-            print("results gone")
-        }
-        
         required init?(coder: NSCoder) { nil }
         init(found: PassthroughSubject<[Found], Never>,
              move: PassthroughSubject<(date: Date, direction: Move), Never>,
