@@ -124,11 +124,11 @@ final class Menu: NSMenu, NSMenuDelegate {
                         return (index: $0, title: "Avocado")
                     case is Store:
                         return (index: $0, title: "Purchases")
+                    case is Preferences:
+                        return (index: $0, title: "Preferences")
 //                    case is About:
 //                        return (index: $0, title: NSLocalizedString("About", comment: ""))
                         #warning("add about")
-                        #warning("check that find doesn't appear here")
-                        #warning("add preferences")
                     default:
                         return nil
                     }

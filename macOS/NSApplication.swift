@@ -7,8 +7,8 @@ extension NSApplication {
     }
     
     @objc func showPreferencesWindow(_ sender: Any?) {
-//        (anyWindow() ?? Settings())
-//            .makeKeyAndOrderFront(nil)
+        (anyWindow() ?? Preferences())
+            .makeKeyAndOrderFront(nil)
     }
     
     @objc func find(_ sender: Any?) {
