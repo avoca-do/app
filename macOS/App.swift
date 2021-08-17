@@ -41,6 +41,11 @@ let purchases = Purchases()
     func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool {
         true
     }
+    
+    @objc override func orderFrontStandardAboutPanel(_ sender: Any?) {
+        (anyWindow() ?? About())
+            .makeKeyAndOrderFront(nil)
+    }
     /*
     func applicationDidFinishLaunching(_: Notification) {
         Session.purchases.plusOne.sink {

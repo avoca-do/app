@@ -89,6 +89,7 @@
 		CE793C2626CBED90006DD2EB /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE793C2526CBED8F006DD2EB /* Preferences.swift */; };
 		CE793C2826CBEDF6006DD2EB /* Preferences.Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE793C2726CBEDF6006DD2EB /* Preferences.Features.swift */; };
 		CE793C2A26CBEE1B006DD2EB /* Preferences.Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE793C2926CBEE1B006DD2EB /* Preferences.Switch.swift */; };
+		CE793C2C26CBEFDB006DD2EB /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE793C2B26CBEFDB006DD2EB /* About.swift */; };
 		CE7AFF6B25FA5F90008D6278 /* Cards.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7AFF6A25FA5F90008D6278 /* Cards.Content.swift */; };
 		CE7D6FBC25F256E30028BB2A /* Middelbar.Item.Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D6FBB25F256E30028BB2A /* Middelbar.Item.Style.swift */; };
 		CE85C59C25FB7F2600287C27 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85C59B25FB7F2600287C27 /* Progress.swift */; };
@@ -368,6 +369,7 @@
 		CE793C2526CBED8F006DD2EB /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		CE793C2726CBEDF6006DD2EB /* Preferences.Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.Features.swift; sourceTree = "<group>"; };
 		CE793C2926CBEE1B006DD2EB /* Preferences.Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.Switch.swift; sourceTree = "<group>"; };
+		CE793C2B26CBEFDB006DD2EB /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		CE7AFF6A25FA5F90008D6278 /* Cards.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.Content.swift; sourceTree = "<group>"; };
 		CE7D6FBB25F256E30028BB2A /* Middelbar.Item.Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middelbar.Item.Style.swift; sourceTree = "<group>"; };
 		CE85C59B25FB7F2600287C27 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
@@ -649,6 +651,7 @@
 			children = (
 				CE99E68125DBFEA000E0EA36 /* macOS.entitlements */,
 				CE99E68025DBFEA000E0EA36 /* Info.plist */,
+				CE793C2B26CBEFDB006DD2EB /* About.swift */,
 				CE01BE8526C563D2001A0F56 /* Activity.swift */,
 				CE99E67725DBFE9F00E0EA36 /* App.swift */,
 				CEDD564A26BBEBCF00AA54A4 /* Bar.Action.swift */,
@@ -1151,6 +1154,7 @@
 				CEC3206326B800AA00364E88 /* CGRect.swift in Sources */,
 				CEC3207526B800AA00364E88 /* NSMenu.swift in Sources */,
 				CEC3206226B800AA00364E88 /* NSFont.swift in Sources */,
+				CE793C2C26CBEFDB006DD2EB /* About.swift in Sources */,
 				CE5B92AB26C697B80088EAFE /* Find.Cell.swift in Sources */,
 				CEC3206B26B800AA00364E88 /* Text.swift in Sources */,
 				CE6B575426BD5D0900DDF923 /* Store.Bar.swift in Sources */,
