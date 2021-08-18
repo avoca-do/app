@@ -33,40 +33,40 @@ final class Handler: INExtension, ProjectIntentHandling, ProgressIntentHandling,
     }
     
     func resolveColumn(for intent: ProjectIntent, with: @escaping (ColumnResolutionResult) -> Void) {
-        guard
-            let archive = self.archive,
-            !archive.isEmpty(.archive)
-        else {
-            return with(.notRequired())
-        }
-        
-        guard
-            let project = intent.project,
-            let column = intent.column,
-            let projectId = project.identifier.flatMap(Int.init),
-            projectId < archive.count(.archive),
-            let columnId = column.identifier.flatMap(Int.init),
-            columnId < archive.count(.board(projectId))
-        else {
-            return with(.confirmationRequired(with: .init(identifier: "0", display: archive[title: .column(.board(0), 0)])))
-        }
-        
-        with(.success(with: column))
+//        guard
+//            let archive = self.archive,
+//            !archive.isEmpty(.archive)
+//        else {
+//            return with(.notRequired())
+//        }
+//
+//        guard
+//            let project = intent.project,
+//            let column = intent.column,
+//            let projectId = project.identifier.flatMap(Int.init),
+//            projectId < archive.count(.archive),
+//            let columnId = column.identifier.flatMap(Int.init),
+//            columnId < archive.count(.board(projectId))
+//        else {
+//            return with(.confirmationRequired(with: .init(identifier: "0", display: archive[title: .column(.board(0), 0)])))
+//        }
+//
+//        with(.success(with: column))
     }
     
     func provideColumnOptionsCollection(for intent: ProjectIntent, with: @escaping (INObjectCollection<Column>?, Error?) -> Void) {
-        guard
-            let archive = archive,
-            let project = intent.project,
-            let id = project.identifier.flatMap(Int.init),
-            id < archive.count(.archive)
-        else {
-            return with(.init(items: []), nil)
-        }
-        
-        with(.init(items: (0 ..< archive.count(.board(id))).map {
-            .init(identifier: "\($0)", display: archive[title: .column(.board(id), $0)])
-        }), nil)
+//        guard
+//            let archive = archive,
+//            let project = intent.project,
+//            let id = project.identifier.flatMap(Int.init),
+//            id < archive.count(.archive)
+//        else {
+//            return with(.init(items: []), nil)
+//        }
+//
+//        with(.init(items: (0 ..< archive.count(.board(id))).map {
+//            .init(identifier: "\($0)", display: archive[title: .column(.board(id), $0)])
+//        }), nil)
     }
     
     func resolveBottom(for intent: ProjectIntent, with: @escaping (INBooleanResolutionResult) -> Void) {
@@ -74,29 +74,29 @@ final class Handler: INExtension, ProjectIntentHandling, ProgressIntentHandling,
     }
     
     private func resolve(_ project: Project?, with: @escaping (ProjectResolutionResult) -> Void) {
-        guard
-            let archive = self.archive,
-            !archive.isEmpty(.archive)
-        else {
-            return with(.notRequired())
-        }
-        
-        guard
-            let project = project,
-            let id = project.identifier.flatMap(Int.init),
-            id < archive.count(.archive)
-        else {
-            return with(.confirmationRequired(with: .init(identifier: "0", display: archive[name: .board(0)])))
-        }
-        
-        with(.success(with: project))
+//        guard
+//            let archive = self.archive,
+//            !archive.isEmpty(.archive)
+//        else {
+//            return with(.notRequired())
+//        }
+//
+//        guard
+//            let project = project,
+//            let id = project.identifier.flatMap(Int.init),
+//            id < archive.count(.archive)
+//        else {
+//            return with(.confirmationRequired(with: .init(identifier: "0", display: archive[name: .board(0)])))
+//        }
+//
+//        with(.success(with: project))
     }
     
     private func provide(_ with: @escaping (INObjectCollection<Project>?, Error?) -> Void) {
-        with(.init(items: archive.map { archive in
-            (0 ..< archive.count(.archive)).map {
-                .init(identifier: "\($0)", display: archive[name: .board($0)])
-            }
-        } ?? []), nil)
+//        with(.init(items: archive.map { archive in
+//            (0 ..< archive.count(.archive)).map {
+//                .init(identifier: "\($0)", display: archive[name: .board($0)])
+//            }
+//        } ?? []), nil)
     }
 }
