@@ -9,9 +9,9 @@ extension Window {
                 Color(.secondarySystemBackground)
                     .edgesIgnoringSafeArea(.all)
                 VStack {
-                    Image(session.archive.items.isEmpty ? "welcome" : "choose")
+                    Image(session.archive.isEmpty ? "welcome" : "choose")
                     
-                    if session.archive.items.isEmpty {
+                    if session.archive.isEmpty {
                         Button {
                             
                         } label: {
@@ -28,7 +28,7 @@ extension Window {
                     }
                 }
             }
-            .navigationBarTitle(session.archive.items.isEmpty ? "Start your first project now" : "Choose a project to start", displayMode: .inline)
+            .navigationBarTitle(session.archive.isEmpty ? "Start your first project now" : "Choose a project to start", displayMode: .inline)
         }
     }
 }
