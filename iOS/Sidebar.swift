@@ -50,8 +50,8 @@ struct Sidebar: View {
     
     @ViewBuilder private var link: some View {
         switch session.section {
-        case .project:
-            Project(session: $session)
+        case let .project(board):
+            Project(session: $session, board: board)
         default:
             Window.Empty(session: $session)
         }
