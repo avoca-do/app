@@ -78,6 +78,8 @@
 		CE9B192126B98E8D00D8ED25 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EE025C31E87007D25FC /* Container.swift */; };
 		CEA6F7A326CD3D6700B59F67 /* RelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3204826B8009200364E88 /* RelativeDateTimeFormatter.swift */; };
 		CEA6F7A526CD3FC000B59F67 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F7A426CD3FC000B59F67 /* Project.swift */; };
+		CEA6F7A726CD460700B59F67 /* Window.Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F7A626CD460700B59F67 /* Window.Empty.swift */; };
+		CEA6F7A926CD4C0A00B59F67 /* Session.Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F7A826CD4C0A00B59F67 /* Session.Section.swift */; };
 		CEA87A6E26B6E07C00706E04 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE99E67725DBFE9F00E0EA36 /* App.swift */; };
 		CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB09ADE25B994AF00BF7AD6 /* Kanban */; };
 		CEB508A225FA49AE00E18E86 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB508A125FA49AE00E18E86 /* Kanban */; };
@@ -311,6 +313,8 @@
 		CEA1819825C04DD200552DEF /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		CEA652A125C1CBA60099C82E /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		CEA6F7A426CD3FC000B59F67 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		CEA6F7A626CD460700B59F67 /* Window.Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.Empty.swift; sourceTree = "<group>"; };
+		CEA6F7A826CD4C0A00B59F67 /* Session.Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.Section.swift; sourceTree = "<group>"; };
 		CEAFE88B25EFE78D00B45B8C /* Modal.Card.Vertical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.Card.Vertical.swift; sourceTree = "<group>"; };
 		CEAFE89125EFE80F00B45B8C /* Modal.Card.Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.Card.Footer.swift; sourceTree = "<group>"; };
 		CEB5089F25FA48F000E18E86 /* intent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = intent.entitlements; sourceTree = "<group>"; };
@@ -461,9 +465,11 @@
 				CE6BBD6B26CD303B00F577B2 /* Blur.swift */,
 				CEA6F7A426CD3FC000B59F67 /* Project.swift */,
 				CE6BBD6426CD2EEE00F577B2 /* Session.Modal.swift */,
+				CEA6F7A826CD4C0A00B59F67 /* Session.Section.swift */,
 				CE6BBD6226CD2ED200F577B2 /* Session.swift */,
 				CE6BBD7126CD330B00F577B2 /* Sidebar.swift */,
 				CE6BBD6926CD2F9700F577B2 /* Toast.swift */,
+				CEA6F7A626CD460700B59F67 /* Window.Empty.swift */,
 				CE6BBD6D26CD307E00F577B2 /* Window.swift */,
 				CE25079D25B8660A00F9C526 /* Assets.xcassets */,
 			);
@@ -940,7 +946,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE29280D25FA3A1500EF04F5 /* widget.intentdefinition in Sources */,
+				CEA6F7A926CD4C0A00B59F67 /* Session.Section.swift in Sources */,
 				CE6BBD6E26CD307E00F577B2 /* Window.swift in Sources */,
+				CEA6F7A726CD460700B59F67 /* Window.Empty.swift in Sources */,
 				CE6BBD6C26CD303B00F577B2 /* Blur.swift in Sources */,
 				CEA6F7A326CD3D6700B59F67 /* RelativeDateTimeFormatter.swift in Sources */,
 				CE6BBD7226CD330B00F577B2 /* Sidebar.swift in Sources */,

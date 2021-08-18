@@ -9,7 +9,9 @@ struct Sidebar: View {
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
                 ForEach(0 ..< session.archive.items.count, id: \.self) { index in
-                    NavigationLink(destination: Project(session: $session)) {
+                    Button {
+                        session.section = .project(index)
+                    } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 8)
                                 .fill(Color(.tertiarySystemBackground))
@@ -30,6 +32,13 @@ struct Sidebar: View {
                         .padding(.horizontal)
                         .contentShape(Rectangle())
                     }
+                }
+                NavigationLink(destination: Project(session: $session), isActive: .init(get: {
+                    true
+                }, set: { _ in
+                    
+                })) {
+                    EmptyView()
                 }
             }
         }

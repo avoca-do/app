@@ -6,6 +6,7 @@ struct Window: View {
     var body: some View {
         NavigationView {
             Sidebar(session: $session)
+            Empty(session: $session)
         }
     }
 }
