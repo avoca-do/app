@@ -11,40 +11,8 @@ struct Sidebar: View {
             ScrollView {
                 Spacer()
                     .frame(height: 20)
-                ForEach(0 ..< session.archive.items.count, id: \.self) { index in
-                    Button {
-                        detail = true
-                        session.section = .project(index)
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(Color(.tertiarySystemBackground))
-                            HStack {
-                                ZStack {
-                                    Circle()
-                                        .stroke(Color(.tertiaryLabel), lineWidth: 1)
-                                        .frame(width: 26, height: 26)
-                                    Meter(percent: session.archive.items[index].progress.percentage)
-                                        .fill(Color.accentColor)
-                                        .frame(width: 28, height: 28)
-                                }
-                                VStack(alignment: .leading) {
-                                    Text(verbatim: session.archive.items[index].name)
-                                        .foregroundColor(.primary)
-                                        .font(.footnote)
-                                    Text(verbatim: RelativeDateTimeFormatter().string(from: session.archive.items[index].date))
-                                        .foregroundColor(.secondary)
-                                        .font(.footnote)
-                                }
-                                .padding(.leading, 4)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
-                            }
-                            .padding()
-                        }
-                        .padding(.horizontal)
-                        .contentShape(Rectangle())
-                    }
+                ForEach(0 ..< session.archive.items.count, id: \.self) {
+                    Item(session: $session, detail: $detail, index: $0)
                 }
                 Spacer()
                     .frame(height: 20)
@@ -54,6 +22,21 @@ struct Sidebar: View {
             }
         }
         .navigationBarTitle("Projects", displayMode: .large)
+        .navigationBarItems(
+            leading: Option(symbol: "slider.vertical.3") {
+                
+            },
+            trailing: HStack {
+                Option(symbol: "chart.pie") {
+                    
+                }
+                Option(symbol: "magnifyingglass") {
+                    
+                }
+                Option(symbol: "plus") {
+                    
+                }
+            })
         .onAppear {
             cloud
                 .notifier

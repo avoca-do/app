@@ -18,15 +18,3 @@ extension Sidebar {
         }
     }
 }
-//
-//private struct Oval: Shape {
-//    let y: Double
-//
-//    func path(in rect: CGRect) -> Path {
-//        .init {
-//            $0.addArc(center: .init(x: (.init(rect.maxX / 9) * .init(index)) + Double(15),
-//                                    y: (.init(rect.maxY) - (.init(rect.maxY) * y)) + Double(15)),
-//                      radius: radius, startAngle: .zero, endAngle: .init(radians: .pi * 2), clockwise: true)
-//        }
-//    }
-//}
