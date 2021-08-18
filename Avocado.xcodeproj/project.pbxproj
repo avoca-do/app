@@ -54,6 +54,7 @@
 		CE6BBD6C26CD303B00F577B2 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BBD6B26CD303B00F577B2 /* Blur.swift */; };
 		CE6BBD6E26CD307E00F577B2 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BBD6D26CD307E00F577B2 /* Window.swift */; };
 		CE6BBD7026CD30CF00F577B2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BBD6F26CD30CF00F577B2 /* App.swift */; };
+		CE6BBD7226CD330B00F577B2 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BBD7126CD330B00F577B2 /* Projects.swift */; };
 		CE6D659D25D1A1060017FE07 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE6D659C25D1A1060017FE07 /* Settings.bundle */; };
 		CE7339E726B9551100D195D6 /* Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7339E626B9551100D195D6 /* Flip.swift */; };
 		CE7339E926B9563200D195D6 /* Window.Content.Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7339E826B9563200D195D6 /* Window.Content.Empty.swift */; };
@@ -265,6 +266,7 @@
 		CE6BBD6B26CD303B00F577B2 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		CE6BBD6D26CD307E00F577B2 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		CE6BBD6F26CD30CF00F577B2 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		CE6BBD7126CD330B00F577B2 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
 		CE6D659C25D1A1060017FE07 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CE7183B825CC3CAC00AD02F8 /* Dismisser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dismisser.swift; sourceTree = "<group>"; };
 		CE71D20725B98FF000D0F4E3 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 				CE2507A225B8660A00F9C526 /* Info.plist */,
 				CE6BBD6026CD2E3400F577B2 /* App.swift */,
 				CE6BBD6B26CD303B00F577B2 /* Blur.swift */,
+				CE6BBD7126CD330B00F577B2 /* Projects.swift */,
 				CE6BBD6426CD2EEE00F577B2 /* Session.Modal.swift */,
 				CE6BBD6626CD2F5E00F577B2 /* Session.Section.swift */,
 				CE6BBD6226CD2ED200F577B2 /* Session.swift */,
@@ -939,6 +942,7 @@
 				CE29280D25FA3A1500EF04F5 /* widget.intentdefinition in Sources */,
 				CE6BBD6E26CD307E00F577B2 /* Window.swift in Sources */,
 				CE6BBD6C26CD303B00F577B2 /* Blur.swift in Sources */,
+				CE6BBD7226CD330B00F577B2 /* Projects.swift in Sources */,
 				CE6BBD6826CD2F8000F577B2 /* Toast.Message.swift in Sources */,
 				CE6BBD6526CD2EEE00F577B2 /* Session.Modal.swift in Sources */,
 				CE6BBD6126CD2E3400F577B2 /* App.swift in Sources */,
