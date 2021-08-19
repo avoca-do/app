@@ -5,6 +5,10 @@ extension Writer {
     final class Coordinator: UITextView, UITextViewDelegate {
         private let wrapper: Writer
         
+        deinit {
+            print("writer gone")
+        }
+        
         required init?(coder: NSCoder) { nil }
         init(wrapper: Writer) {
             self.wrapper = wrapper
@@ -78,15 +82,16 @@ extension Writer {
                 $0.widthAnchor.constraint(equalToConstant: 64).isActive = true
             }
             
-            [number, minus, asterisk].forEach {
-                $0.imageView!.tintColor = .label
-            }
+            [number, minus, asterisk]
+                .forEach {
+                    $0.imageView!.tintColor = .label
+                }
             
             cancel.leftAnchor.constraint(equalTo: input.safeAreaLayoutGuide.leftAnchor).isActive = true
             send.rightAnchor.constraint(equalTo: input.safeAreaLayoutGuide.rightAnchor).isActive = true
-            asterisk.centerXAnchor.constraint(equalTo: input.centerXAnchor).isActive = true
-            minus.rightAnchor.constraint(equalTo: asterisk.leftAnchor).isActive = true
-            number.leftAnchor.constraint(equalTo: asterisk.rightAnchor).isActive = true
+            minus.centerXAnchor.constraint(equalTo: input.centerXAnchor).isActive = true
+            number.rightAnchor.constraint(equalTo: minus.leftAnchor).isActive = true
+            asterisk.leftAnchor.constraint(equalTo: minus.rightAnchor).isActive = true
             
             title.topAnchor.constraint(equalTo: bottomAnchor, constant: 20).isActive = true
             title.leftAnchor.constraint(equalTo: leftAnchor, constant: 25).isActive = true
@@ -165,25 +170,7 @@ extension Writer {
         
         @objc private func send() {
             resignFirstResponder()
-            let content = text.trimmingCharacters(in: .whitespacesAndNewlines)
-            guard !content.isEmpty else { return }
-            
-//            switch wrapper.write {
-//            case let .new(path):
-//                switch path {
-//                case .board:
-//                    wrapper.session.archive.card(path)
-//                    wrapper.session.archive[content: .card(.column(path, 0), 0)] = content
-//                    wrapper.session.path = .column(path, 0)
-//                default: break
-//                }
-//            case let .edit(path):
-//                switch path {
-//                case .card:
-//                    wrapper.session.archive[content: path] = content
-//                default: break
-//                }
-//            }
+            wrapper.session.finish(text: text.trimmingCharacters(in: .whitespacesAndNewlines), write: wrapper.write)
         }
         
         @objc private func asterisk() {

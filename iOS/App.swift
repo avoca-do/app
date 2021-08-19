@@ -8,7 +8,7 @@ let purchases = Purchases()
     @State private var session = Session()
     @State private var modal: Modal?
     @Environment(\.scenePhase) private var phase
-//    @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
+    @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
     
     var body: some Scene {
         WindowGroup {
