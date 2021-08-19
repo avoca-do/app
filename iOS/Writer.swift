@@ -1,9 +1,8 @@
 import SwiftUI
-import Kanban
 
-struct Editor: UIViewRepresentable {
+struct Writer: UIViewRepresentable {
     @Binding var session: Session
-    let write: Write
+    let write: App.Modal.Write
     @Environment(\.presentationMode) var visible
     
     func makeCoordinator() -> Coordinator {

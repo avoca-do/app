@@ -1,12 +1,14 @@
 import Foundation
 
-extension Session {
+extension App {
     enum Modal: Identifiable, Equatable {
         var id: String {
             "\(self)"
         }
         
         case
-        store
+        purchase,
+        store,
+        write(Write)
     }
 }

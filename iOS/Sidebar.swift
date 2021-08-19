@@ -33,9 +33,7 @@ struct Sidebar: View {
                 Option(symbol: "magnifyingglass") {
                     
                 }
-                Option(symbol: "plus") {
-                    
-                }
+                Option(symbol: "plus", action: session.newProject)
             })
         .onAppear {
             cloud

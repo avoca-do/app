@@ -6,15 +6,19 @@ let cloud = Cloud.new
 
 @main struct App: SwiftUI.App {
     @State private var session = Session()
+    @State private var modal: Modal?
     @Environment(\.scenePhase) private var phase
 //    @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
     
     var body: some Scene {
         WindowGroup {
             Window(session: $session)
-                .sheet(item: $session.modal, content: modal)
+                .sheet(item: $modal, content: modal)
                 .onReceive(cloud.archive) {
                     session.archive = $0
+                }
+                .onReceive(session.modal) {
+                    change($0)
                 }
 //                .onReceive(purchases.open) {
 //                    change(.store)
@@ -30,36 +34,26 @@ let cloud = Cloud.new
         }
     }
     
-    private func change(_ modal: Session.Modal) {
-        guard modal != session.modal else { return }
-        if session.modal == nil {
-            session.modal = modal
+    private func change(_ new: App.Modal) {
+        guard new != modal else { return }
+        if modal == nil {
+            modal = new
         } else {
-            session.modal = nil
+            modal = nil
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                session.modal = modal
+                modal = new
             }
         }
     }
     
-    @ViewBuilder private func modal(_ modal: Session.Modal) -> some View {
-//        switch modal {
-//        case let .bookmarks(id), let .history(id):
-//            Collection(session: $session, id: id, modal: modal)
-//        case let .info(id):
-//            Tab.Info(session: $session, id: id)
-//        case let .options(id):
-//            Tab.Options(session: $session, id: id)
-//        case .settings:
-//            Settings(session: $session)
-//        case .trackers:
-//            Trackers(session: $session)
-//        case .activity:
-//            Activity(session: $session)
-//        case .froob:
-//            Info.Froob(session: $session)
-//        case .store:
-//            Store()
-//        }
+    @ViewBuilder private func modal(_ modal: App.Modal) -> some View {
+        switch modal {
+        case let .write(write):
+            Writer(session: $session, write: write)
+        case .purchase:
+            Purchase(session: $session)
+        case .store:
+            Circle()
+        }
     }
 }

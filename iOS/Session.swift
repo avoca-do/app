@@ -6,10 +6,13 @@ struct Session {
     var archive = Archive.new
     var section = Section.projects
     var toast: Toast.Message?
-    var modal: Modal?
-    let become = PassthroughSubject<Write, Never>()
+    let modal = PassthroughSubject<App.Modal, Never>()
     
-    init() {
-        
+    func newProject() {
+        if cloud.archive.value.available {
+            modal.send(.write(.create))
+        } else {
+            modal.send(.purchase)
+        }
     }
 }

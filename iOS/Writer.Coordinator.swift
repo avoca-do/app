@@ -2,22 +2,22 @@ import UIKit
 import Combine
 import Kanban
 
-extension Editor {
+extension Writer {
     final class Coordinator: UITextView, UITextViewDelegate {
         private var subs = Set<AnyCancellable>()
-        private let wrapper: Editor
+        private let wrapper: Writer
         
         required init?(coder: NSCoder) { nil }
-        init(wrapper: Editor) {
+        init(wrapper: Writer) {
             self.wrapper = wrapper
             super.init(frame: .zero, textContainer: Container())
-            typingAttributes[.font] = UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize + 2, weight: .medium)
+            typingAttributes[.font] = UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize + 2, weight: .regular)
             typingAttributes[.kern] = 1
             font = typingAttributes[.font] as? UIFont
             textContainerInset = .init(top: 30, left: 20, bottom: 30, right: 20)
             keyboardDismissMode = .none
             backgroundColor = .clear
-            tintColor = UIColor(named: "AccentColor")!
+            tintColor = .label
             autocapitalizationType = .sentences
             autocorrectionType = Defaults.correction ? .yes : .no
             spellCheckingType = Defaults.spell ? .yes : .no
@@ -25,15 +25,15 @@ extension Editor {
             allowsEditingTextAttributes = false
             delegate = self
             
-            switch wrapper.write {
-            case let .edit(path):
-                switch path {
-                case .card:
-                    text = wrapper.session.archive[content: path]
-                default: break
-                }
-            default: break
-            }
+//            switch wrapper.write {
+//            case let .edit(path):
+//                switch path {
+//                case .card:
+//                    text = wrapper.session.archive[content: path]
+//                default: break
+//                }
+//            default: break
+//            }
             
             let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 48), inputViewStyle: .keyboard)
             
@@ -48,7 +48,7 @@ extension Editor {
             send.setImage(UIImage(systemName: "arrow.up.square.fill")?
                             .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title1)), for: .normal)
             send.imageEdgeInsets.right = -10
-            send.imageView!.tintColor = UIApplication.dark ? UIColor(named: "AccentColor") : .black
+            send.imageView!.tintColor = .label
             send.addTarget(self, action: #selector(self.send), for: .touchUpInside)
             
             let number = UIButton()
@@ -77,7 +77,7 @@ extension Editor {
             }
             
             [number, minus, asterisk].forEach {
-                $0.imageView!.tintColor = UIApplication.dark ? .secondaryLabel : .tertiaryLabel
+                $0.imageView!.tintColor = .secondaryLabel
             }
             
             cancel.leftAnchor.constraint(equalTo: input.safeAreaLayoutGuide.leftAnchor).isActive = true
@@ -108,22 +108,22 @@ extension Editor {
             let content = text.trimmingCharacters(in: .whitespacesAndNewlines)
             guard !content.isEmpty else { return }
             
-            switch wrapper.write {
-            case let .new(path):
-                switch path {
-                case .board:
-                    wrapper.session.archive.card(path)
-                    wrapper.session.archive[content: .card(.column(path, 0), 0)] = content
-                    wrapper.session.path = .column(path, 0)
-                default: break
-                }
-            case let .edit(path):
-                switch path {
-                case .card:
-                    wrapper.session.archive[content: path] = content
-                default: break
-                }
-            }
+//            switch wrapper.write {
+//            case let .new(path):
+//                switch path {
+//                case .board:
+//                    wrapper.session.archive.card(path)
+//                    wrapper.session.archive[content: .card(.column(path, 0), 0)] = content
+//                    wrapper.session.path = .column(path, 0)
+//                default: break
+//                }
+//            case let .edit(path):
+//                switch path {
+//                case .card:
+//                    wrapper.session.archive[content: path] = content
+//                default: break
+//                }
+//            }
         }
         
         @objc private func asterisk() {
