@@ -39,31 +39,29 @@ extension Writer {
             
             let cancel = UIButton()
             cancel.setImage(UIImage(systemName: "xmark")?
-                                .withConfiguration(UIImage.SymbolConfiguration(textStyle: .callout)), for: .normal)
-            cancel.imageEdgeInsets.left = -10
+                                .withConfiguration(UIImage.SymbolConfiguration(pointSize: 16)), for: .normal)
             cancel.addTarget(self, action: #selector(resignFirstResponder), for: .touchUpInside)
             cancel.imageView!.tintColor = .secondaryLabel
             
             let send = UIButton()
-            send.setImage(UIImage(systemName: "arrow.up.square.fill")?
-                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title1)), for: .normal)
-            send.imageEdgeInsets.right = -10
+            send.setImage(UIImage(systemName: "arrow.up.circle.fill")?
+                            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 25)), for: .normal)
             send.imageView!.tintColor = .label
             send.addTarget(self, action: #selector(self.send), for: .touchUpInside)
             
             let number = UIButton()
-            number.setImage(UIImage(systemName: "number.square.fill")?
-                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title1)), for: .normal)
+            number.setImage(UIImage(systemName: "number")?
+                                .withConfiguration(UIImage.SymbolConfiguration(pointSize: 14, weight: .semibold)), for: .normal)
             number.addTarget(self, action: #selector(self.number), for: .touchUpInside)
             
             let minus = UIButton()
-            minus.setImage(UIImage(systemName: "minus.square.fill")?
-                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title1)), for: .normal)
+            minus.setImage(UIImage(systemName: "minus")?
+                            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 18, weight: .bold)), for: .normal)
             minus.addTarget(self, action: #selector(self.minus), for: .touchUpInside)
             
             let asterisk = UIButton()
-            asterisk.setImage(UIImage(systemName: "asterisk.circle.fill")?
-                            .withConfiguration(UIImage.SymbolConfiguration(textStyle: .title1)), for: .normal)
+            asterisk.setImage(UIImage(systemName: "staroflife.fill")?
+                                .withConfiguration(UIImage.SymbolConfiguration(pointSize: 14, weight: .light)), for: .normal)
             asterisk.addTarget(self, action: #selector(self.asterisk), for: .touchUpInside)
             
             [cancel, send, number, minus, asterisk].forEach {
@@ -73,11 +71,11 @@ extension Writer {
                 
                 $0.topAnchor.constraint(equalTo: input.topAnchor).isActive = true
                 $0.bottomAnchor.constraint(equalTo: input.bottomAnchor).isActive = true
-                $0.widthAnchor.constraint(equalToConstant: 60).isActive = true
+                $0.widthAnchor.constraint(equalToConstant: 64).isActive = true
             }
             
             [number, minus, asterisk].forEach {
-                $0.imageView!.tintColor = .secondaryLabel
+                $0.imageView!.tintColor = .label
             }
             
             cancel.leftAnchor.constraint(equalTo: input.safeAreaLayoutGuide.leftAnchor).isActive = true
@@ -99,7 +97,7 @@ extension Writer {
         
         override func caretRect(for position: UITextPosition) -> CGRect {
             var rect = super.caretRect(for: position)
-            rect.size.width += 1
+            rect.size.width = 2
             return rect
         }
         
