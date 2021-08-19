@@ -1,10 +1,8 @@
 import UIKit
-import Combine
 import Kanban
 
 extension Writer {
     final class Coordinator: UITextView, UITextViewDelegate {
-        private var subs = Set<AnyCancellable>()
         private let wrapper: Writer
         
         required init?(coder: NSCoder) { nil }
@@ -14,7 +12,7 @@ extension Writer {
             typingAttributes[.font] = UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize + 2, weight: .regular)
             typingAttributes[.kern] = 1
             font = typingAttributes[.font] as? UIFont
-            textContainerInset = .init(top: 30, left: 20, bottom: 30, right: 20)
+            textContainerInset = .init(top: 50, left: 20, bottom: 30, right: 20)
             keyboardDismissMode = .none
             backgroundColor = .clear
             tintColor = .label
@@ -64,6 +62,12 @@ extension Writer {
                                 .withConfiguration(UIImage.SymbolConfiguration(pointSize: 14, weight: .light)), for: .normal)
             asterisk.addTarget(self, action: #selector(self.asterisk), for: .touchUpInside)
             
+            let title = UILabel()
+            title.translatesAutoresizingMaskIntoConstraints = false
+            title.numberOfLines = 1
+            title.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+            addSubview(title)
+            
             [cancel, send, number, minus, asterisk].forEach {
                 $0.translatesAutoresizingMaskIntoConstraints = false
                 $0.imageEdgeInsets.top = 4
@@ -84,7 +88,65 @@ extension Writer {
             minus.rightAnchor.constraint(equalTo: asterisk.leftAnchor).isActive = true
             number.leftAnchor.constraint(equalTo: asterisk.rightAnchor).isActive = true
             
+            title.topAnchor.constraint(equalTo: bottomAnchor, constant: 20).isActive = true
+            title.leftAnchor.constraint(equalTo: leftAnchor, constant: 25).isActive = true
+            title.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -25).isActive = true
+            
             inputAccessoryView = input
+            
+            switch wrapper.write {
+            case .create:
+                title.attributedText = .make("New project",
+                                             font: .preferredFont(forTextStyle: .callout),
+                                             color: .secondaryLabel)
+            case let .column(board):
+                title.attributedText = .make {
+                    $0.append(.make(wrapper.session.archive[board].name + " : ",
+                                    font: .font(style: .callout, weight: .light),
+                                    color: .tertiaryLabel,
+                                    lineBreak: .byTruncatingMiddle))
+                    $0.append(.make("New column",
+                                    font: .font(style: .callout, weight: .light),
+                                    color: .secondaryLabel))
+                }
+            case let .card(board):
+                title.attributedText = .make {
+                    $0.append(.make(wrapper.session.archive[board].name + " : ",
+                                    font: .font(style: .callout, weight: .light),
+                                    color: .tertiaryLabel,
+                                    lineBreak: .byTruncatingMiddle))
+                    $0.append(.make("New card",
+                                    font: .font(style: .callout, weight: .light),
+                                    color: .secondaryLabel))
+                }
+            case let .edit(path):
+                switch path {
+                case .card:
+                    title.attributedText = .make {
+                        $0.append(.make(wrapper.session.archive[path.board].name + " : " + wrapper.session.archive[path.board][path.column].name + " : ",
+                                        font: .font(style: .callout, weight: .light),
+                                        color: .tertiaryLabel,
+                                        lineBreak: .byTruncatingMiddle))
+                        $0.append(.make("Edit card",
+                                        font: .font(style: .callout, weight: .light),
+                                        color: .secondaryLabel))
+                    }
+                case .column:
+                    title.attributedText = .make {
+                        $0.append(.make(wrapper.session.archive[path.board].name + " : ",
+                                        font: .font(style: .callout, weight: .light),
+                                        color: .tertiaryLabel,
+                                        lineBreak: .byTruncatingMiddle))
+                        $0.append(.make("Edit column",
+                                        font: .font(style: .callout, weight: .light),
+                                        color: .secondaryLabel))
+                    }
+                case .board:
+                    title.attributedText = .make("Edit board",
+                                                 font: .font(style: .callout, weight: .light),
+                                                 color: .secondaryLabel)
+                }
+            }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 self?.becomeFirstResponder()

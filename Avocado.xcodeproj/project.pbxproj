@@ -11,6 +11,9 @@
 		CE06220726C3E105009D91D6 /* Set.CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06220626C3E105009D91D6 /* Set.CollectionItem.swift */; };
 		CE08598926CE75060099328A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE08598826CE75060099328A /* Settings.swift */; };
 		CE0B3C3D25DC3A2A00317754 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
+		CE0B804226CE862E0080FB37 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3205826B800AA00364E88 /* NSMutableAttributedString.swift */; };
+		CE0B804426CE869C0080FB37 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0B804326CE869C0080FB37 /* NSAttributedString.swift */; };
+		CE0B804626CE87120080FB37 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0B804526CE87120080FB37 /* UIFont.swift */; };
 		CE15AE6226BD40D00007DE31 /* NSAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CB125E695B90035E674 /* NSAlert.swift */; };
 		CE25079E25B8660A00F9C526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE25079D25B8660A00F9C526 /* Assets.xcassets */; };
 		CE28758226C91AF7009B6400 /* Find.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28758126C91AF7009B6400 /* Find.Content.swift */; };
@@ -213,6 +216,8 @@
 		CE06220626C3E105009D91D6 /* Set.CollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.CollectionItem.swift; sourceTree = "<group>"; };
 		CE08598826CE75060099328A /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CE0B3C3725DC2AAE00317754 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		CE0B804326CE869C0080FB37 /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
+		CE0B804526CE87120080FB37 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		CE0E838F25CEB912001283C6 /* Project.Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Columns.swift; sourceTree = "<group>"; };
 		CE1E602025CD9B5C00456852 /* Project.Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Edit.swift; sourceTree = "<group>"; };
 		CE25079625B8660900F9C526 /* Avocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -496,6 +501,7 @@
 				CEA413BC26CE41A700FF4B02 /* App.Purchase.swift */,
 				CE6BBD6026CD2E3400F577B2 /* App.swift */,
 				CE6BBD6B26CD303B00F577B2 /* Blur.swift */,
+				CE0B804326CE869C0080FB37 /* NSAttributedString.swift */,
 				CEBB7B1E26CD60D20048BC46 /* Option.swift */,
 				CEA413C126CE4C8600FF4B02 /* Popup.swift */,
 				CEA413B626CE31B600FF4B02 /* Project.Card.swift */,
@@ -510,6 +516,7 @@
 				CEA413C526CE4CA200FF4B02 /* Store.Item.swift */,
 				CEA413C326CE4C9400FF4B02 /* Store.swift */,
 				CE6BBD6926CD2F9700F577B2 /* Toast.swift */,
+				CE0B804526CE87120080FB37 /* UIFont.swift */,
 				CEA6F7A626CD460700B59F67 /* Window.Empty.swift */,
 				CE6BBD6D26CD307E00F577B2 /* Window.swift */,
 				CE8C6EDC25C31D51007D25FC /* Writer.Coordinator.swift */,
@@ -524,6 +531,7 @@
 			children = (
 				CEB8E56925DAA0C6009737AB /* Configuration.storekit */,
 				CE8C6EE025C31E87007D25FC /* Container.swift */,
+				CEC3205826B800AA00364E88 /* NSMutableAttributedString.swift */,
 				CEC3204926B8009200364E88 /* NumberFormatter.swift */,
 				CE6B575F26BD690900DDF923 /* Purchases.Item.swift */,
 				CE6B575D26BD68FB00DDF923 /* Purchases.swift */,
@@ -600,7 +608,6 @@
 				CEC3204E26B800A900364E88 /* NSFont.swift */,
 				CEC3206126B800AA00364E88 /* NSMenu.swift */,
 				CEC3205626B800AA00364E88 /* NSMenuItem.swift */,
-				CEC3205826B800AA00364E88 /* NSMutableAttributedString.swift */,
 				CEBC7C3326C51D0300E27436 /* NSPopover.swift */,
 				CE793C2726CBEDF6006DD2EB /* Preferences.Features.swift */,
 				CE793C2526CBED8F006DD2EB /* Preferences.swift */,
@@ -990,6 +997,7 @@
 				CEA413BF26CE441600FF4B02 /* Writer.Coordinator.swift in Sources */,
 				CEA413CB26CE5C7900FF4B02 /* NumberFormatter.swift in Sources */,
 				CE29280D25FA3A1500EF04F5 /* widget.intentdefinition in Sources */,
+				CE0B804426CE869C0080FB37 /* NSAttributedString.swift in Sources */,
 				CE6BBD6E26CD307E00F577B2 /* Window.swift in Sources */,
 				CEA413BD26CE41A700FF4B02 /* App.Purchase.swift in Sources */,
 				CEA413C426CE4C9400FF4B02 /* Store.swift in Sources */,
@@ -1003,9 +1011,11 @@
 				CEA6F7A326CD3D6700B59F67 /* RelativeDateTimeFormatter.swift in Sources */,
 				CEA413C826CE4CC300FF4B02 /* Purchases.Item.swift in Sources */,
 				CE6BBD7226CD330B00F577B2 /* Sidebar.swift in Sources */,
+				CE0B804626CE87120080FB37 /* UIFont.swift in Sources */,
 				CEA413BB26CE3AFA00FF4B02 /* App.Modal.Write.swift in Sources */,
 				CEBB7B1D26CD602A0048BC46 /* Sidebar.Item.swift in Sources */,
 				CE6BBD6826CD2F8000F577B2 /* Toast.Message.swift in Sources */,
+				CE0B804226CE862E0080FB37 /* NSMutableAttributedString.swift in Sources */,
 				CEA413B726CE31B600FF4B02 /* Project.Card.swift in Sources */,
 				CE08598926CE75060099328A /* Settings.swift in Sources */,
 				CE6BBD6526CD2EEE00F577B2 /* App.Modal.swift in Sources */,
