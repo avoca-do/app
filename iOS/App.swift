@@ -54,6 +54,8 @@ let purchases = Purchases()
             Purchase(session: $session)
         case .store:
             Store(session: $session)
+        case .settings:
+            Settings(session: $session)
         }
     }
 }

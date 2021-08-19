@@ -4,7 +4,7 @@ import Kanban
 
 struct Session {
     var archive = Archive.new
-    var section = Section.projects
+    var board: Int?
     var toast: Toast.Message?
     let modal = PassthroughSubject<App.Modal, Never>()
     

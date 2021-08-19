@@ -9,7 +9,7 @@ extension Sidebar {
         var body: some View {
             Button {
                 detail = true
-                session.section = .project(index)
+                session.board = index
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 8)

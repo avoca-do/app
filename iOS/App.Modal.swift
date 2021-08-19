@@ -9,6 +9,7 @@ extension App {
         case
         purchase,
         store,
+        settings,
         write(Write)
     }
 }

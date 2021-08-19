@@ -24,7 +24,7 @@ struct Sidebar: View {
         .navigationBarTitle("Projects", displayMode: .large)
         .navigationBarItems(
             leading: Option(symbol: "slider.vertical.3") {
-                
+                session.modal.send(.settings)
             },
             trailing: HStack {
                 Option(symbol: "chart.pie") {
@@ -47,10 +47,9 @@ struct Sidebar: View {
     }
     
     @ViewBuilder private var link: some View {
-        switch session.section {
-        case let .project(board):
+        if let board = session.board {
             Project(session: $session, board: board)
-        default:
+        } else {
             Window.Empty(session: $session)
         }
     }
