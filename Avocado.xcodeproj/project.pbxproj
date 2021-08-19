@@ -83,6 +83,13 @@
 		CEA413BE26CE441600FF4B02 /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6ED225C31A4E007D25FC /* Writer.swift */; };
 		CEA413BF26CE441600FF4B02 /* Writer.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EDC25C31D51007D25FC /* Writer.Coordinator.swift */; };
 		CEA413C026CE44A400FF4B02 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EE025C31E87007D25FC /* Container.swift */; };
+		CEA413C226CE4C8600FF4B02 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA413C126CE4C8600FF4B02 /* Popup.swift */; };
+		CEA413C426CE4C9400FF4B02 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA413C326CE4C9400FF4B02 /* Store.swift */; };
+		CEA413C626CE4CA200FF4B02 /* Store.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA413C526CE4CA200FF4B02 /* Store.Item.swift */; };
+		CEA413C726CE4CC100FF4B02 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B575D26BD68FB00DDF923 /* Purchases.swift */; };
+		CEA413C826CE4CC300FF4B02 /* Purchases.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B575F26BD690900DDF923 /* Purchases.Item.swift */; };
+		CEA413CA26CE54D900FF4B02 /* Store.Capacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA413C926CE54D900FF4B02 /* Store.Capacity.swift */; };
+		CEA413CB26CE5C7900FF4B02 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3204926B8009200364E88 /* NumberFormatter.swift */; };
 		CEA6F7A326CD3D6700B59F67 /* RelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3204826B8009200364E88 /* RelativeDateTimeFormatter.swift */; };
 		CEA6F7A526CD3FC000B59F67 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F7A426CD3FC000B59F67 /* Project.swift */; };
 		CEA6F7A726CD460700B59F67 /* Window.Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F7A626CD460700B59F67 /* Window.Empty.swift */; };
@@ -326,6 +333,10 @@
 		CEA413B826CE3A4000FF4B02 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		CEA413BA26CE3AFA00FF4B02 /* App.Modal.Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Modal.Write.swift; sourceTree = "<group>"; };
 		CEA413BC26CE41A700FF4B02 /* App.Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Purchase.swift; sourceTree = "<group>"; };
+		CEA413C126CE4C8600FF4B02 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
+		CEA413C326CE4C9400FF4B02 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		CEA413C526CE4CA200FF4B02 /* Store.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.Item.swift; sourceTree = "<group>"; };
+		CEA413C926CE54D900FF4B02 /* Store.Capacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.Capacity.swift; sourceTree = "<group>"; };
 		CEA652A125C1CBA60099C82E /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		CEA6F7A426CD3FC000B59F67 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		CEA6F7A626CD460700B59F67 /* Window.Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.Empty.swift; sourceTree = "<group>"; };
@@ -486,6 +497,7 @@
 				CE6BBD6026CD2E3400F577B2 /* App.swift */,
 				CE6BBD6B26CD303B00F577B2 /* Blur.swift */,
 				CEBB7B1E26CD60D20048BC46 /* Option.swift */,
+				CEA413C126CE4C8600FF4B02 /* Popup.swift */,
 				CEA413B626CE31B600FF4B02 /* Project.Card.swift */,
 				CEBB7B2026CD64960048BC46 /* Project.Column.swift */,
 				CEA6F7A426CD3FC000B59F67 /* Project.swift */,
@@ -494,6 +506,9 @@
 				CEBB7B1C26CD602A0048BC46 /* Sidebar.Item.swift */,
 				CEBB7B1A26CD58EB0048BC46 /* Sidebar.Meter.swift */,
 				CE6BBD7126CD330B00F577B2 /* Sidebar.swift */,
+				CEA413C926CE54D900FF4B02 /* Store.Capacity.swift */,
+				CEA413C526CE4CA200FF4B02 /* Store.Item.swift */,
+				CEA413C326CE4C9400FF4B02 /* Store.swift */,
 				CE6BBD6926CD2F9700F577B2 /* Toast.swift */,
 				CEA6F7A626CD460700B59F67 /* Window.Empty.swift */,
 				CE6BBD6D26CD307E00F577B2 /* Window.swift */,
@@ -973,25 +988,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA413BF26CE441600FF4B02 /* Writer.Coordinator.swift in Sources */,
+				CEA413CB26CE5C7900FF4B02 /* NumberFormatter.swift in Sources */,
 				CE29280D25FA3A1500EF04F5 /* widget.intentdefinition in Sources */,
 				CEA6F7A926CD4C0A00B59F67 /* Session.Section.swift in Sources */,
 				CE6BBD6E26CD307E00F577B2 /* Window.swift in Sources */,
 				CEA413BD26CE41A700FF4B02 /* App.Purchase.swift in Sources */,
+				CEA413C426CE4C9400FF4B02 /* Store.swift in Sources */,
 				CEBB7B1F26CD60D20048BC46 /* Option.swift in Sources */,
 				CEA6F7A726CD460700B59F67 /* Window.Empty.swift in Sources */,
+				CEA413C726CE4CC100FF4B02 /* Purchases.swift in Sources */,
 				CEBB7B2126CD64960048BC46 /* Project.Column.swift in Sources */,
 				CEA413BE26CE441600FF4B02 /* Writer.swift in Sources */,
 				CE6BBD6C26CD303B00F577B2 /* Blur.swift in Sources */,
 				CEBB7B1B26CD58EB0048BC46 /* Sidebar.Meter.swift in Sources */,
 				CEA6F7A326CD3D6700B59F67 /* RelativeDateTimeFormatter.swift in Sources */,
+				CEA413C826CE4CC300FF4B02 /* Purchases.Item.swift in Sources */,
 				CE6BBD7226CD330B00F577B2 /* Sidebar.swift in Sources */,
 				CEA413BB26CE3AFA00FF4B02 /* App.Modal.Write.swift in Sources */,
 				CEBB7B1D26CD602A0048BC46 /* Sidebar.Item.swift in Sources */,
 				CE6BBD6826CD2F8000F577B2 /* Toast.Message.swift in Sources */,
 				CEA413B726CE31B600FF4B02 /* Project.Card.swift in Sources */,
 				CE6BBD6526CD2EEE00F577B2 /* App.Modal.swift in Sources */,
+				CEA413C626CE4CA200FF4B02 /* Store.Item.swift in Sources */,
+				CEA413C226CE4C8600FF4B02 /* Popup.swift in Sources */,
 				CEA6F7A526CD3FC000B59F67 /* Project.swift in Sources */,
 				CEA413C026CE44A400FF4B02 /* Container.swift in Sources */,
+				CEA413CA26CE54D900FF4B02 /* Store.Capacity.swift in Sources */,
 				CE6BBD6126CD2E3400F577B2 /* App.swift in Sources */,
 				CE6BBD6326CD2ED200F577B2 /* Session.swift in Sources */,
 				CE6BBD6A26CD2F9700F577B2 /* Toast.swift in Sources */,

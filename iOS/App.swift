@@ -2,7 +2,7 @@ import SwiftUI
 import Archivable
 
 let cloud = Cloud.new
-//let purchases = Purchases()
+let purchases = Purchases()
 
 @main struct App: SwiftUI.App {
     @State private var session = Session()
@@ -53,7 +53,7 @@ let cloud = Cloud.new
         case .purchase:
             Purchase(session: $session)
         case .store:
-            Circle()
+            Store(session: $session)
         }
     }
 }
