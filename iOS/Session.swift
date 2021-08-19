@@ -7,6 +7,7 @@ struct Session {
     var section = Section.projects
     var toast: Toast.Message?
     var modal: Modal?
+    let become = PassthroughSubject<Write, Never>()
     
     init() {
         
