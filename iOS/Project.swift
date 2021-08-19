@@ -9,7 +9,13 @@ struct Project: View {
         ZStack {
             Color(.secondarySystemBackground)
                 .edgesIgnoringSafeArea(.all)
-            VStack {
+            ScrollView {
+                Text(verbatim: session.archive[board].name)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                    .padding([.leading, .trailing, .top])
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(0 ..< session.archive[board].count, id: \.self) {
@@ -18,10 +24,13 @@ struct Project: View {
                     }
                     .padding()
                 }
+                ForEach(0 ..< session.archive[board][current].count, id: \.self) {
+                    Card(session: $session, board: board, column: current, card: $0)
+                }
                 Spacer()
+                    .frame(height: 20)
             }
         }
-        .navigationBarTitle(session.archive[board].name, displayMode: .large)
         .navigationBarItems(
             trailing: HStack {
                 Option(symbol: "slider.horizontal.3") {
@@ -33,7 +42,7 @@ struct Project: View {
                 Option(symbol: "barometer") {
                     
                 }
-                Option(symbol: "plus.square") {
+                Option(symbol: "plus") {
                     
                 }
             })

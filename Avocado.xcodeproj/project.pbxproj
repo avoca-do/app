@@ -76,6 +76,7 @@
 		CE9B191E26B98C8600D8ED25 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B191D26B98C8600D8ED25 /* Edit.swift */; };
 		CE9B192026B98D9000D8ED25 /* Edit.Textview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B191F26B98D9000D8ED25 /* Edit.Textview.swift */; };
 		CE9B192126B98E8D00D8ED25 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EE025C31E87007D25FC /* Container.swift */; };
+		CEA413B726CE31B600FF4B02 /* Project.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA413B626CE31B600FF4B02 /* Project.Card.swift */; };
 		CEA6F7A326CD3D6700B59F67 /* RelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3204826B8009200364E88 /* RelativeDateTimeFormatter.swift */; };
 		CEA6F7A526CD3FC000B59F67 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F7A426CD3FC000B59F67 /* Project.swift */; };
 		CEA6F7A726CD460700B59F67 /* Window.Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F7A626CD460700B59F67 /* Window.Empty.swift */; };
@@ -315,6 +316,7 @@
 		CEA0D18D25EC45110011FFC0 /* Middlebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlebar.Item.swift; sourceTree = "<group>"; };
 		CEA0D19525EC4C650011FFC0 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		CEA1819825C04DD200552DEF /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
+		CEA413B626CE31B600FF4B02 /* Project.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Card.swift; sourceTree = "<group>"; };
 		CEA652A125C1CBA60099C82E /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		CEA6F7A426CD3FC000B59F67 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		CEA6F7A626CD460700B59F67 /* Window.Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.Empty.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				CE6BBD6026CD2E3400F577B2 /* App.swift */,
 				CE6BBD6B26CD303B00F577B2 /* Blur.swift */,
 				CEBB7B1E26CD60D20048BC46 /* Option.swift */,
+				CEA413B626CE31B600FF4B02 /* Project.Card.swift */,
 				CEBB7B2026CD64960048BC46 /* Project.Column.swift */,
 				CEA6F7A426CD3FC000B59F67 /* Project.swift */,
 				CE6BBD6426CD2EEE00F577B2 /* Session.Modal.swift */,
@@ -969,6 +972,7 @@
 				CE6BBD7226CD330B00F577B2 /* Sidebar.swift in Sources */,
 				CEBB7B1D26CD602A0048BC46 /* Sidebar.Item.swift in Sources */,
 				CE6BBD6826CD2F8000F577B2 /* Toast.Message.swift in Sources */,
+				CEA413B726CE31B600FF4B02 /* Project.Card.swift in Sources */,
 				CE6BBD6526CD2EEE00F577B2 /* Session.Modal.swift in Sources */,
 				CEA6F7A526CD3FC000B59F67 /* Project.swift in Sources */,
 				CE6BBD6126CD2E3400F577B2 /* App.swift in Sources */,

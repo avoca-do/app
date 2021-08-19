@@ -19,10 +19,11 @@ extension Project {
                     Text(verbatim: session.archive[board][index].name)
                         .font(.footnote)
                         .foregroundColor(current == index ? .primary : .secondary)
-                        .padding(.horizontal, 18)
-                        .padding(.vertical, 6)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 7)
                 }
                 .fixedSize()
+                .contentShape(Rectangle())
             }
         }
     }
