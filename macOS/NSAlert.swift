@@ -1,4 +1,5 @@
 import AppKit
+import UserNotifications
 import Kanban
 
 extension NSAlert {
@@ -24,16 +25,25 @@ extension NSAlert {
         if alert.runModal().rawValue == delete.tag {
             switch path {
             case .board:
-                Toast.show(message: .init(title: "Deleted board", icon: "trash"))
+                let content = UNMutableNotificationContent()
+                content.body = "Deleted project"
+                UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
+                
                 session.select.send(nil)
                 session.state.send(.none)
                 cloud.delete(board: path.board)
             case .column:
-                Toast.show(message: .init(title: "Deleted column", icon: "trash"))
+                let content = UNMutableNotificationContent()
+                content.body = "Deleted column"
+                UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
+                
                 session.cancel()
                 cloud.delete(board: path.board, column: path.column)
             case .card:
-                Toast.show(message: .init(title: "Deleted card", icon: "trash"))
+                let content = UNMutableNotificationContent()
+                content.body = "Deleted card"
+                UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
+                
                 session.cancel()
                 cloud.delete(board: path.board, column: path.column, card: path.card)
             }

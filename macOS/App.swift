@@ -1,5 +1,6 @@
 import AppKit
 import StoreKit
+import UserNotifications
 import Archivable
 import Kanban
 
@@ -7,7 +8,7 @@ let cloud = Cloud.new
 let session = Session()
 let purchases = Purchases()
 
-@NSApplicationMain final class App: NSApplication, NSApplicationDelegate {
+@NSApplicationMain final class App: NSApplication, NSApplicationDelegate, UNUserNotificationCenterDelegate {
     required init?(coder: NSCoder) { nil }
     override init() {
         super.init()
@@ -41,6 +42,7 @@ let purchases = Purchases()
         }
         
         registerForRemoteNotifications()
+        UNUserNotificationCenter.current().delegate = self
     }
     
     func applicationDidBecomeActive(_: Notification) {
@@ -49,5 +51,9 @@ let purchases = Purchases()
     
     func application(_: NSApplication, didReceiveRemoteNotification: [String : Any]) {
         cloud.pull.send()
+    }
+    
+    func userNotificationCenter(_: UNUserNotificationCenter, willPresent: UNNotification, withCompletionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        withCompletionHandler([.banner])
     }
 }

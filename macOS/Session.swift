@@ -1,5 +1,6 @@
 import AppKit
 import Combine
+import UserNotifications
 import Kanban
 
 struct Session {
@@ -56,15 +57,24 @@ Check purchases for more details.
             cloud.new(board: text.isEmpty ? "Project" : text) {
                 select.send(0)
             }
-            Toast.show(message: .init(title: "Created project", icon: "plus"))
+            
+            let content = UNMutableNotificationContent()
+            content.body = "Created project"
+            UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
         case let .column(board):
             cloud.add(board: board, column: text.isEmpty ? "Column" : text)
             state.send(.view(board))
-            Toast.show(message: .init(title: "Created column", icon: "plus"))
+            
+            let content = UNMutableNotificationContent()
+            content.body = "Created column"
+            UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
         case let .card(board):
             if !text.isEmpty {
                 cloud.add(board: board, card: text)
-                Toast.show(message: .init(title: "Created card", icon: "plus"))
+                
+                let content = UNMutableNotificationContent()
+                content.body = "Created card"
+                UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
             }
             state.send(.view(board))
         default:
@@ -82,31 +92,25 @@ Check purchases for more details.
             case .board:
                 cloud.rename(board: path.board, name: text)
                 state.send(.view(path.board))
-                Toast.show(message: .init(title: "Renamed project", icon: "square.and.pencil"))
+                
+                let content = UNMutableNotificationContent()
+                content.body = "Renamed project"
+                UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
             case .column:
                 cloud.rename(board: path.board, column: path.column, name: text)
                 state.send(.view(path.board))
-                Toast.show(message: .init(title: "Renamed column", icon: "square.and.pencil"))
+                
+                let content = UNMutableNotificationContent()
+                content.body = "Renamed column"
+                UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
             case .card:
                 cloud.update(board: path.board, column: path.column, card: path.card, content: text)
                 state.send(.view(path.board))
-                Toast.show(message: .init(title: "Updated card", icon: "square.and.pencil"))
+                
+                let content = UNMutableNotificationContent()
+                content.body = "Updated card"
+                UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
             }
-        case .create:
-            cloud.new(board: text.isEmpty ? "Project" : text) {
-                select.send(0)
-            }
-            Toast.show(message: .init(title: "Created project", icon: "plus"))
-        case let .column(board):
-            cloud.add(board: board, column: text.isEmpty ? "Column" : text)
-            state.send(.view(board))
-            Toast.show(message: .init(title: "Created column", icon: "plus"))
-        case let .card(board):
-            if !text.isEmpty {
-                cloud.add(board: board, card: text)
-                Toast.show(message: .init(title: "Created card", icon: "plus"))
-            }
-            state.send(.view(board))
         default:
             break
         }
