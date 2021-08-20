@@ -28,8 +28,10 @@ struct Settings: View {
                     } else {
                         Button("Allow notifications") {
                             UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) { success, error in
-                                if success {
-                                    requested = true
+                                DispatchQueue.main.async {
+                                    if success {
+                                        requested = true
+                                    }
                                 }
                             }
                         }
@@ -48,8 +50,10 @@ struct Settings: View {
             .listStyle(GroupedListStyle())
         }
         .onAppear {
-            UNUserNotificationCenter.current().getNotificationSettings {
-                requested = $0.alertSetting == .enabled
+            UNUserNotificationCenter.current().getNotificationSettings { settings in
+                DispatchQueue.main.async {
+                    requested = settings.alertSetting == .enabled && settings.authorizationStatus == .authorized
+                }
             }
         }
     }
