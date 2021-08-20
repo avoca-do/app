@@ -28,7 +28,7 @@ struct Sidebar: View {
             },
             trailing: HStack {
                 Option(symbol: "chart.pie") {
-                    
+                    session.modal.send(.activity)
                 }
                 Option(symbol: "magnifyingglass") {
                     

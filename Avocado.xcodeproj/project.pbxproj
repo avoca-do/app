@@ -53,7 +53,6 @@
 		CE6BBD6126CD2E3400F577B2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BBD6026CD2E3400F577B2 /* App.swift */; };
 		CE6BBD6326CD2ED200F577B2 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BBD6226CD2ED200F577B2 /* Session.swift */; };
 		CE6BBD6526CD2EEE00F577B2 /* App.Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BBD6426CD2EEE00F577B2 /* App.Modal.swift */; };
-		CE6BBD6C26CD303B00F577B2 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BBD6B26CD303B00F577B2 /* Blur.swift */; };
 		CE6BBD6E26CD307E00F577B2 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BBD6D26CD307E00F577B2 /* Window.swift */; };
 		CE6BBD7026CD30CF00F577B2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BBD6F26CD30CF00F577B2 /* App.swift */; };
 		CE6BBD7226CD330B00F577B2 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BBD7126CD330B00F577B2 /* Sidebar.swift */; };
@@ -138,6 +137,8 @@
 		CECCC7672632C92300D971E4 /* Avocado.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CECCC74B2632C92100D971E4 /* Avocado.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CECCC78F2632CB3200D971E4 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CECCC78E2632CB3200D971E4 /* Kanban */; };
 		CECCC7922632CCB700D971E4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECCC7912632CCB700D971E4 /* CloudKit.framework */; };
+		CED44E1E26CF9CB4005F6E85 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED44E1D26CF9CB4005F6E85 /* Activity.swift */; };
+		CED44E2026CF9D6C005F6E85 /* Activity.Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED44E1F26CF9D6C005F6E85 /* Activity.Chart.swift */; };
 		CEDD564B26BBEBCF00AA54A4 /* Bar.Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD564A26BBEBCF00AA54A4 /* Bar.Action.swift */; };
 		CEF2D7D825C0554700223C79 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
 /* End PBXBuildFile section */
@@ -288,7 +289,6 @@
 		CE6BBD6026CD2E3400F577B2 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CE6BBD6226CD2ED200F577B2 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CE6BBD6426CD2EEE00F577B2 /* App.Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Modal.swift; sourceTree = "<group>"; };
-		CE6BBD6B26CD303B00F577B2 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		CE6BBD6D26CD307E00F577B2 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		CE6BBD6F26CD30CF00F577B2 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CE6BBD7126CD330B00F577B2 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -397,6 +397,8 @@
 		CED28ABB25FBA376009F00FB /* Activity.Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Entry.swift; sourceTree = "<group>"; };
 		CED28AC125FBA38B009F00FB /* Activity.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Content.swift; sourceTree = "<group>"; };
 		CED28AFB25FBA78E009F00FB /* Activity.Content.Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Content.Chart.swift; sourceTree = "<group>"; };
+		CED44E1D26CF9CB4005F6E85 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		CED44E1F26CF9D6C005F6E85 /* Activity.Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Chart.swift; sourceTree = "<group>"; };
 		CEDB78E825ECFA7D001A02A4 /* Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Column.swift; sourceTree = "<group>"; };
 		CEDB78EF25ECFC8B001A02A4 /* Project.Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Title.swift; sourceTree = "<group>"; };
 		CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Options.swift; sourceTree = "<group>"; };
@@ -495,12 +497,12 @@
 				CE6D659C25D1A1060017FE07 /* Settings.bundle */,
 				CEA1819825C04DD200552DEF /* iOS.entitlements */,
 				CE2507A225B8660A00F9C526 /* Info.plist */,
+				CED44E1D26CF9CB4005F6E85 /* Activity.swift */,
 				CE0B804726CE9C1D0080FB37 /* App.Delegate.swift */,
 				CE6BBD6426CD2EEE00F577B2 /* App.Modal.swift */,
 				CEA413BA26CE3AFA00FF4B02 /* App.Modal.Write.swift */,
 				CEA413BC26CE41A700FF4B02 /* App.Purchase.swift */,
 				CE6BBD6026CD2E3400F577B2 /* App.swift */,
-				CE6BBD6B26CD303B00F577B2 /* Blur.swift */,
 				CE0B804326CE869C0080FB37 /* NSAttributedString.swift */,
 				CEBB7B1E26CD60D20048BC46 /* Option.swift */,
 				CEA413C126CE4C8600FF4B02 /* Popup.swift */,
@@ -529,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB8E56925DAA0C6009737AB /* Configuration.storekit */,
+				CED44E1F26CF9D6C005F6E85 /* Activity.Chart.swift */,
 				CE8C6EE025C31E87007D25FC /* Container.swift */,
 				CEC3205826B800AA00364E88 /* NSMutableAttributedString.swift */,
 				CEC3204926B8009200364E88 /* NumberFormatter.swift */,
@@ -1003,9 +1006,9 @@
 				CEBB7B1F26CD60D20048BC46 /* Option.swift in Sources */,
 				CEA6F7A726CD460700B59F67 /* Window.Empty.swift in Sources */,
 				CEA413C726CE4CC100FF4B02 /* Purchases.swift in Sources */,
+				CED44E2026CF9D6C005F6E85 /* Activity.Chart.swift in Sources */,
 				CEBB7B2126CD64960048BC46 /* Project.Column.swift in Sources */,
 				CEA413BE26CE441600FF4B02 /* Writer.swift in Sources */,
-				CE6BBD6C26CD303B00F577B2 /* Blur.swift in Sources */,
 				CEBB7B1B26CD58EB0048BC46 /* Sidebar.Meter.swift in Sources */,
 				CEA6F7A326CD3D6700B59F67 /* RelativeDateTimeFormatter.swift in Sources */,
 				CEA413C826CE4CC300FF4B02 /* Purchases.Item.swift in Sources */,
@@ -1024,6 +1027,7 @@
 				CEA413C026CE44A400FF4B02 /* Container.swift in Sources */,
 				CEA413CA26CE54D900FF4B02 /* Store.Capacity.swift in Sources */,
 				CE6BBD6126CD2E3400F577B2 /* App.swift in Sources */,
+				CED44E1E26CF9CB4005F6E85 /* Activity.swift in Sources */,
 				CE6BBD6326CD2ED200F577B2 /* Session.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

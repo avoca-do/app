@@ -56,6 +56,8 @@ let purchases = Purchases()
             Store(session: $session)
         case .settings:
             Settings(session: $session)
+        case .activity:
+            Activity(session: $session)
         }
     }
 }

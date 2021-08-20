@@ -10,6 +10,7 @@ extension App {
         purchase,
         store,
         settings,
+        activity,
         write(Write)
     }
 }
