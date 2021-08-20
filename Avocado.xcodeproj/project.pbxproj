@@ -93,6 +93,8 @@
 		CEA413C826CE4CC300FF4B02 /* Purchases.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B575F26BD690900DDF923 /* Purchases.Item.swift */; };
 		CEA413CA26CE54D900FF4B02 /* Store.Capacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA413C926CE54D900FF4B02 /* Store.Capacity.swift */; };
 		CEA413CB26CE5C7900FF4B02 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3204926B8009200364E88 /* NumberFormatter.swift */; };
+		CEA53D3126CF897800EF39B0 /* Preferences.Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA53D3026CF897800EF39B0 /* Preferences.Notifications.swift */; };
+		CEA53D3326CF8B4300EF39B0 /* Preferences.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA53D3226CF8B4300EF39B0 /* Preferences.Option.swift */; };
 		CEA6F7A326CD3D6700B59F67 /* RelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3204826B8009200364E88 /* RelativeDateTimeFormatter.swift */; };
 		CEA6F7A526CD3FC000B59F67 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F7A426CD3FC000B59F67 /* Project.swift */; };
 		CEA6F7A726CD460700B59F67 /* Window.Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F7A626CD460700B59F67 /* Window.Empty.swift */; };
@@ -340,6 +342,8 @@
 		CEA413C326CE4C9400FF4B02 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		CEA413C526CE4CA200FF4B02 /* Store.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.Item.swift; sourceTree = "<group>"; };
 		CEA413C926CE54D900FF4B02 /* Store.Capacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.Capacity.swift; sourceTree = "<group>"; };
+		CEA53D3026CF897800EF39B0 /* Preferences.Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.Notifications.swift; sourceTree = "<group>"; };
+		CEA53D3226CF8B4300EF39B0 /* Preferences.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.Option.swift; sourceTree = "<group>"; };
 		CEA652A125C1CBA60099C82E /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		CEA6F7A426CD3FC000B59F67 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		CEA6F7A626CD460700B59F67 /* Window.Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.Empty.swift; sourceTree = "<group>"; };
@@ -604,6 +608,8 @@
 				CEC3205626B800AA00364E88 /* NSMenuItem.swift */,
 				CEBC7C3326C51D0300E27436 /* NSPopover.swift */,
 				CE793C2726CBEDF6006DD2EB /* Preferences.Features.swift */,
+				CEA53D3026CF897800EF39B0 /* Preferences.Notifications.swift */,
+				CEA53D3226CF8B4300EF39B0 /* Preferences.Option.swift */,
 				CE793C2526CBED8F006DD2EB /* Preferences.swift */,
 				CE793C2926CBEE1B006DD2EB /* Preferences.Switch.swift */,
 				CE7339F026B9722A00D195D6 /* Project.Cell.swift */,
@@ -1070,6 +1076,7 @@
 				CE793C2626CBED90006DD2EB /* Preferences.swift in Sources */,
 				CEC3206C26B800AA00364E88 /* NSMutableAttributedString.swift in Sources */,
 				CE90C1A926C7FC3B00E82395 /* Find.Field.Cell.swift in Sources */,
+				CEA53D3126CF897800EF39B0 /* Preferences.Notifications.swift in Sources */,
 				CE7339E726B9551100D195D6 /* Flip.swift in Sources */,
 				CE6B575E26BD68FB00DDF923 /* Purchases.swift in Sources */,
 				CE578D3526B8286D00FCE39A /* Bar.swift in Sources */,
@@ -1113,6 +1120,7 @@
 				CE7339EF26B9717400D195D6 /* Project.swift in Sources */,
 				CEC3206A26B800AA00364E88 /* NSMenuItem.swift in Sources */,
 				CE5B92A726C681080088EAFE /* Find.swift in Sources */,
+				CEA53D3326CF8B4300EF39B0 /* Preferences.Option.swift in Sources */,
 				CE7339F326B9723700D195D6 /* Project.Info.swift in Sources */,
 				CE90C1A726C7FC0F00E82395 /* Find.Field.swift in Sources */,
 				CE7339F126B9722A00D195D6 /* Project.Cell.swift in Sources */,

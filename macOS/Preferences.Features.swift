@@ -34,7 +34,7 @@ extension Preferences {
                 .forEach {
                     view!.addSubview($0)
                     
-                    $0.topAnchor.constraint(equalTo: top, constant: top == view!.topAnchor ? 20 : 0).isActive = true
+                    $0.topAnchor.constraint(equalTo: top, constant: top == view!.topAnchor ? 40 : 10).isActive = true
                     $0.centerXAnchor.constraint(equalTo: view!.centerXAnchor).isActive = true
                     top = $0.bottomAnchor
                 }
