@@ -6,16 +6,16 @@ extension Activity {
         var body: some View {
             ZStack {
                 Road(values: values)
-                    .stroke(Color.secondary, style: .init(lineWidth: 1, lineCap: .round, lineJoin: .round))
+                    .stroke(Color.primary.opacity(0.2), style: .init(lineWidth: 1, lineCap: .round, lineJoin: .round))
                     .clipShape(Holes(values: values))
                     .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
                 ForEach(0 ..< max(values.count - 1, 0), id: \.self) {
-                    Dot(y: values[$0], index: $0, radius: 6)
-                        .stroke(Color.primary.opacity(0.3), lineWidth: 1)
+                    Dot(y: values[$0], index: $0, radius: 4)
+                        .stroke(Color.primary.opacity(0.2), lineWidth: 1)
                 }
                 if !values.isEmpty {
-                    Dot(y: values.last!, index: values.count - 1, radius: 12)
-                        .fill(Color.primary)
+                    Dot(y: values.last!, index: values.count - 1, radius: 8)
+                        .fill(Color.accentColor)
                 }
             }
         }
@@ -52,7 +52,7 @@ struct Holes: Shape {
                     .addPath(
                         .init(
                             UIBezierPath(cgPath:
-                                            Dot(y: values[$0], index: $0, radius: $0 == values.count - 1 ? 15 : 10)
+                                            Dot(y: values[$0], index: $0, radius: $0 == values.count - 1 ? 10 : 7)
                                             .path(in: rect)
                                             .cgPath)
                                 .cgPath))

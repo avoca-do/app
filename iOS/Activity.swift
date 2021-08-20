@@ -20,10 +20,13 @@ struct Activity: View {
                 }
                 .labelsHidden()
                 .pickerStyle(SegmentedPickerStyle())
-                .padding()
+                .padding(.horizontal)
+                .padding(.top)
+                Spacer()
                 Chart(values: cloud.archive.value.activity(period: period))
-                    .padding()
-                    .padding(.top, 50)
+                    .frame(height: 200)
+                    .padding(.horizontal)
+                    .padding(.bottom)
                 HStack {
                     Text(verbatim: RelativeDateTimeFormatter().string(from: period.date))
                     Rectangle()
@@ -31,9 +34,8 @@ struct Activity: View {
                     Text("Now")
                 }
                 .font(.footnote)
-                .foregroundColor(.secondary)
+                .foregroundColor(.primary.opacity(0.2))
                 .padding(.horizontal)
-                .padding(.bottom, 100)
                 Spacer()
             }
         }
