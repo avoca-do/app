@@ -28,7 +28,7 @@ Your privacy is respected at all times.
             option
                 .click
                 .sink {
-                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) { success, error in
                         if success {
                             DispatchQueue.main.async { [weak self] in
                                 self?.view?.window?.close()
@@ -57,7 +57,7 @@ Your privacy is respected at all times.
             
             UNUserNotificationCenter.current().getNotificationSettings { settings in
                 DispatchQueue.main.async {
-                    if settings.alertSetting == .enabled && settings.badgeSetting == .enabled && settings.authorizationStatus == .authorized {
+                    if settings.alertSetting == .enabled && settings.authorizationStatus == .authorized {
                         check.isHidden = false
                     } else {
                         option.state = .on
