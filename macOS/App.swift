@@ -54,6 +54,10 @@ let purchases = Purchases()
     }
     
     func userNotificationCenter(_: UNUserNotificationCenter, willPresent: UNNotification, withCompletionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        withCompletionHandler([.banner])
+        guard willPresent.request.trigger is UNPushNotificationTrigger else {
+            withCompletionHandler([.banner])
+            return
+        }
+        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [willPresent.request.identifier])
     }
 }
