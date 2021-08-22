@@ -84,20 +84,15 @@ Check purchases for more details.
             switch path {
             case .board:
                 cloud.rename(board: path.board, name: text)
-                state.send(.view(path.board))
-                
                 Notifications.send(message: "Renamed project")
             case .column:
                 cloud.rename(board: path.board, column: path.column, name: text)
-                state.send(.view(path.board))
-                
                 Notifications.send(message: "Renamed column")
             case .card:
                 cloud.update(board: path.board, column: path.column, card: path.card, content: text)
-                state.send(.view(path.board))
-                
                 Notifications.send(message: "Updated card")
             }
+            state.send(.view(path.board))
         default:
             break
         }

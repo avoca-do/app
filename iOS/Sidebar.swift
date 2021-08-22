@@ -2,7 +2,6 @@ import SwiftUI
 
 struct Sidebar: View {
     @Binding var session: Session
-    @State private var detail = false
     
     var body: some View {
         ZStack {
@@ -12,11 +11,11 @@ struct Sidebar: View {
                 Spacer()
                     .frame(height: 20)
                 ForEach(0 ..< session.archive.items.count, id: \.self) {
-                    Item(session: $session, detail: $detail, index: $0)
+                    Item(session: $session, detail: $session.detail, index: $0)
                 }
                 Spacer()
                     .frame(height: 20)
-                NavigationLink(destination: link, isActive: $detail) {
+                NavigationLink(destination: link, isActive: $session.detail) {
                     EmptyView()
                 }
             }
@@ -33,14 +32,16 @@ struct Sidebar: View {
                 Option(symbol: "magnifyingglass") {
                     
                 }
-                Option(symbol: "plus", action: session.newProject)
+                Option(symbol: "plus") {
+                    session.newProject()
+                }
             })
         .onAppear {
             cloud
                 .notifier
                 .notify(queue: .main) {
                     if session.archive.isEmpty {
-                        detail = true
+                        session.detail = true
                     }
                 }
         }

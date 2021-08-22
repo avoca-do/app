@@ -19,15 +19,15 @@ extension Sidebar {
                             Circle()
                                 .stroke(Color.primary, lineWidth: 1)
                                 .frame(width: 28, height: 28)
-                            Meter(percent: session.archive.items[index].progress.percentage)
+                            Meter(percent: session.archive[index].progress.percentage)
                                 .fill(Color.accentColor)
                                 .frame(width: 28, height: 28)
                         }
                         VStack(alignment: .leading) {
-                            Text(verbatim: session.archive.items[index].name)
+                            Text(verbatim: session.archive[index].name)
                                 .foregroundColor(.primary)
                                 .font(.footnote)
-                            Text(verbatim: RelativeDateTimeFormatter().string(from: session.archive.items[index].date))
+                            Text(verbatim: RelativeDateTimeFormatter().string(from: session.archive[index].date))
                                 .foregroundColor(.secondary)
                                 .font(.footnote)
                         }

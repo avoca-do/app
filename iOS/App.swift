@@ -53,6 +53,8 @@ let purchases = Purchases()
         switch modal {
         case let .write(write):
             Writer(session: $session, write: write)
+        case let .edit(board):
+            Project.Edit(session: $session, board: board)
         case .purchase:
             Purchase(session: $session)
         case .store:
@@ -61,8 +63,6 @@ let purchases = Purchases()
             Settings(session: $session)
         case .activity:
             Activity(session: $session)
-        case .edit:
-            Project.Edit(session: $session)
         }
     }
 }

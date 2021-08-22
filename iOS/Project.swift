@@ -34,7 +34,7 @@ struct Project: View {
         .navigationBarItems(
             trailing: HStack {
                 Option(symbol: "slider.horizontal.3") {
-                    session.modal.send(.edit)
+                    session.modal.send(.edit(board))
                 }
                 Option(symbol: "waveform.path.ecg") {
                     

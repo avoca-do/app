@@ -282,7 +282,7 @@ final class Bar: NSView, NSWindowDelegate {
                                             font: .font(style: .callout, weight: .light),
                                             color: .tertiaryLabelColor,
                                             lineBreak: .byTruncatingMiddle))
-                            $0.append(.make("Edit card",
+                            $0.append(.make("Update card",
                                             font: .font(style: .callout, weight: .light),
                                             color: .secondaryLabelColor))
                         }
@@ -292,12 +292,12 @@ final class Bar: NSView, NSWindowDelegate {
                                             font: .font(style: .callout, weight: .light),
                                             color: .tertiaryLabelColor,
                                             lineBreak: .byTruncatingMiddle))
-                            $0.append(.make("Edit column",
+                            $0.append(.make("Rename column",
                                             font: .font(style: .callout, weight: .light),
                                             color: .secondaryLabelColor))
                         }
                     case .board:
-                        title.attributedStringValue = .make("Edit board",
+                        title.attributedStringValue = .make("Rename project",
                                                             font: .font(style: .callout, weight: .light),
                                                             color: .secondaryLabelColor)
                     }

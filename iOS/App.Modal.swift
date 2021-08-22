@@ -11,7 +11,7 @@ extension App {
         store,
         settings,
         activity,
-        edit,
+        edit(Int),
         write(Write)
     }
 }

@@ -27,15 +27,18 @@ extension Writer {
             allowsEditingTextAttributes = false
             delegate = self
             
-//            switch wrapper.write {
-//            case let .edit(path):
-//                switch path {
-//                case .card:
-//                    text = wrapper.session.archive[content: path]
-//                default: break
-//                }
-//            default: break
-//            }
+            switch wrapper.write {
+            case let .edit(path):
+                switch path {
+                case .board:
+                    text = wrapper.session.archive[path.board].name
+                case .column:
+                    text = wrapper.session.archive[path.board][path.column].name
+                case .card:
+                    text = wrapper.session.archive[path.board][path.column][path.card].content
+                }
+            default: break
+            }
             
             let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 48), inputViewStyle: .keyboard)
             
@@ -132,7 +135,7 @@ extension Writer {
                                         font: .font(style: .callout, weight: .light),
                                         color: .tertiaryLabel,
                                         lineBreak: .byTruncatingMiddle))
-                        $0.append(.make("Edit card",
+                        $0.append(.make("Update card",
                                         font: .font(style: .callout, weight: .light),
                                         color: .secondaryLabel))
                     }
@@ -142,12 +145,12 @@ extension Writer {
                                         font: .font(style: .callout, weight: .light),
                                         color: .tertiaryLabel,
                                         lineBreak: .byTruncatingMiddle))
-                        $0.append(.make("Edit column",
+                        $0.append(.make("Rename column",
                                         font: .font(style: .callout, weight: .light),
                                         color: .secondaryLabel))
                     }
                 case .board:
-                    title.attributedText = .make("Edit board",
+                    title.attributedText = .make("Rename project",
                                                  font: .font(style: .callout, weight: .light),
                                                  color: .secondaryLabel)
                 }

@@ -13,7 +13,9 @@ struct Empty: View {
                     .foregroundColor(.secondary)
                     .padding()
                 if session.archive.isEmpty {
-                    Button(action: session.newProject) {
+                    Button {
+                        session.newProject()
+                    } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 8)
                             Text("Start")

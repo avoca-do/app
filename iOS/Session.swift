@@ -5,10 +5,12 @@ import Kanban
 struct Session {
     var archive = Archive.new
     var board: Int?
+    var detail = false
     let modal = PassthroughSubject<App.Modal, Never>()
     
-    func newProject() {
+    mutating func newProject() {
         if cloud.archive.value.available {
+            detail = false
             modal.send(.write(.create))
         } else {
             modal.send(.purchase)
@@ -20,6 +22,18 @@ struct Session {
         case .create:
             cloud.new(board: text.isEmpty ? "Project" : text) {
                 Notifications.send(message: "Created project")
+            }
+        case let .edit(path):
+            switch path {
+            case .board:
+                cloud.rename(board: path.board, name: text)
+                Notifications.send(message: "Renamed project")
+            case .column:
+                cloud.rename(board: path.board, column: path.column, name: text)
+                Notifications.send(message: "Renamed column")
+            case .card:
+                cloud.update(board: path.board, column: path.column, card: path.card, content: text)
+                Notifications.send(message: "Updated card")
             }
         default:
             break
