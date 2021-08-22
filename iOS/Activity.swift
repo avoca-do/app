@@ -24,17 +24,19 @@ struct Activity: View {
                 .padding(.top)
                 Spacer()
                 Chart(values: cloud.archive.value.activity(period: period))
-                    .frame(height: 200)
+                    .frame(height: 180)
                     .padding(.horizontal)
                     .padding(.bottom)
                 HStack {
                     Text(verbatim: RelativeDateTimeFormatter().string(from: period.date))
+                        .foregroundColor(.secondary)
                     Rectangle()
                         .frame(height: 1)
+                        .foregroundColor(.primary.opacity(0.1))
                     Text("Now")
+                        .foregroundColor(.secondary)
                 }
                 .font(.footnote)
-                .foregroundColor(.primary.opacity(0.2))
                 .padding(.horizontal)
                 Spacer()
             }

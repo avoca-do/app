@@ -50,7 +50,7 @@ struct Sidebar: View {
         if let board = session.board {
             Project(session: $session, board: board)
         } else {
-            Window.Empty(session: $session)
+            Empty(session: $session)
         }
     }
 }

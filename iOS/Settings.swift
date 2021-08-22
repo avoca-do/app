@@ -15,11 +15,19 @@ struct Settings: View {
                     Toggle("Spell checking", isOn: $spell)
                     Toggle("Auto correction", isOn: $correction)
                 }
+                Section {
+                    
+                }
                 Section(header: Text("Notifications")
-                        , footer: Text("Show notifications of important events. Avocado will never send Push Notifications and all notifications will appear only while using the app.")) {
+                        , footer: Text("""
+Show notifications of important events.
+Avocado will never send you Push Notifications, and all notifications will appear only while you are using the app.
+
+Your privacy is respected at all times.
+""")) {
                     if requested {
                         HStack {
-                            Text("Status")
+                            Text("Notifications allowed")
                                 .foregroundColor(.secondary)
                             Spacer()
                             Image(systemName: "checkmark")
@@ -36,6 +44,9 @@ struct Settings: View {
                             }
                         }
                     }
+                }
+                Section {
+                    
                 }
                 Section {
                     

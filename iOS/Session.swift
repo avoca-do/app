@@ -1,6 +1,5 @@
 import Foundation
 import Combine
-import UserNotifications
 import Kanban
 
 struct Session {
@@ -20,9 +19,7 @@ struct Session {
         switch write {
         case .create:
             cloud.new(board: text.isEmpty ? "Project" : text) {
-                let content = UNMutableNotificationContent()
-                content.body = "Created project"
-                UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
+                Notifications.send(message: "Created project")
             }
         default:
             break

@@ -12,14 +12,17 @@ let purchases = Purchases()
     
     var body: some Scene {
         WindowGroup {
-            Window(session: $session)
-                .sheet(item: $modal, content: modal)
-                .onReceive(cloud.archive) {
-                    session.archive = $0
-                }
-                .onReceive(session.modal) {
-                    change($0)
-                }
+            NavigationView {
+                Sidebar(session: $session)
+                Empty(session: $session)
+            }
+            .sheet(item: $modal, content: modal)
+            .onReceive(cloud.archive) {
+                session.archive = $0
+            }
+            .onReceive(session.modal) {
+                change($0)
+            }
 //                .onReceive(purchases.open) {
 //                    change(.store)
 //                }
@@ -34,7 +37,7 @@ let purchases = Purchases()
         }
     }
     
-    private func change(_ new: App.Modal) {
+    private func change(_ new: Modal) {
         guard new != modal else { return }
         if modal == nil {
             modal = new
@@ -46,7 +49,7 @@ let purchases = Purchases()
         }
     }
     
-    @ViewBuilder private func modal(_ modal: App.Modal) -> some View {
+    @ViewBuilder private func modal(_ modal: Modal) -> some View {
         switch modal {
         case let .write(write):
             Writer(session: $session, write: write)
@@ -58,6 +61,8 @@ let purchases = Purchases()
             Settings(session: $session)
         case .activity:
             Activity(session: $session)
+        case .edit:
+            Project.Edit(session: $session)
         }
     }
 }

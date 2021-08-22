@@ -17,8 +17,8 @@ extension Sidebar {
                     HStack {
                         ZStack {
                             Circle()
-                                .stroke(Color(.tertiaryLabel), lineWidth: 1)
-                                .frame(width: 26, height: 26)
+                                .stroke(Color.primary, lineWidth: 1)
+                                .frame(width: 28, height: 28)
                             Meter(percent: session.archive.items[index].progress.percentage)
                                 .fill(Color.accentColor)
                                 .frame(width: 28, height: 28)

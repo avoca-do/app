@@ -39,8 +39,21 @@ extension App {
             return true
         }
         
-        func userNotificationCenter(_: UNUserNotificationCenter, willPresent: UNNotification, withCompletionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-            withCompletionHandler([.banner])
+        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent: UNNotification, withCompletionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            center
+                .getDeliveredNotifications {
+                    center.removeDeliveredNotifications(withIdentifiers: $0
+                                                            .map(\.request.identifier)
+                                                            .filter {
+                                                                $0 != willPresent.request.identifier
+                                                            })
+                }
+            
+            guard willPresent.request.trigger is UNPushNotificationTrigger else {
+                withCompletionHandler([.banner])
+                return
+            }
+            center.removeDeliveredNotifications(withIdentifiers: [willPresent.request.identifier])
         }
         
         func application(_: UIApplication, didReceiveRemoteNotification: [AnyHashable : Any], fetchCompletionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
