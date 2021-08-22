@@ -71,7 +71,6 @@ extension Project {
                               buttons: [
                                 .destructive(.init("Delete")) {
                                     visible.wrappedValue.dismiss()
-                                    session.detail = false
                                     session.board = nil
                                     Notifications.send(message: "Deleted project")
                                     cloud.delete(board: board)

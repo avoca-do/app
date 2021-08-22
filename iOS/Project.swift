@@ -15,7 +15,7 @@ struct Project: View {
                 .padding([.leading, .trailing, .top])
             if session.archive[board].isEmpty {
                 Spacer()
-                    .frame(height: 80)
+                    .frame(height: 150)
                 Text("No columns in this project")
                     .font(.callout)
                     .foregroundColor(.secondary)
@@ -34,7 +34,7 @@ struct Project: View {
                 }
                 if session.archive[board][current].isEmpty {
                     Spacer()
-                        .frame(height: 80)
+                        .frame(height: 150)
                     Text("No cards in this column")
                         .font(.callout)
                         .foregroundColor(.secondary)

@@ -3,13 +3,11 @@ import SwiftUI
 extension Sidebar {
     struct Item: View {
         @Binding var session: Session
-        @Binding var detail: Bool
         let index: Int
         
         var body: some View {
             Button {
-                detail = true
-                session.board = index
+                session.board = session.board == index ? nil : index
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 8)

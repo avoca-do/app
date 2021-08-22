@@ -8,12 +8,16 @@ struct Sidebar: View {
             Spacer()
                 .frame(height: 20)
             ForEach(0 ..< session.archive.items.count, id: \.self) {
-                Item(session: $session, detail: $session.detail, index: $0)
+                Item(session: $session, index: $0)
             }
             Spacer()
                 .frame(height: 20)
-            NavigationLink(destination: link, isActive: $session.detail) {
-                EmptyView()
+            NavigationLink(destination: link, isActive: .init(get: {
+                session.board != nil
+            }, set: {
+                session.board = $0 ? 0 : nil
+            })) {
+                
             }
         }
         .navigationBarTitle("Projects", displayMode: .large)
@@ -37,14 +41,14 @@ struct Sidebar: View {
                 .notifier
                 .notify(queue: .main) {
                     if session.archive.isEmpty {
-                        session.detail = true
+                        session.board = 0
                     }
                 }
         }
     }
     
     @ViewBuilder private var link: some View {
-        if let board = session.board {
+        if !(session.archive.isEmpty), let board = session.board {
             Project(session: $session, board: board)
         } else {
             Empty(session: $session)

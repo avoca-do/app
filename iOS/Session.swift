@@ -5,12 +5,10 @@ import Kanban
 struct Session {
     var archive = Archive.new
     var board: Int?
-    var detail = false
     let modal = PassthroughSubject<App.Modal, Never>()
     
     mutating func newProject() {
         if cloud.archive.value.available {
-            detail = false
             modal.send(.write(.create))
         } else {
             modal.send(.purchase)
