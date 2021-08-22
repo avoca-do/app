@@ -10,19 +10,9 @@ struct Empty: View {
                 .foregroundColor(.secondary)
                 .padding()
             if session.archive.isEmpty {
-                Button {
+                Actioner(title: "Start") {
                     session.newProject()
-                } label: {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 8)
-                        Text("Start")
-                            .foregroundColor(.white)
-                            .padding(.vertical, 8)
-                            .padding(.horizontal, 36)
-                    }
                 }
-                .fixedSize()
-                .padding()
             }
         }
         .navigationBarTitle(session.archive.isEmpty ? "Welcome" : "Ready", displayMode: .inline)

@@ -142,6 +142,7 @@
 		CED44E2026CF9D6C005F6E85 /* Activity.Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED44E1F26CF9D6C005F6E85 /* Activity.Chart.swift */; };
 		CEDD564B26BBEBCF00AA54A4 /* Bar.Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD564A26BBEBCF00AA54A4 /* Bar.Action.swift */; };
 		CEE64F9626D26BE900DC7394 /* Project.Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE64F9526D26BE900DC7394 /* Project.Edit.swift */; };
+		CEE64F9826D28DEA00DC7394 /* Actioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE64F9726D28DEA00DC7394 /* Actioner.swift */; };
 		CEF2D7D825C0554700223C79 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -410,6 +411,7 @@
 		CEE61FA025CAFCFB007CF830 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		CEE61FA425CB0A08007CF830 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		CEE64F9526D26BE900DC7394 /* Project.Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Edit.swift; sourceTree = "<group>"; };
+		CEE64F9726D28DEA00DC7394 /* Actioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actioner.swift; sourceTree = "<group>"; };
 		CEF2D7D725C0554700223C79 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -500,6 +502,7 @@
 				CE6D659C25D1A1060017FE07 /* Settings.bundle */,
 				CEA1819825C04DD200552DEF /* iOS.entitlements */,
 				CE2507A225B8660A00F9C526 /* Info.plist */,
+				CEE64F9726D28DEA00DC7394 /* Actioner.swift */,
 				CED44E1D26CF9CB4005F6E85 /* Activity.swift */,
 				CE0B804726CE9C1D0080FB37 /* App.Delegate.swift */,
 				CE6BBD6426CD2EEE00F577B2 /* App.Modal.swift */,
@@ -1027,6 +1030,7 @@
 				CE6BBD6526CD2EEE00F577B2 /* App.Modal.swift in Sources */,
 				CEA413C626CE4CA200FF4B02 /* Store.Item.swift in Sources */,
 				CEA413C226CE4C8600FF4B02 /* Popup.swift in Sources */,
+				CEE64F9826D28DEA00DC7394 /* Actioner.swift in Sources */,
 				CEA6F7A526CD3FC000B59F67 /* Project.swift in Sources */,
 				CEA413C026CE44A400FF4B02 /* Container.swift in Sources */,
 				CEA413CA26CE54D900FF4B02 /* Store.Capacity.swift in Sources */,
