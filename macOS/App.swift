@@ -53,11 +53,20 @@ let purchases = Purchases()
         cloud.pull.send()
     }
     
-    func userNotificationCenter(_: UNUserNotificationCenter, willPresent: UNNotification, withCompletionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent: UNNotification, withCompletionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        center
+            .getDeliveredNotifications {
+                center.removeDeliveredNotifications(withIdentifiers: $0
+                                                        .map(\.request.identifier)
+                                                        .filter {
+                                                            $0 != willPresent.request.identifier
+                                                        })
+            }
+        
         guard willPresent.request.trigger is UNPushNotificationTrigger else {
             withCompletionHandler([.banner])
             return
         }
-        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [willPresent.request.identifier])
+        center.removeDeliveredNotifications(withIdentifiers: [willPresent.request.identifier])
     }
 }

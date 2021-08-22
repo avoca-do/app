@@ -1,6 +1,5 @@
 import AppKit
 import Combine
-import UserNotifications
 import Kanban
 
 struct Session {
@@ -58,23 +57,17 @@ Check purchases for more details.
                 select.send(0)
             }
             
-            let content = UNMutableNotificationContent()
-            content.body = "Created project"
-            UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
+            Notifications.send(message: "Created project")
         case let .column(board):
             cloud.add(board: board, column: text.isEmpty ? "Column" : text)
             state.send(.view(board))
             
-            let content = UNMutableNotificationContent()
-            content.body = "Created column"
-            UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
+            Notifications.send(message: "Created column")
         case let .card(board):
             if !text.isEmpty {
                 cloud.add(board: board, card: text)
                 
-                let content = UNMutableNotificationContent()
-                content.body = "Created card"
-                UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
+                Notifications.send(message: "Created card")
             }
             state.send(.view(board))
         default:
@@ -93,23 +86,17 @@ Check purchases for more details.
                 cloud.rename(board: path.board, name: text)
                 state.send(.view(path.board))
                 
-                let content = UNMutableNotificationContent()
-                content.body = "Renamed project"
-                UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
+                Notifications.send(message: "Renamed project")
             case .column:
                 cloud.rename(board: path.board, column: path.column, name: text)
                 state.send(.view(path.board))
                 
-                let content = UNMutableNotificationContent()
-                content.body = "Renamed column"
-                UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
+                Notifications.send(message: "Renamed column")
             case .card:
                 cloud.update(board: path.board, column: path.column, card: path.card, content: text)
                 state.send(.view(path.board))
                 
-                let content = UNMutableNotificationContent()
-                content.body = "Updated card"
-                UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: nil))
+                Notifications.send(message: "Updated card")
             }
         default:
             break
