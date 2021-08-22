@@ -13,7 +13,7 @@ extension Sidebar {
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 8)
-                        .fill(Color(.tertiarySystemBackground))
+                        .fill(Color(.secondarySystemBackground))
                     HStack {
                         ZStack {
                             Circle()

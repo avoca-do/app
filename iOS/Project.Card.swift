@@ -13,7 +13,7 @@ extension Project {
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 8)
-                        .foregroundColor(.init(.systemBackground))
+                        .foregroundColor(.init(.secondarySystemBackground))
                     Text(verbatim: session.archive[board][column][card].content)
                         .font(.callout)
                         .kerning(1)

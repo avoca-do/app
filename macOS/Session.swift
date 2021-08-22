@@ -65,8 +65,7 @@ Check purchases for more details.
             Notifications.send(message: "Created column")
         case let .card(board):
             if !text.isEmpty {
-                cloud.add(board: board, card: text)
-                
+                cloud.add(board: board, card: text)        
                 Notifications.send(message: "Created card")
             }
             state.send(.view(board))

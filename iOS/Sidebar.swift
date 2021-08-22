@@ -4,20 +4,16 @@ struct Sidebar: View {
     @Binding var session: Session
     
     var body: some View {
-        ZStack {
-            Color(.secondarySystemBackground)
-                .edgesIgnoringSafeArea(.all)
-            ScrollView {
-                Spacer()
-                    .frame(height: 20)
-                ForEach(0 ..< session.archive.items.count, id: \.self) {
-                    Item(session: $session, detail: $session.detail, index: $0)
-                }
-                Spacer()
-                    .frame(height: 20)
-                NavigationLink(destination: link, isActive: $session.detail) {
-                    EmptyView()
-                }
+        ScrollView {
+            Spacer()
+                .frame(height: 20)
+            ForEach(0 ..< session.archive.items.count, id: \.self) {
+                Item(session: $session, detail: $session.detail, index: $0)
+            }
+            Spacer()
+                .frame(height: 20)
+            NavigationLink(destination: link, isActive: $session.detail) {
+                EmptyView()
             }
         }
         .navigationBarTitle("Projects", displayMode: .large)

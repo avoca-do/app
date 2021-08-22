@@ -25,9 +25,10 @@ extension Project {
                     
                     Section(header: HStack {
                         Text("Columns")
+                            .frame(maxHeight: .greatestFiniteMagnitude, alignment: .bottom)
                         Spacer()
                         Button {
-                            
+                            session.modal.send(.write(.column(board)))
                         } label: {
                             Image(systemName: "plus.circle.fill")
                                 .font(.title2)

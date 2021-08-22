@@ -14,7 +14,7 @@ extension Project {
                 ZStack {
                     if current == index {
                         Capsule()
-                            .fill(Color(.tertiarySystemFill))
+                            .fill(Color(.secondarySystemFill))
                     }
                     Text(verbatim: session.archive[board][index].name)
                         .font(.footnote)
