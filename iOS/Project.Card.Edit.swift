@@ -4,7 +4,8 @@ import Kanban
 extension Project.Card {
     struct Edit: View {
         @Binding var session: Session
-        let path: Kanban.Path
+        @State var path: Kanban.Path
+        @State private var hit = true
         @State private var delete = false
         @Environment(\.presentationMode) private var visible
         
@@ -16,7 +17,7 @@ extension Project.Card {
                         .kerning(1)
                         .foregroundColor(.secondary)
                         .padding()
-                        .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
+                        .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatesçtFiniteMagnitude, alignment: .topLeading)
                     HStack(spacing: 0) {
                         Option(icon: "trash.circle.fill") {
                             delete = true
@@ -35,37 +36,67 @@ extension Project.Card {
                         
                         Spacer()
                         
-                        Option(icon: "arrow.left.circle.fill") {
-                            
+                        if path.column > 0 {
+                            Option(icon: "arrow.left.circle.fill") {
+                                cloud
+                                    .move(board: path.board, column: path.column, card: path.card, horizontal: path.column - 1)
+                                move(column: path.column - 1, card: 0)
+                            }
+                            .foregroundColor(.secondary)
                         }
-                        .foregroundColor(.secondary)
                         
-                        Option(icon: "arrow.up.circle.fill") {
-                            
+                        if path.card > 0 {
+                            Option(icon: "arrow.up.circle.fill") {
+                                cloud
+                                    .move(board: path.board, column: path.column, card: path.card, vertical: path.card - 1)
+                                move(column: path.column, card: path.card - 1)
+                            }
+                            .foregroundColor(.secondary)
                         }
-                        .foregroundColor(.secondary)
                         
-                        Option(icon: "arrow.down.circle.fill") {
-                            
+                        if path.card < session.archive[path.board][path.column].count - 1 {
+                            Option(icon: "arrow.down.circle.fill") {
+                                cloud
+                                    .move(board: path.board, column: path.column, card: path.card, vertical: path.card + 1)
+                                move(column: path.column, card: path.card + 1)
+                            }
+                            .foregroundColor(.secondary)
                         }
-                        .foregroundColor(.secondary)
                         
-                        Option(icon: "arrow.right.circle.fill") {
-                            
+                        if path.column < session.archive[path.board].count - 1 {
+                            Option(icon: "arrow.right.circle.fill") {
+                                cloud
+                                    .move(board: path.board, column: path.column, card: path.card, horizontal: path.column + 1)
+                                move(column: path.column + 1, card: 0)
+                            }
+                            .foregroundColor(.primary)
                         }
-                        .foregroundColor(.primary)
                         
                         Spacer()
                         
                         Option(icon: "pencil.circle.fill") {
-                            
+                            session.modal.send(.write(.edit(path)))
                         }
                         .foregroundColor(.accentColor)
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 25)
                 }
+                .allowsHitTesting(hit)
             }
+        }
+        
+        private func move(column: Int, card: Int) {
+            hit = false
+            withAnimation(.easeInOut(duration: 0.5)) {
+                path = .card(.column(.board(path.board), column), card)
+            }
+            
+            DispatchQueue
+                .main
+                .asyncAfter(deadline: .now() + 0.5) {
+                    hit = true
+                }
         }
     }
 }
