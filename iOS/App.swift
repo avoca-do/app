@@ -57,6 +57,8 @@ let purchases = Purchases()
             Project.Edit(session: $session, board: board)
         case let .wave(board):
             Wave(session: $session, board: board)
+        case let .stats(board):
+            Stats(session: $session, board: board, progress: session.archive[board].progress)
         case .purchase:
             Purchase(session: $session)
         case .store:

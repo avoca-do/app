@@ -2,7 +2,7 @@ import AppKit
 
 final class About: NSWindow {
     init() {
-        super.init(contentRect: .init(x: 0, y: 0, width: 300, height: 300),
+        super.init(contentRect: .init(x: 0, y: 0, width: 320, height: 360),
                    styleMask: [.closable, .titled, .fullSizeContentView], backing: .buffered, defer: true)
         toolbar = .init()
         isReleasedWhenClosed = false
@@ -16,6 +16,7 @@ final class About: NSWindow {
         
         let image = Image(named: "about", vibrancy: true)
         image.contentTintColor = .labelColor
+        image.imageScaling = .scaleNone
         content.addSubview(image)
         
         let name = Text(vibrancy: true)
@@ -26,14 +27,14 @@ final class About: NSWindow {
         
         let version = Text(vibrancy: true)
         version.stringValue = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
-        version.font = .preferredFont(forTextStyle: .title2)
-        version.textColor = .tertiaryLabelColor
+        version.font = .font(style: .title2, weight: .light)
+        version.textColor = .secondaryLabelColor
         content.addSubview(version)
         
-        image.topAnchor.constraint(equalTo: content.safeAreaLayoutGuide.topAnchor).isActive = true
+        image.topAnchor.constraint(equalTo: content.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         image.centerXAnchor.constraint(equalTo: content.centerXAnchor).isActive = true
         
-        name.topAnchor.constraint(equalTo: image.bottomAnchor).isActive = true
+        name.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 40).isActive = true
         name.centerXAnchor.constraint(equalTo: content.centerXAnchor).isActive = true
         
         version.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 5).isActive = true

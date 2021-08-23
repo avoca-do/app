@@ -48,7 +48,7 @@ final class Stats: NSPopover {
         gradient.startPoint = .init(x: 0.5, y: 0)
         gradient.endPoint = .init(x: 0.5, y: 1)
         gradient.locations = [0, 1]
-        gradient.colors = [NSColor.systemBlue.cgColor, NSColor.quaternaryLabelColor.cgColor]
+        gradient.colors = [NSColor.controlAccentColor.cgColor, NSColor.quaternaryLabelColor.cgColor]
         gradient.mask = current
         contentViewController!.view.layer!.addSublayer(gradient)
         

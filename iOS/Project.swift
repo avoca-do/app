@@ -62,7 +62,7 @@ struct Project: View {
                     session.modal.send(.wave(board))
                 }
                 Option(symbol: "barometer") {
-                    
+                    session.modal.send(.stats(board))
                 }
                 Option(symbol: "plus") {
                     current = 0

@@ -12,9 +12,9 @@ struct Store: View {
     var body: some View {
         Popup(title: "", leading: {
             ZStack {
-                Progress(value: 1)
+                Radiator(value: 1)
                     .stroke(Color(.quaternaryLabel), style: .init(lineWidth: 20, dash: [1, 3]))
-                Progress(value: min(1, .init(session.archive.count) / max(.init(session.archive.capacity), 1)))
+                Radiator(value: min(1, .init(session.archive.count) / max(.init(session.archive.capacity), 1)))
                     .stroke(Color.accentColor, style: .init(lineWidth: 20, dash: [1, 3]))
             }
             .frame(width: 260)
@@ -75,7 +75,7 @@ struct Store: View {
     }
 }
 
-private struct Progress: Shape {
+private struct Radiator: Shape {
     let value: CGFloat
     
     func path(in rect: CGRect) -> Path {
