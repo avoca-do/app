@@ -9,7 +9,7 @@ struct Option: View {
             Image(systemName: symbol)
                 .font(.body)
                 .foregroundColor(.primary)
-                .frame(width: 48, height: 50)
+                .frame(width: 44, height: 50)
                 .contentShape(Rectangle())
         }
     }

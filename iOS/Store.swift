@@ -10,7 +10,15 @@ struct Store: View {
     @State private var alternatives = false
     
     var body: some View {
-        Popup(title: "", leading: { }) {
+        Popup(title: "", leading: {
+            ZStack {
+                Progress(value: 1)
+                    .stroke(Color(.quaternaryLabel), style: .init(lineWidth: 20, dash: [1, 3]))
+                Progress(value: min(1, .init(session.archive.count) / max(.init(session.archive.capacity), 1)))
+                    .stroke(Color.accentColor, style: .init(lineWidth: 20, dash: [1, 3]))
+            }
+            .frame(width: 260)
+        }) {
             if let error = error {
                 Text(verbatim: error)
                     .foregroundColor(.secondary)
@@ -23,7 +31,24 @@ struct Store: View {
                     .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
             } else {
                 ScrollView {
-                    Capacity(session: $session)
+                    HStack(spacing: 30) {
+                        Spacer()
+                        Text(NSNumber(value: session.archive.count), formatter: NumberFormatter.decimal)
+                            .foregroundColor(.primary)
+                            .font(.title3.monospacedDigit())
+                        + Text("\nPROJECTS")
+                            .foregroundColor(.secondary)
+                            .font(.caption)
+                        Text(NSNumber(value: session.archive.capacity), formatter: NumberFormatter.decimal)
+                            .foregroundColor(.primary)
+                            .font(.title3.monospacedDigit())
+                        + Text("\nCAPACITY")
+                            .foregroundColor(.secondary)
+                            .font(.caption)
+                        Spacer()
+                    }
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
                     ForEach(products, id: \.product.productIdentifier) { product in
                         Item(purchase: Purchases.Item(rawValue: product.0.productIdentifier)!, price: product.1) {
                             withAnimation(.easeInOut(duration: 0.5)) {
@@ -46,6 +71,17 @@ struct Store: View {
         }
         .onAppear {
             purchases.load()
+        }
+    }
+}
+
+private struct Progress: Shape {
+    let value: CGFloat
+    
+    func path(in rect: CGRect) -> Path {
+        .init {
+            $0.move(to: .init(x: 0, y: rect.midY))
+            $0.addLine(to: .init(x: rect.maxX * value, y: rect.midY))
         }
     }
 }
