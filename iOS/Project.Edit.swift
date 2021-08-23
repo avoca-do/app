@@ -78,7 +78,7 @@ extension Project {
                                 .cancel()])
                     }
                 }
-                .listStyle(GroupedListStyle())
+                .listStyle(InsetGroupedListStyle())
             }
         }
     }

@@ -25,7 +25,7 @@ struct Project: View {
                 }
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
+                    HStack(spacing: 0) {
                         ForEach(0 ..< session.archive[board].count, id: \.self) {
                             Column(session: $session, current: $current, board: board, index: $0)
                         }
@@ -46,7 +46,7 @@ struct Project: View {
                     }
                 } else {
                     ForEach(0 ..< session.archive[board][current].count, id: \.self) {
-                        Card(session: $session, board: board, column: current, card: $0)
+                        Card(session: $session, path: .card(.column(.board(board), current), $0))
                     }
                 }
             }

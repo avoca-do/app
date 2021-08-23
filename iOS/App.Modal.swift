@@ -1,4 +1,5 @@
 import Foundation
+import Kanban
 
 extension App {
     enum Modal: Identifiable, Equatable {
@@ -12,6 +13,7 @@ extension App {
         settings,
         activity,
         edit(Int),
+        card(Path),
         wave(Int),
         stats(Int),
         write(Write)

@@ -19,7 +19,7 @@ extension Project {
                     Text(verbatim: session.archive[board][index].name)
                         .font(.callout)
                         .foregroundColor(current == index ? .white : .secondary)
-                        .padding(.horizontal, 25)
+                        .padding(.horizontal, 35)
                         .padding(.vertical, 8)
                 }
                 .fixedSize()

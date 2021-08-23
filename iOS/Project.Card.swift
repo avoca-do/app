@@ -1,26 +1,25 @@
 import SwiftUI
+import Kanban
 
 extension Project {
     struct Card: View {
         @Binding var session: Session
-        let board: Int
-        let column: Int
-        let card: Int
+        let path: Kanban.Path
         
         var body: some View {
             Button {
-                
+                session.modal.send(.card(path))
             } label: {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 8)
+                    RoundedRectangle(cornerRadius: 10)
                         .foregroundColor(.init(.quaternarySystemFill))
-                    Text(verbatim: session.archive[board][column][card].content)
-                        .font(.callout)
+                    Text(verbatim: session.archive[path.board][path.column][path.card].content)
+                        .font(.footnote)
                         .kerning(1)
                         .foregroundColor(.primary)
                         .fixedSize(horizontal: false, vertical: true)
                         .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
-                        .padding()
+                        .padding(22)
                 }
                 .padding(.horizontal)
             }

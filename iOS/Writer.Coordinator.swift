@@ -97,8 +97,10 @@ extension Writer {
             asterisk.leftAnchor.constraint(equalTo: minus.rightAnchor).isActive = true
             
             title.topAnchor.constraint(equalTo: bottomAnchor, constant: 20).isActive = true
-            title.leftAnchor.constraint(equalTo: leftAnchor, constant: 25).isActive = true
-            title.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -25).isActive = true
+            title.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 25).isActive = true
+            let right = title.rightAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.rightAnchor, constant: -25)
+            right.priority = .defaultLow
+            right.isActive = true
             
             inputAccessoryView = input
             
