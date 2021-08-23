@@ -8,7 +8,7 @@ struct Project: View {
     var body: some View {
         ScrollView {
             Text(verbatim: session.archive[board].name)
-                .font(.body)
+                .font(.title3)
                 .foregroundColor(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)

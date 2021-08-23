@@ -7,7 +7,7 @@ struct Session {
     var board: Int?
     let modal = PassthroughSubject<App.Modal, Never>()
     
-    mutating func newProject() {
+    func newProject() {
         if cloud.archive.value.available {
             modal.send(.write(.create))
         } else {

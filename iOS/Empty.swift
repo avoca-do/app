@@ -10,9 +10,7 @@ struct Empty: View {
                 .foregroundColor(.secondary)
                 .padding()
             if session.archive.isEmpty {
-                Actioner(title: "Start") {
-                    session.newProject()
-                }
+                Actioner(title: "Start", action: session.newProject)
             }
         }
         .navigationBarTitle(session.archive.isEmpty ? "Welcome" : "Ready", displayMode: .inline)

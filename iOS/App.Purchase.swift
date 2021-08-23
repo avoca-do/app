@@ -38,7 +38,7 @@ Check purchases for more details.
                             .foregroundColor(.white)
                             .font(.footnote)
                             .padding(.vertical, 8)
-                            .padding(.horizontal, 35)
+                            .padding(.horizontal, 42)
                     }
                     .fixedSize()
                     .contentShape(Rectangle())
@@ -49,7 +49,7 @@ Check purchases for more details.
                     Text("CANCEL")
                         .foregroundColor(.secondary)
                         .font(.footnote)
-                        .frame(height: 40)
+                        .frame(width: 150, height: 50)
                 }
                 Spacer()
                     .frame(height: 20)

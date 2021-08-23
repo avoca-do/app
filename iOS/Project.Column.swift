@@ -14,13 +14,13 @@ extension Project {
                 ZStack {
                     if current == index {
                         Capsule()
-                            .fill(Color(.secondarySystemFill))
+                            .fill(Color.accentColor)
                     }
                     Text(verbatim: session.archive[board][index].name)
-                        .font(.footnote)
-                        .foregroundColor(current == index ? .primary : .secondary)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 7)
+                        .font(.callout)
+                        .foregroundColor(current == index ? .white : .secondary)
+                        .padding(.horizontal, 25)
+                        .padding(.vertical, 8)
                 }
                 .fixedSize()
                 .contentShape(Rectangle())
