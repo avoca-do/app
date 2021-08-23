@@ -59,6 +59,7 @@ struct Stats: View {
                         .font(Font.largeTitle.monospacedDigit().weight(.light))
                 }
                 .padding(.horizontal, 50)
+                .frame(maxHeight: 400)
                 Spacer()
             }
         }
