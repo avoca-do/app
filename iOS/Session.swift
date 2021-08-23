@@ -8,7 +8,7 @@ struct Session {
     let modal = PassthroughSubject<App.Modal, Never>()
     
     func newProject() {
-        if cloud.archive.value.available {
+        if archive.available {
             modal.send(.write(.create))
         } else {
             modal.send(.purchase)

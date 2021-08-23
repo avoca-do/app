@@ -55,6 +55,8 @@ let purchases = Purchases()
             Writer(session: $session, write: write)
         case let .edit(board):
             Project.Edit(session: $session, board: board)
+        case let .wave(board):
+            Wave(session: $session, board: board)
         case .purchase:
             Purchase(session: $session)
         case .store:

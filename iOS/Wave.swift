@@ -1,14 +1,17 @@
 import SwiftUI
 import Kanban
 
-struct Activity: View {
+struct Wave: View {
     @Binding var session: Session
+    let board: Int
     @State private var period = Period.month
     
     var body: some View {
-        Popup(title: "Activity", leading: { }) {
+        Popup(title: session.archive[board].name, leading: { }) {
             VStack(spacing: 0) {
                 Picker("Period", selection: $period) {
+                    Text(verbatim: "Start")
+                        .tag(Period.custom(session.archive[board].start))
                     Text(verbatim: "Year")
                         .tag(Period.year)
                     Text(verbatim: "Month")
@@ -23,7 +26,7 @@ struct Activity: View {
                 .padding(.horizontal)
                 .padding(.top)
                 Spacer()
-                Chart(values: session.archive.activity(period: period))
+                Chart(values: session.archive[board].activity(period: period))
                     .frame(height: 180)
                     .padding(.horizontal)
                     .padding(.bottom)

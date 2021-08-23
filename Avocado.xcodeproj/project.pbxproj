@@ -69,6 +69,7 @@
 		CE793C2826CBEDF6006DD2EB /* Preferences.Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE793C2726CBEDF6006DD2EB /* Preferences.Features.swift */; };
 		CE793C2A26CBEE1B006DD2EB /* Preferences.Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE793C2926CBEE1B006DD2EB /* Preferences.Switch.swift */; };
 		CE793C2C26CBEFDB006DD2EB /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE793C2B26CBEFDB006DD2EB /* About.swift */; };
+		CE7DA51926D3B7770079974B /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7DA51826D3B7770079974B /* Wave.swift */; };
 		CE90C1A726C7FC0F00E82395 /* Find.Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C1A626C7FC0F00E82395 /* Find.Field.swift */; };
 		CE90C1A926C7FC3B00E82395 /* Find.Field.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C1A826C7FC3B00E82395 /* Find.Field.Cell.swift */; };
 		CE90C1AB26C7FC4D00E82395 /* Find.Field.Cell.Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C1AA26C7FC4D00E82395 /* Find.Field.Cell.Editor.swift */; };
@@ -139,7 +140,7 @@
 		CECCC78F2632CB3200D971E4 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CECCC78E2632CB3200D971E4 /* Kanban */; };
 		CECCC7922632CCB700D971E4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECCC7912632CCB700D971E4 /* CloudKit.framework */; };
 		CED44E1E26CF9CB4005F6E85 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED44E1D26CF9CB4005F6E85 /* Activity.swift */; };
-		CED44E2026CF9D6C005F6E85 /* Activity.Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED44E1F26CF9D6C005F6E85 /* Activity.Chart.swift */; };
+		CED44E2026CF9D6C005F6E85 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED44E1F26CF9D6C005F6E85 /* Chart.swift */; };
 		CEDD564B26BBEBCF00AA54A4 /* Bar.Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD564A26BBEBCF00AA54A4 /* Bar.Action.swift */; };
 		CEE64F9626D26BE900DC7394 /* Project.Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE64F9526D26BE900DC7394 /* Project.Edit.swift */; };
 		CEE64F9826D28DEA00DC7394 /* Actioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE64F9726D28DEA00DC7394 /* Actioner.swift */; };
@@ -311,6 +312,7 @@
 		CE793C2B26CBEFDB006DD2EB /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		CE7AFF6A25FA5F90008D6278 /* Cards.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.Content.swift; sourceTree = "<group>"; };
 		CE7D6FBB25F256E30028BB2A /* Middelbar.Item.Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middelbar.Item.Style.swift; sourceTree = "<group>"; };
+		CE7DA51826D3B7770079974B /* Wave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
 		CE85C59B25FB7F2600287C27 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		CE85C5A125FB7FA600287C27 /* Progress.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.Content.swift; sourceTree = "<group>"; };
 		CE85C5A725FB7FC200287C27 /* Progress.Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.Entry.swift; sourceTree = "<group>"; };
@@ -401,7 +403,7 @@
 		CED28AC125FBA38B009F00FB /* Activity.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Content.swift; sourceTree = "<group>"; };
 		CED28AFB25FBA78E009F00FB /* Activity.Content.Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Content.Chart.swift; sourceTree = "<group>"; };
 		CED44E1D26CF9CB4005F6E85 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
-		CED44E1F26CF9D6C005F6E85 /* Activity.Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.Chart.swift; sourceTree = "<group>"; };
+		CED44E1F26CF9D6C005F6E85 /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		CEDB78E825ECFA7D001A02A4 /* Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Column.swift; sourceTree = "<group>"; };
 		CEDB78EF25ECFC8B001A02A4 /* Project.Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Title.swift; sourceTree = "<group>"; };
 		CEDB78F325ECFCCF001A02A4 /* Project.Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Options.swift; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 				CEA413C526CE4CA200FF4B02 /* Store.Item.swift */,
 				CEA413C326CE4C9400FF4B02 /* Store.swift */,
 				CE0B804526CE87120080FB37 /* UIFont.swift */,
+				CE7DA51826D3B7770079974B /* Wave.swift */,
 				CE8C6EDC25C31D51007D25FC /* Writer.Coordinator.swift */,
 				CE8C6ED225C31A4E007D25FC /* Writer.swift */,
 				CE25079D25B8660A00F9C526 /* Assets.xcassets */,
@@ -537,7 +540,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB8E56925DAA0C6009737AB /* Configuration.storekit */,
-				CED44E1F26CF9D6C005F6E85 /* Activity.Chart.swift */,
+				CED44E1F26CF9D6C005F6E85 /* Chart.swift */,
 				CE8C6EE025C31E87007D25FC /* Container.swift */,
 				CE4CDCBA26D2563F00EA997C /* Notifications.swift */,
 				CEC3205826B800AA00364E88 /* NSMutableAttributedString.swift */,
@@ -1013,8 +1016,9 @@
 				CEBB7B1F26CD60D20048BC46 /* Option.swift in Sources */,
 				CEA6F7A726CD460700B59F67 /* Empty.swift in Sources */,
 				CEA413C726CE4CC100FF4B02 /* Purchases.swift in Sources */,
-				CED44E2026CF9D6C005F6E85 /* Activity.Chart.swift in Sources */,
+				CED44E2026CF9D6C005F6E85 /* Chart.swift in Sources */,
 				CEBB7B2126CD64960048BC46 /* Project.Column.swift in Sources */,
+				CE7DA51926D3B7770079974B /* Wave.swift in Sources */,
 				CEA413BE26CE441600FF4B02 /* Writer.swift in Sources */,
 				CEBB7B1B26CD58EB0048BC46 /* Sidebar.Meter.swift in Sources */,
 				CEA6F7A326CD3D6700B59F67 /* RelativeDateTimeFormatter.swift in Sources */,

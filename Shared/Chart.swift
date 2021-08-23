@@ -1,22 +1,20 @@
 import SwiftUI
 
-extension Activity {
-    struct Chart: View {
-        let values: [Double]
-        var body: some View {
-            ZStack {
-                Road(values: values)
-                    .stroke(Color.primary.opacity(0.3), style: .init(lineWidth: 1, lineCap: .round, lineJoin: .round))
-                    .clipShape(Holes(values: values))
-                    .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
-                ForEach(0 ..< max(values.count - 1, 0), id: \.self) {
-                    Dot(y: values[$0], index: $0, radius: 4)
-                        .stroke(Color.primary.opacity(0.1), lineWidth: 1)
-                }
-                if !values.isEmpty {
-                    Dot(y: values.last!, index: values.count - 1, radius: 8)
-                        .fill(Color.accentColor)
-                }
+struct Chart: View {
+    let values: [Double]
+    var body: some View {
+        ZStack {
+            Road(values: values)
+                .stroke(Color.primary.opacity(0.3), style: .init(lineWidth: 1, lineCap: .round, lineJoin: .round))
+                .clipShape(Holes(values: values))
+                .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
+            ForEach(0 ..< max(values.count - 1, 0), id: \.self) {
+                Dot(y: values[$0], index: $0, radius: 4)
+                    .stroke(Color.primary.opacity(0.1), lineWidth: 1)
+            }
+            if !values.isEmpty {
+                Dot(y: values.last!, index: values.count - 1, radius: 8)
+                    .fill(Color.accentColor)
             }
         }
     }

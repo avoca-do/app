@@ -7,7 +7,7 @@ struct Sidebar: View {
         ScrollView {
             Spacer()
                 .frame(height: 20)
-            ForEach(0 ..< session.archive.items.count, id: \.self) {
+            ForEach(0 ..< session.archive.count, id: \.self) {
                 Item(session: $session, index: $0)
             }
             Spacer()

@@ -35,7 +35,7 @@ struct Project: View {
                 if session.archive[board][current].isEmpty {
                     Spacer()
                         .frame(height: 150)
-                    Text("No cards in this column")
+                    Text(session.archive[board].total == 0 ? "No cards in this project" : "No cards in this column")
                         .font(.callout)
                         .foregroundColor(.secondary)
                         .padding()
@@ -59,7 +59,7 @@ struct Project: View {
                     session.modal.send(.edit(board))
                 }
                 Option(symbol: "waveform.path.ecg") {
-                    
+                    session.modal.send(.wave(board))
                 }
                 Option(symbol: "barometer") {
                     
