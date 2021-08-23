@@ -17,7 +17,7 @@ extension Project.Card {
                         .kerning(1)
                         .foregroundColor(.secondary)
                         .padding()
-                        .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatesçtFiniteMagnitude, alignment: .topLeading)
+                        .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
                     HStack(spacing: 0) {
                         Option(icon: "trash.circle.fill") {
                             delete = true
