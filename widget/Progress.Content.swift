@@ -7,10 +7,10 @@ extension Progress {
         var body: some View {
             ZStack {
                 Ring(amount: 1)
-                    .stroke(Color.primary.opacity(0.2), lineWidth: 8)
+                    .stroke(Color.primary.opacity(0.1), lineWidth: 8)
                 Ring(amount: entry.percentage)
                     .stroke(LinearGradient(
-                                gradient: .init(colors: [Color.primary.opacity(0.2), .accentColor]),
+                                gradient: .init(colors: [.primary.opacity(0.1), .accentColor]),
                                 startPoint: .top,
                                 endPoint: .bottom),
                             style: .init(lineWidth: 8,

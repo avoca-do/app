@@ -10,11 +10,11 @@ struct Chart: View {
                 .clipShape(Holes(values: values))
                 .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
             ForEach(0 ..< max(values.count - 1, 0), id: \.self) {
-                Dot(y: values[$0], index: $0, radius: 4)
+                Dot(y: values[$0], index: $0, radius: 3)
                     .stroke(Color.primary.opacity(0.25), lineWidth: 1)
             }
             if !values.isEmpty {
-                Dot(y: values.last!, index: values.count - 1, radius: 8)
+                Dot(y: values.last!, index: values.count - 1, radius: 6)
                     .fill(Color.accentColor)
             }
         }
@@ -51,7 +51,7 @@ struct Holes: Shape {
                     .addPath(
                         .init(
                             UIBezierPath(cgPath:
-                                            Dot(y: values[$0], index: $0, radius: $0 == values.count - 1 ? 10 : 7)
+                                            Dot(y: values[$0], index: $0, radius: $0 == values.count - 1 ? 7 : 4)
                                             .path(in: rect)
                                             .cgPath)
                                 .cgPath))
