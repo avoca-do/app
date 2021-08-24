@@ -23,7 +23,7 @@ extension Progress {
                         .font(Font.title3.monospacedDigit().weight(.light))
                 }
                 .multilineTextAlignment(.center)
-                .padding(.horizontal)
+                .padding(.horizontal, 20)
             }
             .padding(8)
         }

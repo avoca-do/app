@@ -4,6 +4,6 @@ import SwiftUI
     @WidgetBundleBuilder var body: some Widget {
         Activity()
         Progress()
-//        Column()
+        Preview()
     }
 }

@@ -20,7 +20,7 @@
 			<key>INIntentCategory</key>
 			<string>information</string>
 			<key>INIntentDescription</key>
-			<string>Configure project, column, and order</string>
+			<string>Select a project and a column</string>
 			<key>INIntentDescriptionID</key>
 			<string>tVvJ9c</string>
 			<key>INIntentEligibleForWidgets</key>
@@ -30,7 +30,7 @@
 			<key>INIntentLastParameterTag</key>
 			<integer>6</integer>
 			<key>INIntentName</key>
-			<string>Project</string>
+			<string>Preview</string>
 			<key>INIntentParameters</key>
 			<array>
 				<dict>
@@ -162,54 +162,6 @@
 					<key>INIntentParameterType</key>
 					<string>Object</string>
 				</dict>
-				<dict>
-					<key>INIntentParameterConfigurable</key>
-					<true/>
-					<key>INIntentParameterDisplayName</key>
-					<string>From bottom</string>
-					<key>INIntentParameterDisplayNameID</key>
-					<string>YcY1HZ</string>
-					<key>INIntentParameterDisplayPriority</key>
-					<integer>3</integer>
-					<key>INIntentParameterMetadata</key>
-					<dict>
-						<key>INIntentParameterMetadataFalseDisplayName</key>
-						<string>no</string>
-						<key>INIntentParameterMetadataFalseDisplayNameID</key>
-						<string>eGOkqX</string>
-						<key>INIntentParameterMetadataTrueDisplayName</key>
-						<string>yes</string>
-						<key>INIntentParameterMetadataTrueDisplayNameID</key>
-						<string>FuU17g</string>
-					</dict>
-					<key>INIntentParameterName</key>
-					<string>bottom</string>
-					<key>INIntentParameterPromptDialogs</key>
-					<array>
-						<dict>
-							<key>INIntentParameterPromptDialogCustom</key>
-							<true/>
-							<key>INIntentParameterPromptDialogType</key>
-							<string>Configuration</string>
-						</dict>
-						<dict>
-							<key>INIntentParameterPromptDialogCustom</key>
-							<true/>
-							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>Order from bottom</string>
-							<key>INIntentParameterPromptDialogFormatStringID</key>
-							<string>H7LS4W</string>
-							<key>INIntentParameterPromptDialogType</key>
-							<string>Primary</string>
-						</dict>
-					</array>
-					<key>INIntentParameterSupportsResolution</key>
-					<true/>
-					<key>INIntentParameterTag</key>
-					<integer>6</integer>
-					<key>INIntentParameterType</key>
-					<string>Boolean</string>
-				</dict>
 			</array>
 			<key>INIntentResponse</key>
 			<dict>
@@ -228,7 +180,7 @@
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>Project</string>
+			<string>Preview</string>
 			<key>INIntentTitleID</key>
 			<string>gpCwrM</string>
 			<key>INIntentType</key>

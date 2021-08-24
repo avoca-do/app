@@ -38,8 +38,8 @@
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>ActivityIntent</string>
+		<string>PreviewIntent</string>
 		<string>ProgressIntent</string>
-		<string>ProjectIntent</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
