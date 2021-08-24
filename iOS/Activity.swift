@@ -32,7 +32,7 @@ struct Activity: View {
                         .foregroundColor(.secondary)
                     Rectangle()
                         .frame(height: 1)
-                        .foregroundColor(.primary.opacity(0.1))
+                        .foregroundColor(.primary.opacity(0.2))
                     Text("Now")
                         .foregroundColor(.secondary)
                 }

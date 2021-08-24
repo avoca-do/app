@@ -1,24 +1,24 @@
 import SwiftUI
 import Archivable
+import Kanban
 
-//let cloud = Cloud.new
+let cloud = Cloud.new
 
 @main struct App: SwiftUI.App {
-//    @State private var session = Session()
+    @State private var archive = Archive.new
     @Environment(\.scenePhase) private var phase
-//    @WKExtensionDelegateAdaptor(Delegate.self) private var delegate
+    @WKExtensionDelegateAdaptor(Delegate.self) private var delegate
     
     var body: some Scene {
         WindowGroup {
-//            Window(session: $session)
-//                .onReceive(cloud.archive) {
-//                    session.archive = $0
-//                }
-            Circle()
+            Sidebar(archive: archive)
+                .onReceive(cloud.archive) {
+                    archive = $0
+                }
         }
         .onChange(of: phase) {
             if $0 == .active {
-//                cloud.pull.send()
+                cloud.pull.send()
             }
         }
     }
