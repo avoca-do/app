@@ -7,7 +7,12 @@ extension Sidebar {
         
         var body: some View {
             Button {
-                session.board = session.board == index ? nil : index
+                guard session.board != index else {
+                    session.board = nil
+                    return
+                }
+                session.column = 0
+                session.board = index
             } label: {
                 HStack {
                     ZStack {

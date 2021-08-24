@@ -3,22 +3,21 @@ import SwiftUI
 extension Project {
     struct Column: View {
         @Binding var session: Session
-        @Binding var current: Int
         let board: Int
         let index: Int
         
         var body: some View {
             Button {
-                current = index
+                session.column = index
             } label: {
                 ZStack {
-                    if current == index {
+                    if session.column == index {
                         Capsule()
                             .fill(Color.accentColor)
                     }
                     Text(verbatim: session.archive[board][index].name)
                         .font(.callout)
-                        .foregroundColor(current == index ? .white : .secondary)
+                        .foregroundColor(session.column == index ? .white : .secondary)
                         .padding(.horizontal, 35)
                         .padding(.vertical, 8)
                 }

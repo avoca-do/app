@@ -29,6 +29,7 @@ struct Find: View {
                         
                         Item(content: found[index].content, breadcrumbs: found[index].breadcrumbs) {
                             visible.wrappedValue.dismiss()
+                            session.column = found[index].path.column
                             session.board = found[index].path.board
                         }
                     }

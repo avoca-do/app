@@ -40,6 +40,7 @@ extension Project.Card {
                             Option(icon: "arrow.left.circle.fill") {
                                 cloud
                                     .move(board: path.board, column: path.column, card: path.card, horizontal: path.column - 1)
+                                session.column = path.column - 1
                                 move(column: path.column - 1, card: 0)
                             }
                             .foregroundColor(.secondary)
@@ -67,6 +68,7 @@ extension Project.Card {
                             Option(icon: "arrow.right.circle.fill") {
                                 cloud
                                     .move(board: path.board, column: path.column, card: path.card, horizontal: path.column + 1)
+                                session.column = path.column + 1
                                 move(column: path.column + 1, card: 0)
                             }
                             .foregroundColor(.primary)

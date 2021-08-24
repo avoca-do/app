@@ -3,7 +3,6 @@ import SwiftUI
 struct Project: View {
     @Binding var session: Session
     let board: Int
-    @State private var current = 0
     
     var body: some View {
         ScrollView {
@@ -27,26 +26,26 @@ struct Project: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 0) {
                         ForEach(0 ..< session.archive[board].count, id: \.self) {
-                            Column(session: $session, current: $current, board: board, index: $0)
+                            Column(session: $session, board: board, index: $0)
                         }
                     }
                     .padding()
                 }
-                if session.archive[board][current].isEmpty {
+                if session.archive[board][session.column].isEmpty {
                     Spacer()
                         .frame(height: 150)
                     Text(session.archive[board].total == 0 ? "No cards in this project" : "No cards in this column")
                         .font(.callout)
                         .foregroundColor(.secondary)
                         .padding()
-                    if current == 0 {
+                    if session.column == 0 {
                         Actioner(title: "Add card") {
                             session.modal.send(.write(.card(board)))
                         }
                     }
                 } else {
-                    ForEach(0 ..< session.archive[board][current].count, id: \.self) {
-                        Card(session: $session, path: .card(.column(.board(board), current), $0))
+                    ForEach(0 ..< session.archive[board][session.column].count, id: \.self) {
+                        Card(session: $session, path: .card(.column(.board(board), session.column), $0))
                     }
                 }
             }
@@ -65,7 +64,7 @@ struct Project: View {
                     session.modal.send(.stats(board))
                 }
                 Option(symbol: "plus") {
-                    current = 0
+                    session.column = 0
                     if session.archive[board].isEmpty {
                         session.modal.send(.write(.column(board)))
                     } else {

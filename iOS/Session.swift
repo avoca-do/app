@@ -5,6 +5,7 @@ import Kanban
 struct Session {
     var archive = Archive.new
     var board: Int?
+    var column = 0
     let modal = PassthroughSubject<App.Modal, Never>()
     
     func newProject() {
