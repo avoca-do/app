@@ -2,6 +2,7 @@ import SwiftUI
 
 struct Chart: View {
     let values: [Double]
+    
     var body: some View {
         ZStack {
             Road(values: values)

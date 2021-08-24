@@ -2,12 +2,6 @@ import Intents
 import Kanban
 
 final class Handler: INExtension, ProjectIntentHandling, ProgressIntentHandling, ActivityIntentHandling {
-    private lazy var archive = Defaults.archive
-    
-    func resolvePeriod(for intent: ActivityIntent, with: @escaping (PeriodResolutionResult) -> Void) {
-        with(.success(with: intent.period))
-    }
-    
     func resolveProject(for intent: ActivityIntent, with: @escaping (ProjectResolutionResult) -> Void) {
         resolve(intent.project, with: with)
     }
@@ -74,29 +68,32 @@ final class Handler: INExtension, ProjectIntentHandling, ProgressIntentHandling,
     }
     
     private func resolve(_ project: Project?, with: @escaping (ProjectResolutionResult) -> Void) {
-//        guard
-//            let archive = self.archive,
-//            !archive.isEmpty(.archive)
-//        else {
-//            return with(.notRequired())
-//        }
-//
-//        guard
-//            let project = project,
-//            let id = project.identifier.flatMap(Int.init),
-//            id < archive.count(.archive)
-//        else {
-//            return with(.confirmationRequired(with: .init(identifier: "0", display: archive[name: .board(0)])))
-//        }
-//
-//        with(.success(with: project))
+        guard
+            let archive = Defaults.archive,
+            !archive.isEmpty
+        else {
+            return with(.notRequired())
+        }
+
+        guard
+            let project = project,
+            let id = project.identifier.flatMap(Int.init),
+            id < archive.count
+        else {
+            return with(.confirmationRequired(with: .init(identifier: "0", display: archive[0].name)))
+        }
+
+        with(.success(with: project))
     }
     
     private func provide(_ with: @escaping (INObjectCollection<Project>?, Error?) -> Void) {
-//        with(.init(items: archive.map { archive in
-//            (0 ..< archive.count(.archive)).map {
-//                .init(identifier: "\($0)", display: archive[name: .board($0)])
-//            }
-//        } ?? []), nil)
+        with(.init(items: Defaults
+                    .archive
+                    .map { archive in
+                        (0 ..< archive.count)
+                            .map {
+                                .init(identifier: "\($0)", display: archive[$0].name)
+                            }
+                    } ?? []), nil)
     }
 }
