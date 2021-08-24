@@ -69,6 +69,8 @@ let purchases = Purchases()
             Settings(session: $session)
         case .activity:
             Activity(session: $session)
+        case .find:
+            Find(session: $session)
         }
     }
 }

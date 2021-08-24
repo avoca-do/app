@@ -86,6 +86,8 @@
 		CE9B191E26B98C8600D8ED25 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B191D26B98C8600D8ED25 /* Edit.swift */; };
 		CE9B192026B98D9000D8ED25 /* Edit.Textview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B191F26B98D9000D8ED25 /* Edit.Textview.swift */; };
 		CE9B192126B98E8D00D8ED25 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C6EE025C31E87007D25FC /* Container.swift */; };
+		CEA3AA9C26D4EC5E005BB783 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3AA9B26D4EC5E005BB783 /* UIApplication.swift */; };
+		CEA3AA9E26D4F4A5005BB783 /* Find.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3AA9D26D4F4A5005BB783 /* Find.Item.swift */; };
 		CEA413B726CE31B600FF4B02 /* Project.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA413B626CE31B600FF4B02 /* Project.Card.swift */; };
 		CEA413B926CE3A4000FF4B02 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA413B826CE3A4000FF4B02 /* State.swift */; };
 		CEA413BB26CE3AFA00FF4B02 /* App.Modal.Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA413BA26CE3AFA00FF4B02 /* App.Modal.Write.swift */; };
@@ -348,6 +350,8 @@
 		CEA0D18D25EC45110011FFC0 /* Middlebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlebar.Item.swift; sourceTree = "<group>"; };
 		CEA0D19525EC4C650011FFC0 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		CEA1819825C04DD200552DEF /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
+		CEA3AA9B26D4EC5E005BB783 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		CEA3AA9D26D4F4A5005BB783 /* Find.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find.Item.swift; sourceTree = "<group>"; };
 		CEA413B626CE31B600FF4B02 /* Project.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Card.swift; sourceTree = "<group>"; };
 		CEA413B826CE3A4000FF4B02 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		CEA413BA26CE3AFA00FF4B02 /* App.Modal.Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Modal.Write.swift; sourceTree = "<group>"; };
@@ -522,6 +526,7 @@
 				CEA6F7A626CD460700B59F67 /* Empty.swift */,
 				CE280CF726D4DC4700624D3D /* Find.Bar.Coordinator.swift */,
 				CE280CF526D4DC3400624D3D /* Find.Bar.swift */,
+				CEA3AA9D26D4F4A5005BB783 /* Find.Item.swift */,
 				CE280CF326D4DC2800624D3D /* Find.swift */,
 				CE0B804326CE869C0080FB37 /* NSAttributedString.swift */,
 				CEBB7B1E26CD60D20048BC46 /* Option.swift */,
@@ -540,6 +545,7 @@
 				CE69A58025D15EB600EC9DB0 /* Stats.swift */,
 				CEA413C526CE4CA200FF4B02 /* Store.Item.swift */,
 				CEA413C326CE4C9400FF4B02 /* Store.swift */,
+				CEA3AA9B26D4EC5E005BB783 /* UIApplication.swift */,
 				CE0B804526CE87120080FB37 /* UIFont.swift */,
 				CE7DA51826D3B7770079974B /* Wave.swift */,
 				CE8C6EDC25C31D51007D25FC /* Writer.Coordinator.swift */,
@@ -1043,6 +1049,7 @@
 				CE0B804226CE862E0080FB37 /* NSMutableAttributedString.swift in Sources */,
 				CEA413B726CE31B600FF4B02 /* Project.Card.swift in Sources */,
 				CE08598926CE75060099328A /* Settings.swift in Sources */,
+				CEA3AA9E26D4F4A5005BB783 /* Find.Item.swift in Sources */,
 				CE0B804826CE9C1D0080FB37 /* App.Delegate.swift in Sources */,
 				CE6BBD6526CD2EEE00F577B2 /* App.Modal.swift in Sources */,
 				CEA413C626CE4CA200FF4B02 /* Store.Item.swift in Sources */,
@@ -1053,6 +1060,7 @@
 				CEA6F7A526CD3FC000B59F67 /* Project.swift in Sources */,
 				CE280CF826D4DC4700624D3D /* Find.Bar.Coordinator.swift in Sources */,
 				CEA413C026CE44A400FF4B02 /* Container.swift in Sources */,
+				CEA3AA9C26D4EC5E005BB783 /* UIApplication.swift in Sources */,
 				CE280CF426D4DC2800624D3D /* Find.swift in Sources */,
 				CE4CDCBB26D2563F00EA997C /* Notifications.swift in Sources */,
 				CE6BBD6126CD2E3400F577B2 /* App.swift in Sources */,

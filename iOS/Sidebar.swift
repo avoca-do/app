@@ -30,7 +30,7 @@ struct Sidebar: View {
                     session.modal.send(.activity)
                 }
                 Option(symbol: "magnifyingglass") {
-                    
+                    session.modal.send(.find)
                 }
                 Option(symbol: "plus", action: session.newProject)
             })

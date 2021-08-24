@@ -12,6 +12,7 @@ extension App {
         store,
         settings,
         activity,
+        find,
         edit(Int),
         card(Path),
         wave(Int),
