@@ -11,6 +11,27 @@ struct Settings: View {
     var body: some View {
         Popup(title: "Settings", leading: { }) {
             List {
+                Section(header:
+                            HStack {
+                                Spacer()
+                                Image("about")
+                                    .foregroundColor(.primary)
+                                Spacer()
+                            },
+                        footer:
+                            HStack {
+                                Spacer()
+                                Group {
+                                    Text(verbatim: "Avocado\n")
+                                        .font(.callout)
+                                    + Text(verbatim: Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")
+                                        .font(.footnote)
+                                }
+                                .multilineTextAlignment(.center)
+                                Spacer()
+                            }) {
+                }
+                
                 Section(header: Text("Features")) {
                     Toggle("Spell checking", isOn: $spell)
                     Toggle("Auto correction", isOn: $correction)
