@@ -23,12 +23,9 @@ let purchases = Purchases()
             .onReceive(session.modal) {
                 change($0)
             }
-//                .onReceive(purchases.open) {
-//                    change(.store)
-//                }
-//                .onReceive(delegate.froob) {
-//                    change(.froob)
-//                }
+            .onReceive(purchases.open) {
+                change(.store)
+            }
         }
         .onChange(of: phase) {
             if $0 == .active {
