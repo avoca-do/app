@@ -1,0 +1,56 @@
+import UIKit
+
+extension Find.Bar {
+    final class Coordinator: Keyboard {
+        private var subs = Set<AnyCancellable>()
+        private let wrapper: Search.Bar
+        
+        required init?(coder: NSCoder) { nil }
+        init(wrapper: Search.Bar, id: UUID) {
+            self.wrapper = wrapper
+            super.init(id: id)
+            field.keyboardType = .webSearch
+            
+            field.leftAnchor.constraint(equalTo: input.safeAreaLayoutGuide.leftAnchor, constant: 10).isActive = true
+            field.rightAnchor.constraint(equalTo: cancel.leftAnchor).isActive = true
+            
+            cancel.rightAnchor.constraint(equalTo: input.safeAreaLayoutGuide.rightAnchor).isActive = true
+            
+            wrapper
+                .session
+                .search
+                .sink { [weak self] in
+                    self?.editable = true
+                    self?.becomeFirstResponder()
+                }
+                .store(in: &subs)
+        }
+        
+        func textFieldDidEndEditing(_: UITextField) {
+            wrapper.dismiss()
+            field.text = ""
+        }
+        
+        func textFieldShouldReturn(_: UITextField) -> Bool {
+            let state = wrapper.session.items[state: id]
+            cloud
+                .browse(field.text!, browse: state.browse) { [weak self] in
+                    guard let id = self?.id else { return }
+                    if state.browse == $0 {
+                        if state.isError {
+                            self?.wrapper.session.tab.browse(id, $0)
+                        }
+                        self?.wrapper.session.load.send((id: id, access: $1))
+                    } else {
+                        self?.wrapper.session.tab.browse(id, $0)
+                    }
+                }
+            dismiss()
+            return true
+        }
+        
+        func textFieldDidChangeSelection(_: UITextField) {
+            wrapper.search = field.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+    }
+}

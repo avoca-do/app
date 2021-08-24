@@ -17,6 +17,9 @@
 		CE0B804826CE9C1D0080FB37 /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0B804726CE9C1D0080FB37 /* App.Delegate.swift */; };
 		CE15AE6226BD40D00007DE31 /* NSAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC22CB125E695B90035E674 /* NSAlert.swift */; };
 		CE25079E25B8660A00F9C526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE25079D25B8660A00F9C526 /* Assets.xcassets */; };
+		CE280CF426D4DC2800624D3D /* Find.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE280CF326D4DC2800624D3D /* Find.swift */; };
+		CE280CF626D4DC3400624D3D /* Find.Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE280CF526D4DC3400624D3D /* Find.Bar.swift */; };
+		CE280CF826D4DC4700624D3D /* Find.Bar.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE280CF726D4DC4700624D3D /* Find.Bar.Coordinator.swift */; };
 		CE28758226C91AF7009B6400 /* Find.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28758126C91AF7009B6400 /* Find.Content.swift */; };
 		CE28758426C91E95009B6400 /* Find.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28758326C91E95009B6400 /* Find.Option.swift */; };
 		CE28758626C93011009B6400 /* Find.Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28758526C93011009B6400 /* Find.Move.swift */; };
@@ -236,6 +239,9 @@
 		CE2507DF25B877FF00F9C526 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CE2507EA25B87D9800F9C526 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		CE2507ED25B87DB300F9C526 /* Field.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.Coordinator.swift; sourceTree = "<group>"; };
+		CE280CF326D4DC2800624D3D /* Find.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find.swift; sourceTree = "<group>"; };
+		CE280CF526D4DC3400624D3D /* Find.Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find.Bar.swift; sourceTree = "<group>"; };
+		CE280CF726D4DC4700624D3D /* Find.Bar.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find.Bar.Coordinator.swift; sourceTree = "<group>"; };
 		CE28758126C91AF7009B6400 /* Find.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find.Content.swift; sourceTree = "<group>"; };
 		CE28758326C91E95009B6400 /* Find.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find.Option.swift; sourceTree = "<group>"; };
 		CE28758526C93011009B6400 /* Find.Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find.Move.swift; sourceTree = "<group>"; };
@@ -514,6 +520,9 @@
 				CEA413BC26CE41A700FF4B02 /* App.Purchase.swift */,
 				CE6BBD6026CD2E3400F577B2 /* App.swift */,
 				CEA6F7A626CD460700B59F67 /* Empty.swift */,
+				CE280CF726D4DC4700624D3D /* Find.Bar.Coordinator.swift */,
+				CE280CF526D4DC3400624D3D /* Find.Bar.swift */,
+				CE280CF326D4DC2800624D3D /* Find.swift */,
 				CE0B804326CE869C0080FB37 /* NSAttributedString.swift */,
 				CEBB7B1E26CD60D20048BC46 /* Option.swift */,
 				CEA413C126CE4C8600FF4B02 /* Popup.swift */,
@@ -1037,11 +1046,14 @@
 				CE0B804826CE9C1D0080FB37 /* App.Delegate.swift in Sources */,
 				CE6BBD6526CD2EEE00F577B2 /* App.Modal.swift in Sources */,
 				CEA413C626CE4CA200FF4B02 /* Store.Item.swift in Sources */,
+				CE280CF626D4DC3400624D3D /* Find.Bar.swift in Sources */,
 				CE6C560326D3FC26000A1B8E /* Project.Card.Edit.Option.swift in Sources */,
 				CEA413C226CE4C8600FF4B02 /* Popup.swift in Sources */,
 				CEE64F9826D28DEA00DC7394 /* Actioner.swift in Sources */,
 				CEA6F7A526CD3FC000B59F67 /* Project.swift in Sources */,
+				CE280CF826D4DC4700624D3D /* Find.Bar.Coordinator.swift in Sources */,
 				CEA413C026CE44A400FF4B02 /* Container.swift in Sources */,
+				CE280CF426D4DC2800624D3D /* Find.swift in Sources */,
 				CE4CDCBB26D2563F00EA997C /* Notifications.swift in Sources */,
 				CE6BBD6126CD2E3400F577B2 /* App.swift in Sources */,
 				CED44E1E26CF9CB4005F6E85 /* Activity.swift in Sources */,
