@@ -24,7 +24,6 @@ extension Find.Bar {
             field.delegate = self
             field.borderStyle = .roundedRect
             field.returnKeyType = .done
-//            field.enablesReturnKeyAutomatically = false
             field.leftViewMode = .always
             input.addSubview(field)
             self.field = field

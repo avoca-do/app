@@ -5,10 +5,6 @@ extension Writer {
     final class Coordinator: UITextView, UITextViewDelegate {
         private let wrapper: Writer
         
-        deinit {
-            print("writer gone")
-        }
-        
         required init?(coder: NSCoder) { nil }
         init(wrapper: Writer) {
             self.wrapper = wrapper
