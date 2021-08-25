@@ -13,7 +13,7 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
         hasHorizontalScroller = true
         horizontalScroller!.controlSize = .mini
         wantsLayer = true
-        menu = NSMenu()
+        menu = .init()
         menu!.delegate = self
         
         let vertical = CGFloat(20)

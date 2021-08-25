@@ -22,6 +22,11 @@ extension NSApplication {
         }
     }
     
+    @objc func show() {
+        (anyWindow() as Window?)?
+            .orderFrontRegardless()
+    }
+    
     func anyWindow<T>() -> T? {
         windows
             .compactMap {

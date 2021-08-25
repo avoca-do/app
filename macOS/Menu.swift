@@ -10,6 +10,12 @@ final class Menu: NSMenu, NSMenuDelegate {
         status.button!.image = NSImage(named: "status")
         status.button!.target = self
         status.button!.action = #selector(triggerStatus)
+        status.button!.menu = .init()
+        status.button!.sendAction(on: [.leftMouseUp, .rightMouseUp])
+        status.button!.menu!.items = [
+            .child("Show Avocado", #selector(NSApplication.show)),
+            .separator(),
+            .child("Quit Avocado", #selector(NSApplication.terminate))]
     }
     
     private var app: NSMenuItem {
@@ -145,10 +151,19 @@ final class Menu: NSMenu, NSMenuDelegate {
     }
     
     @objc private func triggerStatus(_ button: NSStatusBarButton) {
-        let activity = Activity()
-        activity.behavior = .transient
-        activity.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
-        activity.contentViewController!.view.window!.makeKey()
+        guard let event = NSApp.currentEvent else { return }
+        
+        switch event.type {
+        case .rightMouseUp:
+            NSMenu.popUpContextMenu(button.menu!, with: event, for: button)
+        case .leftMouseUp:
+            let activity = Activity()
+            activity.behavior = .transient
+            activity.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+            activity.contentViewController!.view.window!.makeKey()
+        default:
+            break
+        }
     }
     
     @objc private func triggerNewProject() {

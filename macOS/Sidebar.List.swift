@@ -13,7 +13,7 @@ extension Sidebar {
         required init?(coder: NSCoder) { nil }
         override init() {
             super.init()
-            menu = NSMenu()
+            menu = .init()
             menu!.delegate = self
             
             let vertical = CGFloat(20)
