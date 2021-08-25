@@ -32,18 +32,24 @@ Check purchases for more details.
     }
     
     func newColumn() {
-        if case let .view(board) = state.value {
+        switch state.value {
+        case let .view(board), let .empty(board):
             state.send(.column(board))
+        default:
+            break
         }
     }
     
     func newCard() {
-        if case let .view(board) = state.value {
+        switch state.value {
+        case let .view(board), let .empty(board):
             if cloud.archive.value[board].isEmpty {
                 newColumn()
             } else {
                 state.send(.card(board))
             }
+        default:
+            break
         }
     }
     

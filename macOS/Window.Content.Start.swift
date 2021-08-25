@@ -2,14 +2,13 @@ import AppKit
 import Combine
 
 extension Window.Content {
-    final class Empty: NSView {
+    final class Start: NSView {
         private var subs = Set<AnyCancellable>()
         
         required init?(coder: NSCoder) { nil }
         init() {
             super.init(frame: .zero)
             translatesAutoresizingMaskIntoConstraints = false
-            wantsLayer = true
             
             let image = Image(vibrancy: false)
             image.contentTintColor = .secondaryLabelColor
@@ -37,7 +36,7 @@ extension Window.Content {
                 }
                 .removeDuplicates()
                 .sink {
-                    text.stringValue = $0 == 0 ? "Welcome to Avocado\nstart your first project now" : "Choose a project to start"
+                    text.stringValue = $0 == 0 ? "Welcome to Avocado\nstart your first project" : "Choose a project"
                     image.image = .init(named: $0 == 0 ? "welcome" : "choose")
                     button.isHidden = $0 != 0
                 }

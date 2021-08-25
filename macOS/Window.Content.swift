@@ -22,9 +22,11 @@ extension Window {
                     
                     switch $0 {
                     case .none:
-                        next = Empty()
+                        next = Start()
                     case let .view(board):
                         next = Project(board: board)
+                    case let .empty(board):
+                        next = Empty(board: board)
                     default:
                         next = Edit(state: $0)
                     }

@@ -194,7 +194,7 @@ final class Bar: NSView, NSWindowDelegate {
             .removeDuplicates()
             .sink {
                 switch $0 {
-                case .none:
+                case .none, .empty:
                     title.attributedStringValue = .init()
                     delete.state = .hidden
                     cancel.state = .hidden

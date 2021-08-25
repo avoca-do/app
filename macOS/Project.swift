@@ -188,6 +188,23 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
                 $1!.frame = $1!.frame.offsetBy(dx: $0.1.width, dy: $0.1.height)
             }
             .store(in: &subs)
+        
+        cloud
+            .archive
+            .debounce(for: .seconds(2), scheduler: DispatchQueue.main)
+            .map {
+                $0[board].total
+            }
+            .filter {
+                $0 == 0
+            }
+            .map { _ in
+                
+            }
+            .sink {
+                session.state.send(.empty(board))
+            }
+            .store(in: &subs)
     }
     
     override func mouseUp(with: NSEvent) {

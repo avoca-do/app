@@ -64,8 +64,8 @@
 		CE6C560326D3FC26000A1B8E /* Project.Card.Edit.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C560226D3FC26000A1B8E /* Project.Card.Edit.Option.swift */; };
 		CE6D659D25D1A1060017FE07 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE6D659C25D1A1060017FE07 /* Settings.bundle */; };
 		CE7339E726B9551100D195D6 /* Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7339E626B9551100D195D6 /* Flip.swift */; };
-		CE7339E926B9563200D195D6 /* Window.Content.Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7339E826B9563200D195D6 /* Window.Content.Empty.swift */; };
-		CE7339EB26B96C4800D195D6 /* Window.Content.Empty.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7339EA26B96C4800D195D6 /* Window.Content.Empty.Option.swift */; };
+		CE7339E926B9563200D195D6 /* Window.Content.Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7339E826B9563200D195D6 /* Window.Content.Start.swift */; };
+		CE7339EB26B96C4800D195D6 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7339EA26B96C4800D195D6 /* Option.swift */; };
 		CE7339EF26B9717400D195D6 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7339EE26B9717400D195D6 /* Project.swift */; };
 		CE7339F126B9722A00D195D6 /* Project.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7339F026B9722A00D195D6 /* Project.Cell.swift */; };
 		CE7339F326B9723700D195D6 /* Project.Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7339F226B9723700D195D6 /* Project.Info.swift */; };
@@ -125,6 +125,7 @@
 		CEA6F7A526CD3FC000B59F67 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F7A426CD3FC000B59F67 /* Project.swift */; };
 		CEA6F7A726CD460700B59F67 /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F7A626CD460700B59F67 /* Empty.swift */; };
 		CEA87A6E26B6E07C00706E04 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE99E67725DBFE9F00E0EA36 /* App.swift */; };
+		CEAD6F6E26D66C3F00223F3A /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD6F6D26D66C3F00223F3A /* Empty.swift */; };
 		CEB09ADF25B994AF00BF7AD6 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB09ADE25B994AF00BF7AD6 /* Kanban */; };
 		CEB508A225FA49AE00E18E86 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB508A125FA49AE00E18E86 /* Kanban */; };
 		CEB508A425FA49BE00E18E86 /* Kanban in Frameworks */ = {isa = PBXBuildFile; productRef = CEB508A325FA49BE00E18E86 /* Kanban */; };
@@ -306,8 +307,8 @@
 		CE6C560226D3FC26000A1B8E /* Project.Card.Edit.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Card.Edit.Option.swift; sourceTree = "<group>"; };
 		CE6D659C25D1A1060017FE07 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CE7339E626B9551100D195D6 /* Flip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flip.swift; sourceTree = "<group>"; };
-		CE7339E826B9563200D195D6 /* Window.Content.Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.Content.Empty.swift; sourceTree = "<group>"; };
-		CE7339EA26B96C4800D195D6 /* Window.Content.Empty.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.Content.Empty.Option.swift; sourceTree = "<group>"; };
+		CE7339E826B9563200D195D6 /* Window.Content.Start.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.Content.Start.swift; sourceTree = "<group>"; };
+		CE7339EA26B96C4800D195D6 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		CE7339EE26B9717400D195D6 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		CE7339F026B9722A00D195D6 /* Project.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Cell.swift; sourceTree = "<group>"; };
 		CE7339F226B9723700D195D6 /* Project.Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Info.swift; sourceTree = "<group>"; };
@@ -357,6 +358,7 @@
 		CEA53D3226CF8B4300EF39B0 /* Preferences.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.Option.swift; sourceTree = "<group>"; };
 		CEA6F7A426CD3FC000B59F67 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		CEA6F7A626CD460700B59F67 /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
+		CEAD6F6D26D66C3F00223F3A /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
 		CEB5089F25FA48F000E18E86 /* intent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = intent.entitlements; sourceTree = "<group>"; };
 		CEB508A025FA497A00E18E86 /* widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widget.entitlements; sourceTree = "<group>"; };
 		CEB7BAF026D545E4002E46F1 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
@@ -613,6 +615,7 @@
 				CEC3205326B800AA00364E88 /* Control.swift */,
 				CE9B191D26B98C8600D8ED25 /* Edit.swift */,
 				CE9B191F26B98D9000D8ED25 /* Edit.Textview.swift */,
+				CEAD6F6D26D66C3F00223F3A /* Empty.swift */,
 				CE5B92AA26C697B80088EAFE /* Find.Cell.swift */,
 				CE28758126C91AF7009B6400 /* Find.Content.swift */,
 				CE90C1AA26C7FC4D00E82395 /* Find.Field.Cell.Editor.swift */,
@@ -635,6 +638,7 @@
 				CEC3206126B800AA00364E88 /* NSMenu.swift */,
 				CEC3205626B800AA00364E88 /* NSMenuItem.swift */,
 				CEBC7C3326C51D0300E27436 /* NSPopover.swift */,
+				CE7339EA26B96C4800D195D6 /* Option.swift */,
 				CE793C2726CBEDF6006DD2EB /* Preferences.Features.swift */,
 				CEA53D3026CF897800EF39B0 /* Preferences.Notifications.swift */,
 				CEA53D3226CF8B4300EF39B0 /* Preferences.Option.swift */,
@@ -659,8 +663,7 @@
 				CE6B575526BD600700DDF923 /* Store.View.swift */,
 				CEC3205726B800AA00364E88 /* Text.swift */,
 				CEBC7C3726C542BD00E27436 /* Wave.swift */,
-				CE7339EA26B96C4800D195D6 /* Window.Content.Empty.Option.swift */,
-				CE7339E826B9563200D195D6 /* Window.Content.Empty.swift */,
+				CE7339E826B9563200D195D6 /* Window.Content.Start.swift */,
 				CE578D3226B820F000FCE39A /* Window.Content.swift */,
 				CE0B3C3725DC2AAE00317754 /* Window.swift */,
 				CE99E67B25DBFEA000E0EA36 /* Assets.xcassets */,
@@ -1060,9 +1063,10 @@
 				CE7339E726B9551100D195D6 /* Flip.swift in Sources */,
 				CE6B575E26BD68FB00DDF923 /* Purchases.swift in Sources */,
 				CE578D3526B8286D00FCE39A /* Bar.swift in Sources */,
-				CE7339EB26B96C4800D195D6 /* Window.Content.Empty.Option.swift in Sources */,
+				CE7339EB26B96C4800D195D6 /* Option.swift in Sources */,
 				CE9B192026B98D9000D8ED25 /* Edit.Textview.swift in Sources */,
 				CE28758426C91E95009B6400 /* Find.Option.swift in Sources */,
+				CEAD6F6E26D66C3F00223F3A /* Empty.swift in Sources */,
 				CE78335926C16080006E7593 /* Menu.swift in Sources */,
 				CE793C2826CBEDF6006DD2EB /* Preferences.Features.swift in Sources */,
 				CE578D3326B820F000FCE39A /* Window.Content.swift in Sources */,
@@ -1096,7 +1100,7 @@
 				CE793C2A26CBEE1B006DD2EB /* Preferences.Switch.swift in Sources */,
 				CEC3204B26B8009200364E88 /* RelativeDateTimeFormatter.swift in Sources */,
 				CE5B92A926C684AF0088EAFE /* Find.Results.swift in Sources */,
-				CE7339E926B9563200D195D6 /* Window.Content.Empty.swift in Sources */,
+				CE7339E926B9563200D195D6 /* Window.Content.Start.swift in Sources */,
 				CE7339EF26B9717400D195D6 /* Project.swift in Sources */,
 				CEC3206A26B800AA00364E88 /* NSMenuItem.swift in Sources */,
 				CE5B92A726C681080088EAFE /* Find.swift in Sources */,
