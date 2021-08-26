@@ -16,7 +16,7 @@ extension Project {
                             .fill(Color.accentColor)
                     }
                     Text(verbatim: session.archive[board][index].name)
-                        .font(.callout)
+                        .font(.body)
                         .foregroundColor(session.column == index ? .white : .secondary)
                         .padding(.horizontal, 35)
                         .padding(.vertical, 8)

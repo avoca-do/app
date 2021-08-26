@@ -6,12 +6,6 @@ struct Project: View {
     
     var body: some View {
         ScrollView {
-            Text(verbatim: session.archive[board].name)
-                .font(.title3)
-                .foregroundColor(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
-                .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
-                .padding([.leading, .trailing, .top])
             if session.archive[board].isEmpty {
                 Spacer()
                     .frame(height: 150)
@@ -31,6 +25,7 @@ struct Project: View {
                     }
                     .padding()
                 }
+                .padding(.vertical)
                 if session.archive[board][session.column].isEmpty {
                     Spacer()
                         .frame(height: 150)
@@ -52,6 +47,7 @@ struct Project: View {
             Spacer()
                 .frame(height: 20)
         }
+        .navigationBarTitle(session.archive[board].name, displayMode: .large)
         .navigationBarItems(
             trailing: HStack {
                 Option(symbol: "slider.horizontal.3") {
