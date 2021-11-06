@@ -1,9 +1,6 @@
 import AppKit
-import Combine
 
 final class Preferences: NSWindow {
-    private var subs = Set<AnyCancellable>()
-    
     init() {
         super.init(contentRect: .init(x: 0, y: 0, width: 400, height: 280),
                    styleMask: [.closable, .miniaturizable, .titled, .fullSizeContentView], backing: .buffered, defer: true)
