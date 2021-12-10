@@ -191,7 +191,7 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
         
         cloud
             .archive
-            .debounce(for: .seconds(2), scheduler: DispatchQueue.main)
+            .debounce(for: .seconds(5), scheduler: DispatchQueue.main)
             .map {
                 $0[board].total
             }
@@ -202,6 +202,7 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
                 
             }
             .sink {
+                guard case .view = session.state.value else { return }
                 session.state.send(.empty(board))
             }
             .store(in: &subs)
