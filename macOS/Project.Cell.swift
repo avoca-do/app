@@ -22,39 +22,45 @@ extension Project {
         
         override var item: CollectionItem<Info>? {
             didSet {
-                guard
-                    item != oldValue,
-                    let item = item
-                else { return }
-                frame = item.rect
-                text.frame.size = .init(width: item.rect.width - Self.horizontal,
-                                        height: item.rect.height - Self.insetVerticalText)
-                text.string = item.info.string
+                guard item != oldValue else { return }
                 
-                switch item.info.id {
-                case .column:
-                    shape.path = {
-                        $0.addArc(
-                            center: .init(x: Self.insetHorizontalCircle, y: Self.insetVerticalCircle),
-                            radius: Self.radius,
-                            startAngle: 0,
-                            endAngle: Self.pi2,
-                            clockwise: false)
-                        $0.move(to: .init(x: Self.insetShape, y: Self.insetVerticalCircle))
-                        $0.addLine(to: .init(x: Self.insetsHorizontal, y: Self.insetVerticalCircle))
-                        $0.addLine(to: .init(x: Self.insetsHorizontal, y: Self.insetsVertical + text.frame.size.height))
-                        return $0
-                    } (CGMutablePath())
-                default:
-                    shape.path = {
-                        $0.move(to: .init(x: Self.insetsHorizontal, y: Self.insetsVertical + (text.frame.size.height / 2)))
-                        $0.addLine(to: .init(x: Self.insetHorizontalCircle, y: Self.insetsVertical + (text.frame.size.height / 2)))
-                        $0.move(to: .init(x: Self.insetHorizontalCircle, y: Self.insetsVertical))
-                        $0.addLine(to: .init(x: Self.insetHorizontalCircle, y: Self.insetsVertical + text.frame.size.height))
-                        return $0
-                    } (CGMutablePath())
+                if let item = item {
+                    frame = item.rect
+                    text.frame.size = .init(width: item.rect.width - Self.horizontal,
+                                            height: item.rect.height - Self.insetVerticalText)
+                    text.string = item.info.string
+                    
+                    switch item.info.id {
+                    case .column:
+                        shape.path = {
+                            $0.addArc(
+                                center: .init(x: Self.insetHorizontalCircle, y: Self.insetVerticalCircle),
+                                radius: Self.radius,
+                                startAngle: 0,
+                                endAngle: Self.pi2,
+                                clockwise: false)
+                            $0.move(to: .init(x: Self.insetShape, y: Self.insetVerticalCircle))
+                            $0.addLine(to: .init(x: Self.insetsHorizontal, y: Self.insetVerticalCircle))
+                            $0.addLine(to: .init(x: Self.insetsHorizontal, y: Self.insetsVertical + text.frame.size.height))
+                            return $0
+                        } (CGMutablePath())
+                    default:
+                        shape.path = {
+                            $0.move(to: .init(x: Self.insetsHorizontal, y: Self.insetsVertical + (text.frame.size.height / 2)))
+                            $0.addLine(to: .init(x: Self.insetHorizontalCircle, y: Self.insetsVertical + (text.frame.size.height / 2)))
+                            $0.move(to: .init(x: Self.insetHorizontalCircle, y: Self.insetsVertical))
+                            $0.addLine(to: .init(x: Self.insetHorizontalCircle, y: Self.insetsVertical + text.frame.size.height))
+                            return $0
+                        } (CGMutablePath())
+                    }
+                } else {
+                    text.string = nil
                 }
             }
+        }
+        
+        deinit {
+            print("cell gone")
         }
         
         required init?(coder: NSCoder) { nil }

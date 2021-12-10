@@ -15,7 +15,7 @@ extension Find {
              move: PassthroughSubject<(date: Date, direction: Move), Never>,
              enter: PassthroughSubject<Date, Never>) {
             
-            super.init()
+            super.init(active: .activeAlways)
             scrollerInsets.bottom = 8
             
             let vertical = CGFloat(15)
@@ -87,15 +87,14 @@ extension Find {
             
             move
                 .combineLatest(info,
-                               highlighted,
                                items)
                 .removeDuplicates {
                     $0.0.0 == $1.0.0
                 }
-                .sink { [weak self] move, info, highlighted, items in
+                .sink { [weak self] move, info, items in
                     (info
                         .firstIndex {
-                            $0.id == highlighted
+                            $0.id == self?.highlighted
                         }
                         ?? (info.isEmpty
                             ? nil
@@ -120,18 +119,15 @@ extension Find {
                                     self?
                                         .center(y: $0.rect.minY)
                                 }
-                            self?.highlighted.send(info[index].id)
+                            self?.highlighted = info[index].id
                         }
                 }
                 .store(in: &subs)
             
             enter
-                .combineLatest(highlighted)
-                .removeDuplicates {
-                    $0.0 == $1.0
-                }
-                .compactMap {
-                    $1
+                .removeDuplicates()
+                .compactMap { [weak self] _ in
+                    self?.highlighted
                 }
                 .subscribe(selected)
                 .store(in: &subs)

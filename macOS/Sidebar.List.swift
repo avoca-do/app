@@ -11,8 +11,8 @@ extension Sidebar {
         private let select = PassthroughSubject<CGPoint, Never>()
         
         required init?(coder: NSCoder) { nil }
-        override init() {
-            super.init()
+        init() {
+            super.init(active: .activeAlways)
             menu = .init()
             menu!.delegate = self
             
@@ -131,7 +131,7 @@ extension Sidebar {
         }
         
         func menuNeedsUpdate(_ menu: NSMenu) {
-            menu.items = highlighted.value == nil
+            menu.items = highlighted == nil
                 ? []
                 : [
                     .child("Open", #selector(open)) {
@@ -155,7 +155,6 @@ extension Sidebar {
         
         @objc private func open() {
             highlighted
-                .value
                 .map(session
                         .select
                         .send)
@@ -165,7 +164,6 @@ extension Sidebar {
             open()
             
             highlighted
-                .value
                 .map(Path.board)
                 .map(State.edit)
                 .map(session
@@ -182,7 +180,6 @@ extension Sidebar {
             open()
             
             highlighted
-                .value
                 .map(Path.board)
                 .map(NSAlert.delete(path:))
         }

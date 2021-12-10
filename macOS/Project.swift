@@ -3,13 +3,14 @@ import Combine
 import Kanban
 
 final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
+    private weak var dragging: Cell?
     private let double = PassthroughSubject<CGPoint, Never>()
     private let drag = PassthroughSubject<(date: Date, size: CGSize), Never>()
     private let drop = PassthroughSubject<Date, Never>()
     
     required init?(coder: NSCoder) { nil }
     init(board: Int) {
-        super.init()
+        super.init(active: .activeInKeyWindow)
         hasHorizontalScroller = true
         horizontalScroller!.controlSize = .mini
         wantsLayer = true
@@ -23,21 +24,25 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
         let width = CGFloat(300)
         let textWidth = width - Cell.horizontal
         let info = PassthroughSubject<[[Info]], Never>()
-        let dragging = PassthroughSubject<Cell?, Never>()
         
-        dragging
-            .removeDuplicates()
-            .combineLatest(drop, items)
+        drop
+            .combineLatest(items)
             .removeDuplicates {
-                $0.1 == $1.1
+                $0.0 == $1.0
             }
-            .compactMap { cell, _, items in
-                cell?.item == nil
-                    ? nil
-                    : {
-                        (cell: cell!, column: $0.0, card: $0.1, point: $0.2)
-                    } (items
-                        .drop(cell: cell!.item!, position: .init(x: cell!.frame.midX, y: cell!.frame.midY)))
+            .compactMap { [weak self] _, items in
+                self?
+                    .dragging
+                    .flatMap { dragging in
+                        dragging
+                            .item
+                            .flatMap { item in
+                                {
+                                    (cell: dragging, column: $0.0, card: $0.1, point: $0.2)
+                                } (items
+                                    .drop(cell: item, position: .init(x: dragging.frame.midX, y: dragging.frame.midY)))
+                            }
+                    }
             }
             .sink { cell, column, card, point in
                 cell.position = point
@@ -49,19 +54,22 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
 
                 DispatchQueue
                     .main
-                    .asyncAfter(deadline: .now() + 0.3) {
+                    .asyncAfter(deadline: .now() + 0.35) { [weak self] in
+                        let id = cell.item!.info.id
+                        self?.dragging = nil
+                        cell.state = .none
+                        if id.column != column
+                            || id.card != card {
+                            cell.item = nil
+                            cell.removeFromSuperlayer()
+                        }
+                        
                         cloud.move(
                             board: board,
-                            column: cell.item!.info.id.column,
-                            card: cell.item!.info.id.card,
+                            column: id.column,
+                            card: id.card,
                             horizontal: column,
                             vertical: card)
-                        dragging.send(nil)
-                        cell.state = .none
-                        if cell.item!.info.id.column != column
-                            || cell.item!.info.id.card != card {
-                            cell.item = nil
-                        }
                     }
             }
             .store(in: &subs)
@@ -151,12 +159,11 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
             .store(in: &subs)
         
         drag
-            .combineLatest(highlighted)
             .removeDuplicates {
-                $0.0.0 == $1.0.0
+                $0.0 == $1.0
             }
-            .compactMap {
-                $1
+            .compactMap { [weak self] _ in
+                self?.highlighted
             }
             .filter {
                 if case .card = $0 {
@@ -172,20 +179,16 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
                     }
             }
             .sink { [weak self] in
-                self?.highlighted.send(nil)
+                self?.highlighted = nil
                 $0.state = .dragging
-                dragging.send($0)
+                self?.dragging = $0
             }
             .store(in: &subs)
         
         drag
-            .combineLatest(dragging
-                            .removeDuplicates())
-            .filter {
-                $1 != nil
-            }
-            .sink {
-                $1!.frame = $1!.frame.offsetBy(dx: $0.1.width, dy: $0.1.height)
+            .sink { [weak self] in
+                guard let dragging = self?.dragging else { return }
+                dragging.frame = dragging.frame.offsetBy(dx: $0.1.width, dy: $0.1.height)
             }
             .store(in: &subs)
         
@@ -222,7 +225,7 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
     }
     
     func menuNeedsUpdate(_ menu: NSMenu) {
-        menu.items = highlighted.value == nil
+        menu.items = highlighted == nil
             ? []
             : [
                 .child("Edit", #selector(edit)) {
@@ -238,7 +241,6 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
     
     @objc private func edit() {
         highlighted
-            .value
             .map(State.edit)
             .map(session
                     .state
@@ -247,7 +249,6 @@ final class Project: Collection<Project.Cell, Project.Info>, NSMenuDelegate {
     
     @objc private func delete() {
         highlighted
-            .value
             .map(NSAlert.delete(path:))
     }
 }

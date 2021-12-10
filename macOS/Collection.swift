@@ -2,30 +2,59 @@ import AppKit
 import Combine
 
 class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
+    var selected = Set<Info.ID>() {
+        didSet {
+            cells
+                .forEach { cell in
+                    cell.state = selected.contains { $0 == cell.item?.info.id } ? .pressed : .none
+                }
+        }
+    }
+    
+    var highlighted: Info.ID? = nil {
+        didSet {
+            if let highlighted = highlighted {
+                cells
+                    .filter {
+                        $0.state != .pressed && $0.state != .dragging
+                    }
+                    .forEach {
+                        $0.state = $0.item?.info.id == highlighted ? .highlighted : .none
+                    }
+            } else {
+                cells
+                    .filter {
+                        $0.state == .highlighted
+                    }
+                    .forEach {
+                        $0.state = .none
+                    }
+            }
+        }
+    }
+    
     final var subs = Set<AnyCancellable>()
     final var cells = Set<Cell>()
     final let render = PassthroughSubject<Void, Never>()
     final let items = PassthroughSubject<Set<CollectionItem<Info>>, Never>()
     final let size = PassthroughSubject<CGSize, Never>()
-    final let highlighted = CurrentValueSubject<Info.ID?, Never>(nil)
-    private let clear = PassthroughSubject<Void, Never>()
     private let highlight = PassthroughSubject<CGPoint, Never>()
-    
+
     required init?(coder: NSCoder) { nil }
-    init() {
+    init(active: NSTrackingArea.Options) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
-        
+
         let content = Flip()
         content.layer = Layer()
         content.wantsLayer = true
         documentView = content
         hasVerticalScroller = true
         verticalScroller!.controlSize = .mini
+        drawsBackground = false
         contentView.postsBoundsChangedNotifications = true
         contentView.postsFrameChangedNotifications = true
-        drawsBackground = false
-        addTrackingArea(.init(rect: .zero, options: [.mouseEnteredAndExited, .mouseMoved, .activeAlways, .inVisibleRect], owner: self))
+        addTrackingArea(.init(rect: .zero, options: [.mouseEnteredAndExited, .mouseMoved, active, .inVisibleRect], owner: self))
         
         let clip = PassthroughSubject<CGRect, Never>()
         clip
@@ -46,7 +75,10 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                         clip.intersects($0.rect)
                     }
             }
+            .removeDuplicates()
             .sink { [weak self] visible in
+                guard let selected = self?.selected else { return }
+                
                 self?
                     .cells
                     .filter {
@@ -55,7 +87,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                     .filter { cell in
                         !visible
                             .contains {
-                                $0 == cell.item
+                                $0.info.id == cell.item?.info.id
                             }
                     }
                     .forEach {
@@ -68,7 +100,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                         let cell = self?
                             .cells
                             .first {
-                                $0.item == item
+                                $0.item?.info.id == item.info.id
                             }
                             ?? self?.cells.first {
                                 $0.item == nil
@@ -77,7 +109,7 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
                                 self?.cells.insert($0)
                                 return $0
                             } (Cell())
-                        cell.state = .none
+                        cell.state = selected.contains(item.info.id) ? .pressed : .none
                         cell.item = item
                         content.layer!.addSublayer(cell)
                     }
@@ -88,64 +120,85 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
         
         NotificationCenter
             .default
-            .publisher(for: NSView.boundsDidChangeNotification, object: contentView)
+            .publisher(for: NSView.boundsDidChangeNotification)
             .merge(with: NotificationCenter
                     .default
-                    .publisher(for: NSView.frameDidChangeNotification, object: contentView))
+                    .publisher(for: NSView.frameDidChangeNotification))
             .compactMap {
-                ($0.object as? NSClipView)?.documentVisibleRect
+                $0.object as? NSClipView
+            }
+            .filter { [weak self] in
+                $0 == self?.contentView
+            }
+            .map {
+                $0.documentVisibleRect
             }
             .subscribe(clip)
             .store(in: &subs)
         
-        highlighted
-            .sink { [weak self] highlighted in
+        highlight
+            .filter { [weak self] _ in
+                self?.highlighted != nil
+            }
+            .map { [weak self] point in
                 self?
                     .cells
-                    .filter {
-                        $0.state != .pressed && $0.state != .dragging
+                    .first {
+                        $0
+                            .item
+                            .map {
+                                $0
+                                    .rect
+                                    .contains(point)
+                            }
+                        ?? false
                     }
-                    .forEach {
-                        $0.state = $0.item?.info.id == highlighted ? .highlighted : .none
-                    }
+            }
+            .filter { $0 == nil }
+            .sink { [weak self] _ in
+                self?.highlighted = nil
             }
             .store(in: &subs)
         
         highlight
-            .map { [weak self] point in
+            .compactMap { [weak self] point in
                 self?
                     .cells
-                    .compactMap(\.item)
                     .first {
                         $0
-                            .rect
-                            .contains(point)
+                            .item
+                            .map {
+                                $0
+                                    .rect
+                                    .contains(point)
+                            }
+                        ?? false
                     }
-            }
-            .map {
-                $0?.info.id
             }
             .sink { [weak self] in
-                self?.highlighted.send($0)
-            }
-            .store(in: &subs)
-        
-        clear
-            .sink { [weak self] in
-                self?
-                    .cells
-                    .filter {
-                        $0.state == .highlighted
-                    }
-                    .forEach {
-                        $0.state = .none
-                    }
+                guard let id = $0.item?.info.id else { return }
+                self?.highlighted = id
             }
             .store(in: &subs)
     }
     
+    final func cell(at point: CGPoint) -> Cell? {
+        cells
+            .first {
+                $0
+                    .item
+                    .map {
+                        $0
+                            .rect
+                            .contains(point)
+                    }
+                ?? false
+            }
+    }
+    
     final override func mouseExited(with: NSEvent) {
-        clear.send()
+        guard highlighted != nil else { return }
+        highlighted = nil
     }
     
     final override func mouseMoved(with: NSEvent) {
@@ -162,19 +215,11 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
         super.rightMouseDown(with: with)
     }
     
-    final override func acceptsFirstMouse(for: NSEvent?) -> Bool {
-        true
-    }
-    
-    final override func shouldDelayWindowOrdering(for: NSEvent) -> Bool {
-        true
+    final func point(with: NSEvent) -> CGPoint {
+        documentView!.convert(with.locationInWindow, from: nil)
     }
     
     final override var allowsVibrancy: Bool {
         true
-    }
-    
-    final func point(with: NSEvent) -> CGPoint {
-        documentView!.convert(with.locationInWindow, from: nil)
     }
 }
