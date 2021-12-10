@@ -5,7 +5,6 @@ struct Empty: View {
     
     var body: some View {
         VStack {
-            Image(session.archive.isEmpty ? "welcome" : "choose")
             Text(session.archive.isEmpty ? "Start your first project" : "Choose a project")
                 .foregroundColor(.secondary)
                 .padding()

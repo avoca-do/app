@@ -18,7 +18,7 @@ extension Find.Bar {
             field.autocorrectionType = .no
             field.autocapitalizationType = .none
             field.spellCheckingType = .no
-            field.backgroundColor = UIApplication.dark ? .init(white: 1, alpha: 0.2) : .init(white: 1, alpha: 0.6)
+            field.backgroundColor = .init(named: "Input")
             field.tintColor = .label
             field.allowsEditingTextAttributes = false
             field.delegate = self

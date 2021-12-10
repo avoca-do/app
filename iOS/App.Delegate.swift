@@ -1,6 +1,5 @@
 import UIKit
 import UserNotifications
-import StoreKit
 import Combine
 import WidgetKit
 import Kanban
@@ -28,7 +27,7 @@ extension App {
                     if let created = Defaults.created {
                         let days = Calendar.current.dateComponents([.day], from: created, to: .init()).day!
                         if !Defaults.rated && days > 4 {
-                            SKStoreReviewController.requestReview(in: application.connectedScenes.compactMap { $0 as? UIWindowScene }.first!)
+                            UIApplication.shared.review()
                             Defaults.rated = true
                         }
                     } else {
