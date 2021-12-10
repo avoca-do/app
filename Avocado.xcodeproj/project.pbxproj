@@ -552,8 +552,8 @@
 				CE6B575F26BD690900DDF923 /* Purchases.Item.swift */,
 				CE6B575D26BD68FB00DDF923 /* Purchases.swift */,
 				CEC3204826B8009200364E88 /* RelativeDateTimeFormatter.swift */,
-				CEF2D7D725C0554700223C79 /* Media.xcassets */,
 				CEA3AAAE26D516FA005BB783 /* Ring.swift */,
+				CEF2D7D725C0554700223C79 /* Media.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";

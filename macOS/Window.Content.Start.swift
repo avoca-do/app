@@ -36,7 +36,9 @@ extension Window.Content {
                 }
                 .removeDuplicates()
                 .sink {
-                    text.stringValue = $0 == 0 ? "Welcome to Avocado\nstart your first project" : "Choose a project"
+                    text.stringValue = $0 == 0
+                    ? "Welcome to Avocado\nstart your first project"
+                    : "Create or choose a project"
                     image.image = .init(named: $0 == 0 ? "welcome" : "choose")
                     button.isHidden = $0 != 0
                 }
