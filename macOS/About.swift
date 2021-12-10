@@ -14,7 +14,7 @@ final class About: NSWindow {
         center()
         setFrameAutosaveName("About")
         
-        let image = Image(named: "about", vibrancy: true)
+        let image = Image(named: "about")
         image.contentTintColor = .labelColor
         image.imageScaling = .scaleNone
         content.addSubview(image)

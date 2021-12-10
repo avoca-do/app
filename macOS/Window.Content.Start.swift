@@ -10,10 +10,6 @@ extension Window.Content {
             super.init(frame: .zero)
             translatesAutoresizingMaskIntoConstraints = false
             
-            let image = Image(vibrancy: false)
-            image.contentTintColor = .secondaryLabelColor
-            addSubview(image)
-            
             let text = Text(vibrancy: false)
             text.font = .preferredFont(forTextStyle: .title3)
             text.textColor = .tertiaryLabelColor
@@ -39,15 +35,11 @@ extension Window.Content {
                     text.stringValue = $0 == 0
                     ? "Welcome to Avocado\nstart your first project"
                     : "Create or choose a project"
-                    image.image = .init(named: $0 == 0 ? "welcome" : "choose")
                     button.isHidden = $0 != 0
                 }
                 .store(in: &subs)
             
-            image.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-            image.bottomAnchor.constraint(equalTo: centerYAnchor, constant: 50).isActive = true
-            
-            text.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 20).isActive = true
+            text.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             text.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
             
             button.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

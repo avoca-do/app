@@ -23,8 +23,8 @@ extension Preferences {
             text.leftAnchor.constraint(equalTo: leftAnchor, constant: 30).isActive = true
         }
         
-        override func update() {
-            super.update()
+        override func updateLayer() {
+            super.updateLayer()
             
             switch state {
             case .pressed:

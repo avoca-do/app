@@ -4,14 +4,15 @@ import Combine
 class Control: NSView {
     final var state = Control.State.on {
         didSet {
-            update()
+            guard state != oldValue else { return }
+            updateLayer()
         }
     }
     
     final let click = PassthroughSubject<Void, Never>()
     
     required init?(coder: NSCoder) { nil }
-    init(layer: Bool) {
+    init(layer: Bool, animatable: Bool = false) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         setAccessibilityElement(true)
@@ -19,20 +20,18 @@ class Control: NSView {
         addTrackingArea(.init(rect: bounds, options: [.mouseEnteredAndExited, .activeAlways, .inVisibleRect], owner: self))
         
         if layer {
-            self.layer = Layer()
+            if !animatable {
+                self.layer = Layer()
+            }
             wantsLayer = layer
         }
         
-        update()
+        updateLayer()
     }
     
-    func update() {
+    override func updateLayer() {
         isHidden = state == .hidden
         alphaValue = state == .off ? 0.25 : 1
-    }
-    
-    final override func resetCursorRects() {
-        addCursorRect(bounds, cursor: .arrow)
     }
     
     final override func mouseEntered(with: NSEvent) {
@@ -43,6 +42,10 @@ class Control: NSView {
     final override func mouseExited(with: NSEvent) {
         guard state == .highlighted || state == .pressed else { return }
         state = .on
+    }
+    
+    final override func resetCursorRects() {
+        addCursorRect(bounds, cursor: .arrow)
     }
     
     final override func mouseDown(with: NSEvent) {

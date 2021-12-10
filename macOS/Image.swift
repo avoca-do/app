@@ -1,30 +1,30 @@
 import AppKit
 
 final class Image: NSImageView {
-    private let vibrancy: Bool
+    private let moves: Bool
     
     required init?(coder: NSCoder) { nil }
-    convenience init(icon: String) {
-        self.init(vibrancy: true)
+    convenience init(icon: String, moves: Bool = false) {
+        self.init(moves: moves)
         image = .init(systemSymbolName: icon, accessibilityDescription: nil)
     }
 
-    convenience init(named: String, vibrancy: Bool) {
-        self.init(vibrancy: vibrancy)
+    convenience init(named: String, moves: Bool = false) {
+        self.init(moves: moves)
         image = .init(named: named)
     }
     
-    init(vibrancy: Bool) {
-        self.vibrancy = vibrancy
+    init(moves: Bool = false) {
+        self.moves = moves
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    override var allowsVibrancy: Bool {
-        vibrancy
-    }
-    
     override func hitTest(_: NSPoint) -> NSView? {
         nil
+    }
+    
+    override var mouseDownCanMoveWindow: Bool {
+        moves
     }
 }

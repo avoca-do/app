@@ -6,7 +6,7 @@ extension Sidebar {
     final class List: Collection<Cell, Info>, NSMenuDelegate {
         static let cellWidth = width - Cell.insetsHorizontal2
         private static let width = Sidebar.width - insets2
-        private static let insets = CGFloat(20)
+        private static let insets = CGFloat(15)
         private static let insets2 = insets + insets
         private let select = PassthroughSubject<CGPoint, Never>()
         

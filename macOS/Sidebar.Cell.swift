@@ -4,7 +4,7 @@ extension Sidebar {
     final class Cell: CollectionCell<Info> {
         static let insetsHorizontal2 = insetsHorizontal * 2
         static let insetsVertical2 = insetsVertical * 2
-        private static let insetsHorizontal = CGFloat(20)
+        private static let insetsHorizontal = CGFloat(15)
         private static let insetsVertical = CGFloat(12)
         private weak var text: CollectionCellText!
         private weak var separator: Shape!
@@ -26,7 +26,7 @@ extension Sidebar {
         override init(layer: Any) { super.init(layer: layer) }
         required init() {
             super.init()
-            cornerRadius = 6
+            cornerRadius = 8
             
             let text = CollectionCellText()
             text.frame = .init(

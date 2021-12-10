@@ -9,7 +9,7 @@ extension Store {
             
             let item = Purchases.Item(rawValue: product.productIdentifier)!
 
-            let image = Image(named: item.image, vibrancy: true)
+            let image = Image(named: item.image)
             image.contentTintColor = .secondaryLabelColor
             view.addSubview(image)
             
