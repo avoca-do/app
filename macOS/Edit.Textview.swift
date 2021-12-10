@@ -49,6 +49,7 @@ extension Edit {
         override func didChangeText() {
             super.didChangeText()
             layoutManager!.ensureLayout(for: textContainer!)
+            setNeedsDisplay(bounds)
             session.text.send(string)
         }
         

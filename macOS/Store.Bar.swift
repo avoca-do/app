@@ -2,13 +2,14 @@ import AppKit
 import Combine
 
 extension Store {
-    final class Bar: NSView {
+    final class Bar: NSVisualEffectView {
         private var subs = Set<AnyCancellable>()
         
         required init?(coder: NSCoder) { nil }
         init() {
             super.init(frame: .zero)
             wantsLayer = true
+            state = .active
             
             let shape = Shape()
             shape.strokeColor = NSColor.quaternaryLabelColor.cgColor

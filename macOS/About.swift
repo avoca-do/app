@@ -7,6 +7,7 @@ final class About: NSWindow {
         toolbar = .init()
         isReleasedWhenClosed = false
         titlebarAppearsTransparent = true
+        
         let content = NSVisualEffectView()
         content.state = .active
         content.material = .hudWindow
@@ -14,22 +15,30 @@ final class About: NSWindow {
         center()
         setFrameAutosaveName("About")
         
+        let vibrant = Vibrant(layer: false)
+        content.addSubview(vibrant)
+        
         let image = Image(named: "about")
-        image.contentTintColor = .labelColor
+        image.contentTintColor = .secondaryLabelColor
         image.imageScaling = .scaleNone
-        content.addSubview(image)
+        vibrant.addSubview(image)
         
         let name = Text(vibrancy: true)
         name.stringValue = "Avocado"
         name.font = .preferredFont(forTextStyle: .largeTitle)
         name.textColor = .labelColor
-        content.addSubview(name)
+        vibrant.addSubview(name)
         
         let version = Text(vibrancy: true)
         version.stringValue = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
         version.font = .font(style: .title2, weight: .light)
         version.textColor = .secondaryLabelColor
-        content.addSubview(version)
+        vibrant.addSubview(version)
+        
+        vibrant.topAnchor.constraint(equalTo: content.topAnchor).isActive = true
+        vibrant.bottomAnchor.constraint(equalTo: content.bottomAnchor).isActive = true
+        vibrant.leftAnchor.constraint(equalTo: content.leftAnchor).isActive = true
+        vibrant.rightAnchor.constraint(equalTo: content.rightAnchor).isActive = true
         
         image.topAnchor.constraint(equalTo: content.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         image.centerXAnchor.constraint(equalTo: content.centerXAnchor).isActive = true

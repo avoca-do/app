@@ -7,6 +7,9 @@ extension Store {
         class func item(product: SKProduct, price: String) -> Self {
             let view = Self()
             
+            let vibrant = Vibrant(layer: false)
+            view.addSubview(vibrant)
+            
             let item = Purchases.Item(rawValue: product.productIdentifier)!
 
             let image = Image(named: item.image)
@@ -17,26 +20,26 @@ extension Store {
             name.font = .preferredFont(forTextStyle: .largeTitle)
             name.stringValue = item.title
             name.textColor = .labelColor
-            view.addSubview(name)
+            vibrant.addSubview(name)
             
             let subtitle = Text(vibrancy: true)
             subtitle.font = .preferredFont(forTextStyle: .title3)
             subtitle.stringValue = item.subtitle
             subtitle.textColor = .secondaryLabelColor
-            view.addSubview(subtitle)
+            vibrant.addSubview(subtitle)
             
             let info = Text(vibrancy: true)
             info.font = .preferredFont(forTextStyle: .body)
             info.stringValue = item.info
             info.textColor = .tertiaryLabelColor
             info.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-            view.addSubview(info)
+            vibrant.addSubview(info)
             
             let value = Text(vibrancy: true)
             value.stringValue = price
             value.font = .preferredFont(forTextStyle: .title3)
             value.textColor = .labelColor
-            view.addSubview(value)
+            vibrant.addSubview(value)
             
             let purchase = Purchase()
             purchase
@@ -46,6 +49,11 @@ extension Store {
                 }
                 .store(in: &view.subs)
             view.addSubview(purchase)
+            
+            vibrant.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            vibrant.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            vibrant.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            vibrant.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             
             image.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
             image.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

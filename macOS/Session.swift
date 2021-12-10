@@ -86,17 +86,22 @@ Check purchases for more details.
             .trimmingCharacters(in: .whitespacesAndNewlines)
         switch state.value {
         case let .edit(path):
-            switch path {
-            case .board:
-                cloud.rename(board: path.board, name: text)
-                Notifications.send(message: "Renamed project")
-            case .column:
-                cloud.rename(board: path.board, column: path.column, name: text)
-                Notifications.send(message: "Renamed column")
-            case .card:
-                cloud.update(board: path.board, column: path.column, card: path.card, content: text)
-                Notifications.send(message: "Updated card")
+            if !text.isEmpty {
+                switch path {
+                case .board:
+                    cloud.rename(board: path.board, name: text)
+                    Notifications.send(message: "Renamed project")
+                    
+                case .column:
+                    cloud.rename(board: path.board, column: path.column, name: text)
+                    Notifications.send(message: "Renamed column")
+                    
+                case .card:
+                    cloud.update(board: path.board, column: path.column, card: path.card, content: text)
+                    Notifications.send(message: "Updated card")
+                }
             }
+            
             state.send(.view(path.board))
         default:
             break
