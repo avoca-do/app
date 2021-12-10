@@ -24,7 +24,7 @@ extension Window {
                     case .none:
                         next = Start()
                     case let .view(board):
-                        next = Project(board: board)
+                        next = Board(id: board)
                     case let .empty(board):
                         next = Empty(board: board)
                     default:
@@ -44,7 +44,7 @@ extension Window {
                         top.constant = 0
                         NSAnimationContext
                             .runAnimationGroup {
-                                $0.duration = 0.4
+                                $0.duration = 0.3
                                 $0.allowsImplicitAnimation = true
                                 $0.timingFunction = .init(name: .easeInEaseOut)
                                 removing.alphaValue = 0

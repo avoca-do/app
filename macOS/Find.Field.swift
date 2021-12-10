@@ -16,6 +16,14 @@ extension Find {
             placeholderString = "Find"
         }
         
+        deinit {
+            NSApp
+                .windows
+                .forEach {
+                    $0.undoManager?.removeAllActions()
+                }
+        }
+        
         override var canBecomeKeyView: Bool {
             true
         }

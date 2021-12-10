@@ -26,6 +26,14 @@ extension Edit {
             textContainerInset.height = 20
         }
         
+        deinit {
+            NSApp
+                .windows
+                .forEach {
+                    $0.undoManager?.removeAllActions()
+                }
+        }
+        
         override func cancelOperation(_ sender: Any?) {
             guard string.isEmpty else {
                 window?.makeFirstResponder(nil)
