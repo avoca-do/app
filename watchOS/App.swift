@@ -15,10 +15,16 @@ let cloud = Cloud.new
                 .onReceive(cloud.archive) {
                     archive = $0
                 }
+                .onAppear {
+                    cloud.pull.send()
+                }
         }
         .onChange(of: phase) {
-            if $0 == .active {
+            switch $0 {
+            case .active:
                 cloud.pull.send()
+            default:
+                break
             }
         }
     }
