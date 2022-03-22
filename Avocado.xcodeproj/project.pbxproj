@@ -181,6 +181,7 @@
 		CEDD564B26BBEBCF00AA54A4 /* Bar.Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD564A26BBEBCF00AA54A4 /* Bar.Action.swift */; };
 		CEE64F9626D26BE900DC7394 /* Project.Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE64F9526D26BE900DC7394 /* Project.Edit.swift */; };
 		CEE64F9826D28DEA00DC7394 /* Actioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE64F9726D28DEA00DC7394 /* Actioner.swift */; };
+		CEE8B01827EA201C00CA42D7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE8B01727EA201C00CA42D7 /* Launch Screen.storyboard */; };
 		CEF2D7D825C0554700223C79 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D7D725C0554700223C79 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -418,6 +419,7 @@
 		CEDD564A26BBEBCF00AA54A4 /* Bar.Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.Action.swift; sourceTree = "<group>"; };
 		CEE64F9526D26BE900DC7394 /* Project.Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.Edit.swift; sourceTree = "<group>"; };
 		CEE64F9726D28DEA00DC7394 /* Actioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actioner.swift; sourceTree = "<group>"; };
+		CEE8B01727EA201C00CA42D7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CEF2D7D725C0554700223C79 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -505,6 +507,7 @@
 				CE6D659C25D1A1060017FE07 /* Settings.bundle */,
 				CEA1819825C04DD200552DEF /* iOS.entitlements */,
 				CE2507A225B8660A00F9C526 /* Info.plist */,
+				CEE8B01727EA201C00CA42D7 /* Launch Screen.storyboard */,
 				CEE64F9726D28DEA00DC7394 /* Actioner.swift */,
 				CED44E1D26CF9CB4005F6E85 /* Activity.swift */,
 				CE0B804726CE9C1D0080FB37 /* App.Delegate.swift */,
@@ -903,6 +906,7 @@
 			files = (
 				CEF2D7D825C0554700223C79 /* Media.xcassets in Resources */,
 				CE6D659D25D1A1060017FE07 /* Settings.bundle in Resources */,
+				CEE8B01827EA201C00CA42D7 /* Launch Screen.storyboard in Resources */,
 				CE25079E25B8660A00F9C526 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1187,7 +1191,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;

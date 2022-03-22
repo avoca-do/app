@@ -1,25 +1,23 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Kanban",
-        "repositoryURL": "https://github.com/avoca-do/kanban.git",
-        "state": {
-          "branch": "main",
-          "revision": "61b9f522099ef2ae47814da1e825de99b807ccd7",
-          "version": null
-        }
-      },
-      {
-        "package": "Archivable",
-        "repositoryURL": "https://github.com/archivable/package.git",
-        "state": {
-          "branch": "Swift5.4",
-          "revision": "dbddc4aaf8dba9b5d0b3ed9d341058dc97f8b425",
-          "version": null
-        }
+  "pins" : [
+    {
+      "identity" : "kanban",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/avoca-do/kanban.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "47eb96943ba5fa8bfb04903b46b710167386c511"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/archivable/package.git",
+      "state" : {
+        "branch" : "Swift5.4",
+        "revision" : "dbddc4aaf8dba9b5d0b3ed9d341058dc97f8b425"
+      }
+    }
+  ],
+  "version" : 2
 }
