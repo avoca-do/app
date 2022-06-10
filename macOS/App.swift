@@ -1,5 +1,4 @@
 import AppKit
-import StoreKit
 import UserNotifications
 import Archivable
 import Kanban
@@ -31,12 +30,7 @@ let purchases = Purchases()
     
     func applicationDidFinishLaunching(_: Notification) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            if let created = Defaults.created {
-                if !Defaults.rated && Calendar.current.dateComponents([.day], from: created, to: .init()).day! > 4 {
-                    Defaults.rated = true
-                    SKStoreReviewController.requestReview()
-                }
-            } else {
+            if Defaults.created == nil {
                 Defaults.created = .init()
             }
         }

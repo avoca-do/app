@@ -1,4 +1,5 @@
 import AppKit
+import StoreKit
 import Combine
 import Kanban
 
@@ -63,10 +64,18 @@ Check purchases for more details.
                 select.send(0)
             }
             
+            if Defaults.rate {
+                SKStoreReviewController.requestReview()
+            }
+            
             Notifications.send(message: "Created project")
         case let .column(board):
             cloud.add(board: board, column: text.isEmpty ? "Column" : text)
             state.send(.view(board))
+            
+            if Defaults.rate {
+                SKStoreReviewController.requestReview()
+            }
             
             Notifications.send(message: "Created column")
         case let .card(board):

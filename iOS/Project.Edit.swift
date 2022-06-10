@@ -49,6 +49,10 @@ extension Project {
                             $0
                                 .first
                                 .map {
+                                    if Defaults.rate {
+                                        UIApplication.shared.review()
+                                    }
+                                    
                                     Notifications.send(message: "Deleted column")
                                     cloud.delete(board: board, column: $0)
                                 }

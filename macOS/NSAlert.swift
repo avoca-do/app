@@ -1,4 +1,5 @@
 import AppKit
+import StoreKit
 import Kanban
 
 extension NSAlert {
@@ -32,12 +33,20 @@ extension NSAlert {
     private class func confirmed(path: Path) {
         switch path {
         case .board:
+            if Defaults.rate {
+                SKStoreReviewController.requestReview()
+            }
+            
             Notifications.send(message: "Deleted project")
             
             session.select.send(nil)
             session.state.send(.none)
             cloud.delete(board: path.board)
         case .column:
+            if Defaults.rate {
+                SKStoreReviewController.requestReview()
+            }
+            
             Notifications.send(message: "Deleted column")
             
             session.cancel()
