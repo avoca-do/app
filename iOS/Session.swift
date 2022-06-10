@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 import Combine
 import Kanban
 
@@ -20,10 +20,20 @@ struct Session {
         switch write {
         case .create:
             cloud.new(board: text.isEmpty ? "Project" : text) {
+                
+                if Defaults.rate {
+                    UIApplication.shared.review()
+                }
+                
                 Notifications.send(message: "Created project")
             }
         case let .column(board):
             cloud.add(board: board, column: text.isEmpty ? "Column" : text)
+            
+            if Defaults.rate {
+                UIApplication.shared.review()
+            }
+            
             Notifications.send(message: "Created column")
         case let .card(board):
             if !text.isEmpty {

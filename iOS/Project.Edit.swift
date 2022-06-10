@@ -1,4 +1,5 @@
 import SwiftUI
+import Kanban
 
 extension Project {
     struct Edit: View {
@@ -72,6 +73,11 @@ extension Project {
                                 .destructive(.init("Delete")) {
                                     visible.wrappedValue.dismiss()
                                     session.board = nil
+                                    
+                                    if Defaults.rate {
+                                        UIApplication.shared.review()
+                                    }
+                                    
                                     Notifications.send(message: "Deleted project")
                                     cloud.delete(board: board)
                                 },

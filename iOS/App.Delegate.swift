@@ -24,13 +24,7 @@ extension App {
             DispatchQueue
                 .main
                 .asyncAfter(deadline: .now() + 3) {
-                    if let created = Defaults.created {
-                        let days = Calendar.current.dateComponents([.day], from: created, to: .init()).day!
-                        if !Defaults.rated && days > 4 {
-                            UIApplication.shared.review()
-                            Defaults.rated = true
-                        }
-                    } else {
+                    if Defaults.created != nil {
                         Defaults.created = .init()
                     }
                 }
